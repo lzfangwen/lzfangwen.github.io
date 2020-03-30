@@ -438,15 +438,6 @@
                 </div>
                 <div class="col s5 right-align">
                     
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/lzfangwen.github.io/categories/Markdown/" class="post-category">
-                                Markdown
-                            </a>
-                        
-                    </div>
-                    
                 </div>
             </div>
 
@@ -476,7 +467,7 @@
 <p>汉明码（Hamming Code），是在电信领域的一种线性调试码，以发明者理查德·卫斯里·汉明的名字命名。汉明码在传输的消息流中插入验证码，当计算机存储或移动数据时，可能会产生数据位错误，以侦测并更正单一比特错误。由于汉明编码简单，它们被广泛应用于内存（RAM）。——百度百科</p>
 </blockquote>
 <p>说人话 就是 我想发送一串二进制数据 例如 10010<br>但我又怕发送过程中出现意外就用检测码的形式保证不会出错，出错了也可以通过检测码查出哪位出错了因为二进制只有01，错了就能改正。</p>
-<h2 id="发送biubiubiu"><a href="#发送biubiubiu" class="headerlink" title="发送biubiubiu"></a>发送biubiubiu</h2><p>我想发 10010<br>首先 根据公式$$2^{k}&gt;=n+k+1$$ n位二进制位数 k位检测位数<br>算出k最小为4<br>也就是5位的二进制数据10010要插入4位检测码<br>但插入并不是直接放在数据最前或是最后<br>4位检测码是按照$$2^{i}    $$<br>位放入二进制数据中<br>|二进制数据序号  |1 |2|3|4|5|6|7|8|9|<br>|–|–|–|–|–|–|–|–|–|–|–|<br>|序号用二进制表示|0001|0010|0011|0100|0101|0110|0111|1000|1001|<br>| 数据串 | C1| C2| 1|C3 |0 |0|1|C4|0|<br>根据序号的二进制进行分组<br>满足 XXX1 的位第一组<br>序号     | 1|3|5|7|9<br>——– | —–|—-|—-|—|–<br>数据串  | C1|1|0|1|0<br>满足 XX1X 的为第二组<br>序号     | 2|3|6|7|<br>——– | —–|—-|—-|—|–<br>数据串  | C2|1|0|1|</p>
+<h2 id="发送biubiubiu"><a href="#发送biubiubiu" class="headerlink" title="发送biubiubiu"></a>发送biubiubiu</h2><p>我想发 10010<br>首先 根据公式$$2^{k}&gt;=n+k+1$$ n位二进制位数 k位检测位数<br>算出k最小为4<br>也就是5位的二进制数据10010要插入4位检测码<br>但插入并不是直接放在数据最前或是最后<br>4位检测码是按照$$2^{i}    $$<br>位放入二进制数据中<br>|二进制数据序号  |1 |2|3|4|5|<br>|:-:|–|–|–|–|–|<br>|序号用二进制表示|0001|0010|0011|0100|0101|<br>| 数据串 | C1| C2| 1|C3 |0 |<br>根据序号的二进制进行分组<br>满足 XXX1 的位第一组<br>序号     | 1|3|5|7|9<br>——– | —–|—-|—-|—|–<br>数据串  | C1|1|0|1|0<br>满足 XX1X 的为第二组<br>序号     | 2|3|6|7|<br>——– | —–|—-|—-|—|–<br>数据串  | C2|1|0|1|</p>
 <p>满足 X1XX 的为第三组<br>序号     | 4|5|6|7|<br>——– | —–|—-|—-|—|–<br>数据串  | C3|0|0|1|</p>
 <p>满足1XXX的为第四组<br>序号     | 8|9|<br>——– | —–|—-|—-|—|–<br>数据串  | C4|0|<br>Ci为第几位检测码 可以发现每组数据串都有一位检测码 分别对其进行偶校验 就可以得出检测码了 从而得到最终的汉明码<br>第一组 C1为0<br>第二组 C2为0<br>第三组 C3为1<br>第四组 C4为0<br>所以最后的海明码为 001100100 然后就可以biubiubiu 发过去了</p>
 <h2 id="接收duangduangduang"><a href="#接收duangduangduang" class="headerlink" title="接收duangduangduang"></a>接收duangduangduang</h2><p>接收一串海明码怎么查错及提取有效数据嘞<br>还是以上面发送的为例 001 100 100在发送过程中第6位错了变成了001 101 100<br><del>看我操作就行了</del><br>接收duangduangduang<br>分组进行偶校验 满足给0 不满足给1<br>|二进制数据序号  |1 |2|3|4|5|6|7|8|9|<br>|–|–|–|–|–|–|–|–|–|–|–|<br>|序号用二进制表示|0001|0010|0011|0100|0101|0110|0111|1000|1001|<br>| 数据串 | 0| 0| 1|1 |0 |1|1|0|0|<br>满足 XXX1 的位第一组     满足偶校验 给0<br>序号     | 1|3|5|7|9<br>——– | —–|—-|—-|—|–<br>数据串  | 0|1|0|1|0<br>满足 XX1X 的为第二组     不满足偶校验 给1<br>序号     | 2|3|6|7|<br>——– | —–|—-|—-|—|–<br>数据串  | 0|1|1|1|</p>
@@ -800,12 +791,8 @@
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/lzfangwen.github.io/categories/Markdown/" class="post-category">
-                                    Markdown
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            郝旋斌
                             
                         </span>
                     </div>
