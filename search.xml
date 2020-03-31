@@ -4,19 +4,6 @@
   
     
     <entry>
-      <title>1</title>
-      <link href="/lzfangwen.github.io/2020/03/31/1/"/>
-      <url>/lzfangwen.github.io/2020/03/31/1/</url>
-      
-        <content type="html"><![CDATA[<script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>计算机组成原理-汉明码</title>
       <link href="/lzfangwen.github.io/2020/03/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86-%E6%B1%89%E6%98%8E%E7%A0%81/"/>
       <url>/lzfangwen.github.io/2020/03/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86-%E6%B1%89%E6%98%8E%E7%A0%81/</url>
@@ -34,6 +21,206 @@
         <tags>
             
             <tag> Hamming Code </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>操作系统学习笔记3</title>
+      <link href="/lzfangwen.github.io/2020/03/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/"/>
+      <url>/lzfangwen.github.io/2020/03/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/</url>
+      
+        <content type="html"><![CDATA[<h2 id="进程的调度"><a href="#进程的调度" class="headerlink" title="进程的调度"></a>进程的调度</h2><h3 id="时机"><a href="#时机" class="headerlink" title="时机"></a>时机</h3><p><img src="https://img-blog.csdnimg.cn/20200321215121803.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><a id="more"></a><br><img src="https://img-blog.csdnimg.cn/20200321215616103.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h3 id="方式"><a href="#方式" class="headerlink" title="方式"></a>方式</h3><p><img src="https://img-blog.csdnimg.cn/20200321215708658.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h3 id="切换与过程"><a href="#切换与过程" class="headerlink" title="切换与过程"></a>切换与过程</h3><p><img src="https://img-blog.csdnimg.cn/20200321220025428.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h2 id="调度算法的评价指标"><a href="#调度算法的评价指标" class="headerlink" title="调度算法的评价指标"></a>调度算法的评价指标</h2><h3 id="CPU利用率"><a href="#CPU利用率" class="headerlink" title="CPU利用率"></a>CPU利用率</h3><p>指CPU忙碌 的时间占总时间的比例<br><img src="https://img-blog.csdnimg.cn/20200321221647667.png" alt="在这里插入图片描述"></p><h3 id="系统吞吐量"><a href="#系统吞吐量" class="headerlink" title="系统吞吐量"></a>系统吞吐量</h3><p>指单位时间内完成作业的数量<br><img src="https://img-blog.csdnimg.cn/2020032122170056.png" alt="在这里插入图片描述"></p><h3 id="周转时间"><a href="#周转时间" class="headerlink" title="周转时间"></a>周转时间</h3><p> 指从<strong>作业被提交给系统开始</strong>，到<strong>作业完成为止</strong>的这段时间间隔<br> <img src="https://img-blog.csdnimg.cn/20200321220753841.png" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200321220859207.png" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200321221708381.png" alt="在这里插入图片描述"></p><h3 id="等待时间"><a href="#等待时间" class="headerlink" title="等待时间"></a>等待时间</h3><p> 指进程/作业<strong>处于等待处理机状态时间之和</strong><br>等待时间=周转时间-运行时间-I/O操作的时间<img src="https://img-blog.csdnimg.cn/20200321221739884.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p><h3 id="响应时间"><a href="#响应时间" class="headerlink" title="响应时间"></a>响应时间</h3><p> 指用户<strong>提交请求</strong>到<strong>首次产生响应</strong>所用的时间</p><h2 id="调度算法"><a href="#调度算法" class="headerlink" title="调度算法"></a>调度算法</h2><p> <img src="https://img-blog.csdnimg.cn/20200322103738586.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200322111605743.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h3 id="先来先服务算法（FCDS，First-Come-FIrst-Serve）"><a href="#先来先服务算法（FCDS，First-Come-FIrst-Serve）" class="headerlink" title="先来先服务算法（FCDS，First Come FIrst Serve）"></a>先来先服务算法（FCDS，First Come FIrst Serve）</h3><p> <img src="https://img-blog.csdnimg.cn/20200322101814472.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200322102610499.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h3 id="短作业优先（SJF，Shortest-Job-First）"><a href="#短作业优先（SJF，Shortest-Job-First）" class="headerlink" title="短作业优先（SJF，Shortest Job First）"></a>短作业优先（SJF，Shortest Job First）</h3><p> <img src="https://img-blog.csdnimg.cn/20200322102933743.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200322102507330.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">)<img src="https://img-blog.csdnimg.cn/20200322102354444.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h3 id="高响应优先（HRRN，Highest-Response-Ratio-Next）"><a href="#高响应优先（HRRN，Highest-Response-Ratio-Next）" class="headerlink" title="高响应优先（HRRN，Highest Response Ratio Next）"></a>高响应优先（HRRN，Highest Response Ratio Next）</h3><p> <img src="https://img-blog.csdnimg.cn/20200322103713380.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200322103723522.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h3 id="时间片轮转调度算法（RR，Round-Robin）"><a href="#时间片轮转调度算法（RR，Round-Robin）" class="headerlink" title="时间片轮转调度算法（RR，Round-Robin）"></a>时间片轮转调度算法（RR，Round-Robin）</h3><p> <img src="https://img-blog.csdnimg.cn/2020032210572321.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200322105826975.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h3 id="优先级调度算法"><a href="#优先级调度算法" class="headerlink" title="优先级调度算法"></a>优先级调度算法</h3><p> <img src="https://img-blog.csdnimg.cn/20200322110647521.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">)<img src="https://img-blog.csdnimg.cn/2020032211023247.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200322110243922.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200322110658166.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h3 id="多级反馈队列调度算法"><a href="#多级反馈队列调度算法" class="headerlink" title="多级反馈队列调度算法"></a>多级反馈队列调度算法</h3><p> <img src="https://img-blog.csdnimg.cn/20200322111151807.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200322111410276.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="【"></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> OS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> OS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>计算机网络 学习笔记1</title>
+      <link href="/lzfangwen.github.io/2020/03/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/"/>
+      <url>/lzfangwen.github.io/2020/03/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</url>
+      
+        <content type="html"><![CDATA[<p><strong>B站 王道考研视频 学习笔记 纯粹自己整理方便复习使用 侵删</strong></p><h1 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h1><p><img src="https://img-blog.csdnimg.cn/20200318084558533.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><a id="more"></a><h2 id="标准化"><a href="#标准化" class="headerlink" title="标准化"></a>标准化</h2><p><img src="https://img-blog.csdnimg.cn/20200318085732967.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h2 id="性能指标"><a href="#性能指标" class="headerlink" title="性能指标"></a>性能指标</h2><p><img src="https://img-blog.csdnimg.cn/20200318092520956.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h3 id="速率"><a href="#速率" class="headerlink" title="速率"></a>速率</h3><p><img src="https://img-blog.csdnimg.cn/20200318090511517.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h3 id="带宽"><a href="#带宽" class="headerlink" title="带宽"></a>带宽</h3><p><img src="https://img-blog.csdnimg.cn/20200318090520447.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h3 id="时延"><a href="#时延" class="headerlink" title="时延"></a>时延</h3><p><img src="https://img-blog.csdnimg.cn/20200318091719994.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h3 id="时延带宽积"><a href="#时延带宽积" class="headerlink" title="时延带宽积"></a>时延带宽积</h3><p><img src="https://img-blog.csdnimg.cn/20200318091947775.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h3 id="往返时延RTT"><a href="#往返时延RTT" class="headerlink" title="往返时延RTT"></a>往返时延RTT</h3><p><img src="https://img-blog.csdnimg.cn/20200318092228234.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h3 id="利用率"><a href="#利用率" class="headerlink" title="利用率"></a>利用率</h3><p><img src="https://img-blog.csdnimg.cn/20200318092421213.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt=""></p><h2 id="分层"><a href="#分层" class="headerlink" title="分层"></a>分层</h2><h3 id="基本规则"><a href="#基本规则" class="headerlink" title="基本规则"></a>基本规则</h3><ol><li><p>各层之间互相<strong>独立</strong>，每层只实现一种相对独立的功能。</p></li><li><p>每层之间<strong>界面自然清晰</strong>，易于理解，相互交流尽可能少。</p></li><li><p>结构上可分割。每层都采用<strong>最合适的技术</strong>来实现。</p></li><li><p>保持<strong>下层对上层</strong>的独立性，<strong>上层单向使用下层提供的服务</strong>。</p></li><li><p>整个分层结构应该能促进标准化工作。</p><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><img src="https://img-blog.csdnimg.cn/20200323171307621.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h3 id="ISO-OSI参考模型"><a href="#ISO-OSI参考模型" class="headerlink" title="ISO/OSI参考模型"></a>ISO/OSI参考模型</h3><p><img src="https://img-blog.csdnimg.cn/2020032317261286.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h4 id="用户层"><a href="#用户层" class="headerlink" title="用户层"></a>用户层</h4><p>所有能和用户交互产生网络流量的程序</p><h4 id="表示层"><a href="#表示层" class="headerlink" title="表示层"></a>表示层</h4><p>用于处理在两个通信系统中交换信息的表示方式（语法和语义）</p><p>功能一：数据格式转换<br>功能二：数据加密解密<br>功能三：数据压缩和恢复</p><h4 id="会话层"><a href="#会话层" class="headerlink" title="会话层"></a>会话层</h4><p>向表示层实体/用户进程建立连接并在连接上有序地传输数据<br>这是会话，也是建立同步（SYN）</p><p>功能一：建立，管理，终止会话<br>功能二：使用校验点可使会话在通信失效时从校验点/同步点继续回复通信，实现数据同步</p><h4 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h4><p>·负责主机中<strong>两个进程</strong>的通信,即<strong>端到端</strong>的通信。传输单位是报文段或用户数据报</p><p>功能一：<strong>可</strong>靠传输、不可靠传输<br>功能二：<strong>差</strong>错控制<br>功能三：<strong>流</strong>量控制<br>功能四：复<strong>用</strong>分用</p><h4 id="网络层·"><a href="#网络层·" class="headerlink" title="网络层·"></a>网络层·</h4><p>主要任务是把分组从源端传到目的端,为分组交换网上的不同主机提供通信服务。<br>网络层传输单位是数据报</p><p>功能一:路由选择<br>功能二:流量控制<br>功能三:差错控制<br>功能四:拥塞控制</p><h4 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h4><p>主要任务是把网络层传下来的数据报组装成帧。数据链路层/链路层的传输单位是帧。</p><p>功能一:成帧(定义帧的开始和结束)<br>功能二:差错控制  帧错+位错<br>功能三:流量控制<br>功能四:访问（接入）控制 控制对信道的访问</p><h4 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h4><p>主要任务是在物理媒体上实现比特流的透明传输<br>物理层的传输单位是比特</p><p>功能一：定义接口特性<br>功能二：定义传输模式<br>功能三：定义传输速率<br>功能四：比特同步<br>功能五：比特编码</p><h3 id="TCP-IP参考模型"><a href="#TCP-IP参考模型" class="headerlink" title="TCP/IP参考模型"></a>TCP/IP参考模型</h3><p><img src="https://img-blog.csdnimg.cn/20200323175216782.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200323175806729.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">)<img src="https://img-blog.csdnimg.cn/20200323175635939.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200323175710332.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>学习链接为<a href="https://www.bilibili.com/video/BV19E411D78Q?p=10" target="_blank" rel="noopener">b站王道考研 计算机网络</a></p></li></ol><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机网络 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 计算机网络 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>操作系统-学习笔记2</title>
+      <link href="/lzfangwen.github.io/2020/03/20/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/"/>
+      <url>/lzfangwen.github.io/2020/03/20/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/</url>
+      
+        <content type="html"><![CDATA[<h2 id="程序的顺序执行"><a href="#程序的顺序执行" class="headerlink" title="程序的顺序执行"></a>程序的顺序执行</h2><a id="more"></a><p><img src="https://img-blog.csdnimg.cn/2020031316272059.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h2 id="程序的并发执行"><a href="#程序的并发执行" class="headerlink" title="程序的并发执行"></a>程序的并发执行</h2><p><img src="https://img-blog.csdnimg.cn/20200313163136346.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200313163144468.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h2 id="前驱图"><a href="#前驱图" class="headerlink" title="前驱图"></a>前驱图</h2><p><img src="https://img-blog.csdnimg.cn/20200313162759444.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h2 id="进程的描述"><a href="#进程的描述" class="headerlink" title="进程的描述"></a>进程的描述</h2><p><img src="https://img-blog.csdnimg.cn/20200313163722388.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/2020031316381162.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200320101837346.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h2 id="进程的组织形式"><a href="#进程的组织形式" class="headerlink" title="进程的组织形式"></a>进程的组织形式</h2><p><img src="https://img-blog.csdnimg.cn/20200320102130397.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>进程与程序的区别</strong><br><img src="https://img-blog.csdnimg.cn/20200313165514735.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>特性</strong><br><img src="https://img-blog.csdnimg.cn/20200313165610535.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h2 id="进程的基本状态及转换"><a href="#进程的基本状态及转换" class="headerlink" title="进程的基本状态及转换"></a>进程的基本状态及转换</h2><p>三种基本状态</p><ul><li><strong>就绪状态(Ready)</strong><br>得到了除CPU以外的所有必要资源</li><li><strong>执行状态(Running)</strong><br>已获得处理机，程序正在被执行</li><li><strong>堵塞状态(Waiting/Blocked,又称等待态)</strong><br>因等待某事件发生而暂时无法继续执行，从而放弃处理机，使程序执行处于暂停状态<br><img src="https://img-blog.csdnimg.cn/20200320103846258.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">)<img src="https://img-blog.csdnimg.cn/2020032010381917.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h2 id="进程控制"><a href="#进程控制" class="headerlink" title="进程控制"></a>进程控制</h2><img src="https://img-blog.csdnimg.cn/20200320104832851.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h2 id="进程通信"><a href="#进程通信" class="headerlink" title="进程通信"></a>进程通信</h2><strong>进程之间的信息交换</strong><br><img src="https://img-blog.csdnimg.cn/20200320105838352.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2></li></ul><p> <strong>线程是一个基本的CPU执行单元 ，也是程序执行流的最小单位</strong><br> <img src="https://img-blog.csdnimg.cn/20200320110828452.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200320111301772.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200320112545394.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p><strong>设置进程同步机制四条规则</strong></p><p>进程在并发执行时为了保证结果的可再现性，各进程执行序列必须加以限制以保证互斥地使用临界资源，相互合作完成任务。多个相关进程在执行次序上的协调称为进程同步。用于保证多个进程在执行次序上的协调关系的相应机制称为进程同步机制。</p><p>所有的进程同步机制应遵循下述四条准则：</p><ul><li><strong>空闲让进</strong><br>当无进程进入临界区时，相应的临界资源处于空闲状态，因而允许一个请求进入临界区的进程立即进入自己的临界区。</li><li><strong>忙则等待</strong><br>当已有进程进入自己的临界区时，即相应的临界资源正被访问，因而其它试图进入临界区的进程必须等待，以保证进程互斥地访问临界资源。</li><li><strong>有限等待</strong><br>对要求访问临界资源的进程，应保证进程能在有限时间进入临界区，以免陷入“饥饿”状态。</li><li><strong>让权等待</strong><br>当进程不能进入自己的临界区时，应立即释放处理机，以免进程陷入忙等。</li></ul><h4 id="临界区"><a href="#临界区" class="headerlink" title="临界区"></a>临界区</h4><p><strong>每个进程中访问临界资源的那段代码称为临界区</strong>（Critical Section）（临界资源是一次仅允许一个进程使用的共享资源）。每次只准许一个进程进入临界区，进入后不允许其他进程进入。不论是硬件临界资源，还是软件临界资源，多个进程必须互斥地对它进行访问。<br>多个进程中涉及到同一个临界资源的临界区称为相关临界区。.</p><h2 id="处理机调度"><a href="#处理机调度" class="headerlink" title="处理机调度"></a>处理机调度</h2><p><img src="https://img-blog.csdnimg.cn/2020032011364476.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200320113935411.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h3 id="七状态模型"><a href="#七状态模型" class="headerlink" title="七状态模型"></a>七状态模型</h3><p><img src="https://img-blog.csdnimg.cn/20200320113916159.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> OS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> OS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>计算机组成原理-学习笔记1</title>
+      <link href="/lzfangwen.github.io/2020/03/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/"/>
+      <url>/lzfangwen.github.io/2020/03/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</url>
+      
+        <content type="html"><![CDATA[<p><strong>B站 王道考研视频 学习笔记 纯粹自己整理方便复习使用 侵删</strong></p><p>﻿# 第一章 计算机系统简介</p><h2 id="软硬件"><a href="#软硬件" class="headerlink" title="软硬件"></a>软硬件<a id="more"></a><img src="https://img-blog.csdnimg.cn/20200313110251157.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt=""></h2><p><img src="https://img-blog.csdnimg.cn/20200313110314482.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt=""><br><img src="https://img-blog.csdnimg.cn/20200313110725516.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200313110746978.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><a href="https://www.icourse163.org/spoc/learn/HHIT-1451455173?tid=1451908450#/learn/content?type=detail&amp;id=1220058249&amp;cid=1228881649" target="_blank" rel="noopener">慕课链接</a></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机组成原理 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 计算机组成原理 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>计算机组成原理-学习笔记2</title>
+      <link href="/lzfangwen.github.io/2020/03/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/"/>
+      <url>/lzfangwen.github.io/2020/03/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/</url>
+      
+        <content type="html"><![CDATA[<p>﻿<img src="https://img-blog.csdnimg.cn/20200313111304663.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><a id="more"></a><p>冯·诺伊曼计算机的特点<br>1.计算机由五大部件<br>2.指令和数据以同等地位存于存储器，可按地址寻访<br>3.指令和数据用二进制表示<br>4.指令由操作码和地址码组成<br>5.存储程序<br>6.以运算器为核心</p><p><img src="https://img-blog.csdnimg.cn/20200313111342721.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/2020031311145292.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200316092536882.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200313112917893.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200313112951742.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/2020031311384993.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200313114018661.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机组成原理 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 计算机组成原理 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>操作系统-学习笔记1</title>
+      <link href="/lzfangwen.github.io/2020/03/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/"/>
+      <url>/lzfangwen.github.io/2020/03/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</url>
+      
+        <content type="html"><![CDATA[<h2 id="操作系统概述"><a href="#操作系统概述" class="headerlink" title="操作系统概述"></a>操作系统概述</h2><a id="more"></a><p><img src="https://img-blog.csdnimg.cn/20200319155327527.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>四个特性</strong></p><ul><li><strong>并发</strong><img src="https://img-blog.csdnimg.cn/20200319160437281.png" alt="在这里插入图片描述"></li><li><strong>共享</strong>即资源共享<img src="https://img-blog.csdnimg.cn/20200319160605652.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li><li><strong>虚拟</strong><br><img src="https://img-blog.csdnimg.cn/20200319160708112.png" alt="在这里插入图片描述"></li><li><strong>异步</strong><br><img src="https://img-blog.csdnimg.cn/20200319160751700.png" alt="在这里插入图片描述"><br><strong>并发和共享互为存在条件<br>没有并发和共享，就谈不上虚拟和异步，因此并发和共享是操作系统的两个最基本的特征</strong><h2 id="OS"><a href="#OS" class="headerlink" title="OS"></a>OS</h2><img src="https://img-blog.csdnimg.cn/20200319192903977.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h2 id="OS的运行机制和体系结构"><a href="#OS的运行机制和体系结构" class="headerlink" title="OS的运行机制和体系结构"></a>OS的运行机制和体系结构</h2><img src="https://img-blog.csdnimg.cn/20200319215155378.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>※特权指令只能在核心态下执行</strong><br><strong>※内核程序只能在核心态下执行</strong><br><strong>※用户态-&gt;核心态 的切换通过 中断  来实现且是唯一途径</strong><h3 id="内核"><a href="#内核" class="headerlink" title="内核"></a>内核</h3><img src="https://img-blog.csdnimg.cn/20200319215623593.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li></ul><h4 id="操作系统的体系结构"><a href="#操作系统的体系结构" class="headerlink" title="操作系统的体系结构"></a>操作系统的体系结构</h4><p><img src="https://img-blog.csdnimg.cn/2020031921574972.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200319215823214.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h2 id="中断和异常"><a href="#中断和异常" class="headerlink" title="中断和异常"></a>中断和异常</h2><p><img src="https://img-blog.csdnimg.cn/20200319231430227.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h2 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h2><p><img src="https://img-blog.csdnimg.cn/20200320092825115.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200320093028554.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p><a href="https://www.bilibili.com/video/av70156862?t=15&amp;p=6" target="_blank" rel="noopener">来源 王道考研 操作系统</a></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> OS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> OS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>数据库原理及应用-学习笔记1</title>
+      <link href="/lzfangwen.github.io/2020/03/13/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/"/>
+      <url>/lzfangwen.github.io/2020/03/13/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</url>
+      
+        <content type="html"><![CDATA[<p>﻿## DBMS（数据库系统）</p><h4 id="DBMS的主要功能"><a href="#DBMS的主要功能" class="headerlink" title="DBMS的主要功能"></a>DBMS的主要功能</h4><p>1.数据定义功能<br>2.数据操作功能<br>3.数据库运行管理功能<br>4.数据库的建立和维护功能</p><a id="more"></a><h4 id="DBMS的组成"><a href="#DBMS的组成" class="headerlink" title="DBMS的组成"></a>DBMS的组成</h4><p>1.语言编译处理程序<br>2.系统运行控制程序<br>3.系统建立，维护程序<br>4.数字字典</p><h2 id="数据模型"><a href="#数据模型" class="headerlink" title="数据模型"></a>数据模型</h2><p>数据模型 是一种表示数据及其联系的模型,是对现实世界数据特征与联系的抽象反映。<br><img src="https://img-blog.csdnimg.cn/20200313150028827.png" alt="在这里插入图片描述"><br>根据数据模型应用的不同目的，可以划分为两类，它们分别属于不同的层次。<br>第一类是概念模型，第二类是逻辑模型和物理模型</p><ul><li><strong>概念模型</strong>(或称信息模型) :它是按用户的观点来对数据和信息建模,即用于信息世界的建模,所建立的是属于信息世界的模型。主要用于数据库的设计。</li><li><strong>逻辑模型</strong>(或称结构数据模型) :主要包括网状模型、层次模型、关系模型等,是按计算机系统的观点对数据建模”,所建立的是属于机器世界的模型,主要用于DBMS的实现。后面主要讨论这类数据模型。</li><li><strong>物理模型</strong>:是对数据最低层的抽象,是面向计算机物理表示的模型,它描述数据在系统内部的表示方式和存取方法,它不但与具体的DBMS有而且还与操作系统和硬件有关。每一种逻辑模型在实现时都有相对应的物理数据模型。<br><img src="https://img-blog.csdnimg.cn/20200313150529190.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h3 id="概念模型"><a href="#概念模型" class="headerlink" title="概念模型"></a>概念模型</h3><strong>实体间的联系</strong><br> 1：1<br> 1：n<br> n：m<br><strong>实体-联系表示法（E-R方法）</strong><br>在E-R图中实体用方框表示;联系用菱形表示,并且用边将其与有关的实体连接起来,并在边上标上联系的类型;属性用椭圆表示,并且用边将其与相应的实体连接起来。对于有些联系,其自身也会有某些属性,同实体与属性的连接类似,将联系与其属性连接起来。<br>eg：<img src="https://img-blog.csdnimg.cn/20200313151618781.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li></ul><h2 id="DMBS支持的数据模型"><a href="#DMBS支持的数据模型" class="headerlink" title="DMBS支持的数据模型"></a>DMBS支持的数据模型</h2><p><strong>数据模型组成的要素</strong></p><ul><li><strong>数据结构</strong><br>数据结构是刻画一个数据模型性质最重要的方面,通常按数据组织结构的类型来命名数据模型,如层次结构、网状图结构和关系结构的数据模型分别命名为层次模型、网状模型和关系模型。<br>数据结构是对系统静态特性的描述,其描述的内容有两类:数据的描述和数据之间联系的描述。</li><li><strong>数据操作</strong><br>数据操作是对系统动态特性的描述,是数据库中的各种对象的实例(值)允许执行的操作的集合。<br>主要有检索和更新(插入、删除、修改)两类操作。数据模型必须定义这些操作的确切含义、操作符号、操作规则、实现操作的语言。</li><li><strong>数据约束</strong><br>数据的完整性约束条件是一组完整性规则的集合,给出数据及其联系所具有的制约、依赖和存储规则,用于限定数据库的状态和状态变化,保证数据库中的数据的正确、有效、完全和相容。</li></ul><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据库原理及应用 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> SQLserver </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>C++ string字符比较函数compare</title>
+      <link href="/lzfangwen.github.io/2020/03/10/C++%20string%E5%AD%97%E7%AC%A6%E6%AF%94%E8%BE%83%E5%87%BD%E6%95%B0compare%20(1)/"/>
+      <url>/lzfangwen.github.io/2020/03/10/C++%20string%E5%AD%97%E7%AC%A6%E6%AF%94%E8%BE%83%E5%87%BD%E6%95%B0compare%20(1)/</url>
+      
+        <content type="html"><![CDATA[<p>﻿# compare()函数</p><p> 在洛谷刷题时遇到一题需要使用字符串比较的题于是查了一下c++的字符比较函数，发现写的都比较复杂，我看不太懂<del>随便写写 ~</del>copy<del>~ 便于自己复习<br>  ~</del>可能有错误不要打我~~ </p><a id="more"></a><h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>若参与比较的两个串值(也就是ASCII值)相同，则函数返回 0；若字符串 S 按字典顺序要先于 S2，则返回负值；反之，则返回正值。比较方法为从两个字符串开始比较的位置一个个字符顺序相比ASCII值。<br>常见ASCII码的大小规则：0-9 &lt; A-Z &lt; a-z。<br>1）数字比字母要小。如 “7”&lt;“F”；<br>2）数字0比数字9要小，并按0到9顺序递增。如 “3”&lt;“8” ；<br>3）字母A比字母Z要小，并按A到Z顺序递增。如“A”&lt;“Z” ；<br>4）同个字母的大写字母比小写字母要小32。如“A”&lt;“a” 。<br>几个常见字母的ASCII码大小： “A”为65；“a”为97；“0”为 48<br>下面举例说明如何使用 string 类的 compare() 函数。</p><ol><li>s.compare(n)</li></ol><pre><code class="cpp">#include&lt;iostream&gt;#include&lt;string&gt;//字符串函数嘛 肯定要字符串头文件啦 using namespace std;int main(){    string s("abc");    string n("Abde");     cout&lt;&lt;"s.compare(n)="&lt;&lt;s.compare(n)&lt;&lt;endl ;//完整的字符串s与n比较}</code></pre><p><img src="https://img-blog.csdnimg.cn/2020031009165424.png" alt="输出结果"><br>结果为1即字符串s&gt;n<br>字符串的创建也有很多方式 可以参考一下 <a href="https://blog.csdn.net/qq_37941471/article/details/82107077" target="_blank" rel="noopener">string字符串相关函数</a></p><ol start="2"><li>s.compare(1,2,n)</li></ol><pre><code class="cpp">#include&lt;iostream&gt;#include&lt;string&gt;//字符串函数嘛 肯定要字符串头文件啦 using namespace std;int main(){    string s("AbDeas");    string n("Abdeas");     cout&lt;&lt;"s.compare(1,2,n)="&lt;&lt;s.compare(1,2,n)&lt;&lt;endl;//bd与Abdeas相比 }</code></pre><p><img src="https://img-blog.csdnimg.cn/20200310094804318.png" alt="结果"><br>结果为1  bd与Abdeas相比 bd&gt;Abdeas没毛病<br>s.compare(1,2,n) 中 1代表 下表 2代表数量  意思为 s字符串中下表为1 开始 字符数量为2的字符串  bd  与n相比</p><ol start="3"><li>s.compare(1,2,n,2,3)</li></ol><pre><code class="cpp">#include&lt;iostream&gt;#include&lt;string&gt;//字符串函数嘛 肯定要字符串头文件啦 using namespace std;int main(){    string s("Abdeas");    string n("Abdeas");     cout&lt;&lt;"s.compare(1,2,n,1,3)="&lt;&lt;s.compare(1,2,n,1,3)&lt;&lt;endl;//bd与bde相比 }</code></pre><p><img src="https://img-blog.csdnimg.cn/20200310095539579.png" alt="结果"><br>结果为-1  bd&lt;bde  没毛病  这个 就表示 两个字符串的指定 字符串段 比较</p><p>这样 就结束了compare()函数 的使用方法<br>0，0<br>哦哦 再把我做的题放出来把 简单的应用 虽然我做的挺复杂的orz</p><h2 id="洛谷-P1781-宇宙总统"><a href="#洛谷-P1781-宇宙总统" class="headerlink" title="洛谷 P1781 宇宙总统"></a>洛谷 P1781 宇宙总统</h2><p><a href="https://www.luogu.com.cn/problem/P1781" target="_blank" rel="noopener">题目链接</a><br>题目描述<br>地球历公元 6036 年，全宇宙准备竞选一个最贤能的人当总统，共有 nn 个非凡拔尖的人竞选总统，现在票数已经统计完毕，请你算出谁能够当上总统。</p><p>输入格式<br>第一行为一个整数 nn，代表竞选总统的人数。</p><p>接下来有 nn 行，分别为第一个候选人到第 nn 个候选人的票数。</p><p>输出格式<br>共两行，第一行是一个整数 mm，为当上总统的人的号数。</p><p>第二行是当上总统的人的选票。</p><p>输入输出样例<br>输入 #1<br>5<br>98765<br>12365<br>87954<br>1022356<br>985678<br>输出 #1<br>4<br>1022356<br>说明/提示<br>票数可能会很大，可能会到 100100 位数字。<br>我的代码</p><pre><code class="cpp">​```cpp#include&lt;bits/stdc++.h&gt;using namespace std;int n,mixsum;//涉及极大数问题 字符串解决string a,mix;int main(){    cin&gt;&gt;n;    for(int i=1;i&lt;=n;i++){        cin&gt;&gt;a;        if(mix.empty()){            mix=a;            mixsum=i;        }        if(a.size()&gt;mix.size()){            mix=a;            mixsum=i;        }        else if(a.size()&lt;mix.size()){            continue;        }        else if(a.size()==mix.size()){            if(a.compare(mix)&gt;0){                mix=a;                mixsum=i;            }            else{                continue;            }        }    }    cout&lt;&lt;mixsum&lt;&lt;endl;    cout&lt;&lt;mix&lt;&lt;endl;     return 0;}</code></pre><p>参考链接<br><a href="http://c.biancheng.net/view/1447.html" target="_blank" rel="noopener">C++ string字符串比较方法详解</a><br><a href="https://baike.baidu.com/item/ASCII/309296?fromtitle=ascii%E7%A0%81&amp;fromid=99077&amp;fr=aladdin" target="_blank" rel="noopener">百度百科ASCII</a></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> C++ </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
             
         </tags>
       

@@ -6,7 +6,7 @@
   <link href="/lzfangwen.github.io/atom.xml" rel="self"/>
   
   <link href="https://lzfangwen.github.io/blog/"/>
-  <updated>2020-03-30T23:38:52.986Z</updated>
+  <updated>2020-03-31T00:18:43.242Z</updated>
   <id>https://lzfangwen.github.io/blog/</id>
   
   <author>
@@ -15,33 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>1</title>
-    <link href="https://lzfangwen.github.io/blog/2020/03/31/1/"/>
-    <id>https://lzfangwen.github.io/blog/2020/03/31/1/</id>
-    <published>2020-03-30T23:38:52.000Z</published>
-    <updated>2020-03-30T23:38:52.986Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;script&gt;
-        document.querySelectorAll(&#39;.github-emoji&#39;)
-          .forEach(el =&gt; {
-            if (!el.dataset.src) { return; }
-       
-        
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
   
   <entry>
     <title>计算机组成原理-汉明码</title>
@@ -64,6 +37,179 @@
     
     
       <category term="Hamming Code" scheme="https://lzfangwen.github.io/blog/tags/Hamming-Code/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>操作系统学习笔记3</title>
+    <link href="https://lzfangwen.github.io/blog/2020/03/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/"/>
+    <id>https://lzfangwen.github.io/blog/2020/03/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/</id>
+    <published>2020-03-21T16:00:00.000Z</published>
+    <updated>2020-03-31T03:05:41.722Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;进程的调度&quot;&gt;&lt;a href=&quot;#进程的调度&quot; class=&quot;headerlink&quot; title=&quot;进程的调度&quot;&gt;&lt;/a&gt;进程的调度&lt;/h2&gt;&lt;h3 id=&quot;时机&quot;&gt;&lt;a href=&quot;#时机&quot; class=&quot;headerlink&quot; title=&quot;时机&quot;&gt;&lt;/a&gt;时机&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;https://img-blog.csdnimg.cn/20200321215121803.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70&quot; alt=&quot;在这里插入图片描述&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="OS" scheme="https://lzfangwen.github.io/blog/categories/OS/"/>
+    
+    
+      <category term="OS" scheme="https://lzfangwen.github.io/blog/tags/OS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算机网络 学习笔记1</title>
+    <link href="https://lzfangwen.github.io/blog/2020/03/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/"/>
+    <id>https://lzfangwen.github.io/blog/2020/03/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</id>
+    <published>2020-03-21T16:00:00.000Z</published>
+    <updated>2020-03-31T03:05:17.561Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;B站 王道考研视频 学习笔记 纯粹自己整理方便复习使用 侵删&lt;/strong&gt;&lt;/p&gt;
+&lt;h1 id=&quot;计算机网络&quot;&gt;&lt;a href=&quot;#计算机网络&quot; class=&quot;headerlink&quot; title=&quot;计算机网络&quot;&gt;&lt;/a&gt;计算机网络&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://img-blog.csdnimg.cn/20200318084558533.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70&quot; alt=&quot;在这里插入图片描述&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="计算机网络" scheme="https://lzfangwen.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+    
+      <category term="计算机网络" scheme="https://lzfangwen.github.io/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>操作系统-学习笔记2</title>
+    <link href="https://lzfangwen.github.io/blog/2020/03/20/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/"/>
+    <id>https://lzfangwen.github.io/blog/2020/03/20/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/</id>
+    <published>2020-03-19T16:00:00.000Z</published>
+    <updated>2020-03-31T03:05:48.331Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;程序的顺序执行&quot;&gt;&lt;a href=&quot;#程序的顺序执行&quot; class=&quot;headerlink&quot; title=&quot;程序的顺序执行&quot;&gt;&lt;/a&gt;程序的顺序执行&lt;/h2&gt;
+    
+    </summary>
+    
+    
+      <category term="OS" scheme="https://lzfangwen.github.io/blog/categories/OS/"/>
+    
+    
+      <category term="OS" scheme="https://lzfangwen.github.io/blog/tags/OS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算机组成原理-学习笔记1</title>
+    <link href="https://lzfangwen.github.io/blog/2020/03/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/"/>
+    <id>https://lzfangwen.github.io/blog/2020/03/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</id>
+    <published>2020-03-13T01:51:02.000Z</published>
+    <updated>2020-03-31T03:05:06.205Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;B站 王道考研视频 学习笔记 纯粹自己整理方便复习使用 侵删&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;﻿# 第一章 计算机系统简介&lt;/p&gt;
+&lt;h2 id=&quot;软硬件&quot;&gt;&lt;a href=&quot;#软硬件&quot; class=&quot;headerlink&quot; title=&quot;软硬件&quot;&gt;&lt;/a&gt;软硬件&lt;/h2&gt;
+    
+    </summary>
+    
+    
+      <category term="计算机组成原理" scheme="https://lzfangwen.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
+    
+    
+      <category term="计算机组成原理" scheme="https://lzfangwen.github.io/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算机组成原理-学习笔记2</title>
+    <link href="https://lzfangwen.github.io/blog/2020/03/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/"/>
+    <id>https://lzfangwen.github.io/blog/2020/03/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/</id>
+    <published>2020-03-13T01:51:02.000Z</published>
+    <updated>2020-03-31T03:04:36.223Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;﻿&lt;img src=&quot;https://img-blog.csdnimg.cn/20200313111304663.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70&quot; alt=&quot;在这里插入图片描述&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="计算机组成原理" scheme="https://lzfangwen.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
+    
+    
+      <category term="计算机组成原理" scheme="https://lzfangwen.github.io/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>操作系统-学习笔记1</title>
+    <link href="https://lzfangwen.github.io/blog/2020/03/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/"/>
+    <id>https://lzfangwen.github.io/blog/2020/03/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</id>
+    <published>2020-03-12T16:00:00.000Z</published>
+    <updated>2020-03-31T03:05:54.405Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;操作系统概述&quot;&gt;&lt;a href=&quot;#操作系统概述&quot; class=&quot;headerlink&quot; title=&quot;操作系统概述&quot;&gt;&lt;/a&gt;操作系统概述&lt;/h2&gt;
+    
+    </summary>
+    
+    
+      <category term="OS" scheme="https://lzfangwen.github.io/blog/categories/OS/"/>
+    
+    
+      <category term="OS" scheme="https://lzfangwen.github.io/blog/tags/OS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据库原理及应用-学习笔记1</title>
+    <link href="https://lzfangwen.github.io/blog/2020/03/13/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/"/>
+    <id>https://lzfangwen.github.io/blog/2020/03/13/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</id>
+    <published>2020-03-12T16:00:00.000Z</published>
+    <updated>2020-03-31T03:04:24.910Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;﻿## DBMS（数据库系统）&lt;/p&gt;
+&lt;h4 id=&quot;DBMS的主要功能&quot;&gt;&lt;a href=&quot;#DBMS的主要功能&quot; class=&quot;headerlink&quot; title=&quot;DBMS的主要功能&quot;&gt;&lt;/a&gt;DBMS的主要功能&lt;/h4&gt;&lt;p&gt;1.数据定义功能&lt;br&gt;2.数据操作功能&lt;br&gt;3.数据库运行管理功能&lt;br&gt;4.数据库的建立和维护功能&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="数据库原理及应用" scheme="https://lzfangwen.github.io/blog/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8/"/>
+    
+    
+      <category term="SQLserver" scheme="https://lzfangwen.github.io/blog/tags/SQLserver/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++ string字符比较函数compare</title>
+    <link href="https://lzfangwen.github.io/blog/2020/03/10/C++%20string%E5%AD%97%E7%AC%A6%E6%AF%94%E8%BE%83%E5%87%BD%E6%95%B0compare%20(1)/"/>
+    <id>https://lzfangwen.github.io/blog/2020/03/10/C++%20string%E5%AD%97%E7%AC%A6%E6%AF%94%E8%BE%83%E5%87%BD%E6%95%B0compare%20(1)/</id>
+    <published>2020-03-09T16:00:00.000Z</published>
+    <updated>2020-03-31T03:06:05.427Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;﻿# compare()函数&lt;/p&gt;
+&lt;p&gt; 在洛谷刷题时遇到一题需要使用字符串比较的题于是查了一下c++的字符比较函数，发现写的都比较复杂，我看不太懂&lt;del&gt;随便写写 ~&lt;/del&gt;copy&lt;del&gt;~ 便于自己复习&lt;br&gt;  ~&lt;/del&gt;可能有错误不要打我~~ &lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="https://lzfangwen.github.io/blog/categories/C/"/>
+    
+    
+      <category term="C++" scheme="https://lzfangwen.github.io/blog/tags/C/"/>
     
   </entry>
   
