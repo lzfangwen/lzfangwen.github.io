@@ -6,7 +6,7 @@
   <link href="/lzfangwen.github.io/atom.xml" rel="self"/>
   
   <link href="https://lzfangwen.github.io/blog/"/>
-  <updated>2020-03-31T01:21:09.806Z</updated>
+  <updated>2020-03-31T10:19:02.597Z</updated>
   <id>https://lzfangwen.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,86 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>操作系统-学习笔记4</title>
+    <link href="https://lzfangwen.github.io/blog/2020/03/31/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/"/>
+    <id>https://lzfangwen.github.io/blog/2020/03/31/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/</id>
+    <published>2020-03-31T06:10:26.000Z</published>
+    <updated>2020-03-31T10:19:02.597Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://www.bilibili.com/video/BV1YE411D7nH?p=31&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;b站王道考研 OS&lt;/a&gt; p28~p31学习笔记 仅方便自己复习用 侵删&lt;/p&gt;
+&lt;h2 id=&quot;死锁&quot;&gt;&lt;a href=&quot;#死锁&quot; class=&quot;headerlink&quot; title=&quot;死锁&quot;&gt;&lt;/a&gt;死锁&lt;/h2&gt;&lt;h3 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h3&gt;&lt;p&gt; 死锁是指两个或两个以上的进程在执行过程中,因争夺资源而造成的一种互相等待的现象,若无外力作用,它们都将无法推进下去.此时称系统处于死锁状态或系统产生了死锁,这些永远在互相等待的进程称为死锁进程.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="OS" scheme="https://lzfangwen.github.io/blog/categories/OS/"/>
+    
+    
+      <category term="OS" scheme="https://lzfangwen.github.io/blog/tags/OS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算机组成原理-学习笔记3</title>
+    <link href="https://lzfangwen.github.io/blog/2020/03/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/"/>
+    <id>https://lzfangwen.github.io/blog/2020/03/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/</id>
+    <published>2020-03-31T05:31:17.000Z</published>
+    <updated>2020-03-31T10:21:41.915Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;script&gt;
+        document.querySelectorAll(&#39;.github-emoji&#39;)
+          .forEach(el =&gt; {
+            if (!el.dataset.src) { return; }
+       
+        
+      
+    
+    </summary>
+    
+    
+      <category term="计算机组成原理" scheme="https://lzfangwen.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
+    
+    
+      <category term="计算机组成原理" scheme="https://lzfangwen.github.io/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo博客相关事项</title>
+    <link href="https://lzfangwen.github.io/blog/2020/03/31/hexo%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3%E4%BA%8B%E9%A1%B9/"/>
+    <id>https://lzfangwen.github.io/blog/2020/03/31/hexo%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3%E4%BA%8B%E9%A1%B9/</id>
+    <published>2020-03-31T05:14:41.000Z</published>
+    <updated>2020-03-31T10:19:20.397Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;hexo新建文章的默认值&quot;&gt;&lt;a href=&quot;#hexo新建文章的默认值&quot; class=&quot;headerlink&quot; title=&quot;hexo新建文章的默认值&quot;&gt;&lt;/a&gt;hexo新建文章的默认值&lt;/h2&gt;&lt;p&gt;博客文件夹下git
+        
+      
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="https://lzfangwen.github.io/blog/categories/hexo/"/>
+    
+    
+      <category term="hexo" scheme="https://lzfangwen.github.io/blog/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>计算机组成原理-汉明码</title>
@@ -105,15 +185,17 @@
   </entry>
   
   <entry>
-    <title>计算机组成原理-学习笔记2</title>
-    <link href="https://lzfangwen.github.io/blog/2020/03/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/"/>
-    <id>https://lzfangwen.github.io/blog/2020/03/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/</id>
+    <title>计算机组成原理-学习笔记1</title>
+    <link href="https://lzfangwen.github.io/blog/2020/03/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/"/>
+    <id>https://lzfangwen.github.io/blog/2020/03/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</id>
     <published>2020-03-13T01:51:02.000Z</published>
-    <updated>2020-03-31T03:04:36.223Z</updated>
+    <updated>2020-03-31T03:05:06.205Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;﻿&lt;img src=&quot;https://img-blog.csdnimg.cn/20200313111304663.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70&quot; alt=&quot;在这里插入图片描述&quot;&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;strong&gt;B站 王道考研视频 学习笔记 纯粹自己整理方便复习使用 侵删&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;﻿# 第一章 计算机系统简介&lt;/p&gt;
+&lt;h2 id=&quot;软硬件&quot;&gt;&lt;a href=&quot;#软硬件&quot; class=&quot;headerlink&quot; title=&quot;软硬件&quot;&gt;&lt;/a&gt;软硬件&lt;/h2&gt;
     
     </summary>
     
@@ -126,17 +208,15 @@
   </entry>
   
   <entry>
-    <title>计算机组成原理-学习笔记1</title>
-    <link href="https://lzfangwen.github.io/blog/2020/03/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/"/>
-    <id>https://lzfangwen.github.io/blog/2020/03/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</id>
+    <title>计算机组成原理-学习笔记2</title>
+    <link href="https://lzfangwen.github.io/blog/2020/03/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/"/>
+    <id>https://lzfangwen.github.io/blog/2020/03/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/</id>
     <published>2020-03-13T01:51:02.000Z</published>
-    <updated>2020-03-31T03:05:06.205Z</updated>
+    <updated>2020-03-31T03:04:36.223Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;strong&gt;B站 王道考研视频 学习笔记 纯粹自己整理方便复习使用 侵删&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;﻿# 第一章 计算机系统简介&lt;/p&gt;
-&lt;h2 id=&quot;软硬件&quot;&gt;&lt;a href=&quot;#软硬件&quot; class=&quot;headerlink&quot; title=&quot;软硬件&quot;&gt;&lt;/a&gt;软硬件&lt;/h2&gt;
+      &lt;p&gt;﻿&lt;img src=&quot;https://img-blog.csdnimg.cn/20200313111304663.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70&quot; alt=&quot;在这里插入图片描述&quot;&gt;&lt;/p&gt;
     
     </summary>
     
@@ -193,10 +273,10 @@
   
   <entry>
     <title>C++ string字符比较函数compare</title>
-    <link href="https://lzfangwen.github.io/blog/2020/03/10/C++%20string%E5%AD%97%E7%AC%A6%E6%AF%94%E8%BE%83%E5%87%BD%E6%95%B0compare%20(1)/"/>
-    <id>https://lzfangwen.github.io/blog/2020/03/10/C++%20string%E5%AD%97%E7%AC%A6%E6%AF%94%E8%BE%83%E5%87%BD%E6%95%B0compare%20(1)/</id>
+    <link href="https://lzfangwen.github.io/blog/2020/03/10/C++%20string%E5%AD%97%E7%AC%A6%E6%AF%94%E8%BE%83%E5%87%BD%E6%95%B0compare%20/"/>
+    <id>https://lzfangwen.github.io/blog/2020/03/10/C++%20string%E5%AD%97%E7%AC%A6%E6%AF%94%E8%BE%83%E5%87%BD%E6%95%B0compare%20/</id>
     <published>2020-03-09T16:00:00.000Z</published>
-    <updated>2020-03-31T03:06:05.427Z</updated>
+    <updated>2020-03-31T10:19:34.375Z</updated>
     
     <summary type="html">
     
