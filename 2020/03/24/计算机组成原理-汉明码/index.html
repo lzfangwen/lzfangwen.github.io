@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="计算机组成原理," />
+  <meta name="keywords" content="Hamming Code," />
 
 
 
@@ -90,17 +90,17 @@
 
 
 
-<meta name="description" content="自己的理解 帮助自己复习用的 写的可能会有错误 汉明码(Hamming Code ) 汉明码（Hamming Code），是在电信领域的一种线性调试码，以发明者理查德·卫斯里·汉明的名字命名。汉明码在传输的消息流中插入验证码，当计算机存储或移动数据时，可能会产生数据位错误，以侦测并更正单一比特错误。由于汉明编码简单，它们被广泛应用于内存（RAM）。——百度百科  说人话 就是 我想发送一串二进制数">
+<meta name="description" content="自己的理解 帮助自己复习用的 写的可能会有错误 汉明码(Hamming Code ) 汉明码（Hamming Code），是在电信领域的一种线性调试码，以发明者理查德·卫斯里·汉明的名字命名。汉明码在传输的消息流中插入验证码，当计算机存储或移动数据时，可能会产生数据位错误，以侦测并更正单一比特错误。由于汉明编码简单，它们被广泛应用于内存（RAM）。——百度百科">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机组成原理-汉明码">
 <meta property="og:url" content="https://lzfangwen.github.io/blog/2020/03/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86-%E6%B1%89%E6%98%8E%E7%A0%81/index.html">
 <meta property="og:site_name" content="方文的个人博客">
-<meta property="og:description" content="自己的理解 帮助自己复习用的 写的可能会有错误 汉明码(Hamming Code ) 汉明码（Hamming Code），是在电信领域的一种线性调试码，以发明者理查德·卫斯里·汉明的名字命名。汉明码在传输的消息流中插入验证码，当计算机存储或移动数据时，可能会产生数据位错误，以侦测并更正单一比特错误。由于汉明编码简单，它们被广泛应用于内存（RAM）。——百度百科  说人话 就是 我想发送一串二进制数">
+<meta property="og:description" content="自己的理解 帮助自己复习用的 写的可能会有错误 汉明码(Hamming Code ) 汉明码（Hamming Code），是在电信领域的一种线性调试码，以发明者理查德·卫斯里·汉明的名字命名。汉明码在传输的消息流中插入验证码，当计算机存储或移动数据时，可能会产生数据位错误，以侦测并更正单一比特错误。由于汉明编码简单，它们被广泛应用于内存（RAM）。——百度百科">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200324094401246.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70">
 <meta property="article:published_time" content="2020-03-24T01:51:02.000Z">
-<meta property="article:modified_time" content="2020-03-30T08:40:46.925Z">
+<meta property="article:modified_time" content="2020-03-31T00:18:43.242Z">
 <meta property="article:author" content="方文">
-<meta property="article:tag" content="计算机组成原理">
+<meta property="article:tag" content="Hamming Code">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200324094401246.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70">
 
@@ -206,9 +206,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/lzfangwen.github.io/%20" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+          <a href="/lzfangwen.github.io/" rel="section">
             
             首页
           </a>
@@ -216,9 +214,7 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="/lzfangwen.github.io/about/%20" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+          <a href="/lzfangwen.github.io/about/" rel="section">
             
             关于
           </a>
@@ -226,9 +222,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/lzfangwen.github.io/tags/%20" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+          <a href="/lzfangwen.github.io/tags/" rel="section">
             
             标签
           </a>
@@ -236,9 +230,7 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/lzfangwen.github.io/categories/%20" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+          <a href="/lzfangwen.github.io/categories" rel="section">
             
             分类
           </a>
@@ -246,41 +238,9 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/lzfangwen.github.io/archives/%20" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+          <a href="/lzfangwen.github.io/archives" rel="section">
             
             归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-schedule">
-          <a href="/lzfangwen.github.io/schedule/%20" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
-            
-            日程表
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-sitemap">
-          <a href="/lzfangwen.github.io/sitemap.xml%20" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
-            
-            站点地图
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-commonweal">
-          <a href="/lzfangwen.github.io/404/%20" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
-            
-            公益404
           </a>
         </li>
       
@@ -357,6 +317,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/lzfangwen.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机组成原理</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -388,19 +370,264 @@
 <h2 id="汉明码-Hamming-Code"><a href="#汉明码-Hamming-Code" class="headerlink" title="汉明码(Hamming Code )"></a>汉明码(Hamming Code )</h2><blockquote>
 <p>汉明码（Hamming Code），是在电信领域的一种线性调试码，以发明者理查德·卫斯里·汉明的名字命名。汉明码在传输的消息流中插入验证码，当计算机存储或移动数据时，可能会产生数据位错误，以侦测并更正单一比特错误。由于汉明编码简单，它们被广泛应用于内存（RAM）。——百度百科</p>
 </blockquote>
+<a id="more"></a>
+
 <p>说人话 就是 我想发送一串二进制数据 例如 10010<br>但我又怕发送过程中出现意外就用检测码的形式保证不会出错，出错了也可以通过检测码查出哪位出错了因为二进制只有01，错了就能改正。</p>
-<h2 id="发送biubiubiu"><a href="#发送biubiubiu" class="headerlink" title="发送biubiubiu"></a>发送biubiubiu</h2><p>我想发 10010<br>首先 根据公式$$2^{k}&gt;=n+k+1$$ n位二进制位数 k位检测位数<br>算出k最小为4<br>也就是5位的二进制数据10010要插入4位检测码<br>但插入并不是直接放在数据最前或是最后<br>4位检测码是按照$$2^{i}    $$<br>位放入二进制数据中<br>|二进制数据序号  |1 |2|3|4|5|<br>|:-:|–|–|–|–|–|<br>|序号用二进制表示|0001|0010|0011|0100|0101|<br>| 数据串 | C1| C2| 1|C3 |0 |<br>根据序号的二进制进行分组<br>满足 XXX1 的位第一组<br>序号     | 1|3|5|7|9<br>——– | —–|—-|—-|—|–<br>数据串  | C1|1|0|1|0<br>满足 XX1X 的为第二组<br>序号     | 2|3|6|7|<br>——– | —–|—-|—-|—|–<br>数据串  | C2|1|0|1|</p>
-<p>满足 X1XX 的为第三组<br>序号     | 4|5|6|7|<br>——– | —–|—-|—-|—|–<br>数据串  | C3|0|0|1|</p>
-<p>满足1XXX的为第四组<br>序号     | 8|9|<br>——– | —–|—-|—-|—|–<br>数据串  | C4|0|<br>Ci为第几位检测码 可以发现每组数据串都有一位检测码 分别对其进行偶校验 就可以得出检测码了 从而得到最终的汉明码<br>第一组 C1为0<br>第二组 C2为0<br>第三组 C3为1<br>第四组 C4为0<br>所以最后的海明码为 001100100 然后就可以biubiubiu 发过去了</p>
-<h2 id="接收duangduangduang"><a href="#接收duangduangduang" class="headerlink" title="接收duangduangduang"></a>接收duangduangduang</h2><p>接收一串海明码怎么查错及提取有效数据嘞<br>还是以上面发送的为例 001 100 100在发送过程中第6位错了变成了001 101 100<br><del>看我操作就行了</del><br>接收duangduangduang<br>分组进行偶校验 满足给0 不满足给1<br>|二进制数据序号  |1 |2|3|4|5|6|7|8|9|<br>|–|–|–|–|–|–|–|–|–|–|–|<br>|序号用二进制表示|0001|0010|0011|0100|0101|0110|0111|1000|1001|<br>| 数据串 | 0| 0| 1|1 |0 |1|1|0|0|<br>满足 XXX1 的位第一组     满足偶校验 给0<br>序号     | 1|3|5|7|9<br>——– | —–|—-|—-|—|–<br>数据串  | 0|1|0|1|0<br>满足 XX1X 的为第二组     不满足偶校验 给1<br>序号     | 2|3|6|7|<br>——– | —–|—-|—-|—|–<br>数据串  | 0|1|1|1|</p>
-<p>满足 X1XX 的为第三组    不满足偶校验 给1<br>序号     | 4|5|6|7|<br>——– | —–|—-|—-|—|–<br>数据串  | 1|0|1|1|</p>
-<p>满足1XXX的为第四组     满足偶校验 给0<br>序号     | 8|9|<br>——– | —–|—-|—-|—|–<br>数据串  | 0|0|<br>按照组数从大到小列出为 0110 <del>卧槽</del> 正好就是6的二进制表示<br>就是第6位错了 改过来就得了 001 100 100 ✔<br>有效信息的话就是 去掉第1，2，4，8位的检验码<br>为 10010√<br>呐呐呐 就结束了 </p>
+<h2 id="发送biubiubiu"><a href="#发送biubiubiu" class="headerlink" title="发送biubiubiu"></a>发送biubiubiu</h2><p>我想发 10010<br>首先 根据公式<br>$$<br>2^{k}&gt;=n+k+1<br>$$<br> n位二进制位数 k位检测位数<br>算出k最小为4<br>也就是5位的二进制数据10010要插入4位检测码<br>但插入并不是直接放在数据最前或是最后<br>4位检测码是按照<br>$$<br>2^{i}<br>$$<br>位放入二进制数据中</p>
+<table>
+<thead>
+<tr>
+<th align="center">二进制数据序号</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">序号用二进制表示</td>
+<td>0001</td>
+<td>0010</td>
+<td>0011</td>
+<td>0100</td>
+<td>0101</td>
+</tr>
+<tr>
+<td align="center">数据串</td>
+<td>C1</td>
+<td>C2</td>
+<td>1</td>
+<td>C4</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<p>根据序号的二进制进行分组<br>满足 XXX1 的位第一组     </p>
+<table>
+<thead>
+<tr>
+<th align="center">序号</th>
+<th>1</th>
+<th>3</th>
+<th>5</th>
+<th>7</th>
+<th>9</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">数据串</td>
+<td>C1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<p>满足 XX1X 的为第二组 </p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>2</th>
+<th>3</th>
+<th>6</th>
+<th>7</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>数据串</td>
+<td>C2</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<p>满足 X1XX 的为第三组    </p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>数据串</td>
+<td>C4</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<p>满足1XXX的为第四组</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>8</th>
+<th>9</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>数据串</td>
+<td>C8</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<p>Ci为第几位检测码 可以发现每组数据串都有一位检测码 分别对其进行偶校验 就可以得出检测码了 从而得到最终的汉明码<br>第一组 C1为0<br>第二组 C2为0<br>第三组 C3为1<br>第四组 C4为0<br>所以最后的海明码为 001100100 然后就可以biubiubiu 发过去了</p>
+<h2 id="接收duangduangduang"><a href="#接收duangduangduang" class="headerlink" title="接收duangduangduang"></a>接收duangduangduang</h2><p>接收一串海明码怎么查错及提取有效数据嘞<br>还是以上面发送的为例 001 100 100在发送过程中第6位错了变成了001 101 100<br><del>看我操作就行了</del><br>接收duangduangduang<br>分组进行偶校验 满足给0 不满足给1</p>
+<table>
+<thead>
+<tr>
+<th>二进制数据序号</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>序号用二进制表示</td>
+<td>0001</td>
+<td>0010</td>
+<td>0011</td>
+<td>0100</td>
+<td>0101</td>
+<td>0110</td>
+<td>0111</td>
+<td>1000</td>
+<td>1001</td>
+</tr>
+<tr>
+<td>数据串</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<p>满足 XXX1 的位第一组     满足偶校验 给0</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>1</th>
+<th>3</th>
+<th>5</th>
+<th>7</th>
+<th>9</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>数据串</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<p>满足 XX1X 的为第二组     不满足偶校验 给1</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>2</th>
+<th>3</th>
+<th>6</th>
+<th>7</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>数据串</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<p>满足 X1XX 的为第三组    不满足偶校验 给1</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>数据串</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<p>满足1XXX的为第四组     满足偶校验 给0</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>8</th>
+<th>9</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>数据串</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<p>按照组数从大到小列出为 0110 <del>卧槽</del> 正好就是6的二进制表示<br>就是第6位错了 改过来就得了 001 100 100 ✔<br>有效信息的话就是 去掉第1，2，4，8位的检验码<br>为 10010√<br>呐呐呐 就结束了 </p>
 <h2 id="奇偶检验"><a href="#奇偶检验" class="headerlink" title="奇偶检验"></a>奇偶检验</h2><p>添加一位检测位，使得二进制数据中满足奇偶原则</p>
 <p><strong>配偶原则</strong> 就是检测二进制数据中‘1’的个数如果为奇数个，检测位就为‘1’使得满足二进制数据中‘1’的个数满足偶数个，如果个数为偶数，检测位则为‘0’ 这就是配偶原则也叫<strong>偶校验</strong></p>
 <p><strong>配奇原则</strong>就是检测二进制数据中‘1’的个数 如果为奇数，检测位为‘0’，如果为偶数，检测位为‘1’以此满足配奇数原则，也叫<strong>奇校验</strong></p>
 <h2 id="为啥子呢"><a href="#为啥子呢" class="headerlink" title="为啥子呢"></a>为啥子呢</h2><p>会做了  我们来搞搞原理<br><img src="https://img-blog.csdnimg.cn/20200324094401246.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>一串数据 1 2 3 4 5 6 7<br>分为三组<br>第一组 1 2 3 4<br>第二组 2 3 5 6<br>第三组 3 4 6 7<br>7个数中其中有一个是错的<br>我们还可以知道三个组有哪些是全对的 那些是错的<br>我们就能判断出 哪个数错了 神不神奇wow<br>eg.<br>    第一组错了 ，第二三组对了 看图 就能知道 1是错的<br>      第一二错了 第三组对了       看图得知 2是错的</p>
 <p>简单的原理就是这个原理<br>我也说不清<br>自己体会<br>那就这样吧<br>写博客号累 写一上午了<br><del>我要去打csgo了</del><br>我要继续去学习了</p>
-<h2 id="其他一些想说的"><a href="#其他一些想说的" class="headerlink" title="其他一些想说的"></a>其他一些想说的</h2><p>==汉明码 默认只错一位==<br>汉明码 顺序的话可以从右向左 也就是可以<br>|二进制数据序号  |9 |8|7|6|5|4|3|2|1|<br>|–|–|–|–|–|–|–|–|–|–|–|<br>| 数据串 | | C4| || |C3||C2|C1|<br>就是序号顺序和检测码顺序得保持一致<br>而且写汉明码和姐汉明码方向应该一致（应该是对的我验证了一下<del>就因为我看的一个教程 方向错了 我做的作业全错 呜呜呜</del>  ）<br>不过默认从左向右 <del>别整那些骚的了</del>  </p>
+<h2 id="其他一些想说的"><a href="#其他一些想说的" class="headerlink" title="其他一些想说的"></a>其他一些想说的</h2><p>==汉明码 默认只错一位==<br>汉明码 顺序的话可以从右向左 也就是可以</p>
+<table>
+<thead>
+<tr>
+<th>二进制数据序号</th>
+<th>9</th>
+<th>8</th>
+<th>7</th>
+<th>6</th>
+<th>5</th>
+<th>4</th>
+<th>3</th>
+<th>2</th>
+<th>1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>数据串</td>
+<td></td>
+<td>C4</td>
+<td></td>
+<td></td>
+<td></td>
+<td>C3</td>
+<td></td>
+<td>C2</td>
+<td>C1</td>
+</tr>
+</tbody></table>
+<p>就是序号顺序和检测码顺序得保持一致<br>而且写汉明码和姐汉明码方向应该一致（应该是对的我验证了一下<del>就因为我看的一个教程 方向错了 我做的作业全错 呜呜呜</del>  ）<br>不过默认从左向右 <del>别整那些骚的了</del>  </p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -436,7 +663,7 @@
       
         <div class="post-tags">
           
-            <a href="/lzfangwen.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" rel="tag"># 计算机组成原理</a>
+            <a href="/lzfangwen.github.io/tags/Hamming-Code/" rel="tag"># Hamming Code</a>
           
         </div>
       
@@ -455,8 +682,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/lzfangwen.github.io/2020/03/27/hello-world/" rel="prev" title="Hello World">
-                Hello World <i class="fa fa-chevron-right"></i>
+              <a href="/lzfangwen.github.io/2020/03/31/1/" rel="prev" title="1">
+                1 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -536,14 +763,23 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/lzfangwen.github.io/archives/%20%7C%7C%20archive">
+                <a href="/lzfangwen.github.io/archives">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/lzfangwen.github.io/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
             
 
             
@@ -568,6 +804,28 @@
             </div>
           
 
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lzfangwen" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://wpa.qq.com/msgrd?v=3&uin=3355054955&site=qq&menu=yes" target="_blank" title="QQ">
+                      
+                        <i class="fa fa-fw fa-globe"></i>QQ</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/lz_fangwen" target="_blank" title="CSDN">
+                      
+                        <i class="fa fa-fw fa-globe"></i>CSDN</a>
+                  </span>
+                
+            </div>
           
 
           
@@ -680,6 +938,8 @@
   
 
 
+  
+
 
 
 
@@ -718,6 +978,11 @@
   
   
     <script type="text/javascript" src="/lzfangwen.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lzfangwen.github.io/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
 
@@ -795,6 +1060,28 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 

@@ -6,7 +6,7 @@
   <link href="/lzfangwen.github.io/atom.xml" rel="self"/>
   
   <link href="https://lzfangwen.github.io/blog/"/>
-  <updated>2020-03-27T09:52:16.700Z</updated>
+  <updated>2020-03-30T23:38:52.986Z</updated>
   <id>https://lzfangwen.github.io/blog/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>article title</title>
-    <link href="https://lzfangwen.github.io/blog/2020/03/27/article-title/"/>
-    <id>https://lzfangwen.github.io/blog/2020/03/27/article-title/</id>
-    <published>2020-03-27T09:52:16.000Z</published>
-    <updated>2020-03-27T09:52:16.700Z</updated>
+    <title>1</title>
+    <link href="https://lzfangwen.github.io/blog/2020/03/31/1/"/>
+    <id>https://lzfangwen.github.io/blog/2020/03/31/1/</id>
+    <published>2020-03-30T23:38:52.000Z</published>
+    <updated>2020-03-30T23:38:52.986Z</updated>
     
     <summary type="html">
     
@@ -44,51 +44,26 @@
   </entry>
   
   <entry>
-    <title>Hello World</title>
-    <link href="https://lzfangwen.github.io/blog/2020/03/27/hello-world/"/>
-    <id>https://lzfangwen.github.io/blog/2020/03/27/hello-world/</id>
-    <published>2020-03-27T09:15:44.898Z</published>
-    <updated>2020-03-27T09:15:44.898Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
-        
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>计算机组成原理-汉明码</title>
     <link href="https://lzfangwen.github.io/blog/2020/03/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86-%E6%B1%89%E6%98%8E%E7%A0%81/"/>
     <id>https://lzfangwen.github.io/blog/2020/03/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86-%E6%B1%89%E6%98%8E%E7%A0%81/</id>
     <published>2020-03-24T01:51:02.000Z</published>
-    <updated>2020-03-30T08:40:46.925Z</updated>
+    <updated>2020-03-31T00:18:43.242Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;&lt;strong&gt;自己的理解 帮助自己复习用的 写的可能会有错误&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&quot;汉明码-Hamming-Code&quot;&gt;&lt;a href=&quot;#汉明码-Hamming-Code&quot; class=&quot;headerlink&quot; title=&quot;汉明码(Hamming
-        
-      
+      &lt;p&gt;&lt;strong&gt;自己的理解 帮助自己复习用的 写的可能会有错误&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&quot;汉明码-Hamming-Code&quot;&gt;&lt;a href=&quot;#汉明码-Hamming-Code&quot; class=&quot;headerlink&quot; title=&quot;汉明码(Hamming Code )&quot;&gt;&lt;/a&gt;汉明码(Hamming Code )&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;汉明码（Hamming Code），是在电信领域的一种线性调试码，以发明者理查德·卫斯里·汉明的名字命名。汉明码在传输的消息流中插入验证码，当计算机存储或移动数据时，可能会产生数据位错误，以侦测并更正单一比特错误。由于汉明编码简单，它们被广泛应用于内存（RAM）。——百度百科&lt;/p&gt;
+&lt;/blockquote&gt;
     
     </summary>
     
     
+      <category term="计算机组成原理" scheme="https://lzfangwen.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
     
-      <category term="计算机组成原理" scheme="https://lzfangwen.github.io/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
+    
+      <category term="Hamming Code" scheme="https://lzfangwen.github.io/blog/tags/Hamming-Code/"/>
     
   </entry>
   
