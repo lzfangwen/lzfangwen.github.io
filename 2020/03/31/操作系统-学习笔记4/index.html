@@ -99,7 +99,7 @@
 <meta property="og:image" content="http://q8375k9tz.bkt.clouddn.com/blog/20200401/EmlzwDP1stjB.png">
 <meta property="og:image" content="http://q8375k9tz.bkt.clouddn.com/blog/20200401/fBCBVqXHx7ud.png">
 <meta property="article:published_time" content="2020-03-31T06:10:26.000Z">
-<meta property="article:modified_time" content="2020-04-01T02:32:56.151Z">
+<meta property="article:modified_time" content="2020-04-01T07:26:34.778Z">
 <meta property="article:author" content="方文">
 <meta property="article:tag" content="OS">
 <meta name="twitter:card" content="summary">
@@ -412,7 +412,7 @@
 <h4 id="破坏不剥夺条件"><a href="#破坏不剥夺条件" class="headerlink" title="破坏不剥夺条件"></a><strong>破坏不剥夺条件</strong></h4><p>进程所获得的资源在未使用完之前,不能由其他进程强行夺走,只能主动释放。</p>
 <p>方案一:当某个进程请求新的资源得不到满足时,它必须立即释放保持的所有资源,待以后需要时再重新申请。也就是说,即使某些资源尚未使用完,也需要主动释放,从而破坏了不可剥夺条件。</p>
 <p>方案二:当某个进程需要的资源被其他进程所占有的时候,可以由操作系统协助,将想要的资源强行剥夺。这种方式一般需要考虑各进程的优先级(比如:剥夺调度方式,就是将处理机资源强行剥夺给优先级更高的进程使用)</p>
-<p>该策略的==缺点==:</p>
+<p><strong>该策略的缺点</strong>:</p>
 <ol>
 <li>实现起来比较复杂。</li>
 <li>释放已获得的资源可能造成前一阶段工作的失效。因此这种方法一般只适用于易保存和恢复状态的资源,如CPU</li>
@@ -420,10 +420,10 @@
 <li>若采用方案一,意味着只要暂时得不到某个资源,之前获得的那些资源就都需要放弃,以后再重新申请。如果一直发生这样的情况,就会导致进程饥饿。</li>
 </ol>
 <h4 id="破坏请求和保持条件"><a href="#破坏请求和保持条件" class="headerlink" title="破坏请求和保持条件"></a><strong>破坏请求和保持条件</strong></h4><p>进程已经保持了至少一个资源,但又提出了新的资源请求,而该资源又被其他进程占有,此时请求进程被阻塞,但又对自己己有的资源保持不放。</p>
-<p>可以采用==静态分配方法==,即进程在运行前一次申请完它所需要的全部资源,在它的资源未满足前,,不让它投入运行。一旦投入运行后,这些资源就一直归它所有,该进程就不会再请求别的任何资源</p>
-<p>该策略实现起来简单,但也有明显的缺点有些资源可能只需要用很短的时间,因此如果进程的整个运行期间都一直保持着所有资源,就会造成严重的资源浪费,==资源利用率极低==。另外,该策略也有==可能导致某些进程饥饿==。</p>
+<p>可以采用<strong>静态分配方法</strong>,即进程在运行前一次申请完它所需要的全部资源,在它的资源未满足前,,不让它投入运行。一旦投入运行后,这些资源就一直归它所有,该进程就不会再请求别的任何资源</p>
+<p>该策略实现起来简单,但也有明显的缺点有些资源可能只需要用很短的时间,因此如果进程的整个运行期间都一直保持着所有资源,就会造成严重的资源浪费<strong>资源利用率极低</strong>。另外,该策略也有可能<strong>导致某些进程饥饿</strong>。</p>
 <h4 id="破坏循环等待条件"><a href="#破坏循环等待条件" class="headerlink" title="破坏循环等待条件"></a>破坏循环等待条件</h4><p>循环等待条件:存在一种进程资源的循环等待链,链中的每一个进程已获得的资源同时被下一个进程所请求。</p>
-<p>可采用==顺序资源分配法==。首先给系统中的资源编号,规定每个进程必须按编号递增的顺序请求资源,同类资源(即编号相同的资源)一次申请完。原理分析:一个进程只有已占有小编号的资源时,才有资格申请更大编号的资源。按此规则,已持有大编号资源的进程不可能逆向地回来申请小编号的资源,从而就不会产生循环等待的现象。</p>
+<p>可采用<strong>顺序资源分配法</strong>。首先给系统中的资源编号,规定每个进程必须按编号递增的顺序请求资源,同类资源(即编号相同的资源)一次申请完。原理分析:一个进程只有已占有小编号的资源时,才有资格申请更大编号的资源。按此规则,已持有大编号资源的进程不可能逆向地回来申请小编号的资源,从而就不会产生循环等待的现象。</p>
 <p>该策略的缺点:</p>
 <ol>
 <li>不方便增加新的设备,因为可能需要重新分配所有的编号;</li>
@@ -530,6 +530,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/lzfangwen.github.io/2020/04/01/JavaEE-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/" rel="prev" title="JavaEE-学习笔记1">
+                JavaEE-学习笔记1 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -609,7 +613,7 @@
               
                 <a href="/lzfangwen.github.io/archives">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -676,6 +680,20 @@
           
 
           
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://wxnsoul.github.io/" title="♥宝のblog" target="_blank">♥宝のblog</a>
+                  </li>
+                
+              </ul>
+            </div>
           
 
           
