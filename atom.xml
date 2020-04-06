@@ -6,7 +6,7 @@
   <link href="/lzfangwen.github.io/atom.xml" rel="self"/>
   
   <link href="https://lzfangwen.github.io/blog/"/>
-  <updated>2020-04-06T02:04:33.559Z</updated>
+  <updated>2020-04-06T06:34:33.029Z</updated>
   <id>https://lzfangwen.github.io/blog/</id>
   
   <author>
@@ -21,17 +21,14 @@
     <link href="https://lzfangwen.github.io/blog/2020/04/05/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B07/"/>
     <id>https://lzfangwen.github.io/blog/2020/04/05/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B07/</id>
     <published>2020-04-05T06:53:46.000Z</published>
-    <updated>2020-04-06T02:04:33.559Z</updated>
+    <updated>2020-04-06T06:34:33.029Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h2 id=&quot;生产者和消费者问题&quot;&gt;&lt;a href=&quot;#生产者和消费者问题&quot; class=&quot;headerlink&quot;
-        
-      
+      &lt;h2 id=&quot;生产者和消费者问题&quot;&gt;&lt;a href=&quot;#生产者和消费者问题&quot; class=&quot;headerlink&quot; title=&quot;生产者和消费者问题&quot;&gt;&lt;/a&gt;生产者和消费者问题&lt;/h2&gt;&lt;p&gt;系统中有一组生产者进程和一组消费者进程,生产者进程每次生产一个产品放入缓冲区,消费者,进程每次从缓冲区中取出一个产品并使用。(注:这里的“产品”理解为某种数据)生产者、消费者共享一个&lt;strong&gt;初始为空、大小为n的缓冲区&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;只有缓冲区没满时,生产者才能把产品放入缓冲区,否则必须等待。&lt;/p&gt;
+&lt;p&gt;只有缓冲区不空时,消费者才能从中取出产品,否则必须等待。&lt;/p&gt;
+&lt;p&gt;缓冲区是临界资源,&lt;strong&gt;各进程必须互斥地访问&lt;/strong&gt;。&lt;/p&gt;
     
     </summary>
     
@@ -48,17 +45,13 @@
     <link href="https://lzfangwen.github.io/blog/2020/04/05/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B06/"/>
     <id>https://lzfangwen.github.io/blog/2020/04/05/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B06/</id>
     <published>2020-04-05T01:18:49.000Z</published>
-    <updated>2020-04-05T06:53:17.456Z</updated>
+    <updated>2020-04-06T06:34:18.252Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h2 id=&quot;信号量机制&quot;&gt;&lt;a href=&quot;#信号量机制&quot; class=&quot;headerlink&quot;
-        
-      
+      &lt;h2 id=&quot;信号量机制&quot;&gt;&lt;a href=&quot;#信号量机制&quot; class=&quot;headerlink&quot; title=&quot;信号量机制&quot;&gt;&lt;/a&gt;信号量机制&lt;/h2&gt;&lt;p&gt;用户进程可以通过使用操作系统提供的一对原语来对信号量进行操作,从而很方便的实现了进程互斥、进程同步。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;信号量&lt;/strong&gt;其实就是一个变量(可以是一个整数,也可以是更复杂的记录型变量),可以用一个信号量来&lt;strong&gt;表示系统中某种资源的数量&lt;/strong&gt;,比如:系统中只有一台打印机,就可以设置一个初值为1的信号量&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;原语&lt;/strong&gt;是一种特殊的程序段,其&lt;strong&gt;执行只能一气呵成,不可被中断&lt;/strong&gt;。原语是由&lt;strong&gt;关中断/开中断指令&lt;/strong&gt;实现的。软件解决方案的主要问题是由“进入区的各种操作无法一气呵成” ,因此如果能把进入区、退作都用“原语”这些操作能“一气呵成”就能避免问题&lt;/p&gt;
     
     </summary>
     
@@ -75,17 +68,12 @@
     <link href="https://lzfangwen.github.io/blog/2020/04/04/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B05/"/>
     <id>https://lzfangwen.github.io/blog/2020/04/04/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B05/</id>
     <published>2020-04-04T09:24:41.000Z</published>
-    <updated>2020-04-05T01:17:46.306Z</updated>
+    <updated>2020-04-06T06:34:06.072Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h2 id=&quot;进程互斥的软件实现方法&quot;&gt;&lt;a href=&quot;#进程互斥的软件实现方法&quot; class=&quot;headerlink&quot; title=&quot;进程互斥的软件实现方法&quot;&gt;&lt;/a&gt;进程互斥的软件实现方法&lt;/h2&gt;&lt;h3 id=&quot;单标志法&quot;&gt;&lt;a href=&quot;#单标志法&quot;
-        
-      
+      &lt;h2 id=&quot;进程互斥的软件实现方法&quot;&gt;&lt;a href=&quot;#进程互斥的软件实现方法&quot; class=&quot;headerlink&quot; title=&quot;进程互斥的软件实现方法&quot;&gt;&lt;/a&gt;进程互斥的软件实现方法&lt;/h2&gt;&lt;h3 id=&quot;单标志法&quot;&gt;&lt;a href=&quot;#单标志法&quot; class=&quot;headerlink&quot; title=&quot;单标志法&quot;&gt;&lt;/a&gt;单标志法&lt;/h3&gt;&lt;p&gt; &lt;strong&gt;算法思想&lt;/strong&gt;：两个进程在 &lt;strong&gt;访问临界区&lt;/strong&gt;后会把使用临界区的权限转交给另一个进程。也就是说&lt;strong&gt;每个进程进入临界区的权限只能被另一个进程赋予&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;可以实现&lt;strong&gt;同一时刻最多只允许一个进程访问临界区&lt;/strong&gt;&lt;/p&gt;
     
     </summary>
     
@@ -198,6 +186,27 @@
   </entry>
   
   <entry>
+    <title>操作系统学习笔记3</title>
+    <link href="https://lzfangwen.github.io/blog/2020/03/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/"/>
+    <id>https://lzfangwen.github.io/blog/2020/03/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/</id>
+    <published>2020-03-21T16:00:00.000Z</published>
+    <updated>2020-03-31T03:05:41.722Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;进程的调度&quot;&gt;&lt;a href=&quot;#进程的调度&quot; class=&quot;headerlink&quot; title=&quot;进程的调度&quot;&gt;&lt;/a&gt;进程的调度&lt;/h2&gt;&lt;h3 id=&quot;时机&quot;&gt;&lt;a href=&quot;#时机&quot; class=&quot;headerlink&quot; title=&quot;时机&quot;&gt;&lt;/a&gt;时机&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;https://img-blog.csdnimg.cn/20200321215121803.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70&quot; alt=&quot;在这里插入图片描述&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="OS" scheme="https://lzfangwen.github.io/blog/categories/OS/"/>
+    
+    
+      <category term="OS" scheme="https://lzfangwen.github.io/blog/tags/OS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>计算机网络 学习笔记1</title>
     <link href="https://lzfangwen.github.io/blog/2020/03/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/"/>
     <id>https://lzfangwen.github.io/blog/2020/03/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</id>
@@ -216,27 +225,6 @@
     
     
       <category term="计算机网络" scheme="https://lzfangwen.github.io/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>操作系统学习笔记3</title>
-    <link href="https://lzfangwen.github.io/blog/2020/03/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/"/>
-    <id>https://lzfangwen.github.io/blog/2020/03/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/</id>
-    <published>2020-03-21T16:00:00.000Z</published>
-    <updated>2020-03-31T03:05:41.722Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;进程的调度&quot;&gt;&lt;a href=&quot;#进程的调度&quot; class=&quot;headerlink&quot; title=&quot;进程的调度&quot;&gt;&lt;/a&gt;进程的调度&lt;/h2&gt;&lt;h3 id=&quot;时机&quot;&gt;&lt;a href=&quot;#时机&quot; class=&quot;headerlink&quot; title=&quot;时机&quot;&gt;&lt;/a&gt;时机&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;https://img-blog.csdnimg.cn/20200321215121803.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70&quot; alt=&quot;在这里插入图片描述&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="OS" scheme="https://lzfangwen.github.io/blog/categories/OS/"/>
-    
-    
-      <category term="OS" scheme="https://lzfangwen.github.io/blog/tags/OS/"/>
     
   </entry>
   
