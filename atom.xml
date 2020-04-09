@@ -6,7 +6,7 @@
   <link href="/lzfangwen.github.io/atom.xml" rel="self"/>
   
   <link href="https://lzfangwen.github.io/blog/"/>
-  <updated>2020-04-08T10:02:38.646Z</updated>
+  <updated>2020-04-09T09:13:34.729Z</updated>
   <id>https://lzfangwen.github.io/blog/</id>
   
   <author>
@@ -17,11 +17,32 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>操作系统-习题1</title>
+    <link href="https://lzfangwen.github.io/blog/2020/04/09/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E4%B9%A0%E9%A2%981/"/>
+    <id>https://lzfangwen.github.io/blog/2020/04/09/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E4%B9%A0%E9%A2%981/</id>
+    <published>2020-04-09T08:10:09.000Z</published>
+    <updated>2020-04-09T09:13:34.729Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;学习通 老师布置的第三章的题目 有关 安全序列 银行家算法&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="OS" scheme="https://lzfangwen.github.io/blog/categories/OS/"/>
+    
+    
+      <category term="OS" scheme="https://lzfangwen.github.io/blog/tags/OS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Latex数学公式基础</title>
     <link href="https://lzfangwen.github.io/blog/2020/04/08/Latex%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E5%9F%BA%E7%A1%80/"/>
     <id>https://lzfangwen.github.io/blog/2020/04/08/Latex%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E5%9F%BA%E7%A1%80/</id>
     <published>2020-04-08T08:37:48.000Z</published>
-    <updated>2020-04-08T10:02:38.646Z</updated>
+    <updated>2020-04-09T14:55:12.684Z</updated>
     
     <summary type="html">
     
@@ -29,7 +50,7 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;行内公式用&lt;code&gt;$...$&lt;/code&gt;括起来，如&lt;code&gt;$ x^2 $&lt;/code&gt;：$x^2$&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;独立公式 单独占一行，不和其他文字混编用&lt;code&gt;$$...$$&lt;/code&gt;括起来，如&lt;code&gt;$$ f(x) = x^2 $$&lt;/code&gt;：$$&lt;br&gt;$$&lt;br&gt;f(x) = x^2&lt;br&gt;$$&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;独立公式 单独占一行，不和其他文字混编用&lt;code&gt;$$...$$&lt;/code&gt;括起来，如&lt;code&gt;$$ f(x) = x^2 $$&lt;/code&gt;：&lt;br&gt;$$&lt;br&gt;f(x) = x^2&lt;br&gt;$$&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;多行公式     在独立公式中使用\来换行&lt;/p&gt;
 &lt;/li&gt;
@@ -267,27 +288,6 @@ $$         &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;$$&lt;br&gt;2x+3y=34\&lt;br&gt;x+4y
   </entry>
   
   <entry>
-    <title>操作系统学习笔记3</title>
-    <link href="https://lzfangwen.github.io/blog/2020/03/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/"/>
-    <id>https://lzfangwen.github.io/blog/2020/03/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/</id>
-    <published>2020-03-21T16:00:00.000Z</published>
-    <updated>2020-03-31T03:05:41.722Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;进程的调度&quot;&gt;&lt;a href=&quot;#进程的调度&quot; class=&quot;headerlink&quot; title=&quot;进程的调度&quot;&gt;&lt;/a&gt;进程的调度&lt;/h2&gt;&lt;h3 id=&quot;时机&quot;&gt;&lt;a href=&quot;#时机&quot; class=&quot;headerlink&quot; title=&quot;时机&quot;&gt;&lt;/a&gt;时机&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;https://img-blog.csdnimg.cn/20200321215121803.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70&quot; alt=&quot;在这里插入图片描述&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="OS" scheme="https://lzfangwen.github.io/blog/categories/OS/"/>
-    
-    
-      <category term="OS" scheme="https://lzfangwen.github.io/blog/tags/OS/"/>
-    
-  </entry>
-  
-  <entry>
     <title>计算机网络 学习笔记1</title>
     <link href="https://lzfangwen.github.io/blog/2020/03/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/"/>
     <id>https://lzfangwen.github.io/blog/2020/03/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</id>
@@ -306,6 +306,27 @@ $$         &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;$$&lt;br&gt;2x+3y=34\&lt;br&gt;x+4y
     
     
       <category term="计算机网络" scheme="https://lzfangwen.github.io/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>操作系统学习笔记3</title>
+    <link href="https://lzfangwen.github.io/blog/2020/03/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/"/>
+    <id>https://lzfangwen.github.io/blog/2020/03/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/</id>
+    <published>2020-03-21T16:00:00.000Z</published>
+    <updated>2020-03-31T03:05:41.722Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;进程的调度&quot;&gt;&lt;a href=&quot;#进程的调度&quot; class=&quot;headerlink&quot; title=&quot;进程的调度&quot;&gt;&lt;/a&gt;进程的调度&lt;/h2&gt;&lt;h3 id=&quot;时机&quot;&gt;&lt;a href=&quot;#时机&quot; class=&quot;headerlink&quot; title=&quot;时机&quot;&gt;&lt;/a&gt;时机&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;https://img-blog.csdnimg.cn/20200321215121803.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70&quot; alt=&quot;在这里插入图片描述&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="OS" scheme="https://lzfangwen.github.io/blog/categories/OS/"/>
+    
+    
+      <category term="OS" scheme="https://lzfangwen.github.io/blog/tags/OS/"/>
     
   </entry>
   
