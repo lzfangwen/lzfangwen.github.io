@@ -1,1706 +1,433 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search>
-  <entry>
-    <title>hexo博客相关事项</title>
-    <url>/lzfangwen.github.io/2020/03/31/hexo%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3%E4%BA%8B%E9%A1%B9/</url>
-    <content><![CDATA[<h2 id="hexo新建文章的默认值"><a href="#hexo新建文章的默认值" class="headerlink" title="hexo新建文章的默认值"></a>hexo新建文章的默认值</h2><p>博客文件夹下git bash</p>
-<p><code>hexo new 文章名</code></p>
-<p>会在blog\source_posts下新建一个文章 文章默认值为</p>
-<p><code>title: hexo博客相关事项 ##文章标题
-date: 1585631681000##文章日期
-tags:           ##标签可多个 ``
-categories:     ##分类最好一个``  
-mathjax: flase  ##是否开启数学公式</code>  </p>
-<p>默认值可以在blog\scaffolds\post.md中修改</p>
-<p>文章写好后依然是博客文件夹下git bash</p>
-<p><code>hexo clean</code></p>
-<p><code>hexo g</code>##生成静态文件</p>
-<p><code>hexo s</code>##启动服务器用于本地预览</p>
-<p>输入<a href="http://localhost:4000就可以预览博客了确认没有问题再">http://localhost:4000就可以预览博客了确认没有问题再</a></p>
-<p><code>hexo d</code>将本地文件发送github仓库中就可以了</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
+<search> 
+  
+  
+    
+    <entry>
+      <title>Latex数学公式基础</title>
+      <link href="/lzfangwen.github.io/2020/04/08/Latex%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E5%9F%BA%E7%A1%80/"/>
+      <url>/lzfangwen.github.io/2020/04/08/Latex%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E5%9F%BA%E7%A1%80/</url>
+      
+        <content type="html"><![CDATA[<p>一些常用的Latex公式 转自Latex<a href="https://www.jianshu.com/p/e6d2368e451a" target="_blank" rel="noopener">数学公式基础</a>   <a href="https://www.jianshu.com/p/e6d2368e451a" target="_blank" rel="noopener">LaTeX写数学公式</a></p><ul><li><p>行内公式用<code>$...$</code>括起来，如<code>$ x^2 $</code>：$x^2$</p></li><li><p>独立公式 单独占一行，不和其他文字混编用<code>$$...$$</code>括起来，如<code>$$ f(x) = x^2 $$</code>：$$<br>$$<br>f(x) = x^2<br>$$</p></li><li><p>多行公式     在独立公式中使用\来换行</p></li></ul><pre><code>$$   2x+3y=34\\   x+4y=25  $$         </code></pre><p>$$<br>2x+3y=34\<br>x+4y=25<br>$$</p><a id="more"></a><ol><li><p>\frac`分数</p><p><code>\feac 1 2</code>$\frac 1 2$</p><p><code>\frac {2x}{x+y}</code>$\frac {2x}{x+y}$</p></li><li><p><code>\partial</code>偏导</p><p><code>\partial</code> $\partial$</p><p><code>\partial x</code> $\partial x$</p><p><code>\frac {\partial E(x)} {\partial x}</code>$\frac {\partial E(x)} {\partial x}$</p></li><li><p><code>\sqrt</code>开根号</p><p><code>\sqrt x</code>$\sqrt x$</p><p><code>\sqrt {x^2 + y}</code>$\sqrt {x^2 + y}$</p><p><code>\sqrt [n]{x}</code>$\sqrt [n]{x}$</p></li><li><p><code>^</code>指数</p><p><code>x^2</code>$x^2$</p><p><code>x^{a^2+b^2}</code>$x^{a^2+b^2}$</p></li><li><p><code>_</code>下标、正下标</p><p><code>x_i</code>$x_i$</p><p><code>x_i^2</code>$x_i^2$</p><p><code>x_{i+1}^2</code>$x_{i+1}^2$</p><p><code>\max\limits_{x\in R} f(x)</code>$\max\limits_{x\in R} f(x)$</p><p>如果是数学符号，那么直接用<code>\limits</code>命令百放在正下度方，如</p><p><code>\sum\limits_{i=1}</code>$ \sum\limits_{i=1} $</p><p>若是普通符号，那知么要用<code>\mathop</code>先转成数学道符号再用<code>\limits</code>，如</p><p><code>$ \mathop{a}\limits_{i=``1``} $</code>$ \mathop{a}\limits_{i=<code>1</code>} $</p></li></ol><h2 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a><strong>关系运算符</strong></h2><table><thead><tr><th>代码</th><th>符号</th></tr></thead><tbody><tr><td><code>\pm</code></td><td>$\pm$</td></tr><tr><td><code>\times</code></td><td>$\times$</td></tr><tr><td><code>\div</code></td><td>$\div$</td></tr><tr><td><code>\mid</code></td><td>$\mid$</td></tr><tr><td><code>\nmid</code></td><td>$\nmid$</td></tr><tr><td><code>\cdot</code></td><td>$\cdot$</td></tr><tr><td><code>\circ</code></td><td>$\circ$</td></tr><tr><td><code>\ast</code></td><td>$\ast$</td></tr><tr><td><code>\bigodot</code></td><td>$\bigodot$</td></tr><tr><td><code>\leq</code></td><td>$\leq$</td></tr><tr><td><code>\neq</code></td><td>$\neq$</td></tr><tr><td><code>\geq</code></td><td>$\geq$</td></tr><tr><td><code>\qpprox</code></td><td>$\approx$</td></tr><tr><td><code>\equiv</code></td><td>$\equiv$</td></tr><tr><td><code>\sum</code></td><td>$\sum$</td></tr><tr><td><code>\prod</code></td><td>$\prod$</td></tr></tbody></table><h2 id="三角运算符"><a href="#三角运算符" class="headerlink" title="三角运算符$$"></a><strong>三角运算符</strong>$$</h2><table><thead><tr><th>代码</th><th>符号</th></tr></thead><tbody><tr><td><code>\bot</code></td><td>$\bot$</td></tr><tr><td><code>\angle</code></td><td>$\angle$</td></tr><tr><td><code>\sin</code></td><td>$\sin$</td></tr><tr><td><code>\cos</code></td><td>$\cos$</td></tr><tr><td><code>\tan</code></td><td>$\tan$</td></tr><tr><td><code>\cot</code></td><td>$\cot$</td></tr><tr><td><code>\sec</code></td><td>$\sec$</td></tr><tr><td><code>\csc</code></td><td>$\csc$</td></tr></tbody></table><h2 id="对数运算符"><a href="#对数运算符" class="headerlink" title="对数运算符"></a>对数运算符</h2><table><thead><tr><th>代码</th><th>符号</th></tr></thead><tbody><tr><td><code>\log</code></td><td>$\log$</td></tr><tr><td><code>\lg</code></td><td>$\lg$</td></tr><tr><td><code>\ln</code></td><td>$\ln$</td></tr></tbody></table><h2 id="微积分运算符"><a href="#微积分运算符" class="headerlink" title="微积分运算符"></a>微积分运算符</h2><table><thead><tr><th>代码</th><th>符号</th></tr></thead><tbody><tr><td><code>\prime</code></td><td>$\prime$</td></tr><tr><td><code>\int</code></td><td>$\int$</td></tr><tr><td><code>\iint</code></td><td>$\iint$</td></tr><tr><td><code>\iiint</code></td><td>$\iiint$</td></tr><tr><td><code>\oint</code></td><td>$\oint$</td></tr><tr><td><code>\lim</code></td><td>$\lim$</td></tr><tr><td><code>\infty</code></td><td>$\infty$</td></tr><tr><td><code>\mathrm{d}</code></td><td>$\mathrm{d}$</td></tr></tbody></table><h2 id="集合运算符"><a href="#集合运算符" class="headerlink" title="集合运算符"></a>集合运算符</h2><table><thead><tr><th>代码</th><th>符号</th></tr></thead><tbody><tr><td><code>\emptyset</code></td><td>$\emptyset$</td></tr><tr><td><code>\in</code></td><td>$\in$</td></tr><tr><td><code>\notin</code></td><td>$\notin$</td></tr><tr><td><code>\subset</code></td><td>$\subset$</td></tr><tr><td><code>\subseteq</code></td><td>$\subseteq$</td></tr><tr><td><code>\supseteq</code></td><td>$\supseteq$</td></tr><tr><td><code>\bigcap</code></td><td>$\bigcap$</td></tr><tr><td><code>\bigcup</code></td><td>$\bigcup$</td></tr><tr><td><code>\bigvee</code></td><td>$\bigvee$</td></tr><tr><td><code>\bigwedge</code></td><td>$\bigwedge$</td></tr><tr><td><code>\biguplus</code></td><td>$\biguplus$</td></tr><tr><td><code>\bigsqcup</code></td><td>$\bigsqcup$</td></tr></tbody></table><h2 id="希腊字母"><a href="#希腊字母" class="headerlink" title="希腊字母"></a>希腊字母</h2><table><thead><tr><th>代码</th><th>大写</th><th>代码</th><th>小写</th></tr></thead><tbody><tr><td><code>A</code></td><td>$A$</td><td><code>\alpha</code></td><td>$\alpha$</td></tr><tr><td><code>B</code></td><td>B$</td><td><code>\beta</code></td><td>$\beta$</td></tr><tr><td><code>\Gamma</code></td><td>$\Gamma$</td><td><code>\gamma</code></td><td>$\gamma$</td></tr><tr><td><code>\Delta</code></td><td>$\Delta</td><td><code>\delta</code></td><td>$\delta$</td></tr><tr><td><code>E</code></td><td>$E</td><td>\epsilon</td><td>$\epsilon$</td></tr><tr><td><code>Z</code></td><td>$Z</td><td><code>\zeta</code></td><td>$\zeta$</td></tr><tr><td><code>H</code></td><td>$H</td><td><code>\eta</code></td><td>$\eta$</td></tr><tr><td><code>\Theta</code></td><td>$\Theta</td><td><code>\theta</code></td><td>$\theta$</td></tr><tr><td><code>I</code></td><td>$I</td><td><code>\iota</code></td><td>$\iota$</td></tr><tr><td><code>K</code></td><td>$K</td><td><code>\kappa</code></td><td>$\kappa$</td></tr><tr><td><code>Lambda</code></td><td>$Lambda</td><td><code>\lambda</code></td><td>$\lambda$</td></tr><tr><td><code>M</code></td><td>$M</td><td><code>\mu</code></td><td>$\mu$</td></tr><tr><td><code>N</code></td><td>$N$</td><td><code>\nu</code></td><td>$\nu$</td></tr><tr><td><code>Xi</code></td><td>$Xi$</td><td><code>\xi</code></td><td>$\xi$</td></tr><tr><td><code>O</code></td><td>$O$</td><td><code>\omicron</code></td><td>$\omicron$</td></tr><tr><td><code>\Pi</code></td><td>$\Pi$</td><td><code>\pi</code></td><td>$\pi$</td></tr><tr><td><code>P</code></td><td>$P$</td><td><code>\rho</code></td><td>$\rho$</td></tr><tr><td><code>\Sigma</code></td><td>$\Sigma$</td><td><code>\sigma</code></td><td>$\sigma$</td></tr><tr><td><code>T</code></td><td>$T$</td><td><code>\tau</code></td><td>$\tau$</td></tr><tr><td><code>\Upsilon</code></td><td>$\Upsilon$</td><td><code>\upsilon</code></td><td>$\upsilon$</td></tr><tr><td><code>\Phi</code></td><td>$\Phi$</td><td><code>\phi</code></td><td>$\phi$</td></tr><tr><td><code>X</code></td><td>$X$</td><td><code>\chi</code></td><td>$\chi$</td></tr><tr><td><code>\Psi</code></td><td>$\Psi$</td><td><code>\psi</code></td><td>$\psi$</td></tr><tr><td><code>\Omega</code></td><td>$\Omega$</td><td><code>\omega</code></td><td>$\omega$</td></tr></tbody></table><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
       <categories>
-        <category>hexo</category>
+          
+          <category> markdown </category>
+          
       </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++ string字符比较函数compare</title>
-    <url>/lzfangwen.github.io/2020/03/10/C++%20string%E5%AD%97%E7%AC%A6%E6%AF%94%E8%BE%83%E5%87%BD%E6%95%B0compare%20/</url>
-    <content><![CDATA[<p>﻿# compare()函数</p>
-<p> 在洛谷刷题时遇到一题需要使用字符串比较的题于是查了一下c++的字符比较函数，发现写的都比较复杂，我看不太懂<del>随便写写 ~</del>copy<del>~ 便于自己复习<br>  ~</del>可能有错误不要打我~~ </p>
-<a id="more"></a>
-
-<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>若参与比较的两个串值(也就是ASCII值)相同，则函数返回 0；若字符串 S 按字典顺序要先于 S2，则返回负值；反之，则返回正值。比较方法为从两个字符串开始比较的位置一个个字符顺序相比ASCII值。<br>常见ASCII码的大小规则：0-9 &lt; A-Z &lt; a-z。<br>1）数字比字母要小。如 “7”&lt;“F”；<br>2）数字0比数字9要小，并按0到9顺序递增。如 “3”&lt;“8” ；<br>3）字母A比字母Z要小，并按A到Z顺序递增。如“A”&lt;“Z” ；<br>4）同个字母的大写字母比小写字母要小32。如“A”&lt;“a” 。<br>几个常见字母的ASCII码大小： “A”为65；“a”为97；“0”为 48<br>下面举例说明如何使用 string 类的 compare() 函数。</p>
-<ol>
-<li>s.compare(n)</li>
-</ol>
-<pre><code class="cpp">#include&lt;iostream&gt;
-#include&lt;string&gt;//字符串函数嘛 肯定要字符串头文件啦 
-using namespace std;
-int main()
-{
-    string s("abc");
-    string n("Abde"); 
-    cout&lt;&lt;"s.compare(n)="&lt;&lt;s.compare(n)&lt;&lt;endl ;//完整的字符串s与n比较
-}</code></pre>
-<p><img src="https://img-blog.csdnimg.cn/2020031009165424.png" alt="输出结果"><br>结果为1即字符串s&gt;n<br>字符串的创建也有很多方式 可以参考一下 <a href="https://blog.csdn.net/qq_37941471/article/details/82107077" target="_blank" rel="noopener">string字符串相关函数</a></p>
-<ol start="2">
-<li>s.compare(1,2,n)</li>
-</ol>
-<pre><code class="cpp">#include&lt;iostream&gt;
-#include&lt;string&gt;//字符串函数嘛 肯定要字符串头文件啦 
-using namespace std;
-int main()
-{
-    string s("AbDeas");
-    string n("Abdeas"); 
-    cout&lt;&lt;"s.compare(1,2,n)="&lt;&lt;s.compare(1,2,n)&lt;&lt;endl;//bd与Abdeas相比 
-}</code></pre>
-<p><img src="https://img-blog.csdnimg.cn/20200310094804318.png" alt="结果"><br>结果为1  bd与Abdeas相比 bd&gt;Abdeas没毛病<br>s.compare(1,2,n) 中 1代表 下表 2代表数量  意思为 s字符串中下表为1 开始 字符数量为2的字符串  bd  与n相比</p>
-<ol start="3">
-<li>s.compare(1,2,n,2,3)</li>
-</ol>
-<pre><code class="cpp">#include&lt;iostream&gt;
-#include&lt;string&gt;//字符串函数嘛 肯定要字符串头文件啦 
-using namespace std;
-int main()
-{
-    string s("Abdeas");
-    string n("Abdeas"); 
-    cout&lt;&lt;"s.compare(1,2,n,1,3)="&lt;&lt;s.compare(1,2,n,1,3)&lt;&lt;endl;//bd与bde相比 
-}</code></pre>
-<p><img src="https://img-blog.csdnimg.cn/20200310095539579.png" alt="结果"><br>结果为-1  bd&lt;bde  没毛病  这个 就表示 两个字符串的指定 字符串段 比较</p>
-<p>这样 就结束了compare()函数 的使用方法<br>0，0<br>哦哦 再把我做的题放出来把 简单的应用 虽然我做的挺复杂的orz</p>
-<h2 id="洛谷-P1781-宇宙总统"><a href="#洛谷-P1781-宇宙总统" class="headerlink" title="洛谷 P1781 宇宙总统"></a>洛谷 P1781 宇宙总统</h2><p><a href="https://www.luogu.com.cn/problem/P1781" target="_blank" rel="noopener">题目链接</a><br>题目描述<br>地球历公元 6036 年，全宇宙准备竞选一个最贤能的人当总统，共有 nn 个非凡拔尖的人竞选总统，现在票数已经统计完毕，请你算出谁能够当上总统。</p>
-<p>输入格式<br>第一行为一个整数 nn，代表竞选总统的人数。</p>
-<p>接下来有 nn 行，分别为第一个候选人到第 nn 个候选人的票数。</p>
-<p>输出格式<br>共两行，第一行是一个整数 mm，为当上总统的人的号数。</p>
-<p>第二行是当上总统的人的选票。</p>
-<p>输入输出样例<br>输入 #1<br>5<br>98765<br>12365<br>87954<br>1022356<br>985678<br>输出 #1<br>4<br>1022356<br>说明/提示<br>票数可能会很大，可能会到 100100 位数字。<br>我的代码</p>
-<pre><code class="cpp">
-​```cpp
-#include&lt;bits/stdc++.h&gt;
-using namespace std;
-int n,mixsum;//涉及极大数问题 字符串解决
-string a,mix;
-int main()
-{
-    cin&gt;&gt;n;
-    for(int i=1;i&lt;=n;i++){
-        cin&gt;&gt;a;
-        if(mix.empty()){
-            mix=a;
-            mixsum=i;
-        }
-        if(a.size()&gt;mix.size()){
-            mix=a;
-            mixsum=i;
-        }
-        else if(a.size()&lt;mix.size()){
-            continue;
-        }
-        else if(a.size()==mix.size()){
-            if(a.compare(mix)&gt;0){
-                mix=a;
-                mixsum=i;
-            }
-            else{
-                continue;
-            }
-        }
-    }
-    cout&lt;&lt;mixsum&lt;&lt;endl;
-    cout&lt;&lt;mix&lt;&lt;endl; 
-    return 0;
-}</code></pre>
-<p>参考链接<br><a href="http://c.biancheng.net/view/1447.html" target="_blank" rel="noopener">C++ string字符串比较方法详解</a><br><a href="https://baike.baidu.com/item/ASCII/309296?fromtitle=ascii%E7%A0%81&amp;fromid=99077&amp;fr=aladdin" target="_blank" rel="noopener">百度百科ASCII</a></p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
+      
+      
+        <tags>
+            
+            <tag> markdown Latex </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>计算机网络-学习笔记2</title>
+      <link href="/lzfangwen.github.io/2020/04/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/"/>
+      <url>/lzfangwen.github.io/2020/04/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/</url>
+      
+        <content type="html"><![CDATA[<h2 id="数据通信基础知识"><a href="#数据通信基础知识" class="headerlink" title="数据通信基础知识"></a>数据通信基础知识</h2><h3 id="典型的数据通信模型"><a href="#典型的数据通信模型" class="headerlink" title="典型的数据通信模型"></a>典型的数据通信模型</h3><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/CPvLE6vyYds2.png" alt="mark"></p><a id="more"></a><h3 id="相关术语"><a href="#相关术语" class="headerlink" title="相关术语"></a>相关术语</h3><p>通信的目的是传送消息</p><p><strong>数据</strong>:传送信息的实体,通常是有意义的符号序列。</p><p><strong>信号</strong>:数据的电气/电磁的表现,是数据在传输过程中的存在形式。</p><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/N1nHo1I7kInr.png" alt="mark"></p><p><strong>信源</strong>:产生和发送数据的源头。</p><p><strong>信宿</strong>:接收数据的终点。</p><p><strong>信道</strong>:信号的传输媒介。一般用来表示向某一个方向传送信息的介质,因此一条通信线路往往包含一条发送信道和一条接收信道。</p><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/lJeU3FYMQMf8.png" alt="mark"></p><h3 id="三种通信方式"><a href="#三种通信方式" class="headerlink" title="三种通信方式"></a>三种通信方式</h3><p>从通信双方信息的交换方式看，可以有三种基本方式：</p><ol><li><strong>单工通信</strong>：只有一个方向的通信而没有反方向的交互,仅需要<strong>一条</strong>信道。</li><li><strong>半双工通信</strong>：通信的双方都可以发送或接收信息,但任何一方都不能同时发送和接收,需要<strong>两条</strong>信道。</li><li><strong>全双工通信</strong>：通信双方可以同时发送和接受信息,也需要<strong>两条</strong>信道。</li></ol><h3 id="两种数据传输方式"><a href="#两种数据传输方式" class="headerlink" title="两种数据传输方式"></a>两种数据传输方式</h3><ol><li><p><strong>串行传输</strong>：速度<strong>慢</strong>，费用<strong>低</strong>，适合<strong>远</strong>距离</p></li><li><p><strong>并行传输</strong>：速度<strong>快</strong>，费用<strong>高</strong>，适合<strong>近</strong>距离</p><p>​                    用于计算机内部数据传输（电脑上的井口 就为并行传输）</p></li></ol><h3 id="码元"><a href="#码元" class="headerlink" title="码元"></a>码元</h3><p><strong>码元</strong>是指用一个固定时长的信号波形(数字脉冲) ,代表不同离散数值的基本波形,是数字通信中数字信号的计量单位,这个时长内的信号称为k进制码元,而该时长称为码元宽度。当码元的离散状态有M个时(M大于2) ,此时码元为M进制码元。</p><p>1码元可以携带多个比特的信息量。例如,在使用二进制编码时,只有两种不同的码元,一种代表0状态,另一种代表1状态</p><h3 id="速率、波特、带宽"><a href="#速率、波特、带宽" class="headerlink" title="速率、波特、带宽"></a>速率、波特、带宽</h3><p><strong>速率</strong>也叫数据率,是指数据的<strong>传输速率</strong>,表示单位时间内传输的数据量。可以用<strong>码元传输速</strong>率和<strong>信息传输速率</strong>表示</p><ul><li><strong>码元传输速率</strong>:别名码元速率、波形速率、调制速率、符号速率等,它表示单位时间内数字通信系统所传输的码元个数(也可称为脉冲个数或信号变化的次数) ,单位是<strong>波特(Baud)</strong> 。 1波特表示数字通信系统每秒传输一个码元。这里的码元可以是多进制的,也可以是二进制的,但码元速率与进制数无关。====</li><li><strong>信息传输速率</strong>:别名信息速率、比特率等,表示单位时间内数字通信系统传输的二进制码元个数(即比特数)·单位是比特/秒(b/s) 。</li></ul><p>关系:若一个码元携带n bit的信息量,则MBaud的码元传输速率所对应的信息传输速率为MXn bit/s。</p><p>带宽:表示在单位时间内从网络中的某一点到另一点所能通过的“<strong>最高数据率</strong>” ,常用来表示网络的通信线路所能输数据的能力。单位是b/s </p><h4 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h4><p>某一数字通信系统传输的是四进制码元,4s传输了8000个码元,求系统的码元传输速率是多·少?信息传输速率是多少?若另一通信系统传输的是十六进制码元,6s传输了7200个码元,求他的码元传输速率是多少?信息传输速率是多少?并指出哪个系统传输速率快?</p><blockquote><p>2000波特    4000b/s    1200波特    4800b/s    十六进制最快</p><p>四进制码元系统</p><p>码元传输速率就是8000/4-2000Baud,信息传输速率就是20001log24=4000b/s</p><p>十六进制码元系统</p><p>码元传输速率就是7200/6-1200Baud,信息传输速率就是1200*10g216-4800b/s</p><p>系统传输的是<strong>比特流</strong>,通常比较的是信息传输速率,所以传输十六进制码元的通信系统传输速率较快,如果用该系统去传输四进制码元会有更高的码元传输速率。</p></blockquote><h2 id="奈式准则-amp-香农定理"><a href="#奈式准则-amp-香农定理" class="headerlink" title="奈式准则&amp;香农定理"></a>奈式准则&amp;香农定理</h2><h3 id="失真"><a href="#失真" class="headerlink" title="失真"></a>失真</h3><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/l7i9Y8YJXplH.png" alt="mark"></p><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/Npx9FIGhDJRS.png" alt="mark"></p><h3 id="奈式准则（奈奎斯特定理）"><a href="#奈式准则（奈奎斯特定理）" class="headerlink" title="奈式准则（奈奎斯特定理）"></a>奈式准则（奈奎斯特定理）</h3><p><strong>奈氏准则</strong>:在理想低通(无噪声,带宽受限)条件下,为了避免码间串扰,极限码元传输速率为2W Baud, w是信道带宽，单位是Hz。</p><p><strong>只有这两个公式 带宽才用Hz</strong></p><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/TOqH4IK30nC0.png" alt="mark"></p><ol><li>在任何信道中,<strong>码元传输的速率是有上限的</strong>。若传输速率超过此上限,就会出现严重的码间串扰问题,使接收端对码元的完全正确识别成为不可能。</li><li>信道的频带越宽(即能通过的信号高频分量越多) ,就可以用更高的速率进行码元的有效传输。</li><li><strong>奈氏准则给出了码元传输速率的限制,但并没有对信息传输速率给出限制。</strong></li><li>由于码元的传输速率受奈氏准则的制约,所以要提高数据的传输速率,就必须设法使每个码元能携带更多个比特的信息量,这就需要采用多元制的调制方法</li></ol><p>eg.</p><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/WW0KKr5lKwp1.png" alt="mark"></p><h3 id="香农定理"><a href="#香农定理" class="headerlink" title="香农定理"></a>香农定理</h3><p>噪声存在于所有的电子设备和通信信道中。由于噪声随机产生,它的瞬时值有时会很大,因此噪声会使接收端对码元的判决产生错误。但是噪声的影响是相对的,若信号较强,那么噪声影响相对较小。因此,信噪比就很重要。<strong>信噪比=信号的平均功率/噪声的平均功率,常记为S/N,并用分贝(dB)作为度量单位</strong>,</p><p><strong>即:信噪比（dB）$$=10\log_{10}（S/N）$$ 数值等价</strong></p><p><strong>香农定理</strong>:在带宽受限且有噪声的信道中,为了不产生误差,信息的数据传输速率有上限值</p><p><strong>信道的极限数据传输速率=$Wlog_2(1+S/N) (b/s)$ ，其中W指带宽（Hz）</strong></p><ol><li>信道的带宽或信道中的信噪比越大,则信息的极限传输速率就越高。</li><li>对一定的传输带宽和一定的信噪比,信息传输速率的上限就确定了。</li><li>只要信息的传输速率低于信道的极限传输速率,就一定能找到某种方法来实现无差错的传输。</li><li>香农定理得出的为极限信息传输速率,实际信道能达到的传输速率要比它低不少。</li><li>从香农定理可以看出,若信道带宽W或信噪比S/N没有上限(不可能) ,那么信道的极限信息传输速率也就没有上限。</li></ol><p>eg.</p><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/mq9HLO75vfiL.png" alt="mark"></p><h3 id="“nice”和“香浓”"><a href="#“nice”和“香浓”" class="headerlink" title="“nice”和“香浓”"></a>“nice”和“香浓”</h3><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/7GoI2OdlQyxj.png" alt="mark"></p><h2 id="编码与调制"><a href="#编码与调制" class="headerlink" title="编码与调制"></a>编码与调制</h2><h3 id="基带信号与宽带信号"><a href="#基带信号与宽带信号" class="headerlink" title="基带信号与宽带信号"></a>基带信号与宽带信号</h3><p><strong>信道</strong>:信号的传输媒介。一般用来表示向某一个方向传送信息的介质,因此一条通信线路往往包含条发送信道和一条接收信道。</p><ul><li>传输信号：<ul><li>模拟信道(传送模拟信号)</li><li>数字信道(传送数字信号)</li></ul></li><li>传输介质：<ul><li>无线信道 </li><li>有线信道</li></ul></li></ul><p>信道上传送的信号</p><ul><li><p><strong>基带信号</strong></p><p>将数字信号1和0直接用两种不同的电压表示,再送到<strong>数字信道</strong>上去传输(<strong>基带传输</strong>)。来自信源的信号,像计算机输出的代表各种文字或图像文件的数据信号都属于基带信号。基带信号就是发出的直接表达了要传输的信息的信号,比如我们说话的声波就是基带信号</p></li><li><p><strong>宽带信号</strong></p><p>将基带信号进行调制后形成的频分复用模拟信号,再传送到<strong>模拟信道</strong>上去传输(<strong>宽带传输</strong>).,把基带信号经过载波调制后,把信号的频率范围搬移到较高的频段以便在信道中传输(即仅频率范围内能够通过信道)</p></li></ul><p>在传输距离较<strong>近</strong>时,计算机网络采用<strong>基带传输</strong>方式(近距离衰减小,从而信号内容不易发生变化)</p><p>在传输距离较<strong>远</strong>时,计算机网络采用<strong>宽带传输</strong>方式(远距离衰减大,即使信号变化大也能最后过滤出来基带信号)</p><h3 id="编码与调制-1"><a href="#编码与调制-1" class="headerlink" title="编码与调制"></a>编码与调制</h3><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/EB69RsCbxxVX.png" alt="mark"></p><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/jMO7XCoQ8wVv.png" alt="mark"></p><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/UEnmhshwNlcK.png" alt="mark"></p><h3 id="数字数据编码为数字信号"><a href="#数字数据编码为数字信号" class="headerlink" title="数字数据编码为数字信号"></a>数字数据编码为数字信号</h3><ul><li><strong>非归零编码【NRZ】</strong><ul><li><strong>高1低0</strong>    编码容易实现,但没有检错功能且无法判断一个码元的开始和结束,”以至于<strong>收发双方难以保持同步</strong>。</li></ul></li><li>归零编码【RZ】<ul><li>信号电平在一个码元之内都要恢夏到零的这种编码成编码方式。</li></ul></li><li>反向不归零编码【NRZI】<ul><li>信号电平翻转表示0,信号电平不变表示1.</li></ul></li><li><strong>曼切斯特编码</strong><ul><li>将一个码元分成两个相等的间隔,前一个间隔为低电平后一个间隔为高电平表示码元1;码元0则正好相反。也可以采用相反的规定。该编码的特点是在每一个码元的中间出现电平跳变,位中间的跳变既作时钟信号(可用于同步)又作数据信号,但它所占的频带宽度是原始的基带宽度的两倍。每一个码元都被调成两个电平,所以数据传输速率只有调制速率的$1/2$</li></ul></li><li><strong>差分曼切斯特编码</strong><ul><li><strong>同1异0</strong>    常用于局域网传输,其规则是:若码元为1,则前半个码元的电平与上一个码元的后半个码元的电,平相同,若为0,则相反。该编码的特点是,在每个码元的中间,都有一次电平的跳转,可以实现自同步,且抗干扰性强于曼彻斯特编码</li></ul></li><li>4B/5B编码<ul><li>比特流中插入额外的比特以打破-连串的0或1,就是用5个比特来编码4个比特的数据,之后再传给接收方,因此称为4B/5B,编码效率为80%</li></ul></li></ul><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/BTyfKLsdSerN.png" alt="mark"></p><h3 id="数字数据调制为模拟信号"><a href="#数字数据调制为模拟信号" class="headerlink" title="数字数据调制为模拟信号"></a>数字数据调制为模拟信号</h3><p>数字数据调制技术在发送端将数字信号转换为模拟信号,而在接收端将模拟信号还原为数字信号,分别对应于调制解调器的调制和解调过程。</p><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/3dNDqruxdEjR.png" alt="mark"></p><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/iOr7w6xHyQuX.png" alt="mark"></p><p>​                    1200*4=4800b/s</p><h3 id="模拟数据编码为数字信号"><a href="#模拟数据编码为数字信号" class="headerlink" title="模拟数据编码为数字信号"></a>模拟数据编码为数字信号</h3><p>计算机内部处理的是二进制数据,处理的都是数字音频,所以需要将模拟音频通过采样、量化转换成有限个数字表示的离散序列(即实现<strong>音频数字化</strong>)</p><p>最典型的例子就是对音频信号进行编码的脉码调制(<strong>PCM</strong>) ,在计算机应用中,能够达到<strong>最高保真水平</strong>的就是PCM编码,被广泛用于素材保存及音乐欣赏, CD,DVD以及我们常见的WAV文件中均有应用。它主要包括三步:抽样、量化、编码。</p><ol><li><p><strong>抽样</strong>:对模拟信号周期性扫描,把时间上连续的信号变成时间上离散的信号。为了使所得的离散信号能无失真地代表被抽样的模拟数据,要使用采样定理进行采样: </p><p>​                            $$f_{采样频率} \geq f{信号最高频率}$$</p></li><li><p><strong>量化</strong>:把抽样取得的电平幅值按照一定的分级标度转化为对应的数字值,并取整数,这就把连续的电平幅值转换为离散的数字量。</p></li><li><p><strong>编码</strong>:把量化的结果转换为与之对应的二进制编码。</p></li></ol><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/SAmVCiJaaMat.png" alt="mark"></p><h3 id="模拟数据调制为模拟信号"><a href="#模拟数据调制为模拟信号" class="headerlink" title="模拟数据调制为模拟信号"></a>模拟数据调制为模拟信号</h3><p>为了实现传输的有效性,可能需要较高的频率。这种调制方式还可以使用<strong>频分复用技术</strong>,充分利用带宽资源。在电话机和本地交换机所传输的信号是采用模拟信号传输模拟数据的方式;模拟的声音数据是加载到模拟的载波信号中传输的。</p><h2 id="物理层传输介质"><a href="#物理层传输介质" class="headerlink" title="物理层传输介质"></a>物理层传输介质</h2><p>传输介质也称传输媒体/传输媒介,它就是数据传输系统中在发送设备和接收设备之间的<strong>物理通路</strong>。</p><p><strong>传输媒体并不是物理层</strong>。传输媒体在物理层的下面,因为物理层是体系结构的第一层,因此有时称传输媒体为0层。在传输媒体中传输的是信号,但传输媒体并不知道所传输的信号代表什么意思。但物理层规定了<strong>电气特性</strong>,因此能够识别所传送的比特流。</p><p>传输介质</p><ul><li>导向性传输介质：电磁波被导向沿着固体媒介(铜线/光纤)传播。</li><li>非导向性传输介质：自由空间,介质可以是空气、真空、海水等。</li></ul><h3 id="双绞线"><a href="#双绞线" class="headerlink" title="双绞线"></a>双绞线</h3><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/pz2JCTyqoQ07.png" alt="mark"></p><h3 id="同轴电缆"><a href="#同轴电缆" class="headerlink" title="同轴电缆"></a>同轴电缆</h3><p>同轴电缆由<strong>导体铜质芯线</strong>、<strong>绝缘层</strong>、<strong>网状编织屏蔽层</strong>和<strong>塑料外层</strong>构成。按特性阻抗数值的不同,通常将同轴电缆分,为两类: 502同轴电缆和750同轴电缆。其中, 502同轴电缆主要用于传送基带数字信号,又称为<strong>基带同轴电缆</strong>,它在局域网中得到广泛应用; 752同轴电缆主要用于传送宽带信号,又称为<strong>宽带同轴电缆</strong>,它主要用于有线电视系统。</p><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/53J7HgEVjXB1.png" alt="mark"></p><h3 id="光纤"><a href="#光纤" class="headerlink" title="光纤"></a>光纤</h3><p>光纤通信就是利用光导纤维(简称光纤)传递<strong>光脉冲</strong>来进行通信。有光脉冲表示1,无光脉冲表示0。而可见光的频率大约是$10^8$MHz,因此光纤通信系统的<strong>带宽远远大于</strong>目前其他各种传输媒体的带宽。</p><p>光纤在发送端有光源,可以采用发光二极管或半导体激光器,它们在电脉冲作用下能产生出光脉冲;在接收端用光电二极管做成光检测器,在检测到光脉冲时可还原出电脉冲。</p><p>光纤主要由<strong>纤芯(实心的</strong>! )和包层构成,光波通过纤芯进行传导,包层较纤芯有较低的折射率。当光线从高折射率的介质射向低折射率的介质时,其折射角将大于入射角。因此,如果入射角足够大,就会出现全反射,即光线碰到包层时候就会折射回纤芯、这个过程不断重复,光也就沿着光纤传输下去。</p><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/pzDmg5D4j8C4.png" alt="mark"></p><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/Gw2xKokbrzAj.png" alt="mark">光纤的特点：</p><ol><li>传输损耗小,中继距离长,对远距离传输特别经济。</li><li>抗雷电和电磁干扰性能好。</li><li>无串音干扰,保密性好,也不易被窃听或截取数据。</li><li>体积小,重量轻。</li></ol><h3 id="非导向性传输介质"><a href="#非导向性传输介质" class="headerlink" title="非导向性传输介质"></a>非导向性传输介质</h3><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/pjRfo1QlRkMJ.png" alt="mark"></p><h2 id="物理层设备"><a href="#物理层设备" class="headerlink" title="物理层设备"></a>物理层设备</h2><h3 id="中继器"><a href="#中继器" class="headerlink" title="中继器"></a>中继器</h3><p><strong>诞生原因</strong>:由于存在损耗,在线路上传输的信号功率会逐渐衰减,衰减到一定程度时将造成信号失真,因此会导致接收错误。</p><p><strong>中继器的功能</strong>:对信号进行<strong>再生和还原</strong>,对衰减的信号进行放大,保持与原数据相同,以增加信号传输的距离,延长网络的长度。</p><p>​                                        <strong>再生数字信号</strong></p><p><strong>中继器的两端</strong>:</p><ul><li>两端的网络部分是网段,而不是子网,适用于完全相同的<strong>两类</strong>网络的互连,且两个网段速率要相同。</li><li>中继器只将任何电缆段上的数据发送到另一段电缆上,它仅作用于信号的电气部分,并不管数据中是否有错误数据或不适于网段的数据。</li><li>两端可连相同媒体,也可连不同媒体。</li><li>中继器两端的网段一定要是同一个协议。(中继器不会存储转发,傻)</li></ul><p><strong>5-4-3规则</strong>:网络标准中都对信号的延迟范围作了具体的规定,因而中继器只能在规定的范围内进行,否则会网络故障</p><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/AhOklmr7g2ph.png" alt="mark"></p><h3 id="集线器（多口中继器）"><a href="#集线器（多口中继器）" class="headerlink" title="集线器（多口中继器）"></a>集线器（多口中继器）</h3><p><strong>集线器的功能</strong>:对信号进行再生<strong>放大转发</strong>,对衰减的信号进行放大,接着转发到其他所有(除输入端口外)处于工作状态的端口上,以增加信号传输的距离,延长网络的长度。不具备信号的定向传送能力,是一个共享式设备。</p><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200409/BkEofHpp8S9K.png" alt="mark"></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
       <categories>
-        <category>C++</category>
+          
+          <category> 计算机网络 </category>
+          
       </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>操作系统-学习笔记1</title>
-    <url>/lzfangwen.github.io/2020/03/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</url>
-    <content><![CDATA[<h2 id="操作系统概述"><a href="#操作系统概述" class="headerlink" title="操作系统概述"></a>操作系统概述</h2><a id="more"></a>
-
-<p><img src="https://img-blog.csdnimg.cn/20200319155327527.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>四个特性</strong></p>
-<ul>
-<li><strong>并发</strong><img src="https://img-blog.csdnimg.cn/20200319160437281.png" alt="在这里插入图片描述"></li>
-<li><strong>共享</strong>即资源共享<img src="https://img-blog.csdnimg.cn/20200319160605652.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li><strong>虚拟</strong><br><img src="https://img-blog.csdnimg.cn/20200319160708112.png" alt="在这里插入图片描述"></li>
-<li><strong>异步</strong><br><img src="https://img-blog.csdnimg.cn/20200319160751700.png" alt="在这里插入图片描述"><br><strong>并发和共享互为存在条件<br>没有并发和共享，就谈不上虚拟和异步，因此并发和共享是操作系统的两个最基本的特征</strong><h2 id="OS"><a href="#OS" class="headerlink" title="OS"></a>OS</h2><img src="https://img-blog.csdnimg.cn/20200319192903977.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h2 id="OS的运行机制和体系结构"><a href="#OS的运行机制和体系结构" class="headerlink" title="OS的运行机制和体系结构"></a>OS的运行机制和体系结构</h2><img src="https://img-blog.csdnimg.cn/20200319215155378.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>※特权指令只能在核心态下执行</strong><br><strong>※内核程序只能在核心态下执行</strong><br><strong>※用户态-&gt;核心态 的切换通过 中断  来实现且是唯一途径</strong><h3 id="内核"><a href="#内核" class="headerlink" title="内核"></a>内核</h3><img src="https://img-blog.csdnimg.cn/20200319215623593.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-</ul>
-<h4 id="操作系统的体系结构"><a href="#操作系统的体系结构" class="headerlink" title="操作系统的体系结构"></a>操作系统的体系结构</h4><p><img src="https://img-blog.csdnimg.cn/2020031921574972.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200319215823214.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="中断和异常"><a href="#中断和异常" class="headerlink" title="中断和异常"></a>中断和异常</h2><p><img src="https://img-blog.csdnimg.cn/20200319231430227.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h2><p><img src="https://img-blog.csdnimg.cn/20200320092825115.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200320093028554.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p><a href="https://www.bilibili.com/video/av70156862?t=15&amp;p=6" target="_blank" rel="noopener">来源 王道考研 操作系统</a></p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
+      
+      
+        <tags>
+            
+            <tag> 计算机网络 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>测试</title>
+      <link href="/lzfangwen.github.io/2020/04/07/%E6%B5%8B%E8%AF%95/"/>
+      <url>/lzfangwen.github.io/2020/04/07/%E6%B5%8B%E8%AF%95/</url>
+      
+        <content type="html"><![CDATA[<script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>操作系统-学习笔记7</title>
+      <link href="/lzfangwen.github.io/2020/04/05/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B07/"/>
+      <url>/lzfangwen.github.io/2020/04/05/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B07/</url>
+      
+        <content type="html"><![CDATA[<h2 id="生产者和消费者问题"><a href="#生产者和消费者问题" class="headerlink" title="生产者和消费者问题"></a>生产者和消费者问题</h2><p>系统中有一组生产者进程和一组消费者进程,生产者进程每次生产一个产品放入缓冲区,消费者,进程每次从缓冲区中取出一个产品并使用。(注:这里的“产品”理解为某种数据)生产者、消费者共享一个<strong>初始为空、大小为n的缓冲区</strong>。</p><p>只有缓冲区没满时,生产者才能把产品放入缓冲区,否则必须等待。</p><p>只有缓冲区不空时,消费者才能从中取出产品,否则必须等待。</p><p>缓冲区是临界资源,<strong>各进程必须互斥地访问</strong>。</p><a id="more"></a><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200405/sTX4f7vOIavn.png" alt="mark"></p><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200405/qgByT9YI8llH.png" alt="mark"></p><p><strong>实现互斥的P操作一定要在实现同步的P操作之后</strong></p><p>V操作不会导致进程阻塞，因此两个V操作顺序可以交换</p><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200405/0A4f6z2oszli.png" alt="mark"></p><h2 id="多生产者-多消费者问题"><a href="#多生产者-多消费者问题" class="headerlink" title="多生产者-多消费者问题"></a>多生产者-多消费者问题</h2><p>桌子上有一只盘子,每次只能向其中放入一个水果。爸爸专向盘子中放苹果,妈妈专向盘子中放橘子,儿子专等着吃盘子中的橘子,女儿专等着吃盘子中的苹果。只有盘子空时,爸爸或妈妈才可向盘子中放一个水果。仅当盘子中有自己需要的水果时,儿子或女儿可以从盘子中取出水果。</p><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/t5GvRuDas2En.png" alt="mark"></p><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/bm7Iwt05IMiy.png" alt="mark"></p><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/pBMktfFR9GF9.png" alt="mark"></p><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/SppmnSNjAx4D.png" alt="mark"></p><p>原因在于:本题中的缓冲区大小为1,在任何时刻, apple, orange, plate三个同步信号量中最多只有一个是1,因此在任何时刻,最多只有一个进程的P操作不会被阻塞,并顺利地进入临界区…</p><p><strong>总结:</strong>在生产者-消费者问题中,如果缓冲区大小为1,那么有可能不需要设置互斥信号量就可以实现互斥访问缓冲区的功能。当然,这不是绝对的,要具体问题具体分析。</p><p>建议:在考试中如果来不及仔细分析,可以加上互斥信号量,保证各进程一定会互斥地访问缓冲区。但需要注意的是,实现互斥的P操作一定要在实现同步的P操作之后,否则可能引起“死锁”PV<strong>操作题目的解题思路:</strong></p><ol><li>关系分析。找出题目中描述的各个进程,分析它们之间的同步、互斥关系。</li><li>整理思路。根据各进程的操作流程确定P、V操作的大致顺序</li><li>设置信号量。设置需要的信号量,并根据题目条件确定信号量初值。(互斥信号量初值一般为1,同步信号量的初始值要看对应资源的初始值是多少)</li></ol><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/rtMKz5svYszz.png" alt="mark"></p><h2 id="吸烟者问题"><a href="#吸烟者问题" class="headerlink" title="吸烟者问题"></a>吸烟者问题</h2><p>假设一个系统有<strong>三个抽烟者进程</strong>和<strong>一个供应者进程</strong>。每个抽烟者不停地卷烟并抽掉它,但是要卷起并抽掉一支烟,抽烟者需要有三种材料:烟草、纸和胶水。三个抽烟者中,第一个拥有烟草、,第二个拥有纸、第三个拥有胶水。供应者进程无限地提供三种材料,供应者每次将两种材料放桌子上,拥有剩下那种材料的抽烟者卷一根烟并抽掉它,并给供应者进程一个信号告诉完成了,供应者就会放另外两种材料在桌上，这个过程一直重复（让三个抽烟者轮流抽烟）</p><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/f0YnUJdo0VET.png" alt="mark"></p><p><strong>问题分析</strong></p><p>本质上这题也属于“生产者-消费者”问题,更详细的说应该是“可生产多种产品的单生产者-多消费者”。</p><ol><li>关系分析。找出题目中描述的各个进程,分析它们之间的同步、互斥关系。</li><li>整理思路。根据各进程的操作流程确定P、V操作的大致顺序</li></ol><p>桌子可以抽象为容量为1的缓冲区，要互斥访问</p><p>三种材料 可以抽象为三种组合</p><p>​    组合一：纸+胶水</p><p>​    组合二:烟草+胶水</p><p>​    组合三:烟草+纸</p><p>同步关系（要从事件的角度分析）</p><p>​    桌子上有组合一    →    第一个抽烟者取走东西</p><p>​    桌子上有组合二    →    第二个抽烟者取走东西</p><p>​    桌子上有组合三    →    第三个抽烟者取走东西</p><p>​    发出完成信号        →    供应者将下一个组合放在桌上</p><p>​        PV操作顺序 “前V后P”</p><p>​        (必须发生在前面的事件之后执行V操作，必须发生在后面的事件之前执行P操作)</p><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/kFNJqbY66BmN.png" alt="mark"></p><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/twBBqexItxDH.png" alt="mark"></p><h2 id="读者-写者问题"><a href="#读者-写者问题" class="headerlink" title="读者-写者问题"></a>读者-写者问题</h2><p>有读者和写者两组并发进程,共享一个文件,当两个或两个以上的读进程同时访问共享数据时不会产生副作用,但若某个写进程和其他进程(读进程或写进程)同时访问共享数据时则可能导致·数据不一致的错误。</p><p>因此要求: </p><ol><li>允许多个读者可以同时对文件执行读操作; </li><li>只允许一个写者往文件中写信息; </li><li>任一写者在完成写操作之前不允许其他读者或写者工作;</li><li>写者执行写操作,应让已有的读者和写者全部退出。</li></ol><p><strong>问题分析</strong></p><p>两类进程:写进程、读进程</p><p>互斥关系:写进程一写进程、写进程一读进程。读进程与读进程不存在互斥问题</p><p>写者进程和任何进程都互斥,设置一个互斥信号量rw,在写者访问共享文件前后分别执行P, V操作。</p><p>读者进程和写者进程也要互斥,因此读者访问共享文件前后也要对rw执行P、V操作。</p><p>如果所有读者进程在访问共享文件之前都执行P(rw)操作,那么会导致各个读进程之间也无法同时访问文件。</p><p><strong>Key:读者写者问题的核心思想–怎么处理该问题呢?</strong></p><p>P(rw)和Vrw)其实就是对共享文件的“加锁”和”解锁” 。既然各个读进程需要同时访问,而读进程与写进程又必须互斥访间,那么我们可以让第一个访问文件的读进程“加锁” ,让最后一个访问完文件的读进程“解锁”。可以设置一个整数变量count来记录当前有几个读进程在访问文件。</p><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/mogqygCIeL4m.png" alt="mark"></p><p>读进程源源不断会导致写进程饿死</p><p>解决方法：</p><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/38XxSpldwRzG.png" alt="mark"></p><p>读者-写者问题为我们解决复杂的互斥问题提供了一个参考思路。</p><p>其<strong>核心思想</strong>在于设置了一个<strong>计数器count</strong>用来记录当前正在访间共享文件的读进程数。我们可以用count的值来判断当前进入的进程是否是第一个/最后一个读进程,从而做出不同的处理。</p><p>另外,对count变量的检查和赋值不能一气呵成导致了一些错误,如果<strong>需要实现“一气呵成”,自然应该想到用互斥信号量。</strong></p><p>最后,还要认真体会我们是如何解决“写进程饥饿”问题的。</p><p>绝大多数的考研PV操作大题都可以用之前介绍的几种生产者-消费者问题的思想来解决,如果遇到更复杂的问题,可以想想能否用读者写者问题的这几个思想来解决。</p><h2 id="哲学家进餐问题"><a href="#哲学家进餐问题" class="headerlink" title="哲学家进餐问题"></a>哲学家进餐问题</h2><p>张圆桌上坐着5名哲学家,每两个哲学家之间的桌上摆一根筷子,桌子的中间是一碗米饭。哲学家们倾注毕生的精力用于思考和进餐,哲学家在思考时,并不影响他人。只有当哲学家饥饿时,才试图拿起左、右两根筷子(一根一根地拿起)。如果筷子已在他人手上,则需等待。饥饿的哲学家只有同时拿起两根筷子才可以开始进餐,当进餐完毕后,放下筷子继续思考。</p><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/WCHmiiXhRtMz.png" alt="mark"></p><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/ahbISrdfq3o3.png" alt="mark"></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
       <categories>
-        <category>OS</category>
+          
+          <category> OS </category>
+          
       </categories>
-      <tags>
-        <tag>OS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JavaEE-学习笔记1</title>
-    <url>/lzfangwen.github.io/2020/04/01/JavaEE-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</url>
-    <content><![CDATA[<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
-  </entry>
-  <entry>
-    <title>操作系统-学习笔记4</title>
-    <url>/lzfangwen.github.io/2020/03/31/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/</url>
-    <content><![CDATA[<p><a href="https://www.bilibili.com/video/BV1YE411D7nH?p=31" target="_blank" rel="noopener">b站王道考研 OS</a> p28~p31学习笔记 仅方便自己复习用 侵删</p>
-<h2 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p> 死锁是指两个或两个以上的进程在执行过程中,因争夺资源而造成的一种互相等待的现象,若无外力作用,它们都将无法推进下去.此时称系统处于死锁状态或系统产生了死锁,这些永远在互相等待的进程称为死锁进程.</p>
-<a id="more"></a>
-
-<h3 id="四个必要条件"><a href="#四个必要条件" class="headerlink" title="四个必要条件"></a>四个必要条件</h3><p>（1） <strong>互斥条件</strong>：一个资源每次只能被一个进程使用。<br>（2） <strong>请求与保持条件</strong>：一个进程因请求资源而阻塞时，对已获得的资源保持不放。<br>（3） <strong>不剥夺条件</strong>:进程已获得的资源，在末使用完之前，不能强行被剥夺。<br>（4） <strong>循环等待条件</strong>:若干进程之间形成一种头尾相接的循环等待资源关系。<br>这四个条件是死锁的必要条件，只要系统发生死锁，这些条件必然成立，而只要上述条件之一不满足，就不会发生死锁。</p>
-<h3 id="死锁、饥饿、死循环的区别"><a href="#死锁、饥饿、死循环的区别" class="headerlink" title="死锁、饥饿、死循环的区别"></a>死锁、饥饿、死循环的区别</h3><p>死锁:各进程互相等待对方手里的资源,导致各进程都阻塞,无法向前推进的现象。</p>
-<p>饥饿:由于长期得不到想要的资源,某进程无法向前推进的现象。比如:在短进程优先(SPF)算法中,若有源源不断的短进程到来,则长进程将一直得不到处理机,从而发生长进程“饥饿”</p>
-<p>死循环:某进程执行过程中一直跳不出某个循环的现象。有时是因为程序逻辑bug导致的,有时是程序员故意设计的。</p>
-<table>
-    <tbody><tr>
-        <td></td>
-        <td>共同点</td>
-        <td>区别</td>
-    </tr>
-    <tr>
-        <td>死锁</td><td rowspan="3">都是进程无法顺利向前推进的现象（故意设计的死循环除外）</td>
-        <td>死锁一定是“循环等待对方手中的资源”导致的，因此如果有死锁现象，那至少有两个或两个以上的进程同时发生死锁。另外，发生死锁的进程一定 处于阻塞态。</td>
-    </tr>
-    <tr>
-        <td>饥饿</td><td>可能只有一个进程发生饥饿。发生饥饿的进程既可能是阻塞态（如长期得不到I/O设备），也可能是就绪态（长期得不到处理机）</td>
-    </tr>
-    <tr>
-        <td>死循环</td>
-        <td>可能只有一个进程发生死循环。死循环的进程可以上处理机运行(可以是运行态) ,只不过无法像期待的那样顺利推进。死锁和饥饿问题是由于操作系统分配资源的策略不合理导致的,而死循环是由代码逻辑的错误导致的。死锁和饥饿是管理者（操作系统）问题,死循环是被管理者的问题。</td>
-    </tr>
-</tbody></table>
-
-<h3 id="产生死锁的原因"><a href="#产生死锁的原因" class="headerlink" title="产生死锁的原因"></a>产生死锁的原因</h3><ol>
-<li><p><strong>对系统资源的竞争</strong>。各进程对不可剥夺的资源(如打印机)的竞争可能引起死锁,对可剥夺的资源(CPU)的竞争是不会引起死锁的</p>
-</li>
-<li><p><strong>程序推进顺序非法</strong>。请求和释放资源的顺序不当,也同样会导致死锁。例如,并发执行的进程P1、P2分别申请并占有了资源R1,R2,之后进程P1又紧接着申请资源R2,而进程P2又申请资源R1,两者会因为申请的资源被对方占有而阻塞,从而发生死锁。</p>
-</li>
-<li><p><strong>信号量的使用不当也会造成死锁</strong>。如生产者-消费者问题中,如果实现互斥的P操作在实现同步的P操作之前,就有可能导致死锁。(可以把互斥信号量、同步信号量也看做是一种抽象的系统资源)</p>
-<p>总之,对不可剥夺资源的不合理分配,可能导致死锁。</p>
-</li>
-</ol>
-<h3 id="死锁的处理策略"><a href="#死锁的处理策略" class="headerlink" title="死锁的处理策略"></a>死锁的处理策略</h3><ol>
-<li><strong>预防死锁</strong>。破坏死锁产生的四个必要条件中的一个或几个。</li>
-<li><strong>避免死锁</strong>。用某种方法防止系统进入不安全状态,从而避免死锁(银行家算法)</li>
-<li><strong>死锁的检测和解除</strong>。允许死锁的发生,不过操作系统会负责检测出死锁的发生,然后采取某种措施解除死锁。</li>
-</ol>
-<h4 id="破坏互斥条件"><a href="#破坏互斥条件" class="headerlink" title="破坏互斥条件"></a><strong>破坏互斥条件</strong></h4><p>spooling技术</p>
-<h4 id="破坏不剥夺条件"><a href="#破坏不剥夺条件" class="headerlink" title="破坏不剥夺条件"></a><strong>破坏不剥夺条件</strong></h4><p>进程所获得的资源在未使用完之前,不能由其他进程强行夺走,只能主动释放。</p>
-<p>方案一:当某个进程请求新的资源得不到满足时,它必须立即释放保持的所有资源,待以后需要时再重新申请。也就是说,即使某些资源尚未使用完,也需要主动释放,从而破坏了不可剥夺条件。</p>
-<p>方案二:当某个进程需要的资源被其他进程所占有的时候,可以由操作系统协助,将想要的资源强行剥夺。这种方式一般需要考虑各进程的优先级(比如:剥夺调度方式,就是将处理机资源强行剥夺给优先级更高的进程使用)</p>
-<p><strong>该策略的缺点</strong>:</p>
-<ol>
-<li>实现起来比较复杂。</li>
-<li>释放已获得的资源可能造成前一阶段工作的失效。因此这种方法一般只适用于易保存和恢复状态的资源,如CPU</li>
-<li>反复地申请和释放资源会增加系统开销,降低系统吞吐量。</li>
-<li>若采用方案一,意味着只要暂时得不到某个资源,之前获得的那些资源就都需要放弃,以后再重新申请。如果一直发生这样的情况,就会导致进程饥饿。</li>
-</ol>
-<h4 id="破坏请求和保持条件"><a href="#破坏请求和保持条件" class="headerlink" title="破坏请求和保持条件"></a><strong>破坏请求和保持条件</strong></h4><p>进程已经保持了至少一个资源,但又提出了新的资源请求,而该资源又被其他进程占有,此时请求进程被阻塞,但又对自己己有的资源保持不放。</p>
-<p>可以采用<strong>静态分配方法</strong>,即进程在运行前一次申请完它所需要的全部资源,在它的资源未满足前,,不让它投入运行。一旦投入运行后,这些资源就一直归它所有,该进程就不会再请求别的任何资源</p>
-<p>该策略实现起来简单,但也有明显的缺点有些资源可能只需要用很短的时间,因此如果进程的整个运行期间都一直保持着所有资源,就会造成严重的资源浪费<strong>资源利用率极低</strong>。另外,该策略也有可能<strong>导致某些进程饥饿</strong>。</p>
-<h4 id="破坏循环等待条件"><a href="#破坏循环等待条件" class="headerlink" title="破坏循环等待条件"></a>破坏循环等待条件</h4><p>循环等待条件:存在一种进程资源的循环等待链,链中的每一个进程已获得的资源同时被下一个进程所请求。</p>
-<p>可采用<strong>顺序资源分配法</strong>。首先给系统中的资源编号,规定每个进程必须按编号递增的顺序请求资源,同类资源(即编号相同的资源)一次申请完。原理分析:一个进程只有已占有小编号的资源时,才有资格申请更大编号的资源。按此规则,已持有大编号资源的进程不可能逆向地回来申请小编号的资源,从而就不会产生循环等待的现象。</p>
-<p>该策略的缺点:</p>
-<ol>
-<li>不方便增加新的设备,因为可能需要重新分配所有的编号;</li>
-<li>进程实际使用资源的顺序可能和编号递增顺序不一致,会导致资源浪费;</li>
-<li>必须按规定次序申请资源,用户编程麻烦。</li>
-</ol>
-<h2 id="避免死锁（银行家算法）"><a href="#避免死锁（银行家算法）" class="headerlink" title="避免死锁（银行家算法）"></a>避免死锁（银行家算法）</h2><h3 id="安全序列"><a href="#安全序列" class="headerlink" title="安全序列"></a>安全序列</h3><p>所谓安全序列,就是指如果系统按照这种序列分配资源,则每个进程都能顺利完成。只要能找出一个安全序列,系统就是安全状态。当然,安全序列可能有多个如果分配了资源之后,系统中找不出任何一个安全,,系统就进入了不安全状态。这就意味着之后可能所有进程都无法顺利的执行下去。当然,如果,进程提前归还了一些资源,那系统也有可能重新1安全不i我们在分配资源之</p>
-<p> 如果系统处于安全状态,就一定不会发生死锁。如果系统进入不安全状态,就可能发生死锁(处于不安全状态未必就是发生了死锁,但发生死锁时一定是在不安全状态)因此可以在资源分配之前预先判断这次分配是否会导致系统进入不安全状态,以此决定是否答应资源</p>
-<h3 id="银行家算法"><a href="#银行家算法" class="headerlink" title="银行家算法"></a>银行家算法</h3><p><strong>数据结构</strong>：</p>
-<ul>
-<li>长度为m的一维数组Available表示还有多少可用资源</li>
-<li>n<em>*m矩阵Max表示各进程对资源的最大需求数</em></li>
-<li>n*m矩阵Allocation表示已经给各进程分配了多少资源</li>
-<li>Max-Allocation = Need矩阵表示各进程最多还需要多少资源</li>
-<li>用长度为m的一位数组Request表示进程此次申请的各种资源数</li>
-</ul>
-<p><strong>银行家算法步骤:</strong></p>
-<ol>
-<li>检查此次申请是否超过了之前声明的最大需求数</li>
-<li>检查此时系统剩余的可用资源是否还能满足这次请求</li>
-<li>试探着分配,更改各数据结构</li>
-<li>用安全性算法检查此次分配是否会导致系统进入不安全状态</li>
-</ol>
-<p><strong>安全性算法步骤：</strong></p>
-<p>​    检查当前的剩余可用资源是否能满足某个进程的最欧需求,如果可以,就把该进程加入安全序列,并把该进程持有的资源全部回收。</p>
-<p>eg</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200401/EmlzwDP1stjB.png" alt="mark"></p>
-<h3 id="死锁的检测和解除"><a href="#死锁的检测和解除" class="headerlink" title="死锁的检测和解除"></a>死锁的检测和解除</h3><h4 id="检测"><a href="#检测" class="headerlink" title="检测"></a>检测</h4><p>为了能对系统是否己发生了死锁进行检测,必须:</p>
-<ol>
-<li><p>用某种数据结构来保存资源的请求和分配信息;</p>
-</li>
-<li><p>提供一种算法,利用上述信息来检测系统是否已进入死锁状态</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200401/fBCBVqXHx7ud.png" alt="mark"></p>
-</li>
-</ol>
-<p>检测死锁的算法</p>
-<ol>
-<li>在资源分配图中,找出既不阻塞又不是孤点的进程Pi (即找出一条有向边与它相连,且该有向边对应资源的申请数量小于等于系统中已有空闲资源数量。如下图中, R1没有空闲资源, R2有一个空闲资源。若所有的连接该进程的边均满足上述条件,则这个进程能继续运行直至完成,然后释放它所占有的所有资源)。消去它所有的请求边和分配变,使之称为孤立的结点。在上图中,P1是满足这一条件的进程结点,于是将P1的所有边消去。</li>
-<li>进程Pi所释放的资源,可以唤醒某些因等待这些资源而阻塞的进程,原来的阻塞进程可能变,为非阻塞进程。在下图中, P2就满足这样的条件。根据1)中的方法进行一系列简化后,若能消去途中所有的边,则称该图是可完全简化的。</li>
-</ol>
-<h4 id="解除"><a href="#解除" class="headerlink" title="解除"></a>解除</h4><p>一旦检测出死锁的发生,就应该立即解除死锁。</p>
-<p>补充:并不是系统中所有的进程都是死锁状态,用死锁检测算法化简资源分配图后,还连着边的那些进程就是死锁进程</p>
-<p>解除死锁的主要方法有:</p>
-<ol>
-<li><strong>资源剥夺法</strong>。挂起(暂时放到外存上)某些死锁进程,并抢占它的资源,将这些资源分配给其他的死锁进程。但是应防止被挂起的进程长时间得不到资源而饥饿。</li>
-<li><strong>撤销进程法</strong>(或称<strong>终止进程法</strong>)。强制撤销部分、甚至全部死锁进程,并剥夺这些进程的资源。这种方式的优点是实现简单,但所付出的代价可能会很大。因为有些进程可能已经运行了很长时间,已经接近结束了,一旦被终止可谓功亏一篑,以后还得从头再来。</li>
-<li><strong>进程回退法</strong>。让一个或多个死锁进程回退到足以避免死锁的地步。这就要求系统要记录进程的历史记录，设置还原点</li>
-</ol>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
+      
+      
+        <tags>
+            
+            <tag> OS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>操作系统-学习笔记6</title>
+      <link href="/lzfangwen.github.io/2020/04/05/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B06/"/>
+      <url>/lzfangwen.github.io/2020/04/05/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B06/</url>
+      
+        <content type="html"><![CDATA[<h2 id="信号量机制"><a href="#信号量机制" class="headerlink" title="信号量机制"></a>信号量机制</h2><p>用户进程可以通过使用操作系统提供的一对原语来对信号量进行操作,从而很方便的实现了进程互斥、进程同步。</p><p><strong>信号量</strong>其实就是一个变量(可以是一个整数,也可以是更复杂的记录型变量),可以用一个信号量来<strong>表示系统中某种资源的数量</strong>,比如:系统中只有一台打印机,就可以设置一个初值为1的信号量</p><p><strong>原语</strong>是一种特殊的程序段,其<strong>执行只能一气呵成,不可被中断</strong>。原语是由<strong>关中断/开中断指令</strong>实现的。软件解决方案的主要问题是由“进入区的各种操作无法一气呵成” ,因此如果能把进入区、退作都用“原语”这些操作能“一气呵成”就能避免问题</p><a id="more"></a><p>一对原语: <strong>wait(S)</strong>原语和<strong>signal(S)</strong>原语,可以把原语理解为我们自己写的函数,函数名分别为wait和signal,括号里的<strong>信号量S</strong>其实就是函数调用时传入的一个参数。</p><p>wait, signal原语常<strong>简称为P、V操作</strong>(来自荷兰语proberen和verhogen) 。因此,做题的时候常把wait(S)、 signal(S)两个操作分别写为P(S)、v(S)</p><h3 id="整型信号量"><a href="#整型信号量" class="headerlink" title="整型信号量"></a>整型信号量</h3><p>用一个<strong>整数型的变量</strong>作为信号量，用来表示系统中某种资源的数量。</p><p>与普通整数变量的区别：对信号量的操作只有三种，初始化、P操作、V操作</p><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200405/vQcqEgpVyiX2.png" alt="mark"></p><h3 id="记录型信号量"><a href="#记录型信号量" class="headerlink" title="记录型信号量"></a>记录型信号量</h3><p>整型信号量的缺陷是存在“忙等”问题,因此人们又提出了“记录型信号量” ,即用记录型数据结构表示的信号量。</p><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200405/xFbfQ2XoSTEn.png" alt="mark"></p><p>在考研题目中wait(s)、 signal()也可以记为P(S)、V(S),这对原语可用于<strong>实现系统资源的“申请”和“释放”</strong></p><p><strong>S.value的初值</strong>表示系统中某种资源的数目。</p><p>对信号量s的<strong>一次P操作</strong>意味着进程<strong>请求V一个单位的该类资</strong>源,因此需要执行S.value–,表示资源数减1,当S.value &lt;0时表示该类资源已分配完毕,因此进程应<strong>调用block原语进行自我阻塞</strong>(当前运行的进程从<strong>运行态→阻塞态</strong>) ,主动放弃处理机,并插入该类资源的等待队列S.L中。可见,该机制<strong>遵循了“让权等待”原则</strong>，不会出现“忙等”现象。</p><p>对信号量s的<strong>一次V操作意味</strong>着进程<strong>释放一个单位的该类资源</strong>,因此需要执行s.value++,表示资源数加1,若加1后仍是S.value &lt;-0,表示依然有进程在等待该类资源,因此应<strong>调用wakeup原语唤醒等待队列中的第1个进程</strong>(被唤醒进程从<strong>阻塞态→就绪态</strong>)</p><h2 id="用信号量机制实现进程互斥、同步、前驱关系"><a href="#用信号量机制实现进程互斥、同步、前驱关系" class="headerlink" title="用信号量机制实现进程互斥、同步、前驱关系"></a>用信号量机制实现进程互斥、同步、前驱关系</h2><h3 id="进程互斥"><a href="#进程互斥" class="headerlink" title="进程互斥"></a>进程互斥</h3><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200405/cUpoPSPURO2z.png" alt="mark"></p><h3 id="进程同步"><a href="#进程同步" class="headerlink" title="进程同步"></a>进程同步</h3><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200405/HNWT5QLI2Pgx.png" alt="mark"></p><h3 id="前驱关系"><a href="#前驱关系" class="headerlink" title="前驱关系"></a>前驱关系</h3><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200405/X3vDETalxf78.png" alt="mark"></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
       <categories>
-        <category>OS</category>
+          
+          <category> OS </category>
+          
       </categories>
-      <tags>
-        <tag>OS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>操作系统学习笔记3</title>
-    <url>/lzfangwen.github.io/2020/03/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/</url>
-    <content><![CDATA[<h2 id="进程的调度"><a href="#进程的调度" class="headerlink" title="进程的调度"></a>进程的调度</h2><h3 id="时机"><a href="#时机" class="headerlink" title="时机"></a>时机</h3><p><img src="https://img-blog.csdnimg.cn/20200321215121803.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><a id="more"></a><br><img src="https://img-blog.csdnimg.cn/20200321215616103.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h3 id="方式"><a href="#方式" class="headerlink" title="方式"></a>方式</h3><p><img src="https://img-blog.csdnimg.cn/20200321215708658.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h3 id="切换与过程"><a href="#切换与过程" class="headerlink" title="切换与过程"></a>切换与过程</h3><p><img src="https://img-blog.csdnimg.cn/20200321220025428.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="调度算法的评价指标"><a href="#调度算法的评价指标" class="headerlink" title="调度算法的评价指标"></a>调度算法的评价指标</h2><h3 id="CPU利用率"><a href="#CPU利用率" class="headerlink" title="CPU利用率"></a>CPU利用率</h3><p>指CPU忙碌 的时间占总时间的比例<br><img src="https://img-blog.csdnimg.cn/20200321221647667.png" alt="在这里插入图片描述"></p>
-<h3 id="系统吞吐量"><a href="#系统吞吐量" class="headerlink" title="系统吞吐量"></a>系统吞吐量</h3><p>指单位时间内完成作业的数量<br><img src="https://img-blog.csdnimg.cn/2020032122170056.png" alt="在这里插入图片描述"></p>
-<h3 id="周转时间"><a href="#周转时间" class="headerlink" title="周转时间"></a>周转时间</h3><p> 指从<strong>作业被提交给系统开始</strong>，到<strong>作业完成为止</strong>的这段时间间隔<br> <img src="https://img-blog.csdnimg.cn/20200321220753841.png" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200321220859207.png" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200321221708381.png" alt="在这里插入图片描述"></p>
-<h3 id="等待时间"><a href="#等待时间" class="headerlink" title="等待时间"></a>等待时间</h3><p> 指进程/作业<strong>处于等待处理机状态时间之和</strong><br>等待时间=周转时间-运行时间-I/O操作的时间<img src="https://img-blog.csdnimg.cn/20200321221739884.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<h3 id="响应时间"><a href="#响应时间" class="headerlink" title="响应时间"></a>响应时间</h3><p> 指用户<strong>提交请求</strong>到<strong>首次产生响应</strong>所用的时间</p>
-<h2 id="调度算法"><a href="#调度算法" class="headerlink" title="调度算法"></a>调度算法</h2><p> <img src="https://img-blog.csdnimg.cn/20200322103738586.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200322111605743.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h3 id="先来先服务算法（FCDS，First-Come-FIrst-Serve）"><a href="#先来先服务算法（FCDS，First-Come-FIrst-Serve）" class="headerlink" title="先来先服务算法（FCDS，First Come FIrst Serve）"></a>先来先服务算法（FCDS，First Come FIrst Serve）</h3><p> <img src="https://img-blog.csdnimg.cn/20200322101814472.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200322102610499.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h3 id="短作业优先（SJF，Shortest-Job-First）"><a href="#短作业优先（SJF，Shortest-Job-First）" class="headerlink" title="短作业优先（SJF，Shortest Job First）"></a>短作业优先（SJF，Shortest Job First）</h3><p> <img src="https://img-blog.csdnimg.cn/20200322102933743.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200322102507330.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">)<img src="https://img-blog.csdnimg.cn/20200322102354444.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h3 id="高响应优先（HRRN，Highest-Response-Ratio-Next）"><a href="#高响应优先（HRRN，Highest-Response-Ratio-Next）" class="headerlink" title="高响应优先（HRRN，Highest Response Ratio Next）"></a>高响应优先（HRRN，Highest Response Ratio Next）</h3><p> <img src="https://img-blog.csdnimg.cn/20200322103713380.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200322103723522.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h3 id="时间片轮转调度算法（RR，Round-Robin）"><a href="#时间片轮转调度算法（RR，Round-Robin）" class="headerlink" title="时间片轮转调度算法（RR，Round-Robin）"></a>时间片轮转调度算法（RR，Round-Robin）</h3><p> <img src="https://img-blog.csdnimg.cn/2020032210572321.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200322105826975.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h3 id="优先级调度算法"><a href="#优先级调度算法" class="headerlink" title="优先级调度算法"></a>优先级调度算法</h3><p> <img src="https://img-blog.csdnimg.cn/20200322110647521.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">)<img src="https://img-blog.csdnimg.cn/2020032211023247.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200322110243922.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200322110658166.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h3 id="多级反馈队列调度算法"><a href="#多级反馈队列调度算法" class="headerlink" title="多级反馈队列调度算法"></a>多级反馈队列调度算法</h3><p> <img src="https://img-blog.csdnimg.cn/20200322111151807.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200322111410276.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="【"></p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
+      
+      
+        <tags>
+            
+            <tag> OS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>操作系统-学习笔记5</title>
+      <link href="/lzfangwen.github.io/2020/04/04/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B05/"/>
+      <url>/lzfangwen.github.io/2020/04/04/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B05/</url>
+      
+        <content type="html"><![CDATA[<h2 id="进程互斥的软件实现方法"><a href="#进程互斥的软件实现方法" class="headerlink" title="进程互斥的软件实现方法"></a>进程互斥的软件实现方法</h2><h3 id="单标志法"><a href="#单标志法" class="headerlink" title="单标志法"></a>单标志法</h3><p> <strong>算法思想</strong>：两个进程在 <strong>访问临界区</strong>后会把使用临界区的权限转交给另一个进程。也就是说<strong>每个进程进入临界区的权限只能被另一个进程赋予</strong></p><p>可以实现<strong>同一时刻最多只允许一个进程访问临界区</strong></p><a id="more"></a><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200404/nKcso4kGwe3k.png" alt="mark"></p><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200404/4x9YuXGhPP0u.png" alt="mark"></p><h3 id="双标志先检查法"><a href="#双标志先检查法" class="headerlink" title="双标志先检查法"></a>双标志先检查法</h3><p><strong>算法思想</strong>:设置一个布尔型数组flag[],数组中各个元素用来<strong>标记各进程想进入临界区的意愿</strong>,比如”flag[0] = ture”意味着0号进程P0现在想要进入临界区。每个进程在进入临界区之前先检查当前有没有别的进程想进入临界区,如果没有,则把自身对应的标志flag[i]设为true,之后开始访问临界区</p><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200404/MiE9vSwfBeyM.png" alt="mark"></p><h3 id="双标志后检查法"><a href="#双标志后检查法" class="headerlink" title="双标志后检查法"></a>双标志后检查法</h3><p><strong>算法思想</strong>:双标志先检查法的改版。前一个算法的问题是先“检查”后“上锁” ,但是这两个操作又无法一气呵成,因此导致了两个进程同时进入临界区的问题。因此,人们又想到先“上锁”后“检查”的方法,来避免上述问题。</p><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200404/4GA1JprzUCye.png" alt="mark"></p><h3 id="Peterson算法"><a href="#Peterson算法" class="headerlink" title="Peterson算法"></a>Peterson算法</h3><p><strong>算法思想</strong>:双标志后检查法中,两个进程都争着想进入临界区,但是谁也不让谁,最后谁都无法进入临界区。Gary L. Peterson想到了一种方法,如果双方都争着想进入临界区,那可以让进程尝试“孔融上梨”,主动让对方先使用临界区</p><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200404/rkM7I9IHo9os.png" alt="mark"></p><h2 id="进程互斥的硬件实现方法"><a href="#进程互斥的硬件实现方法" class="headerlink" title="进程互斥的硬件实现方法"></a>进程互斥的硬件实现方法</h2><h3 id="中断屏蔽方法"><a href="#中断屏蔽方法" class="headerlink" title="中断屏蔽方法"></a>中断屏蔽方法</h3><p>利用“开/关中断指令”实现(与原语的实现思想相同,即在某进程开始访问临界区到结束访问为止都不允许被中断,也就不能发生进程切换,因此也不可能发生两个同时访问临界区的情况)</p><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200405/51PVmEsdA5RT.png" alt="mark"></p><p>优点:简单、高效缺点:不适用于多处理机;只适用于操作系统内核进程,不适用于用户进程(因为开/关中断指令只能运行在内核态,这组指令如果能让用户随意使用会很危险)</p><h3 id="TestAndSet指令"><a href="#TestAndSet指令" class="headerlink" title="TestAndSet指令"></a>TestAndSet指令</h3><p>简称TS指令,也有地方称为TestAndSetLock指令,或TSL指令</p><p><strong>TSL指令是用硬件实现的,</strong>执行的过程不允许被中断,只能一气呵成。以下是用C语言描述的逻辑</p><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200405/sQ8lDEHKqj1q.png" alt="mark"></p><p>若刚开始lock是false,则TSL返回的old值为false, while循环条件不满足,直接跳过循环,进入临界区。若刚开始lock是true,则执行TLS后old返回的值为true, while循环条件满足,会一直循环,直到当前访问临界区的进程在退出区进行“解锁”。</p><p>相比软件实现方法, TSL指令把“上锁”和“检查”操作用硬件的方式变成了一气呵成的原子操作。</p><p>优点:实现简单,无需像软件实现方法那样严格检查是否会有逻辑漏洞;适用于多处理机环境</p><p>缺点:不满足“让权等待”原则,暂时无法进入临界区的进程会占用CPU并循环执行TSL指令,从而导致“忙等”</p><h3 id="Swap指令"><a href="#Swap指令" class="headerlink" title="Swap指令"></a>Swap指令</h3><p>有的地方也叫Exchange指令,或简称XCHG指令。<strong>swap指令是用硬件实现的</strong>,执行的过程不允许被中断,只能一气呵成。以下是用C语言描述的逻辑</p><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200405/r8sga0kfPgEh.png" alt="mark"></p><p>逻辑上来看Swap和TSL并无太大区别,都是先记录下此时临界区是否已经被上锁(记录在old变量上) ,再将上锁标记lock设置为true,最后检查old,如果old为false则说明之前没有别的进程,对临界区上锁,则可跳出循环,进入临界区。</p><p>优点:实现简单,无需像软件实现方法那样严格检查是否会有逻辑漏洞;适用于多处理机环境</p><p>缺点:不满足“让权等待”原则,暂时无法进入临界区的进程会占用CPU并循环执行TSL指令,从而导致“忙等”。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
       <categories>
-        <category>OS</category>
+          
+          <category> OS </category>
+          
       </categories>
-      <tags>
-        <tag>OS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>操作系统-学习笔记2</title>
-    <url>/lzfangwen.github.io/2020/03/20/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/</url>
-    <content><![CDATA[<h2 id="程序的顺序执行"><a href="#程序的顺序执行" class="headerlink" title="程序的顺序执行"></a>程序的顺序执行</h2><a id="more"></a>
-
-<p><img src="https://img-blog.csdnimg.cn/2020031316272059.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="程序的并发执行"><a href="#程序的并发执行" class="headerlink" title="程序的并发执行"></a>程序的并发执行</h2><p><img src="https://img-blog.csdnimg.cn/20200313163136346.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200313163144468.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="前驱图"><a href="#前驱图" class="headerlink" title="前驱图"></a>前驱图</h2><p><img src="https://img-blog.csdnimg.cn/20200313162759444.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="进程的描述"><a href="#进程的描述" class="headerlink" title="进程的描述"></a>进程的描述</h2><p><img src="https://img-blog.csdnimg.cn/20200313163722388.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/2020031316381162.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200320101837346.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="进程的组织形式"><a href="#进程的组织形式" class="headerlink" title="进程的组织形式"></a>进程的组织形式</h2><p><img src="https://img-blog.csdnimg.cn/20200320102130397.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>进程与程序的区别</strong><br><img src="https://img-blog.csdnimg.cn/20200313165514735.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>特性</strong><br><img src="https://img-blog.csdnimg.cn/20200313165610535.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="进程的基本状态及转换"><a href="#进程的基本状态及转换" class="headerlink" title="进程的基本状态及转换"></a>进程的基本状态及转换</h2><p>三种基本状态</p>
-<ul>
-<li><strong>就绪状态(Ready)</strong><br>得到了除CPU以外的所有必要资源</li>
-<li><strong>执行状态(Running)</strong><br>已获得处理机，程序正在被执行</li>
-<li><strong>堵塞状态(Waiting/Blocked,又称等待态)</strong><br>因等待某事件发生而暂时无法继续执行，从而放弃处理机，使程序执行处于暂停状态<br><img src="https://img-blog.csdnimg.cn/20200320103846258.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">)<img src="https://img-blog.csdnimg.cn/2020032010381917.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h2 id="进程控制"><a href="#进程控制" class="headerlink" title="进程控制"></a>进程控制</h2><img src="https://img-blog.csdnimg.cn/20200320104832851.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h2 id="进程通信"><a href="#进程通信" class="headerlink" title="进程通信"></a>进程通信</h2><strong>进程之间的信息交换</strong><br><img src="https://img-blog.csdnimg.cn/20200320105838352.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2></li>
-</ul>
-<p> <strong>线程是一个基本的CPU执行单元 ，也是程序执行流的最小单位</strong><br> <img src="https://img-blog.csdnimg.cn/20200320110828452.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200320111301772.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200320112545394.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p><strong>设置进程同步机制四条规则</strong></p>
-<p>进程在并发执行时为了保证结果的可再现性，各进程执行序列必须加以限制以保证互斥地使用临界资源，相互合作完成任务。多个相关进程在执行次序上的协调称为进程同步。用于保证多个进程在执行次序上的协调关系的相应机制称为进程同步机制。</p>
-<p>所有的进程同步机制应遵循下述四条准则：</p>
-<ul>
-<li><strong>空闲让进</strong><br>当无进程进入临界区时，相应的临界资源处于空闲状态，因而允许一个请求进入临界区的进程立即进入自己的临界区。</li>
-<li><strong>忙则等待</strong><br>当已有进程进入自己的临界区时，即相应的临界资源正被访问，因而其它试图进入临界区的进程必须等待，以保证进程互斥地访问临界资源。</li>
-<li><strong>有限等待</strong><br>对要求访问临界资源的进程，应保证进程能在有限时间进入临界区，以免陷入“饥饿”状态。</li>
-<li><strong>让权等待</strong><br>当进程不能进入自己的临界区时，应立即释放处理机，以免进程陷入忙等。</li>
-</ul>
-<h4 id="临界区"><a href="#临界区" class="headerlink" title="临界区"></a>临界区</h4><p><strong>每个进程中访问临界资源的那段代码称为临界区</strong>（Critical Section）（临界资源是一次仅允许一个进程使用的共享资源）。每次只准许一个进程进入临界区，进入后不允许其他进程进入。不论是硬件临界资源，还是软件临界资源，多个进程必须互斥地对它进行访问。<br>多个进程中涉及到同一个临界资源的临界区称为相关临界区。.</p>
-<h2 id="处理机调度"><a href="#处理机调度" class="headerlink" title="处理机调度"></a>处理机调度</h2><p><img src="https://img-blog.csdnimg.cn/2020032011364476.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200320113935411.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h3 id="七状态模型"><a href="#七状态模型" class="headerlink" title="七状态模型"></a>七状态模型</h3><p><img src="https://img-blog.csdnimg.cn/20200320113916159.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
+      
+      
+        <tags>
+            
+            <tag> OS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>JavaEE-学习笔记1</title>
+      <link href="/lzfangwen.github.io/2020/04/01/JavaEE-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/"/>
+      <url>/lzfangwen.github.io/2020/04/01/JavaEE-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</url>
+      
+        <content type="html"><![CDATA[<script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>操作系统-学习笔记4</title>
+      <link href="/lzfangwen.github.io/2020/03/31/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/"/>
+      <url>/lzfangwen.github.io/2020/03/31/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://www.bilibili.com/video/BV1YE411D7nH?p=31" target="_blank" rel="noopener">b站王道考研 OS</a> p28~p31学习笔记 仅方便自己复习用 侵删</p><h2 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p> 死锁是指两个或两个以上的进程在执行过程中,因争夺资源而造成的一种互相等待的现象,若无外力作用,它们都将无法推进下去.此时称系统处于死锁状态或系统产生了死锁,这些永远在互相等待的进程称为死锁进程.</p><a id="more"></a><h3 id="四个必要条件"><a href="#四个必要条件" class="headerlink" title="四个必要条件"></a>四个必要条件</h3><p>（1） <strong>互斥条件</strong>：一个资源每次只能被一个进程使用。<br>（2） <strong>请求与保持条件</strong>：一个进程因请求资源而阻塞时，对已获得的资源保持不放。<br>（3） <strong>不剥夺条件</strong>:进程已获得的资源，在末使用完之前，不能强行被剥夺。<br>（4） <strong>循环等待条件</strong>:若干进程之间形成一种头尾相接的循环等待资源关系。<br>这四个条件是死锁的必要条件，只要系统发生死锁，这些条件必然成立，而只要上述条件之一不满足，就不会发生死锁。</p><h3 id="死锁、饥饿、死循环的区别"><a href="#死锁、饥饿、死循环的区别" class="headerlink" title="死锁、饥饿、死循环的区别"></a>死锁、饥饿、死循环的区别</h3><p>死锁:各进程互相等待对方手里的资源,导致各进程都阻塞,无法向前推进的现象。</p><p>饥饿:由于长期得不到想要的资源,某进程无法向前推进的现象。比如:在短进程优先(SPF)算法中,若有源源不断的短进程到来,则长进程将一直得不到处理机,从而发生长进程“饥饿”</p><p>死循环:某进程执行过程中一直跳不出某个循环的现象。有时是因为程序逻辑bug导致的,有时是程序员故意设计的。</p><table>    <tbody><tr>        <td></td>        <td>共同点</td>        <td>区别</td>    </tr>    <tr>        <td>死锁</td><td rowspan="3">都是进程无法顺利向前推进的现象（故意设计的死循环除外）</td>        <td>死锁一定是“循环等待对方手中的资源”导致的，因此如果有死锁现象，那至少有两个或两个以上的进程同时发生死锁。另外，发生死锁的进程一定 处于阻塞态。</td>    </tr>    <tr>        <td>饥饿</td><td>可能只有一个进程发生饥饿。发生饥饿的进程既可能是阻塞态（如长期得不到I/O设备），也可能是就绪态（长期得不到处理机）</td>    </tr>    <tr>        <td>死循环</td>        <td>可能只有一个进程发生死循环。死循环的进程可以上处理机运行(可以是运行态) ,只不过无法像期待的那样顺利推进。死锁和饥饿问题是由于操作系统分配资源的策略不合理导致的,而死循环是由代码逻辑的错误导致的。死锁和饥饿是管理者（操作系统）问题,死循环是被管理者的问题。</td>    </tr></tbody></table><h3 id="产生死锁的原因"><a href="#产生死锁的原因" class="headerlink" title="产生死锁的原因"></a>产生死锁的原因</h3><ol><li><p><strong>对系统资源的竞争</strong>。各进程对不可剥夺的资源(如打印机)的竞争可能引起死锁,对可剥夺的资源(CPU)的竞争是不会引起死锁的</p></li><li><p><strong>程序推进顺序非法</strong>。请求和释放资源的顺序不当,也同样会导致死锁。例如,并发执行的进程P1、P2分别申请并占有了资源R1,R2,之后进程P1又紧接着申请资源R2,而进程P2又申请资源R1,两者会因为申请的资源被对方占有而阻塞,从而发生死锁。</p></li><li><p><strong>信号量的使用不当也会造成死锁</strong>。如生产者-消费者问题中,如果实现互斥的P操作在实现同步的P操作之前,就有可能导致死锁。(可以把互斥信号量、同步信号量也看做是一种抽象的系统资源)</p><p>总之,对不可剥夺资源的不合理分配,可能导致死锁。</p></li></ol><h3 id="死锁的处理策略"><a href="#死锁的处理策略" class="headerlink" title="死锁的处理策略"></a>死锁的处理策略</h3><ol><li><strong>预防死锁</strong>。破坏死锁产生的四个必要条件中的一个或几个。</li><li><strong>避免死锁</strong>。用某种方法防止系统进入不安全状态,从而避免死锁(银行家算法)</li><li><strong>死锁的检测和解除</strong>。允许死锁的发生,不过操作系统会负责检测出死锁的发生,然后采取某种措施解除死锁。</li></ol><h4 id="破坏互斥条件"><a href="#破坏互斥条件" class="headerlink" title="破坏互斥条件"></a><strong>破坏互斥条件</strong></h4><p>spooling技术</p><h4 id="破坏不剥夺条件"><a href="#破坏不剥夺条件" class="headerlink" title="破坏不剥夺条件"></a><strong>破坏不剥夺条件</strong></h4><p>进程所获得的资源在未使用完之前,不能由其他进程强行夺走,只能主动释放。</p><p>方案一:当某个进程请求新的资源得不到满足时,它必须立即释放保持的所有资源,待以后需要时再重新申请。也就是说,即使某些资源尚未使用完,也需要主动释放,从而破坏了不可剥夺条件。</p><p>方案二:当某个进程需要的资源被其他进程所占有的时候,可以由操作系统协助,将想要的资源强行剥夺。这种方式一般需要考虑各进程的优先级(比如:剥夺调度方式,就是将处理机资源强行剥夺给优先级更高的进程使用)</p><p><strong>该策略的缺点</strong>:</p><ol><li>实现起来比较复杂。</li><li>释放已获得的资源可能造成前一阶段工作的失效。因此这种方法一般只适用于易保存和恢复状态的资源,如CPU</li><li>反复地申请和释放资源会增加系统开销,降低系统吞吐量。</li><li>若采用方案一,意味着只要暂时得不到某个资源,之前获得的那些资源就都需要放弃,以后再重新申请。如果一直发生这样的情况,就会导致进程饥饿。</li></ol><h4 id="破坏请求和保持条件"><a href="#破坏请求和保持条件" class="headerlink" title="破坏请求和保持条件"></a><strong>破坏请求和保持条件</strong></h4><p>进程已经保持了至少一个资源,但又提出了新的资源请求,而该资源又被其他进程占有,此时请求进程被阻塞,但又对自己己有的资源保持不放。</p><p>可以采用<strong>静态分配方法</strong>,即进程在运行前一次申请完它所需要的全部资源,在它的资源未满足前,,不让它投入运行。一旦投入运行后,这些资源就一直归它所有,该进程就不会再请求别的任何资源</p><p>该策略实现起来简单,但也有明显的缺点有些资源可能只需要用很短的时间,因此如果进程的整个运行期间都一直保持着所有资源,就会造成严重的资源浪费<strong>资源利用率极低</strong>。另外,该策略也有可能<strong>导致某些进程饥饿</strong>。</p><h4 id="破坏循环等待条件"><a href="#破坏循环等待条件" class="headerlink" title="破坏循环等待条件"></a>破坏循环等待条件</h4><p>循环等待条件:存在一种进程资源的循环等待链,链中的每一个进程已获得的资源同时被下一个进程所请求。</p><p>可采用<strong>顺序资源分配法</strong>。首先给系统中的资源编号,规定每个进程必须按编号递增的顺序请求资源,同类资源(即编号相同的资源)一次申请完。原理分析:一个进程只有已占有小编号的资源时,才有资格申请更大编号的资源。按此规则,已持有大编号资源的进程不可能逆向地回来申请小编号的资源,从而就不会产生循环等待的现象。</p><p>该策略的缺点:</p><ol><li>不方便增加新的设备,因为可能需要重新分配所有的编号;</li><li>进程实际使用资源的顺序可能和编号递增顺序不一致,会导致资源浪费;</li><li>必须按规定次序申请资源,用户编程麻烦。</li></ol><h2 id="避免死锁（银行家算法）"><a href="#避免死锁（银行家算法）" class="headerlink" title="避免死锁（银行家算法）"></a>避免死锁（银行家算法）</h2><h3 id="安全序列"><a href="#安全序列" class="headerlink" title="安全序列"></a>安全序列</h3><p>所谓安全序列,就是指如果系统按照这种序列分配资源,则每个进程都能顺利完成。只要能找出一个安全序列,系统就是安全状态。当然,安全序列可能有多个如果分配了资源之后,系统中找不出任何一个安全,,系统就进入了不安全状态。这就意味着之后可能所有进程都无法顺利的执行下去。当然,如果,进程提前归还了一些资源,那系统也有可能重新1安全不i我们在分配资源之</p><p> 如果系统处于安全状态,就一定不会发生死锁。如果系统进入不安全状态,就可能发生死锁(处于不安全状态未必就是发生了死锁,但发生死锁时一定是在不安全状态)因此可以在资源分配之前预先判断这次分配是否会导致系统进入不安全状态,以此决定是否答应资源</p><h3 id="银行家算法"><a href="#银行家算法" class="headerlink" title="银行家算法"></a>银行家算法</h3><p><strong>数据结构</strong>：</p><ul><li>长度为m的一维数组Available表示还有多少可用资源</li><li>n<em>*m矩阵Max表示各进程对资源的最大需求数</em></li><li>n*m矩阵Allocation表示已经给各进程分配了多少资源</li><li>Max-Allocation = Need矩阵表示各进程最多还需要多少资源</li><li>用长度为m的一位数组Request表示进程此次申请的各种资源数</li></ul><p><strong>银行家算法步骤:</strong></p><ol><li>检查此次申请是否超过了之前声明的最大需求数</li><li>检查此时系统剩余的可用资源是否还能满足这次请求</li><li>试探着分配,更改各数据结构</li><li>用安全性算法检查此次分配是否会导致系统进入不安全状态</li></ol><p><strong>安全性算法步骤：</strong></p><p>​    检查当前的剩余可用资源是否能满足某个进程的最欧需求,如果可以,就把该进程加入安全序列,并把该进程持有的资源全部回收。</p><p>eg</p><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200401/EmlzwDP1stjB.png" alt="mark"></p><h3 id="死锁的检测和解除"><a href="#死锁的检测和解除" class="headerlink" title="死锁的检测和解除"></a>死锁的检测和解除</h3><h4 id="检测"><a href="#检测" class="headerlink" title="检测"></a>检测</h4><p>为了能对系统是否己发生了死锁进行检测,必须:</p><ol><li><p>用某种数据结构来保存资源的请求和分配信息;</p></li><li><p>提供一种算法,利用上述信息来检测系统是否已进入死锁状态</p><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200401/fBCBVqXHx7ud.png" alt="mark"></p></li></ol><p>检测死锁的算法</p><ol><li>在资源分配图中,找出既不阻塞又不是孤点的进程Pi (即找出一条有向边与它相连,且该有向边对应资源的申请数量小于等于系统中已有空闲资源数量。如下图中, R1没有空闲资源, R2有一个空闲资源。若所有的连接该进程的边均满足上述条件,则这个进程能继续运行直至完成,然后释放它所占有的所有资源)。消去它所有的请求边和分配变,使之称为孤立的结点。在上图中,P1是满足这一条件的进程结点,于是将P1的所有边消去。</li><li>进程Pi所释放的资源,可以唤醒某些因等待这些资源而阻塞的进程,原来的阻塞进程可能变,为非阻塞进程。在下图中, P2就满足这样的条件。根据1)中的方法进行一系列简化后,若能消去途中所有的边,则称该图是可完全简化的。</li></ol><h4 id="解除"><a href="#解除" class="headerlink" title="解除"></a>解除</h4><p>一旦检测出死锁的发生,就应该立即解除死锁。</p><p>补充:并不是系统中所有的进程都是死锁状态,用死锁检测算法化简资源分配图后,还连着边的那些进程就是死锁进程</p><p>解除死锁的主要方法有:</p><ol><li><strong>资源剥夺法</strong>。挂起(暂时放到外存上)某些死锁进程,并抢占它的资源,将这些资源分配给其他的死锁进程。但是应防止被挂起的进程长时间得不到资源而饥饿。</li><li><strong>撤销进程法</strong>(或称<strong>终止进程法</strong>)。强制撤销部分、甚至全部死锁进程,并剥夺这些进程的资源。这种方式的优点是实现简单,但所付出的代价可能会很大。因为有些进程可能已经运行了很长时间,已经接近结束了,一旦被终止可谓功亏一篑,以后还得从头再来。</li><li><strong>进程回退法</strong>。让一个或多个死锁进程回退到足以避免死锁的地步。这就要求系统要记录进程的历史记录，设置还原点</li></ol><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
       <categories>
-        <category>OS</category>
+          
+          <category> OS </category>
+          
       </categories>
-      <tags>
-        <tag>OS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>操作系统-学习笔记5</title>
-    <url>/lzfangwen.github.io/2020/04/04/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B05/</url>
-    <content><![CDATA[<h2 id="进程互斥的软件实现方法"><a href="#进程互斥的软件实现方法" class="headerlink" title="进程互斥的软件实现方法"></a>进程互斥的软件实现方法</h2><h3 id="单标志法"><a href="#单标志法" class="headerlink" title="单标志法"></a>单标志法</h3><p> <strong>算法思想</strong>：两个进程在 <strong>访问临界区</strong>后会把使用临界区的权限转交给另一个进程。也就是说<strong>每个进程进入临界区的权限只能被另一个进程赋予</strong></p>
-<p>可以实现<strong>同一时刻最多只允许一个进程访问临界区</strong></p>
-<a id="more"></a>
-
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200404/nKcso4kGwe3k.png" alt="mark"></p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200404/4x9YuXGhPP0u.png" alt="mark"></p>
-<h3 id="双标志先检查法"><a href="#双标志先检查法" class="headerlink" title="双标志先检查法"></a>双标志先检查法</h3><p><strong>算法思想</strong>:设置一个布尔型数组flag[],数组中各个元素用来<strong>标记各进程想进入临界区的意愿</strong>,比如”flag[0] = ture”意味着0号进程P0现在想要进入临界区。每个进程在进入临界区之前先检查当前有没有别的进程想进入临界区,如果没有,则把自身对应的标志flag[i]设为true,之后开始访问临界区</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200404/MiE9vSwfBeyM.png" alt="mark"></p>
-<h3 id="双标志后检查法"><a href="#双标志后检查法" class="headerlink" title="双标志后检查法"></a>双标志后检查法</h3><p><strong>算法思想</strong>:双标志先检查法的改版。前一个算法的问题是先“检查”后“上锁” ,但是这两个操作又无法一气呵成,因此导致了两个进程同时进入临界区的问题。因此,人们又想到先“上锁”后“检查”的方法,来避免上述问题。</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200404/4GA1JprzUCye.png" alt="mark"></p>
-<h3 id="Peterson算法"><a href="#Peterson算法" class="headerlink" title="Peterson算法"></a>Peterson算法</h3><p><strong>算法思想</strong>:双标志后检查法中,两个进程都争着想进入临界区,但是谁也不让谁,最后谁都无法进入临界区。Gary L. Peterson想到了一种方法,如果双方都争着想进入临界区,那可以让进程尝试“孔融上梨”,主动让对方先使用临界区</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200404/rkM7I9IHo9os.png" alt="mark"></p>
-<h2 id="进程互斥的硬件实现方法"><a href="#进程互斥的硬件实现方法" class="headerlink" title="进程互斥的硬件实现方法"></a>进程互斥的硬件实现方法</h2><h3 id="中断屏蔽方法"><a href="#中断屏蔽方法" class="headerlink" title="中断屏蔽方法"></a>中断屏蔽方法</h3><p>利用“开/关中断指令”实现(与原语的实现思想相同,即在某进程开始访问临界区到结束访问为止都不允许被中断,也就不能发生进程切换,因此也不可能发生两个同时访问临界区的情况)</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200405/51PVmEsdA5RT.png" alt="mark"></p>
-<p>优点:简单、高效缺点:不适用于多处理机;只适用于操作系统内核进程,不适用于用户进程(因为开/关中断指令只能运行在内核态,这组指令如果能让用户随意使用会很危险)</p>
-<h3 id="TestAndSet指令"><a href="#TestAndSet指令" class="headerlink" title="TestAndSet指令"></a>TestAndSet指令</h3><p>简称TS指令,也有地方称为TestAndSetLock指令,或TSL指令</p>
-<p><strong>TSL指令是用硬件实现的,</strong>执行的过程不允许被中断,只能一气呵成。以下是用C语言描述的逻辑</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200405/sQ8lDEHKqj1q.png" alt="mark"></p>
-<p>若刚开始lock是false,则TSL返回的old值为false, while循环条件不满足,直接跳过循环,进入临界区。若刚开始lock是true,则执行TLS后old返回的值为true, while循环条件满足,会一直循环,直到当前访问临界区的进程在退出区进行“解锁”。</p>
-<p>相比软件实现方法, TSL指令把“上锁”和“检查”操作用硬件的方式变成了一气呵成的原子操作。</p>
-<p>优点:实现简单,无需像软件实现方法那样严格检查是否会有逻辑漏洞;适用于多处理机环境</p>
-<p>缺点:不满足“让权等待”原则,暂时无法进入临界区的进程会占用CPU并循环执行TSL指令,从而导致“忙等”</p>
-<h3 id="Swap指令"><a href="#Swap指令" class="headerlink" title="Swap指令"></a>Swap指令</h3><p>有的地方也叫Exchange指令,或简称XCHG指令。<strong>swap指令是用硬件实现的</strong>,执行的过程不允许被中断,只能一气呵成。以下是用C语言描述的逻辑</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200405/r8sga0kfPgEh.png" alt="mark"></p>
-<p>逻辑上来看Swap和TSL并无太大区别,都是先记录下此时临界区是否已经被上锁(记录在old变量上) ,再将上锁标记lock设置为true,最后检查old,如果old为false则说明之前没有别的进程,对临界区上锁,则可跳出循环,进入临界区。</p>
-<p>优点:实现简单,无需像软件实现方法那样严格检查是否会有逻辑漏洞;适用于多处理机环境</p>
-<p>缺点:不满足“让权等待”原则,暂时无法进入临界区的进程会占用CPU并循环执行TSL指令,从而导致“忙等”。</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
+      
+      
+        <tags>
+            
+            <tag> OS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>hexo博客相关事项</title>
+      <link href="/lzfangwen.github.io/2020/03/31/hexo%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3%E4%BA%8B%E9%A1%B9/"/>
+      <url>/lzfangwen.github.io/2020/03/31/hexo%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3%E4%BA%8B%E9%A1%B9/</url>
+      
+        <content type="html"><![CDATA[<h2 id="hexo新建文章的默认值"><a href="#hexo新建文章的默认值" class="headerlink" title="hexo新建文章的默认值"></a>hexo新建文章的默认值</h2><p>博客文件夹下git bash</p><p><code>hexo new 文章名</code></p><p>会在blog\source_posts下新建一个文章 文章默认值为</p><p><code>title: hexo博客相关事项 ##文章标题date: 1585631681000##文章日期tags:           ##标签可多个 ``categories:     ##分类最好一个``  mathjax: flase  ##是否开启数学公式</code>  </p><p>默认值可以在blog\scaffolds\post.md中修改</p><p>文章写好后依然是博客文件夹下git bash</p><p><code>hexo clean</code></p><p><code>hexo g</code>##生成静态文件</p><p><code>hexo s</code>##启动服务器用于本地预览</p><p>输入<a href="http://localhost:4000就可以预览博客了确认没有问题再">http://localhost:4000就可以预览博客了确认没有问题再</a></p><p><code>hexo d</code>将本地文件发送github仓库中就可以了</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
       <categories>
-        <category>OS</category>
+          
+          <category> hexo </category>
+          
       </categories>
-      <tags>
-        <tag>OS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>操作系统-学习笔记7</title>
-    <url>/lzfangwen.github.io/2020/04/05/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B07/</url>
-    <content><![CDATA[<h2 id="生产者和消费者问题"><a href="#生产者和消费者问题" class="headerlink" title="生产者和消费者问题"></a>生产者和消费者问题</h2><p>系统中有一组生产者进程和一组消费者进程,生产者进程每次生产一个产品放入缓冲区,消费者,进程每次从缓冲区中取出一个产品并使用。(注:这里的“产品”理解为某种数据)生产者、消费者共享一个<strong>初始为空、大小为n的缓冲区</strong>。</p>
-<p>只有缓冲区没满时,生产者才能把产品放入缓冲区,否则必须等待。</p>
-<p>只有缓冲区不空时,消费者才能从中取出产品,否则必须等待。</p>
-<p>缓冲区是临界资源,<strong>各进程必须互斥地访问</strong>。</p>
-<a id="more"></a>
-
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200405/sTX4f7vOIavn.png" alt="mark"></p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200405/qgByT9YI8llH.png" alt="mark"></p>
-<p><strong>实现互斥的P操作一定要在实现同步的P操作之后</strong></p>
-<p>V操作不会导致进程阻塞，因此两个V操作顺序可以交换</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200405/0A4f6z2oszli.png" alt="mark"></p>
-<h2 id="多生产者-多消费者问题"><a href="#多生产者-多消费者问题" class="headerlink" title="多生产者-多消费者问题"></a>多生产者-多消费者问题</h2><p>桌子上有一只盘子,每次只能向其中放入一个水果。爸爸专向盘子中放苹果,妈妈专向盘子中放橘子,儿子专等着吃盘子中的橘子,女儿专等着吃盘子中的苹果。只有盘子空时,爸爸或妈妈才可向盘子中放一个水果。仅当盘子中有自己需要的水果时,儿子或女儿可以从盘子中取出水果。</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/t5GvRuDas2En.png" alt="mark"></p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/bm7Iwt05IMiy.png" alt="mark"></p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/pBMktfFR9GF9.png" alt="mark"></p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/SppmnSNjAx4D.png" alt="mark"></p>
-<p>原因在于:本题中的缓冲区大小为1,在任何时刻, apple, orange, plate三个同步信号量中最多只有一个是1,因此在任何时刻,最多只有一个进程的P操作不会被阻塞,并顺利地进入临界区…</p>
-<p><strong>总结:</strong>在生产者-消费者问题中,如果缓冲区大小为1,那么有可能不需要设置互斥信号量就可以实现互斥访问缓冲区的功能。当然,这不是绝对的,要具体问题具体分析。</p>
-<p>建议:在考试中如果来不及仔细分析,可以加上互斥信号量,保证各进程一定会互斥地访问缓冲区。但需要注意的是,实现互斥的P操作一定要在实现同步的P操作之后,否则可能引起“死锁”PV<strong>操作题目的解题思路:</strong></p>
-<ol>
-<li>关系分析。找出题目中描述的各个进程,分析它们之间的同步、互斥关系。</li>
-<li>整理思路。根据各进程的操作流程确定P、V操作的大致顺序</li>
-<li>设置信号量。设置需要的信号量,并根据题目条件确定信号量初值。(互斥信号量初值一般为1,同步信号量的初始值要看对应资源的初始值是多少)</li>
-</ol>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/rtMKz5svYszz.png" alt="mark"></p>
-<h2 id="吸烟者问题"><a href="#吸烟者问题" class="headerlink" title="吸烟者问题"></a>吸烟者问题</h2><p>假设一个系统有<strong>三个抽烟者进程</strong>和<strong>一个供应者进程</strong>。每个抽烟者不停地卷烟并抽掉它,但是要卷起并抽掉一支烟,抽烟者需要有三种材料:烟草、纸和胶水。三个抽烟者中,第一个拥有烟草、,第二个拥有纸、第三个拥有胶水。供应者进程无限地提供三种材料,供应者每次将两种材料放桌子上,拥有剩下那种材料的抽烟者卷一根烟并抽掉它,并给供应者进程一个信号告诉完成了,供应者就会放另外两种材料在桌上，这个过程一直重复（让三个抽烟者轮流抽烟）</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/f0YnUJdo0VET.png" alt="mark"></p>
-<p><strong>问题分析</strong></p>
-<p>本质上这题也属于“生产者-消费者”问题,更详细的说应该是“可生产多种产品的单生产者-多消费者”。</p>
-<ol>
-<li>关系分析。找出题目中描述的各个进程,分析它们之间的同步、互斥关系。</li>
-<li>整理思路。根据各进程的操作流程确定P、V操作的大致顺序</li>
-</ol>
-<p>桌子可以抽象为容量为1的缓冲区，要互斥访问</p>
-<p>三种材料 可以抽象为三种组合</p>
-<p>​    组合一：纸+胶水</p>
-<p>​    组合二:烟草+胶水</p>
-<p>​    组合三:烟草+纸</p>
-<p>同步关系（要从事件的角度分析）</p>
-<p>​    桌子上有组合一    →    第一个抽烟者取走东西</p>
-<p>​    桌子上有组合二    →    第二个抽烟者取走东西</p>
-<p>​    桌子上有组合三    →    第三个抽烟者取走东西</p>
-<p>​    发出完成信号        →    供应者将下一个组合放在桌上</p>
-<p>​        PV操作顺序 “前V后P”</p>
-<p>​        (必须发生在前面的事件之后执行V操作，必须发生在后面的事件之前执行P操作)</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/kFNJqbY66BmN.png" alt="mark"></p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/twBBqexItxDH.png" alt="mark"></p>
-<h2 id="读者-写者问题"><a href="#读者-写者问题" class="headerlink" title="读者-写者问题"></a>读者-写者问题</h2><p>有读者和写者两组并发进程,共享一个文件,当两个或两个以上的读进程同时访问共享数据时不会产生副作用,但若某个写进程和其他进程(读进程或写进程)同时访问共享数据时则可能导致·数据不一致的错误。</p>
-<p>因此要求: </p>
-<ol>
-<li>允许多个读者可以同时对文件执行读操作; </li>
-<li>只允许一个写者往文件中写信息; </li>
-<li>任一写者在完成写操作之前不允许其他读者或写者工作;</li>
-<li>写者执行写操作,应让已有的读者和写者全部退出。</li>
-</ol>
-<p><strong>问题分析</strong></p>
-<p>两类进程:写进程、读进程</p>
-<p>互斥关系:写进程一写进程、写进程一读进程。读进程与读进程不存在互斥问题</p>
-<p>写者进程和任何进程都互斥,设置一个互斥信号量rw,在写者访问共享文件前后分别执行P, V操作。</p>
-<p>读者进程和写者进程也要互斥,因此读者访问共享文件前后也要对rw执行P、V操作。</p>
-<p>如果所有读者进程在访问共享文件之前都执行P(rw)操作,那么会导致各个读进程之间也无法同时访问文件。</p>
-<p><strong>Key:读者写者问题的核心思想–怎么处理该问题呢?</strong></p>
-<p>P(rw)和Vrw)其实就是对共享文件的“加锁”和”解锁” 。既然各个读进程需要同时访问,而读进程与写进程又必须互斥访间,那么我们可以让第一个访问文件的读进程“加锁” ,让最后一个访问完文件的读进程“解锁”。可以设置一个整数变量count来记录当前有几个读进程在访问文件。</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/mogqygCIeL4m.png" alt="mark"></p>
-<p>读进程源源不断会导致写进程饿死</p>
-<p>解决方法：</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/38XxSpldwRzG.png" alt="mark"></p>
-<p>读者-写者问题为我们解决复杂的互斥问题提供了一个参考思路。</p>
-<p>其<strong>核心思想</strong>在于设置了一个<strong>计数器count</strong>用来记录当前正在访间共享文件的读进程数。我们可以用count的值来判断当前进入的进程是否是第一个/最后一个读进程,从而做出不同的处理。</p>
-<p>另外,对count变量的检查和赋值不能一气呵成导致了一些错误,如果<strong>需要实现“一气呵成”,自然应该想到用互斥信号量。</strong></p>
-<p>最后,还要认真体会我们是如何解决“写进程饥饿”问题的。</p>
-<p>绝大多数的考研PV操作大题都可以用之前介绍的几种生产者-消费者问题的思想来解决,如果遇到更复杂的问题,可以想想能否用读者写者问题的这几个思想来解决。</p>
-<h2 id="哲学家进餐问题"><a href="#哲学家进餐问题" class="headerlink" title="哲学家进餐问题"></a>哲学家进餐问题</h2><p>张圆桌上坐着5名哲学家,每两个哲学家之间的桌上摆一根筷子,桌子的中间是一碗米饭。哲学家们倾注毕生的精力用于思考和进餐,哲学家在思考时,并不影响他人。只有当哲学家饥饿时,才试图拿起左、右两根筷子(一根一根地拿起)。如果筷子已在他人手上,则需等待。饥饿的哲学家只有同时拿起两根筷子才可以开始进餐,当进餐完毕后,放下筷子继续思考。</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/WCHmiiXhRtMz.png" alt="mark"></p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/ahbISrdfq3o3.png" alt="mark"></p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>计算机组成原理-汉明码</title>
+      <link href="/lzfangwen.github.io/2020/03/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86-%E6%B1%89%E6%98%8E%E7%A0%81/"/>
+      <url>/lzfangwen.github.io/2020/03/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86-%E6%B1%89%E6%98%8E%E7%A0%81/</url>
+      
+        <content type="html"><![CDATA[<p><strong>自己的理解 帮助自己复习用的 写的可能会有错误</strong></p><h2 id="汉明码-Hamming-Code"><a href="#汉明码-Hamming-Code" class="headerlink" title="汉明码(Hamming Code )"></a>汉明码(Hamming Code )</h2><blockquote><p>汉明码（Hamming Code），是在电信领域的一种线性调试码，以发明者理查德·卫斯里·汉明的名字命名。汉明码在传输的消息流中插入验证码，当计算机存储或移动数据时，可能会产生数据位错误，以侦测并更正单一比特错误。由于汉明编码简单，它们被广泛应用于内存（RAM）。——百度百科</p></blockquote><a id="more"></a><p>说人话 就是 我想发送一串二进制数据 例如 10010<br>但我又怕发送过程中出现意外就用检测码的形式保证不会出错，出错了也可以通过检测码查出哪位出错了因为二进制只有01，错了就能改正。</p><h2 id="发送biubiubiu"><a href="#发送biubiubiu" class="headerlink" title="发送biubiubiu"></a>发送biubiubiu</h2><p>我想发 10010<br>首先 根据公式<br>$$<br>2^{k}&gt;=n+k+1<br>$$<br> n位二进制位数 k位检测位数<br>算出k最小为4<br>也就是5位的二进制数据10010要插入4位检测码<br>但插入并不是直接放在数据最前或是最后<br>4位检测码是按照<br>$$<br>2^{i}<br>$$<br>位放入二进制数据中</p><table><thead><tr><th align="center">二进制数据序号</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr></thead><tbody><tr><td align="center">序号用二进制表示</td><td>0001</td><td>0010</td><td>0011</td><td>0100</td><td>0101</td></tr><tr><td align="center">数据串</td><td>C1</td><td>C2</td><td>1</td><td>C4</td><td>0</td></tr></tbody></table><p>根据序号的二进制进行分组<br>满足 XXX1 的位第一组     </p><table><thead><tr><th align="center">序号</th><th>1</th><th>3</th><th>5</th><th>7</th><th>9</th></tr></thead><tbody><tr><td align="center">数据串</td><td>C1</td><td>1</td><td>0</td><td>1</td><td>0</td></tr></tbody></table><p>满足 XX1X 的为第二组 </p><table><thead><tr><th>序号</th><th>2</th><th>3</th><th>6</th><th>7</th></tr></thead><tbody><tr><td>数据串</td><td>C2</td><td>1</td><td>0</td><td>1</td></tr></tbody></table><p>满足 X1XX 的为第三组    </p><table><thead><tr><th>序号</th><th>4</th><th>5</th><th>6</th><th>7</th></tr></thead><tbody><tr><td>数据串</td><td>C4</td><td>0</td><td>0</td><td>1</td></tr></tbody></table><p>满足1XXX的为第四组</p><table><thead><tr><th>序号</th><th>8</th><th>9</th></tr></thead><tbody><tr><td>数据串</td><td>C8</td><td>0</td></tr></tbody></table><p>Ci为第几位检测码 可以发现每组数据串都有一位检测码 分别对其进行偶校验 就可以得出检测码了 从而得到最终的汉明码<br>第一组 C1为0<br>第二组 C2为0<br>第三组 C3为1<br>第四组 C4为0<br>所以最后的海明码为 001100100 然后就可以biubiubiu 发过去了</p><h2 id="接收duangduangduang"><a href="#接收duangduangduang" class="headerlink" title="接收duangduangduang"></a>接收duangduangduang</h2><p>接收一串海明码怎么查错及提取有效数据嘞<br>还是以上面发送的为例 001 100 100在发送过程中第6位错了变成了001 101 100<br><del>看我操作就行了</del><br>接收duangduangduang<br>分组进行偶校验 满足给0 不满足给1</p><table><thead><tr><th>二进制数据序号</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th></tr></thead><tbody><tr><td>序号用二进制表示</td><td>0001</td><td>0010</td><td>0011</td><td>0100</td><td>0101</td><td>0110</td><td>0111</td><td>1000</td><td>1001</td></tr><tr><td>数据串</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>0</td></tr></tbody></table><p>满足 XXX1 的位第一组     满足偶校验 给0</p><table><thead><tr><th>序号</th><th>1</th><th>3</th><th>5</th><th>7</th><th>9</th></tr></thead><tbody><tr><td>数据串</td><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td></tr></tbody></table><p>满足 XX1X 的为第二组     不满足偶校验 给1</p><table><thead><tr><th>序号</th><th>2</th><th>3</th><th>6</th><th>7</th></tr></thead><tbody><tr><td>数据串</td><td>0</td><td>1</td><td>1</td><td>1</td></tr></tbody></table><p>满足 X1XX 的为第三组    不满足偶校验 给1</p><table><thead><tr><th>序号</th><th>4</th><th>5</th><th>6</th><th>7</th></tr></thead><tbody><tr><td>数据串</td><td>1</td><td>0</td><td>1</td><td>1</td></tr></tbody></table><p>满足1XXX的为第四组     满足偶校验 给0</p><table><thead><tr><th>序号</th><th>8</th><th>9</th></tr></thead><tbody><tr><td>数据串</td><td>0</td><td>0</td></tr></tbody></table><p>按照组数从大到小列出为 0110 <del>卧槽</del> 正好就是6的二进制表示<br>就是第6位错了 改过来就得了 001 100 100 ✔<br>有效信息的话就是 去掉第1，2，4，8位的检验码<br>为 10010√<br>呐呐呐 就结束了 </p><h2 id="奇偶检验"><a href="#奇偶检验" class="headerlink" title="奇偶检验"></a>奇偶检验</h2><p>添加一位检测位，使得二进制数据中满足奇偶原则</p><p><strong>配偶原则</strong> 就是检测二进制数据中‘1’的个数如果为奇数个，检测位就为‘1’使得满足二进制数据中‘1’的个数满足偶数个，如果个数为偶数，检测位则为‘0’ 这就是配偶原则也叫<strong>偶校验</strong></p><p><strong>配奇原则</strong>就是检测二进制数据中‘1’的个数 如果为奇数，检测位为‘0’，如果为偶数，检测位为‘1’以此满足配奇数原则，也叫<strong>奇校验</strong></p><h2 id="为啥子呢"><a href="#为啥子呢" class="headerlink" title="为啥子呢"></a>为啥子呢</h2><p>会做了  我们来搞搞原理<br><img src="https://img-blog.csdnimg.cn/20200324094401246.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>一串数据 1 2 3 4 5 6 7<br>分为三组<br>第一组 1 2 3 4<br>第二组 2 3 5 6<br>第三组 3 4 6 7<br>7个数中其中有一个是错的<br>我们还可以知道三个组有哪些是全对的 那些是错的<br>我们就能判断出 哪个数错了 神不神奇wow<br>eg.<br>    第一组错了 ，第二三组对了 看图 就能知道 1是错的<br>      第一二错了 第三组对了       看图得知 2是错的</p><p>简单的原理就是这个原理<br>我也说不清<br>自己体会<br>那就这样吧<br>写博客号累 写一上午了<br><del>我要去打csgo了</del><br>我要继续去学习了</p><h2 id="其他一些想说的"><a href="#其他一些想说的" class="headerlink" title="其他一些想说的"></a>其他一些想说的</h2><p>==汉明码 默认只错一位==<br>汉明码 顺序的话可以从右向左 也就是可以</p><table><thead><tr><th>二进制数据序号</th><th>9</th><th>8</th><th>7</th><th>6</th><th>5</th><th>4</th><th>3</th><th>2</th><th>1</th></tr></thead><tbody><tr><td>数据串</td><td></td><td>C4</td><td></td><td></td><td></td><td>C3</td><td></td><td>C2</td><td>C1</td></tr></tbody></table><p>就是序号顺序和检测码顺序得保持一致<br>而且写汉明码和姐汉明码方向应该一致（应该是对的我验证了一下<del>就因为我看的一个教程 方向错了 我做的作业全错 呜呜呜</del>  ）<br>不过默认从左向右 <del>别整那些骚的了</del>  </p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
       <categories>
-        <category>OS</category>
+          
+          <category> 计算机组成原理 </category>
+          
       </categories>
-      <tags>
-        <tag>OS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>操作系统-学习笔记6</title>
-    <url>/lzfangwen.github.io/2020/04/05/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B06/</url>
-    <content><![CDATA[<h2 id="信号量机制"><a href="#信号量机制" class="headerlink" title="信号量机制"></a>信号量机制</h2><p>用户进程可以通过使用操作系统提供的一对原语来对信号量进行操作,从而很方便的实现了进程互斥、进程同步。</p>
-<p><strong>信号量</strong>其实就是一个变量(可以是一个整数,也可以是更复杂的记录型变量),可以用一个信号量来<strong>表示系统中某种资源的数量</strong>,比如:系统中只有一台打印机,就可以设置一个初值为1的信号量</p>
-<p><strong>原语</strong>是一种特殊的程序段,其<strong>执行只能一气呵成,不可被中断</strong>。原语是由<strong>关中断/开中断指令</strong>实现的。软件解决方案的主要问题是由“进入区的各种操作无法一气呵成” ,因此如果能把进入区、退作都用“原语”这些操作能“一气呵成”就能避免问题</p>
-<a id="more"></a>
-
-<p>一对原语: <strong>wait(S)</strong>原语和<strong>signal(S)</strong>原语,可以把原语理解为我们自己写的函数,函数名分别为wait和signal,括号里的<strong>信号量S</strong>其实就是函数调用时传入的一个参数。</p>
-<p>wait, signal原语常<strong>简称为P、V操作</strong>(来自荷兰语proberen和verhogen) 。因此,做题的时候常把wait(S)、 signal(S)两个操作分别写为P(S)、v(S)</p>
-<h3 id="整型信号量"><a href="#整型信号量" class="headerlink" title="整型信号量"></a>整型信号量</h3><p>用一个<strong>整数型的变量</strong>作为信号量，用来表示系统中某种资源的数量。</p>
-<p>与普通整数变量的区别：对信号量的操作只有三种，初始化、P操作、V操作</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200405/vQcqEgpVyiX2.png" alt="mark"></p>
-<h3 id="记录型信号量"><a href="#记录型信号量" class="headerlink" title="记录型信号量"></a>记录型信号量</h3><p>整型信号量的缺陷是存在“忙等”问题,因此人们又提出了“记录型信号量” ,即用记录型数据结构表示的信号量。</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200405/xFbfQ2XoSTEn.png" alt="mark"></p>
-<p>在考研题目中wait(s)、 signal()也可以记为P(S)、V(S),这对原语可用于<strong>实现系统资源的“申请”和“释放”</strong></p>
-<p><strong>S.value的初值</strong>表示系统中某种资源的数目。</p>
-<p>对信号量s的<strong>一次P操作</strong>意味着进程<strong>请求V一个单位的该类资</strong>源,因此需要执行S.value–,表示资源数减1,当S.value &lt;0时表示该类资源已分配完毕,因此进程应<strong>调用block原语进行自我阻塞</strong>(当前运行的进程从<strong>运行态→阻塞态</strong>) ,主动放弃处理机,并插入该类资源的等待队列S.L中。可见,该机制<strong>遵循了“让权等待”原则</strong>，不会出现“忙等”现象。</p>
-<p>对信号量s的<strong>一次V操作意味</strong>着进程<strong>释放一个单位的该类资源</strong>,因此需要执行s.value++,表示资源数加1,若加1后仍是S.value &lt;-0,表示依然有进程在等待该类资源,因此应<strong>调用wakeup原语唤醒等待队列中的第1个进程</strong>(被唤醒进程从<strong>阻塞态→就绪态</strong>)</p>
-<h2 id="用信号量机制实现进程互斥、同步、前驱关系"><a href="#用信号量机制实现进程互斥、同步、前驱关系" class="headerlink" title="用信号量机制实现进程互斥、同步、前驱关系"></a>用信号量机制实现进程互斥、同步、前驱关系</h2><h3 id="进程互斥"><a href="#进程互斥" class="headerlink" title="进程互斥"></a>进程互斥</h3><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200405/cUpoPSPURO2z.png" alt="mark"></p>
-<h3 id="进程同步"><a href="#进程同步" class="headerlink" title="进程同步"></a>进程同步</h3><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200405/HNWT5QLI2Pgx.png" alt="mark"></p>
-<h3 id="前驱关系"><a href="#前驱关系" class="headerlink" title="前驱关系"></a>前驱关系</h3><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200405/X3vDETalxf78.png" alt="mark"></p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
+      
+      
+        <tags>
+            
+            <tag> Hamming Code </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>计算机网络 学习笔记1</title>
+      <link href="/lzfangwen.github.io/2020/03/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/"/>
+      <url>/lzfangwen.github.io/2020/03/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</url>
+      
+        <content type="html"><![CDATA[<p><strong>B站 王道考研视频 学习笔记 纯粹自己整理方便复习使用 侵删</strong></p><h1 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h1><p><img src="https://img-blog.csdnimg.cn/20200318084558533.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><a id="more"></a><h2 id="标准化"><a href="#标准化" class="headerlink" title="标准化"></a>标准化</h2><p><img src="https://img-blog.csdnimg.cn/20200318085732967.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h2 id="性能指标"><a href="#性能指标" class="headerlink" title="性能指标"></a>性能指标</h2><p><img src="https://img-blog.csdnimg.cn/20200318092520956.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h3 id="速率"><a href="#速率" class="headerlink" title="速率"></a>速率</h3><p><img src="https://img-blog.csdnimg.cn/20200318090511517.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h3 id="带宽"><a href="#带宽" class="headerlink" title="带宽"></a>带宽</h3><p><img src="https://img-blog.csdnimg.cn/20200318090520447.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h3 id="时延"><a href="#时延" class="headerlink" title="时延"></a>时延</h3><p><img src="https://img-blog.csdnimg.cn/20200318091719994.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h3 id="时延带宽积"><a href="#时延带宽积" class="headerlink" title="时延带宽积"></a>时延带宽积</h3><p><img src="https://img-blog.csdnimg.cn/20200318091947775.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h3 id="往返时延RTT"><a href="#往返时延RTT" class="headerlink" title="往返时延RTT"></a>往返时延RTT</h3><p><img src="https://img-blog.csdnimg.cn/20200318092228234.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h3 id="利用率"><a href="#利用率" class="headerlink" title="利用率"></a>利用率</h3><p><img src="https://img-blog.csdnimg.cn/20200318092421213.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt=""></p><h2 id="分层"><a href="#分层" class="headerlink" title="分层"></a>分层</h2><h3 id="基本规则"><a href="#基本规则" class="headerlink" title="基本规则"></a>基本规则</h3><ol><li><p>各层之间互相<strong>独立</strong>，每层只实现一种相对独立的功能。</p></li><li><p>每层之间<strong>界面自然清晰</strong>，易于理解，相互交流尽可能少。</p></li><li><p>结构上可分割。每层都采用<strong>最合适的技术</strong>来实现。</p></li><li><p>保持<strong>下层对上层</strong>的独立性，<strong>上层单向使用下层提供的服务</strong>。</p></li><li><p>整个分层结构应该能促进标准化工作。</p><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><img src="https://img-blog.csdnimg.cn/20200323171307621.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h3 id="ISO-OSI参考模型"><a href="#ISO-OSI参考模型" class="headerlink" title="ISO/OSI参考模型"></a>ISO/OSI参考模型</h3><p><img src="https://img-blog.csdnimg.cn/2020032317261286.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h4 id="用户层"><a href="#用户层" class="headerlink" title="用户层"></a>用户层</h4><p>所有能和用户交互产生网络流量的程序</p><h4 id="表示层"><a href="#表示层" class="headerlink" title="表示层"></a>表示层</h4><p>用于处理在两个通信系统中交换信息的表示方式（语法和语义）</p><p>功能一：数据格式转换<br>功能二：数据加密解密<br>功能三：数据压缩和恢复</p><h4 id="会话层"><a href="#会话层" class="headerlink" title="会话层"></a>会话层</h4><p>向表示层实体/用户进程建立连接并在连接上有序地传输数据<br>这是会话，也是建立同步（SYN）</p><p>功能一：建立，管理，终止会话<br>功能二：使用校验点可使会话在通信失效时从校验点/同步点继续回复通信，实现数据同步</p><h4 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h4><p>·负责主机中<strong>两个进程</strong>的通信,即<strong>端到端</strong>的通信。传输单位是报文段或用户数据报</p><p>功能一：<strong>可</strong>靠传输、不可靠传输<br>功能二：<strong>差</strong>错控制<br>功能三：<strong>流</strong>量控制<br>功能四：复<strong>用</strong>分用</p><h4 id="网络层·"><a href="#网络层·" class="headerlink" title="网络层·"></a>网络层·</h4><p>主要任务是把分组从源端传到目的端,为分组交换网上的不同主机提供通信服务。<br>网络层传输单位是数据报</p><p>功能一:路由选择<br>功能二:流量控制<br>功能三:差错控制<br>功能四:拥塞控制</p><h4 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h4><p>主要任务是把网络层传下来的数据报组装成帧。数据链路层/链路层的传输单位是帧。</p><p>功能一:成帧(定义帧的开始和结束)<br>功能二:差错控制  帧错+位错<br>功能三:流量控制<br>功能四:访问（接入）控制 控制对信道的访问</p><h4 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h4><p>主要任务是在物理媒体上实现比特流的透明传输<br>物理层的传输单位是比特</p><p>功能一：定义接口特性<br>功能二：定义传输模式<br>功能三：定义传输速率<br>功能四：比特同步<br>功能五：比特编码</p><h3 id="TCP-IP参考模型"><a href="#TCP-IP参考模型" class="headerlink" title="TCP/IP参考模型"></a>TCP/IP参考模型</h3><p><img src="https://img-blog.csdnimg.cn/20200323175216782.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200323175806729.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">)<img src="https://img-blog.csdnimg.cn/20200323175635939.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200323175710332.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>学习链接为<a href="https://www.bilibili.com/video/BV19E411D78Q?p=10" target="_blank" rel="noopener">b站王道考研 计算机网络</a></p></li></ol><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
       <categories>
-        <category>OS</category>
+          
+          <category> 计算机网络 </category>
+          
       </categories>
-      <tags>
-        <tag>OS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数据库原理及应用-学习笔记1</title>
-    <url>/lzfangwen.github.io/2020/03/13/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</url>
-    <content><![CDATA[<p>﻿## DBMS（数据库系统）</p>
-<h4 id="DBMS的主要功能"><a href="#DBMS的主要功能" class="headerlink" title="DBMS的主要功能"></a>DBMS的主要功能</h4><p>1.数据定义功能<br>2.数据操作功能<br>3.数据库运行管理功能<br>4.数据库的建立和维护功能</p>
-<a id="more"></a>
-
-<h4 id="DBMS的组成"><a href="#DBMS的组成" class="headerlink" title="DBMS的组成"></a>DBMS的组成</h4><p>1.语言编译处理程序<br>2.系统运行控制程序<br>3.系统建立，维护程序<br>4.数字字典</p>
-<h2 id="数据模型"><a href="#数据模型" class="headerlink" title="数据模型"></a>数据模型</h2><p>数据模型 是一种表示数据及其联系的模型,是对现实世界数据特征与联系的抽象反映。<br><img src="https://img-blog.csdnimg.cn/20200313150028827.png" alt="在这里插入图片描述"><br>根据数据模型应用的不同目的，可以划分为两类，它们分别属于不同的层次。<br>第一类是概念模型，第二类是逻辑模型和物理模型</p>
-<ul>
-<li><strong>概念模型</strong>(或称信息模型) :它是按用户的观点来对数据和信息建模,即用于信息世界的建模,所建立的是属于信息世界的模型。主要用于数据库的设计。</li>
-<li><strong>逻辑模型</strong>(或称结构数据模型) :主要包括网状模型、层次模型、关系模型等,是按计算机系统的观点对数据建模”,所建立的是属于机器世界的模型,主要用于DBMS的实现。后面主要讨论这类数据模型。</li>
-<li><strong>物理模型</strong>:是对数据最低层的抽象,是面向计算机物理表示的模型,它描述数据在系统内部的表示方式和存取方法,它不但与具体的DBMS有而且还与操作系统和硬件有关。每一种逻辑模型在实现时都有相对应的物理数据模型。<br><img src="https://img-blog.csdnimg.cn/20200313150529190.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h3 id="概念模型"><a href="#概念模型" class="headerlink" title="概念模型"></a>概念模型</h3><strong>实体间的联系</strong><br> 1：1<br> 1：n<br> n：m<br><strong>实体-联系表示法（E-R方法）</strong><br>在E-R图中实体用方框表示;联系用菱形表示,并且用边将其与有关的实体连接起来,并在边上标上联系的类型;属性用椭圆表示,并且用边将其与相应的实体连接起来。对于有些联系,其自身也会有某些属性,同实体与属性的连接类似,将联系与其属性连接起来。<br>eg：<img src="https://img-blog.csdnimg.cn/20200313151618781.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-</ul>
-<h2 id="DMBS支持的数据模型"><a href="#DMBS支持的数据模型" class="headerlink" title="DMBS支持的数据模型"></a>DMBS支持的数据模型</h2><p><strong>数据模型组成的要素</strong></p>
-<ul>
-<li><strong>数据结构</strong><br>数据结构是刻画一个数据模型性质最重要的方面,通常按数据组织结构的类型来命名数据模型,如层次结构、网状图结构和关系结构的数据模型分别命名为层次模型、网状模型和关系模型。<br>数据结构是对系统静态特性的描述,其描述的内容有两类:数据的描述和数据之间联系的描述。</li>
-<li><strong>数据操作</strong><br>数据操作是对系统动态特性的描述,是数据库中的各种对象的实例(值)允许执行的操作的集合。<br>主要有检索和更新(插入、删除、修改)两类操作。数据模型必须定义这些操作的确切含义、操作符号、操作规则、实现操作的语言。</li>
-<li><strong>数据约束</strong><br>数据的完整性约束条件是一组完整性规则的集合,给出数据及其联系所具有的制约、依赖和存储规则,用于限定数据库的状态和状态变化,保证数据库中的数据的正确、有效、完全和相容。</li>
-</ul>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
+      
+      
+        <tags>
+            
+            <tag> 计算机网络 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>操作系统学习笔记3</title>
+      <link href="/lzfangwen.github.io/2020/03/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/"/>
+      <url>/lzfangwen.github.io/2020/03/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/</url>
+      
+        <content type="html"><![CDATA[<h2 id="进程的调度"><a href="#进程的调度" class="headerlink" title="进程的调度"></a>进程的调度</h2><h3 id="时机"><a href="#时机" class="headerlink" title="时机"></a>时机</h3><p><img src="https://img-blog.csdnimg.cn/20200321215121803.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><a id="more"></a><br><img src="https://img-blog.csdnimg.cn/20200321215616103.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h3 id="方式"><a href="#方式" class="headerlink" title="方式"></a>方式</h3><p><img src="https://img-blog.csdnimg.cn/20200321215708658.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h3 id="切换与过程"><a href="#切换与过程" class="headerlink" title="切换与过程"></a>切换与过程</h3><p><img src="https://img-blog.csdnimg.cn/20200321220025428.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h2 id="调度算法的评价指标"><a href="#调度算法的评价指标" class="headerlink" title="调度算法的评价指标"></a>调度算法的评价指标</h2><h3 id="CPU利用率"><a href="#CPU利用率" class="headerlink" title="CPU利用率"></a>CPU利用率</h3><p>指CPU忙碌 的时间占总时间的比例<br><img src="https://img-blog.csdnimg.cn/20200321221647667.png" alt="在这里插入图片描述"></p><h3 id="系统吞吐量"><a href="#系统吞吐量" class="headerlink" title="系统吞吐量"></a>系统吞吐量</h3><p>指单位时间内完成作业的数量<br><img src="https://img-blog.csdnimg.cn/2020032122170056.png" alt="在这里插入图片描述"></p><h3 id="周转时间"><a href="#周转时间" class="headerlink" title="周转时间"></a>周转时间</h3><p> 指从<strong>作业被提交给系统开始</strong>，到<strong>作业完成为止</strong>的这段时间间隔<br> <img src="https://img-blog.csdnimg.cn/20200321220753841.png" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200321220859207.png" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200321221708381.png" alt="在这里插入图片描述"></p><h3 id="等待时间"><a href="#等待时间" class="headerlink" title="等待时间"></a>等待时间</h3><p> 指进程/作业<strong>处于等待处理机状态时间之和</strong><br>等待时间=周转时间-运行时间-I/O操作的时间<img src="https://img-blog.csdnimg.cn/20200321221739884.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p><h3 id="响应时间"><a href="#响应时间" class="headerlink" title="响应时间"></a>响应时间</h3><p> 指用户<strong>提交请求</strong>到<strong>首次产生响应</strong>所用的时间</p><h2 id="调度算法"><a href="#调度算法" class="headerlink" title="调度算法"></a>调度算法</h2><p> <img src="https://img-blog.csdnimg.cn/20200322103738586.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200322111605743.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h3 id="先来先服务算法（FCDS，First-Come-FIrst-Serve）"><a href="#先来先服务算法（FCDS，First-Come-FIrst-Serve）" class="headerlink" title="先来先服务算法（FCDS，First Come FIrst Serve）"></a>先来先服务算法（FCDS，First Come FIrst Serve）</h3><p> <img src="https://img-blog.csdnimg.cn/20200322101814472.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200322102610499.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h3 id="短作业优先（SJF，Shortest-Job-First）"><a href="#短作业优先（SJF，Shortest-Job-First）" class="headerlink" title="短作业优先（SJF，Shortest Job First）"></a>短作业优先（SJF，Shortest Job First）</h3><p> <img src="https://img-blog.csdnimg.cn/20200322102933743.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200322102507330.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">)<img src="https://img-blog.csdnimg.cn/20200322102354444.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h3 id="高响应优先（HRRN，Highest-Response-Ratio-Next）"><a href="#高响应优先（HRRN，Highest-Response-Ratio-Next）" class="headerlink" title="高响应优先（HRRN，Highest Response Ratio Next）"></a>高响应优先（HRRN，Highest Response Ratio Next）</h3><p> <img src="https://img-blog.csdnimg.cn/20200322103713380.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200322103723522.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h3 id="时间片轮转调度算法（RR，Round-Robin）"><a href="#时间片轮转调度算法（RR，Round-Robin）" class="headerlink" title="时间片轮转调度算法（RR，Round-Robin）"></a>时间片轮转调度算法（RR，Round-Robin）</h3><p> <img src="https://img-blog.csdnimg.cn/2020032210572321.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200322105826975.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h3 id="优先级调度算法"><a href="#优先级调度算法" class="headerlink" title="优先级调度算法"></a>优先级调度算法</h3><p> <img src="https://img-blog.csdnimg.cn/20200322110647521.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">)<img src="https://img-blog.csdnimg.cn/2020032211023247.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200322110243922.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200322110658166.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h3 id="多级反馈队列调度算法"><a href="#多级反馈队列调度算法" class="headerlink" title="多级反馈队列调度算法"></a>多级反馈队列调度算法</h3><p> <img src="https://img-blog.csdnimg.cn/20200322111151807.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200322111410276.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="【"></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
       <categories>
-        <category>数据库原理及应用</category>
+          
+          <category> OS </category>
+          
       </categories>
-      <tags>
-        <tag>SQLserver</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>计算机组成原理-学习笔记1</title>
-    <url>/lzfangwen.github.io/2020/03/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</url>
-    <content><![CDATA[<p><strong>B站 王道考研视频 学习笔记 纯粹自己整理方便复习使用 侵删</strong></p>
-<p>﻿# 第一章 计算机系统简介</p>
-<h2 id="软硬件"><a href="#软硬件" class="headerlink" title="软硬件"></a>软硬件<a id="more"></a><img src="https://img-blog.csdnimg.cn/20200313110251157.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt=""></h2><p><img src="https://img-blog.csdnimg.cn/20200313110314482.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt=""><br><img src="https://img-blog.csdnimg.cn/20200313110725516.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200313110746978.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><a href="https://www.icourse163.org/spoc/learn/HHIT-1451455173?tid=1451908450#/learn/content?type=detail&amp;id=1220058249&amp;cid=1228881649" target="_blank" rel="noopener">慕课链接</a></p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
+      
+      
+        <tags>
+            
+            <tag> OS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>操作系统-学习笔记2</title>
+      <link href="/lzfangwen.github.io/2020/03/20/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/"/>
+      <url>/lzfangwen.github.io/2020/03/20/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/</url>
+      
+        <content type="html"><![CDATA[<h2 id="程序的顺序执行"><a href="#程序的顺序执行" class="headerlink" title="程序的顺序执行"></a>程序的顺序执行</h2><a id="more"></a><p><img src="https://img-blog.csdnimg.cn/2020031316272059.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h2 id="程序的并发执行"><a href="#程序的并发执行" class="headerlink" title="程序的并发执行"></a>程序的并发执行</h2><p><img src="https://img-blog.csdnimg.cn/20200313163136346.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200313163144468.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h2 id="前驱图"><a href="#前驱图" class="headerlink" title="前驱图"></a>前驱图</h2><p><img src="https://img-blog.csdnimg.cn/20200313162759444.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h2 id="进程的描述"><a href="#进程的描述" class="headerlink" title="进程的描述"></a>进程的描述</h2><p><img src="https://img-blog.csdnimg.cn/20200313163722388.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/2020031316381162.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200320101837346.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h2 id="进程的组织形式"><a href="#进程的组织形式" class="headerlink" title="进程的组织形式"></a>进程的组织形式</h2><p><img src="https://img-blog.csdnimg.cn/20200320102130397.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>进程与程序的区别</strong><br><img src="https://img-blog.csdnimg.cn/20200313165514735.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>特性</strong><br><img src="https://img-blog.csdnimg.cn/20200313165610535.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h2 id="进程的基本状态及转换"><a href="#进程的基本状态及转换" class="headerlink" title="进程的基本状态及转换"></a>进程的基本状态及转换</h2><p>三种基本状态</p><ul><li><strong>就绪状态(Ready)</strong><br>得到了除CPU以外的所有必要资源</li><li><strong>执行状态(Running)</strong><br>已获得处理机，程序正在被执行</li><li><strong>堵塞状态(Waiting/Blocked,又称等待态)</strong><br>因等待某事件发生而暂时无法继续执行，从而放弃处理机，使程序执行处于暂停状态<br><img src="https://img-blog.csdnimg.cn/20200320103846258.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">)<img src="https://img-blog.csdnimg.cn/2020032010381917.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h2 id="进程控制"><a href="#进程控制" class="headerlink" title="进程控制"></a>进程控制</h2><img src="https://img-blog.csdnimg.cn/20200320104832851.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h2 id="进程通信"><a href="#进程通信" class="headerlink" title="进程通信"></a>进程通信</h2><strong>进程之间的信息交换</strong><br><img src="https://img-blog.csdnimg.cn/20200320105838352.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2></li></ul><p> <strong>线程是一个基本的CPU执行单元 ，也是程序执行流的最小单位</strong><br> <img src="https://img-blog.csdnimg.cn/20200320110828452.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200320111301772.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200320112545394.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p><strong>设置进程同步机制四条规则</strong></p><p>进程在并发执行时为了保证结果的可再现性，各进程执行序列必须加以限制以保证互斥地使用临界资源，相互合作完成任务。多个相关进程在执行次序上的协调称为进程同步。用于保证多个进程在执行次序上的协调关系的相应机制称为进程同步机制。</p><p>所有的进程同步机制应遵循下述四条准则：</p><ul><li><strong>空闲让进</strong><br>当无进程进入临界区时，相应的临界资源处于空闲状态，因而允许一个请求进入临界区的进程立即进入自己的临界区。</li><li><strong>忙则等待</strong><br>当已有进程进入自己的临界区时，即相应的临界资源正被访问，因而其它试图进入临界区的进程必须等待，以保证进程互斥地访问临界资源。</li><li><strong>有限等待</strong><br>对要求访问临界资源的进程，应保证进程能在有限时间进入临界区，以免陷入“饥饿”状态。</li><li><strong>让权等待</strong><br>当进程不能进入自己的临界区时，应立即释放处理机，以免进程陷入忙等。</li></ul><h4 id="临界区"><a href="#临界区" class="headerlink" title="临界区"></a>临界区</h4><p><strong>每个进程中访问临界资源的那段代码称为临界区</strong>（Critical Section）（临界资源是一次仅允许一个进程使用的共享资源）。每次只准许一个进程进入临界区，进入后不允许其他进程进入。不论是硬件临界资源，还是软件临界资源，多个进程必须互斥地对它进行访问。<br>多个进程中涉及到同一个临界资源的临界区称为相关临界区。.</p><h2 id="处理机调度"><a href="#处理机调度" class="headerlink" title="处理机调度"></a>处理机调度</h2><p><img src="https://img-blog.csdnimg.cn/2020032011364476.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200320113935411.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h3 id="七状态模型"><a href="#七状态模型" class="headerlink" title="七状态模型"></a>七状态模型</h3><p><img src="https://img-blog.csdnimg.cn/20200320113916159.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
       <categories>
-        <category>计算机组成原理</category>
+          
+          <category> OS </category>
+          
       </categories>
-      <tags>
-        <tag>计算机组成原理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>计算机组成原理-学习笔记2</title>
-    <url>/lzfangwen.github.io/2020/03/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/</url>
-    <content><![CDATA[<p>﻿<img src="https://img-blog.csdnimg.cn/20200313111304663.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<a id="more"></a>
-
-<p>冯·诺伊曼计算机的特点<br>1.计算机由五大部件<br>2.指令和数据以同等地位存于存储器，可按地址寻访<br>3.指令和数据用二进制表示<br>4.指令由操作码和地址码组成<br>5.存储程序<br>6.以运算器为核心</p>
-<p><img src="https://img-blog.csdnimg.cn/20200313111342721.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/2020031311145292.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200316092536882.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200313112917893.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200313112951742.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/2020031311384993.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200313114018661.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
+      
+      
+        <tags>
+            
+            <tag> OS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>计算机组成原理-学习笔记2</title>
+      <link href="/lzfangwen.github.io/2020/03/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/"/>
+      <url>/lzfangwen.github.io/2020/03/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/</url>
+      
+        <content type="html"><![CDATA[<p>﻿<img src="https://img-blog.csdnimg.cn/20200313111304663.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><a id="more"></a><p>冯·诺伊曼计算机的特点<br>1.计算机由五大部件<br>2.指令和数据以同等地位存于存储器，可按地址寻访<br>3.指令和数据用二进制表示<br>4.指令由操作码和地址码组成<br>5.存储程序<br>6.以运算器为核心</p><p><img src="https://img-blog.csdnimg.cn/20200313111342721.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/2020031311145292.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200316092536882.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200313112917893.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200313112951742.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/2020031311384993.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200313114018661.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
       <categories>
-        <category>计算机组成原理</category>
+          
+          <category> 计算机组成原理 </category>
+          
       </categories>
-      <tags>
-        <tag>计算机组成原理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>计算机组成原理-汉明码</title>
-    <url>/lzfangwen.github.io/2020/03/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86-%E6%B1%89%E6%98%8E%E7%A0%81/</url>
-    <content><![CDATA[<p><strong>自己的理解 帮助自己复习用的 写的可能会有错误</strong></p>
-<h2 id="汉明码-Hamming-Code"><a href="#汉明码-Hamming-Code" class="headerlink" title="汉明码(Hamming Code )"></a>汉明码(Hamming Code )</h2><blockquote>
-<p>汉明码（Hamming Code），是在电信领域的一种线性调试码，以发明者理查德·卫斯里·汉明的名字命名。汉明码在传输的消息流中插入验证码，当计算机存储或移动数据时，可能会产生数据位错误，以侦测并更正单一比特错误。由于汉明编码简单，它们被广泛应用于内存（RAM）。——百度百科</p>
-</blockquote>
-<a id="more"></a>
-
-<p>说人话 就是 我想发送一串二进制数据 例如 10010<br>但我又怕发送过程中出现意外就用检测码的形式保证不会出错，出错了也可以通过检测码查出哪位出错了因为二进制只有01，错了就能改正。</p>
-<h2 id="发送biubiubiu"><a href="#发送biubiubiu" class="headerlink" title="发送biubiubiu"></a>发送biubiubiu</h2><p>我想发 10010<br>首先 根据公式<br>$$<br>2^{k}&gt;=n+k+1<br>$$<br> n位二进制位数 k位检测位数<br>算出k最小为4<br>也就是5位的二进制数据10010要插入4位检测码<br>但插入并不是直接放在数据最前或是最后<br>4位检测码是按照<br>$$<br>2^{i}<br>$$<br>位放入二进制数据中</p>
-<table>
-<thead>
-<tr>
-<th align="center">二进制数据序号</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">序号用二进制表示</td>
-<td>0001</td>
-<td>0010</td>
-<td>0011</td>
-<td>0100</td>
-<td>0101</td>
-</tr>
-<tr>
-<td align="center">数据串</td>
-<td>C1</td>
-<td>C2</td>
-<td>1</td>
-<td>C4</td>
-<td>0</td>
-</tr>
-</tbody></table>
-<p>根据序号的二进制进行分组<br>满足 XXX1 的位第一组     </p>
-<table>
-<thead>
-<tr>
-<th align="center">序号</th>
-<th>1</th>
-<th>3</th>
-<th>5</th>
-<th>7</th>
-<th>9</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">数据串</td>
-<td>C1</td>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-</tr>
-</tbody></table>
-<p>满足 XX1X 的为第二组 </p>
-<table>
-<thead>
-<tr>
-<th>序号</th>
-<th>2</th>
-<th>3</th>
-<th>6</th>
-<th>7</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>数据串</td>
-<td>C2</td>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-</tr>
-</tbody></table>
-<p>满足 X1XX 的为第三组    </p>
-<table>
-<thead>
-<tr>
-<th>序号</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>数据串</td>
-<td>C4</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-</tr>
-</tbody></table>
-<p>满足1XXX的为第四组</p>
-<table>
-<thead>
-<tr>
-<th>序号</th>
-<th>8</th>
-<th>9</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>数据串</td>
-<td>C8</td>
-<td>0</td>
-</tr>
-</tbody></table>
-<p>Ci为第几位检测码 可以发现每组数据串都有一位检测码 分别对其进行偶校验 就可以得出检测码了 从而得到最终的汉明码<br>第一组 C1为0<br>第二组 C2为0<br>第三组 C3为1<br>第四组 C4为0<br>所以最后的海明码为 001100100 然后就可以biubiubiu 发过去了</p>
-<h2 id="接收duangduangduang"><a href="#接收duangduangduang" class="headerlink" title="接收duangduangduang"></a>接收duangduangduang</h2><p>接收一串海明码怎么查错及提取有效数据嘞<br>还是以上面发送的为例 001 100 100在发送过程中第6位错了变成了001 101 100<br><del>看我操作就行了</del><br>接收duangduangduang<br>分组进行偶校验 满足给0 不满足给1</p>
-<table>
-<thead>
-<tr>
-<th>二进制数据序号</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>序号用二进制表示</td>
-<td>0001</td>
-<td>0010</td>
-<td>0011</td>
-<td>0100</td>
-<td>0101</td>
-<td>0110</td>
-<td>0111</td>
-<td>1000</td>
-<td>1001</td>
-</tr>
-<tr>
-<td>数据串</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-</tr>
-</tbody></table>
-<p>满足 XXX1 的位第一组     满足偶校验 给0</p>
-<table>
-<thead>
-<tr>
-<th>序号</th>
-<th>1</th>
-<th>3</th>
-<th>5</th>
-<th>7</th>
-<th>9</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>数据串</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-</tr>
-</tbody></table>
-<p>满足 XX1X 的为第二组     不满足偶校验 给1</p>
-<table>
-<thead>
-<tr>
-<th>序号</th>
-<th>2</th>
-<th>3</th>
-<th>6</th>
-<th>7</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>数据串</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-</tr>
-</tbody></table>
-<p>满足 X1XX 的为第三组    不满足偶校验 给1</p>
-<table>
-<thead>
-<tr>
-<th>序号</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>数据串</td>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-</tr>
-</tbody></table>
-<p>满足1XXX的为第四组     满足偶校验 给0</p>
-<table>
-<thead>
-<tr>
-<th>序号</th>
-<th>8</th>
-<th>9</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>数据串</td>
-<td>0</td>
-<td>0</td>
-</tr>
-</tbody></table>
-<p>按照组数从大到小列出为 0110 <del>卧槽</del> 正好就是6的二进制表示<br>就是第6位错了 改过来就得了 001 100 100 ✔<br>有效信息的话就是 去掉第1，2，4，8位的检验码<br>为 10010√<br>呐呐呐 就结束了 </p>
-<h2 id="奇偶检验"><a href="#奇偶检验" class="headerlink" title="奇偶检验"></a>奇偶检验</h2><p>添加一位检测位，使得二进制数据中满足奇偶原则</p>
-<p><strong>配偶原则</strong> 就是检测二进制数据中‘1’的个数如果为奇数个，检测位就为‘1’使得满足二进制数据中‘1’的个数满足偶数个，如果个数为偶数，检测位则为‘0’ 这就是配偶原则也叫<strong>偶校验</strong></p>
-<p><strong>配奇原则</strong>就是检测二进制数据中‘1’的个数 如果为奇数，检测位为‘0’，如果为偶数，检测位为‘1’以此满足配奇数原则，也叫<strong>奇校验</strong></p>
-<h2 id="为啥子呢"><a href="#为啥子呢" class="headerlink" title="为啥子呢"></a>为啥子呢</h2><p>会做了  我们来搞搞原理<br><img src="https://img-blog.csdnimg.cn/20200324094401246.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>一串数据 1 2 3 4 5 6 7<br>分为三组<br>第一组 1 2 3 4<br>第二组 2 3 5 6<br>第三组 3 4 6 7<br>7个数中其中有一个是错的<br>我们还可以知道三个组有哪些是全对的 那些是错的<br>我们就能判断出 哪个数错了 神不神奇wow<br>eg.<br>    第一组错了 ，第二三组对了 看图 就能知道 1是错的<br>      第一二错了 第三组对了       看图得知 2是错的</p>
-<p>简单的原理就是这个原理<br>我也说不清<br>自己体会<br>那就这样吧<br>写博客号累 写一上午了<br><del>我要去打csgo了</del><br>我要继续去学习了</p>
-<h2 id="其他一些想说的"><a href="#其他一些想说的" class="headerlink" title="其他一些想说的"></a>其他一些想说的</h2><p>==汉明码 默认只错一位==<br>汉明码 顺序的话可以从右向左 也就是可以</p>
-<table>
-<thead>
-<tr>
-<th>二进制数据序号</th>
-<th>9</th>
-<th>8</th>
-<th>7</th>
-<th>6</th>
-<th>5</th>
-<th>4</th>
-<th>3</th>
-<th>2</th>
-<th>1</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>数据串</td>
-<td></td>
-<td>C4</td>
-<td></td>
-<td></td>
-<td></td>
-<td>C3</td>
-<td></td>
-<td>C2</td>
-<td>C1</td>
-</tr>
-</tbody></table>
-<p>就是序号顺序和检测码顺序得保持一致<br>而且写汉明码和姐汉明码方向应该一致（应该是对的我验证了一下<del>就因为我看的一个教程 方向错了 我做的作业全错 呜呜呜</del>  ）<br>不过默认从左向右 <del>别整那些骚的了</del>  </p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
+      
+      
+        <tags>
+            
+            <tag> 计算机组成原理 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>计算机组成原理-学习笔记1</title>
+      <link href="/lzfangwen.github.io/2020/03/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/"/>
+      <url>/lzfangwen.github.io/2020/03/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</url>
+      
+        <content type="html"><![CDATA[<p><strong>B站 王道考研视频 学习笔记 纯粹自己整理方便复习使用 侵删</strong></p><p>﻿# 第一章 计算机系统简介</p><h2 id="软硬件"><a href="#软硬件" class="headerlink" title="软硬件"></a>软硬件<a id="more"></a><img src="https://img-blog.csdnimg.cn/20200313110251157.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt=""></h2><p><img src="https://img-blog.csdnimg.cn/20200313110314482.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt=""><br><img src="https://img-blog.csdnimg.cn/20200313110725516.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200313110746978.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><a href="https://www.icourse163.org/spoc/learn/HHIT-1451455173?tid=1451908450#/learn/content?type=detail&amp;id=1220058249&amp;cid=1228881649" target="_blank" rel="noopener">慕课链接</a></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
       <categories>
-        <category>计算机组成原理</category>
+          
+          <category> 计算机组成原理 </category>
+          
       </categories>
-      <tags>
-        <tag>Hamming Code</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>计算机网络 学习笔记1</title>
-    <url>/lzfangwen.github.io/2020/03/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</url>
-    <content><![CDATA[<p><strong>B站 王道考研视频 学习笔记 纯粹自己整理方便复习使用 侵删</strong></p>
-<h1 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h1><p><img src="https://img-blog.csdnimg.cn/20200318084558533.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<a id="more"></a>
-
-<h2 id="标准化"><a href="#标准化" class="headerlink" title="标准化"></a>标准化</h2><p><img src="https://img-blog.csdnimg.cn/20200318085732967.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="性能指标"><a href="#性能指标" class="headerlink" title="性能指标"></a>性能指标</h2><p><img src="https://img-blog.csdnimg.cn/20200318092520956.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h3 id="速率"><a href="#速率" class="headerlink" title="速率"></a>速率</h3><p><img src="https://img-blog.csdnimg.cn/20200318090511517.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h3 id="带宽"><a href="#带宽" class="headerlink" title="带宽"></a>带宽</h3><p><img src="https://img-blog.csdnimg.cn/20200318090520447.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h3 id="时延"><a href="#时延" class="headerlink" title="时延"></a>时延</h3><p><img src="https://img-blog.csdnimg.cn/20200318091719994.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h3 id="时延带宽积"><a href="#时延带宽积" class="headerlink" title="时延带宽积"></a>时延带宽积</h3><p><img src="https://img-blog.csdnimg.cn/20200318091947775.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h3 id="往返时延RTT"><a href="#往返时延RTT" class="headerlink" title="往返时延RTT"></a>往返时延RTT</h3><p><img src="https://img-blog.csdnimg.cn/20200318092228234.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h3 id="利用率"><a href="#利用率" class="headerlink" title="利用率"></a>利用率</h3><p><img src="https://img-blog.csdnimg.cn/20200318092421213.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt=""></p>
-<h2 id="分层"><a href="#分层" class="headerlink" title="分层"></a>分层</h2><h3 id="基本规则"><a href="#基本规则" class="headerlink" title="基本规则"></a>基本规则</h3><ol>
-<li><p>各层之间互相<strong>独立</strong>，每层只实现一种相对独立的功能。</p>
-</li>
-<li><p>每层之间<strong>界面自然清晰</strong>，易于理解，相互交流尽可能少。</p>
-</li>
-<li><p>结构上可分割。每层都采用<strong>最合适的技术</strong>来实现。</p>
-</li>
-<li><p>保持<strong>下层对上层</strong>的独立性，<strong>上层单向使用下层提供的服务</strong>。</p>
-</li>
-<li><p>整个分层结构应该能促进标准化工作。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><img src="https://img-blog.csdnimg.cn/20200323171307621.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h3 id="ISO-OSI参考模型"><a href="#ISO-OSI参考模型" class="headerlink" title="ISO/OSI参考模型"></a>ISO/OSI参考模型</h3><p><img src="https://img-blog.csdnimg.cn/2020032317261286.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h4 id="用户层"><a href="#用户层" class="headerlink" title="用户层"></a>用户层</h4><p>所有能和用户交互产生网络流量的程序</p>
-<h4 id="表示层"><a href="#表示层" class="headerlink" title="表示层"></a>表示层</h4><p>用于处理在两个通信系统中交换信息的表示方式（语法和语义）</p>
-<p>功能一：数据格式转换<br>功能二：数据加密解密<br>功能三：数据压缩和恢复</p>
-<h4 id="会话层"><a href="#会话层" class="headerlink" title="会话层"></a>会话层</h4><p>向表示层实体/用户进程建立连接并在连接上有序地传输数据<br>这是会话，也是建立同步（SYN）</p>
-<p>功能一：建立，管理，终止会话<br>功能二：使用校验点可使会话在通信失效时从校验点/同步点继续回复通信，实现数据同步</p>
-<h4 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h4><p>·负责主机中<strong>两个进程</strong>的通信,即<strong>端到端</strong>的通信。传输单位是报文段或用户数据报</p>
-<p>功能一：<strong>可</strong>靠传输、不可靠传输<br>功能二：<strong>差</strong>错控制<br>功能三：<strong>流</strong>量控制<br>功能四：复<strong>用</strong>分用</p>
-<h4 id="网络层·"><a href="#网络层·" class="headerlink" title="网络层·"></a>网络层·</h4><p>主要任务是把分组从源端传到目的端,为分组交换网上的不同主机提供通信服务。<br>网络层传输单位是数据报</p>
-<p>功能一:路由选择<br>功能二:流量控制<br>功能三:差错控制<br>功能四:拥塞控制</p>
-<h4 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h4><p>主要任务是把网络层传下来的数据报组装成帧。数据链路层/链路层的传输单位是帧。</p>
-<p>功能一:成帧(定义帧的开始和结束)<br>功能二:差错控制  帧错+位错<br>功能三:流量控制<br>功能四:访问（接入）控制 控制对信道的访问</p>
-<h4 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h4><p>主要任务是在物理媒体上实现比特流的透明传输<br>物理层的传输单位是比特</p>
-<p>功能一：定义接口特性<br>功能二：定义传输模式<br>功能三：定义传输速率<br>功能四：比特同步<br>功能五：比特编码</p>
-<h3 id="TCP-IP参考模型"><a href="#TCP-IP参考模型" class="headerlink" title="TCP/IP参考模型"></a>TCP/IP参考模型</h3><p><img src="https://img-blog.csdnimg.cn/20200323175216782.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200323175806729.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">)<img src="https://img-blog.csdnimg.cn/20200323175635939.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200323175710332.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>学习链接为<a href="https://www.bilibili.com/video/BV19E411D78Q?p=10" target="_blank" rel="noopener">b站王道考研 计算机网络</a></p>
-</li>
-</ol>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
+      
+      
+        <tags>
+            
+            <tag> 计算机组成原理 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>数据库原理及应用-学习笔记1</title>
+      <link href="/lzfangwen.github.io/2020/03/13/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/"/>
+      <url>/lzfangwen.github.io/2020/03/13/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</url>
+      
+        <content type="html"><![CDATA[<p>﻿## DBMS（数据库系统）</p><h4 id="DBMS的主要功能"><a href="#DBMS的主要功能" class="headerlink" title="DBMS的主要功能"></a>DBMS的主要功能</h4><p>1.数据定义功能<br>2.数据操作功能<br>3.数据库运行管理功能<br>4.数据库的建立和维护功能</p><a id="more"></a><h4 id="DBMS的组成"><a href="#DBMS的组成" class="headerlink" title="DBMS的组成"></a>DBMS的组成</h4><p>1.语言编译处理程序<br>2.系统运行控制程序<br>3.系统建立，维护程序<br>4.数字字典</p><h2 id="数据模型"><a href="#数据模型" class="headerlink" title="数据模型"></a>数据模型</h2><p>数据模型 是一种表示数据及其联系的模型,是对现实世界数据特征与联系的抽象反映。<br><img src="https://img-blog.csdnimg.cn/20200313150028827.png" alt="在这里插入图片描述"><br>根据数据模型应用的不同目的，可以划分为两类，它们分别属于不同的层次。<br>第一类是概念模型，第二类是逻辑模型和物理模型</p><ul><li><strong>概念模型</strong>(或称信息模型) :它是按用户的观点来对数据和信息建模,即用于信息世界的建模,所建立的是属于信息世界的模型。主要用于数据库的设计。</li><li><strong>逻辑模型</strong>(或称结构数据模型) :主要包括网状模型、层次模型、关系模型等,是按计算机系统的观点对数据建模”,所建立的是属于机器世界的模型,主要用于DBMS的实现。后面主要讨论这类数据模型。</li><li><strong>物理模型</strong>:是对数据最低层的抽象,是面向计算机物理表示的模型,它描述数据在系统内部的表示方式和存取方法,它不但与具体的DBMS有而且还与操作系统和硬件有关。每一种逻辑模型在实现时都有相对应的物理数据模型。<br><img src="https://img-blog.csdnimg.cn/20200313150529190.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h3 id="概念模型"><a href="#概念模型" class="headerlink" title="概念模型"></a>概念模型</h3><strong>实体间的联系</strong><br> 1：1<br> 1：n<br> n：m<br><strong>实体-联系表示法（E-R方法）</strong><br>在E-R图中实体用方框表示;联系用菱形表示,并且用边将其与有关的实体连接起来,并在边上标上联系的类型;属性用椭圆表示,并且用边将其与相应的实体连接起来。对于有些联系,其自身也会有某些属性,同实体与属性的连接类似,将联系与其属性连接起来。<br>eg：<img src="https://img-blog.csdnimg.cn/20200313151618781.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li></ul><h2 id="DMBS支持的数据模型"><a href="#DMBS支持的数据模型" class="headerlink" title="DMBS支持的数据模型"></a>DMBS支持的数据模型</h2><p><strong>数据模型组成的要素</strong></p><ul><li><strong>数据结构</strong><br>数据结构是刻画一个数据模型性质最重要的方面,通常按数据组织结构的类型来命名数据模型,如层次结构、网状图结构和关系结构的数据模型分别命名为层次模型、网状模型和关系模型。<br>数据结构是对系统静态特性的描述,其描述的内容有两类:数据的描述和数据之间联系的描述。</li><li><strong>数据操作</strong><br>数据操作是对系统动态特性的描述,是数据库中的各种对象的实例(值)允许执行的操作的集合。<br>主要有检索和更新(插入、删除、修改)两类操作。数据模型必须定义这些操作的确切含义、操作符号、操作规则、实现操作的语言。</li><li><strong>数据约束</strong><br>数据的完整性约束条件是一组完整性规则的集合,给出数据及其联系所具有的制约、依赖和存储规则,用于限定数据库的状态和状态变化,保证数据库中的数据的正确、有效、完全和相容。</li></ul><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
       <categories>
-        <category>计算机网络</category>
+          
+          <category> 数据库原理及应用 </category>
+          
       </categories>
-      <tags>
-        <tag>计算机网络</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>测试</title>
-    <url>/lzfangwen.github.io/2020/04/07/%E6%B5%8B%E8%AF%95/</url>
-    <content><![CDATA[<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
-  </entry>
-  <entry>
-    <title>计算机网络-学习笔记2</title>
-    <url>/lzfangwen.github.io/2020/04/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/</url>
-    <content><![CDATA[<h2 id="数据通信基础知识"><a href="#数据通信基础知识" class="headerlink" title="数据通信基础知识"></a>数据通信基础知识</h2><h3 id="典型的数据通信模型"><a href="#典型的数据通信模型" class="headerlink" title="典型的数据通信模型"></a>典型的数据通信模型</h3><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/CPvLE6vyYds2.png" alt="mark"></p>
-<a id="more"></a>
-
-<h3 id="相关术语"><a href="#相关术语" class="headerlink" title="相关术语"></a>相关术语</h3><p>通信的目的是传送消息</p>
-<p><strong>数据</strong>:传送信息的实体,通常是有意义的符号序列。</p>
-<p><strong>信号</strong>:数据的电气/电磁的表现,是数据在传输过程中的存在形式。</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/N1nHo1I7kInr.png" alt="mark"></p>
-<p><strong>信源</strong>:产生和发送数据的源头。</p>
-<p><strong>信宿</strong>:接收数据的终点。</p>
-<p><strong>信道</strong>:信号的传输媒介。一般用来表示向某一个方向传送信息的介质,因此一条通信线路往往包含一条发送信道和一条接收信道。</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/lJeU3FYMQMf8.png" alt="mark"></p>
-<h3 id="三种通信方式"><a href="#三种通信方式" class="headerlink" title="三种通信方式"></a>三种通信方式</h3><p>从通信双方信息的交换方式看，可以有三种基本方式：</p>
-<ol>
-<li><strong>单工通信</strong>：只有一个方向的通信而没有反方向的交互,仅需要<strong>一条</strong>信道。</li>
-<li><strong>半双工通信</strong>：通信的双方都可以发送或接收信息,但任何一方都不能同时发送和接收,需要<strong>两条</strong>信道。</li>
-<li><strong>全双工通信</strong>：通信双方可以同时发送和接受信息,也需要<strong>两条</strong>信道。</li>
-</ol>
-<h3 id="两种数据传输方式"><a href="#两种数据传输方式" class="headerlink" title="两种数据传输方式"></a>两种数据传输方式</h3><ol>
-<li><p><strong>串行传输</strong>：速度<strong>慢</strong>，费用<strong>低</strong>，适合<strong>远</strong>距离</p>
-</li>
-<li><p><strong>并行传输</strong>：速度<strong>快</strong>，费用<strong>高</strong>，适合<strong>近</strong>距离</p>
-<p>​                    用于计算机内部数据传输（电脑上的井口 就为并行传输）</p>
-</li>
-</ol>
-<h3 id="码元"><a href="#码元" class="headerlink" title="码元"></a>码元</h3><p><strong>码元</strong>是指用一个固定时长的信号波形(数字脉冲) ,代表不同离散数值的基本波形,是数字通信中数字信号的计量单位,这个时长内的信号称为k进制码元,而该时长称为码元宽度。当码元的离散状态有M个时(M大于2) ,此时码元为M进制码元。</p>
-<p>1码元可以携带多个比特的信息量。例如,在使用二进制编码时,只有两种不同的码元,一种代表0状态,另一种代表1状态</p>
-<h3 id="速率、波特、带宽"><a href="#速率、波特、带宽" class="headerlink" title="速率、波特、带宽"></a>速率、波特、带宽</h3><p><strong>速率</strong>也叫数据率,是指数据的<strong>传输速率</strong>,表示单位时间内传输的数据量。可以用<strong>码元传输速</strong>率和<strong>信息传输速率</strong>表示</p>
-<ul>
-<li><strong>码元传输速率</strong>:别名码元速率、波形速率、调制速率、符号速率等,它表示单位时间内数字通信系统所传输的码元个数(也可称为脉冲个数或信号变化的次数) ,单位是<strong>波特(Baud)</strong> 。 1波特表示数字通信系统每秒传输一个码元。这里的码元可以是多进制的,也可以是二进制的,但码元速率与进制数无关。====</li>
-<li><strong>信息传输速率</strong>:别名信息速率、比特率等,表示单位时间内数字通信系统传输的二进制码元个数(即比特数)·单位是比特/秒(b/s) 。</li>
-</ul>
-<p>关系:若一个码元携带n bit的信息量,则MBaud的码元传输速率所对应的信息传输速率为MXn bit/s。</p>
-<p>带宽:表示在单位时间内从网络中的某一点到另一点所能通过的“<strong>最高数据率</strong>” ,常用来表示网络的通信线路所能输数据的能力。单位是b/s </p>
-<h4 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h4><p>某一数字通信系统传输的是四进制码元,4s传输了8000个码元,求系统的码元传输速率是多·少?信息传输速率是多少?若另一通信系统传输的是十六进制码元,6s传输了7200个码元,求他的码元传输速率是多少?信息传输速率是多少?并指出哪个系统传输速率快?</p>
-<blockquote>
-<p>2000波特    4000b/s    1200波特    4800b/s    十六进制最快</p>
-<p>四进制码元系统</p>
-<p>码元传输速率就是8000/4-2000Baud,信息传输速率就是20001log24=4000b/s</p>
-<p>十六进制码元系统</p>
-<p>码元传输速率就是7200/6-1200Baud,信息传输速率就是1200*10g216-4800b/s</p>
-<p>系统传输的是<strong>比特流</strong>,通常比较的是信息传输速率,所以传输十六进制码元的通信系统传输速率较快,如果用该系统去传输四进制码元会有更高的码元传输速率。</p>
-</blockquote>
-<h2 id="奈式准则-amp-香农定理"><a href="#奈式准则-amp-香农定理" class="headerlink" title="奈式准则&amp;香农定理"></a>奈式准则&amp;香农定理</h2><h3 id="失真"><a href="#失真" class="headerlink" title="失真"></a>失真</h3><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/l7i9Y8YJXplH.png" alt="mark"></p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/Npx9FIGhDJRS.png" alt="mark"></p>
-<h3 id="奈式准则（奈奎斯特定理）"><a href="#奈式准则（奈奎斯特定理）" class="headerlink" title="奈式准则（奈奎斯特定理）"></a>奈式准则（奈奎斯特定理）</h3><p>奈氏准则:在理想低通(无噪声,带宽受限)条件下,为了避免码间串扰,极限码元传输速率为2W Baud, w是信道带宽，单位是Hz。</p>
-<p><strong>只有这两个公式 带宽才用Hz</strong></p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/TOqH4IK30nC0.png" alt="mark"></p>
-<ol>
-<li>在任何信道中,<strong>码元传输的速率是有上限的</strong>。若传输速率超过此上限,就会出现严重的码间串扰问题,使接收端对码元的完全正确识别成为不可能。</li>
-<li>信道的频带越宽(即能通过的信号高频分量越多) ,就可以用更高的速率进行码元的有效传输。</li>
-<li><strong>奈氏准则给出了码元传输速率的限制,但并没有对信息传输速率给出限制。</strong></li>
-<li>由于码元的传输速率受奈氏准则的制约,所以要提高数据的传输速率,就必须设法使每个码元能携带更多个比特的信息量,这就需要采用多元制的调制方法</li>
-</ol>
-<p>eg.</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/WW0KKr5lKwp1.png" alt="mark"></p>
-<h3 id="香农定理"><a href="#香农定理" class="headerlink" title="香农定理"></a>香农定理</h3><p>噪声存在于所有的电子设备和通信信道中。由于噪声随机产生,它的瞬时值有时会很大,因此噪声会使接收端对码元的判决产生错误。但是噪声的影响是相对的,若信号较强,那么噪声影响相对较小。因此,信噪比就很重要。言噪比=信号的平均功率/噪声的平均功率,常记为S/N,并用分贝(dB)作为度量单位,即:信噪比（dB）N=10log10（S/N）</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
+      
+      
+        <tags>
+            
+            <tag> SQLserver </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>操作系统-学习笔记1</title>
+      <link href="/lzfangwen.github.io/2020/03/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/"/>
+      <url>/lzfangwen.github.io/2020/03/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</url>
+      
+        <content type="html"><![CDATA[<h2 id="操作系统概述"><a href="#操作系统概述" class="headerlink" title="操作系统概述"></a>操作系统概述</h2><a id="more"></a><p><img src="https://img-blog.csdnimg.cn/20200319155327527.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>四个特性</strong></p><ul><li><strong>并发</strong><img src="https://img-blog.csdnimg.cn/20200319160437281.png" alt="在这里插入图片描述"></li><li><strong>共享</strong>即资源共享<img src="https://img-blog.csdnimg.cn/20200319160605652.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li><li><strong>虚拟</strong><br><img src="https://img-blog.csdnimg.cn/20200319160708112.png" alt="在这里插入图片描述"></li><li><strong>异步</strong><br><img src="https://img-blog.csdnimg.cn/20200319160751700.png" alt="在这里插入图片描述"><br><strong>并发和共享互为存在条件<br>没有并发和共享，就谈不上虚拟和异步，因此并发和共享是操作系统的两个最基本的特征</strong><h2 id="OS"><a href="#OS" class="headerlink" title="OS"></a>OS</h2><img src="https://img-blog.csdnimg.cn/20200319192903977.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h2 id="OS的运行机制和体系结构"><a href="#OS的运行机制和体系结构" class="headerlink" title="OS的运行机制和体系结构"></a>OS的运行机制和体系结构</h2><img src="https://img-blog.csdnimg.cn/20200319215155378.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>※特权指令只能在核心态下执行</strong><br><strong>※内核程序只能在核心态下执行</strong><br><strong>※用户态-&gt;核心态 的切换通过 中断  来实现且是唯一途径</strong><h3 id="内核"><a href="#内核" class="headerlink" title="内核"></a>内核</h3><img src="https://img-blog.csdnimg.cn/20200319215623593.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li></ul><h4 id="操作系统的体系结构"><a href="#操作系统的体系结构" class="headerlink" title="操作系统的体系结构"></a>操作系统的体系结构</h4><p><img src="https://img-blog.csdnimg.cn/2020031921574972.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200319215823214.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h2 id="中断和异常"><a href="#中断和异常" class="headerlink" title="中断和异常"></a>中断和异常</h2><p><img src="https://img-blog.csdnimg.cn/20200319231430227.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h2 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h2><p><img src="https://img-blog.csdnimg.cn/20200320092825115.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200320093028554.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p><a href="https://www.bilibili.com/video/av70156862?t=15&amp;p=6" target="_blank" rel="noopener">来源 王道考研 操作系统</a></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
       <categories>
-        <category>计算机网络</category>
+          
+          <category> OS </category>
+          
       </categories>
-      <tags>
-        <tag>计算机网络</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Latex数学公式基础</title>
-    <url>/lzfangwen.github.io/2020/04/08/Latex%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E5%9F%BA%E7%A1%80/</url>
-    <content><![CDATA[<p>一些常用的Latex公式 转自Latex<a href="https://www.jianshu.com/p/e6d2368e451a" target="_blank" rel="noopener">数学公式基础</a>   <a href="https://www.jianshu.com/p/e6d2368e451a" target="_blank" rel="noopener">LaTeX写数学公式</a></p>
-<ul>
-<li><p>行内公式用<code>$...$</code>括起来，如<code>$ x^2 $</code>：$x^2$</p>
-</li>
-<li><p>独立公式 单独占一行，不和其他文字混编用<code>$$...$$</code>括起来，如<code>$$ f(x) = x^2 $$</code>：$$<br>$$<br>f(x) = x^2<br>$$</p>
-</li>
-<li><p>多行公式     在独立公式中使用\来换行</p>
-</li>
-</ul>
-<pre><code>$$   
-2x+3y=34\\   
-x+4y=25  
-$$         </code></pre><p>$$<br>2x+3y=34\<br>x+4y=25<br>$$</p>
-<a id="more"></a>
-
-<ol>
-<li><p>\frac`分数</p>
-<p><code>\feac 1 2</code>$\frac 1 2$</p>
-<p><code>\frac {2x}{x+y}</code>$\frac {2x}{x+y}$</p>
-</li>
-<li><p><code>\partial</code>偏导</p>
-<p><code>\partial</code> $\partial$</p>
-<p><code>\partial x</code> $\partial x$</p>
-<p><code>\frac {\partial E(x)} {\partial x}</code>$\frac {\partial E(x)} {\partial x}$</p>
-</li>
-<li><p><code>\sqrt</code>开根号</p>
-<p><code>\sqrt x</code>$\sqrt x$</p>
-<p><code>\sqrt {x^2 + y}</code>$\sqrt {x^2 + y}$</p>
-<p><code>\sqrt [n]{x}</code>$\sqrt [n]{x}$</p>
-</li>
-<li><p><code>^</code>指数</p>
-<p><code>x^2</code>$x^2$</p>
-<p><code>x^{a^2+b^2}</code>$x^{a^2+b^2}$</p>
-</li>
-<li><p><code>_</code>下标、正下标</p>
-<p><code>x_i</code>$x_i$</p>
-<p><code>x_i^2</code>$x_i^2$</p>
-<p><code>x_{i+1}^2</code>$x_{i+1}^2$</p>
-<p><code>\max\limits_{x\in R} f(x)</code>$\max\limits_{x\in R} f(x)$</p>
-<p>如果是数学符号，那么直接用<code>\limits</code>命令百放在正下度方，如</p>
-<p><code>\sum\limits_{i=1}</code>$ \sum\limits_{i=1} $</p>
-<p>若是普通符号，那知么要用<code>\mathop</code>先转成数学道符号再用<code>\limits</code>，如</p>
-<p><code>$ \mathop{a}\limits_{i=``1``} $</code>$ \mathop{a}\limits_{i=<code>1</code>} $</p>
-</li>
-</ol>
-<h2 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a><strong>关系运算符</strong></h2><table>
-<thead>
-<tr>
-<th>代码</th>
-<th>符号</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>\pm</code></td>
-<td>$\pm$</td>
-</tr>
-<tr>
-<td><code>\times</code></td>
-<td>$\times$</td>
-</tr>
-<tr>
-<td><code>\div</code></td>
-<td>$\div$</td>
-</tr>
-<tr>
-<td><code>\mid</code></td>
-<td>$\mid$</td>
-</tr>
-<tr>
-<td><code>\nmid</code></td>
-<td>$\nmid$</td>
-</tr>
-<tr>
-<td><code>\cdot</code></td>
-<td>$\cdot$</td>
-</tr>
-<tr>
-<td><code>\circ</code></td>
-<td>$\circ$</td>
-</tr>
-<tr>
-<td><code>\ast</code></td>
-<td>$\ast$</td>
-</tr>
-<tr>
-<td><code>\bigodot</code></td>
-<td>$\bigodot$</td>
-</tr>
-<tr>
-<td><code>\leq</code></td>
-<td>$\leq$</td>
-</tr>
-<tr>
-<td><code>\neq</code></td>
-<td>$\neq$</td>
-</tr>
-<tr>
-<td><code>\geq</code></td>
-<td>$\geq$</td>
-</tr>
-<tr>
-<td><code>\qpprox</code></td>
-<td>$\approx$</td>
-</tr>
-<tr>
-<td><code>\equiv</code></td>
-<td>$\equiv$</td>
-</tr>
-<tr>
-<td><code>\sum</code></td>
-<td>$\sum$</td>
-</tr>
-<tr>
-<td><code>\prod</code></td>
-<td>$\prod$</td>
-</tr>
-</tbody></table>
-<h2 id="三角运算符"><a href="#三角运算符" class="headerlink" title="三角运算符$$"></a><strong>三角运算符</strong>$$</h2><table>
-<thead>
-<tr>
-<th>代码</th>
-<th>符号</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>\bot</code></td>
-<td>$\bot$</td>
-</tr>
-<tr>
-<td><code>\angle</code></td>
-<td>$\angle$</td>
-</tr>
-<tr>
-<td><code>\sin</code></td>
-<td>$\sin$</td>
-</tr>
-<tr>
-<td><code>\cos</code></td>
-<td>$\cos$</td>
-</tr>
-<tr>
-<td><code>\tan</code></td>
-<td>$\tan$</td>
-</tr>
-<tr>
-<td><code>\cot</code></td>
-<td>$\cot$</td>
-</tr>
-<tr>
-<td><code>\sec</code></td>
-<td>$\sec$</td>
-</tr>
-<tr>
-<td><code>\csc</code></td>
-<td>$\csc$</td>
-</tr>
-</tbody></table>
-<h2 id="对数运算符"><a href="#对数运算符" class="headerlink" title="对数运算符"></a>对数运算符</h2><table>
-<thead>
-<tr>
-<th>代码</th>
-<th>符号</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>\log</code></td>
-<td>$\log$</td>
-</tr>
-<tr>
-<td><code>\lg</code></td>
-<td>$\lg$</td>
-</tr>
-<tr>
-<td><code>\ln</code></td>
-<td>$\ln$</td>
-</tr>
-</tbody></table>
-<h2 id="微积分运算符"><a href="#微积分运算符" class="headerlink" title="微积分运算符"></a>微积分运算符</h2><table>
-<thead>
-<tr>
-<th>代码</th>
-<th>符号</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>\prime</code></td>
-<td>$\prime$</td>
-</tr>
-<tr>
-<td><code>\int</code></td>
-<td>$\int$</td>
-</tr>
-<tr>
-<td><code>\iint</code></td>
-<td>$\iint$</td>
-</tr>
-<tr>
-<td><code>\iiint</code></td>
-<td>$\iiint$</td>
-</tr>
-<tr>
-<td><code>\oint</code></td>
-<td>$\oint$</td>
-</tr>
-<tr>
-<td><code>\lim</code></td>
-<td>$\lim$</td>
-</tr>
-<tr>
-<td><code>\infty</code></td>
-<td>$\infty$</td>
-</tr>
-<tr>
-<td><code>\mathrm{d}</code></td>
-<td>$\mathrm{d}$</td>
-</tr>
-</tbody></table>
-<h2 id="集合运算符"><a href="#集合运算符" class="headerlink" title="集合运算符"></a>集合运算符</h2><table>
-<thead>
-<tr>
-<th>代码</th>
-<th>符号</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>\emptyset</code></td>
-<td>$\emptyset$</td>
-</tr>
-<tr>
-<td><code>\in</code></td>
-<td>$\in$</td>
-</tr>
-<tr>
-<td><code>\notin</code></td>
-<td>$\notin$</td>
-</tr>
-<tr>
-<td><code>\subset</code></td>
-<td>$\subset$</td>
-</tr>
-<tr>
-<td><code>\subseteq</code></td>
-<td>$\subseteq$</td>
-</tr>
-<tr>
-<td><code>\supseteq</code></td>
-<td>$\supseteq$</td>
-</tr>
-<tr>
-<td><code>\bigcap</code></td>
-<td>$\bigcap$</td>
-</tr>
-<tr>
-<td><code>\bigcup</code></td>
-<td>$\bigcup$</td>
-</tr>
-<tr>
-<td><code>\bigvee</code></td>
-<td>$\bigvee$</td>
-</tr>
-<tr>
-<td><code>\bigwedge</code></td>
-<td>$\bigwedge$</td>
-</tr>
-<tr>
-<td><code>\biguplus</code></td>
-<td>$\biguplus$</td>
-</tr>
-<tr>
-<td><code>\bigsqcup</code></td>
-<td>$\bigsqcup$</td>
-</tr>
-</tbody></table>
-<h2 id="希腊字母"><a href="#希腊字母" class="headerlink" title="希腊字母"></a>希腊字母</h2><table>
-<thead>
-<tr>
-<th>代码</th>
-<th>大写</th>
-<th>代码</th>
-<th>小写</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>A</code></td>
-<td>$A$</td>
-<td><code>\alpha</code></td>
-<td>$\alpha$</td>
-</tr>
-<tr>
-<td><code>B</code></td>
-<td>B$</td>
-<td><code>\beta</code></td>
-<td>$\beta$</td>
-</tr>
-<tr>
-<td><code>\Gamma</code></td>
-<td>$\Gamma$</td>
-<td><code>\gamma</code></td>
-<td>$\gamma$</td>
-</tr>
-<tr>
-<td><code>\Delta</code></td>
-<td>$\Delta</td>
-<td><code>\delta</code></td>
-<td>$\delta$</td>
-</tr>
-<tr>
-<td><code>E</code></td>
-<td>$E</td>
-<td>\epsilon</td>
-<td>$\epsilon$</td>
-</tr>
-<tr>
-<td><code>Z</code></td>
-<td>$Z</td>
-<td><code>\zeta</code></td>
-<td>$\zeta$</td>
-</tr>
-<tr>
-<td><code>H</code></td>
-<td>$H</td>
-<td><code>\eta</code></td>
-<td>$\eta$</td>
-</tr>
-<tr>
-<td><code>\Theta</code></td>
-<td>$\Theta</td>
-<td><code>\theta</code></td>
-<td>$\theta$</td>
-</tr>
-<tr>
-<td><code>I</code></td>
-<td>$I</td>
-<td><code>\iota</code></td>
-<td>$\iota$</td>
-</tr>
-<tr>
-<td><code>K</code></td>
-<td>$K</td>
-<td><code>\kappa</code></td>
-<td>$\kappa$</td>
-</tr>
-<tr>
-<td><code>Lambda</code></td>
-<td>$Lambda</td>
-<td><code>\lambda</code></td>
-<td>$\lambda$</td>
-</tr>
-<tr>
-<td><code>M</code></td>
-<td>$M</td>
-<td><code>\mu</code></td>
-<td>$\mu$</td>
-</tr>
-<tr>
-<td><code>N</code></td>
-<td>$N$</td>
-<td><code>\nu</code></td>
-<td>$\nu$</td>
-</tr>
-<tr>
-<td><code>Xi</code></td>
-<td>$Xi$</td>
-<td><code>\xi</code></td>
-<td>$\xi$</td>
-</tr>
-<tr>
-<td><code>O</code></td>
-<td>$O$</td>
-<td><code>\omicron</code></td>
-<td>$\omicron$</td>
-</tr>
-<tr>
-<td><code>\Pi</code></td>
-<td>$\Pi$</td>
-<td><code>\pi</code></td>
-<td>$\pi$</td>
-</tr>
-<tr>
-<td><code>P</code></td>
-<td>$P$</td>
-<td><code>\rho</code></td>
-<td>$\rho$</td>
-</tr>
-<tr>
-<td><code>\Sigma</code></td>
-<td>$\Sigma$</td>
-<td><code>\sigma</code></td>
-<td>4\sigma$</td>
-</tr>
-<tr>
-<td><code>T</code></td>
-<td>$T$</td>
-<td><code>\tau</code></td>
-<td>$\tau$</td>
-</tr>
-<tr>
-<td><code>\Upsilon</code></td>
-<td>$\Upsilon$</td>
-<td><code>\upsilon</code></td>
-<td>$\upsilon$</td>
-</tr>
-<tr>
-<td><code>\Phi</code></td>
-<td>$\Phi$</td>
-<td><code>\phi</code></td>
-<td>$\phi$</td>
-</tr>
-<tr>
-<td><code>X</code></td>
-<td>$X$</td>
-<td><code>\chi</code></td>
-<td>$\chi$</td>
-</tr>
-<tr>
-<td><code>\Psi</code></td>
-<td>$\Psi$</td>
-<td><code>\psi</code></td>
-<td>$\psi$</td>
-</tr>
-<tr>
-<td><code>\Omega</code></td>
-<td>$\Omega$</td>
-<td><code>\omega</code></td>
-<td>$\omega$</td>
-</tr>
-</tbody></table>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
+      
+      
+        <tags>
+            
+            <tag> OS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>C++ string字符比较函数compare</title>
+      <link href="/lzfangwen.github.io/2020/03/10/C++%20string%E5%AD%97%E7%AC%A6%E6%AF%94%E8%BE%83%E5%87%BD%E6%95%B0compare%20/"/>
+      <url>/lzfangwen.github.io/2020/03/10/C++%20string%E5%AD%97%E7%AC%A6%E6%AF%94%E8%BE%83%E5%87%BD%E6%95%B0compare%20/</url>
+      
+        <content type="html"><![CDATA[<p>﻿# compare()函数</p><p> 在洛谷刷题时遇到一题需要使用字符串比较的题于是查了一下c++的字符比较函数，发现写的都比较复杂，我看不太懂<del>随便写写 ~</del>copy<del>~ 便于自己复习<br>  ~</del>可能有错误不要打我~~ </p><a id="more"></a><h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>若参与比较的两个串值(也就是ASCII值)相同，则函数返回 0；若字符串 S 按字典顺序要先于 S2，则返回负值；反之，则返回正值。比较方法为从两个字符串开始比较的位置一个个字符顺序相比ASCII值。<br>常见ASCII码的大小规则：0-9 &lt; A-Z &lt; a-z。<br>1）数字比字母要小。如 “7”&lt;“F”；<br>2）数字0比数字9要小，并按0到9顺序递增。如 “3”&lt;“8” ；<br>3）字母A比字母Z要小，并按A到Z顺序递增。如“A”&lt;“Z” ；<br>4）同个字母的大写字母比小写字母要小32。如“A”&lt;“a” 。<br>几个常见字母的ASCII码大小： “A”为65；“a”为97；“0”为 48<br>下面举例说明如何使用 string 类的 compare() 函数。</p><ol><li>s.compare(n)</li></ol><pre><code class="cpp">#include&lt;iostream&gt;#include&lt;string&gt;//字符串函数嘛 肯定要字符串头文件啦 using namespace std;int main(){    string s("abc");    string n("Abde");     cout&lt;&lt;"s.compare(n)="&lt;&lt;s.compare(n)&lt;&lt;endl ;//完整的字符串s与n比较}</code></pre><p><img src="https://img-blog.csdnimg.cn/2020031009165424.png" alt="输出结果"><br>结果为1即字符串s&gt;n<br>字符串的创建也有很多方式 可以参考一下 <a href="https://blog.csdn.net/qq_37941471/article/details/82107077" target="_blank" rel="noopener">string字符串相关函数</a></p><ol start="2"><li>s.compare(1,2,n)</li></ol><pre><code class="cpp">#include&lt;iostream&gt;#include&lt;string&gt;//字符串函数嘛 肯定要字符串头文件啦 using namespace std;int main(){    string s("AbDeas");    string n("Abdeas");     cout&lt;&lt;"s.compare(1,2,n)="&lt;&lt;s.compare(1,2,n)&lt;&lt;endl;//bd与Abdeas相比 }</code></pre><p><img src="https://img-blog.csdnimg.cn/20200310094804318.png" alt="结果"><br>结果为1  bd与Abdeas相比 bd&gt;Abdeas没毛病<br>s.compare(1,2,n) 中 1代表 下表 2代表数量  意思为 s字符串中下表为1 开始 字符数量为2的字符串  bd  与n相比</p><ol start="3"><li>s.compare(1,2,n,2,3)</li></ol><pre><code class="cpp">#include&lt;iostream&gt;#include&lt;string&gt;//字符串函数嘛 肯定要字符串头文件啦 using namespace std;int main(){    string s("Abdeas");    string n("Abdeas");     cout&lt;&lt;"s.compare(1,2,n,1,3)="&lt;&lt;s.compare(1,2,n,1,3)&lt;&lt;endl;//bd与bde相比 }</code></pre><p><img src="https://img-blog.csdnimg.cn/20200310095539579.png" alt="结果"><br>结果为-1  bd&lt;bde  没毛病  这个 就表示 两个字符串的指定 字符串段 比较</p><p>这样 就结束了compare()函数 的使用方法<br>0，0<br>哦哦 再把我做的题放出来把 简单的应用 虽然我做的挺复杂的orz</p><h2 id="洛谷-P1781-宇宙总统"><a href="#洛谷-P1781-宇宙总统" class="headerlink" title="洛谷 P1781 宇宙总统"></a>洛谷 P1781 宇宙总统</h2><p><a href="https://www.luogu.com.cn/problem/P1781" target="_blank" rel="noopener">题目链接</a><br>题目描述<br>地球历公元 6036 年，全宇宙准备竞选一个最贤能的人当总统，共有 nn 个非凡拔尖的人竞选总统，现在票数已经统计完毕，请你算出谁能够当上总统。</p><p>输入格式<br>第一行为一个整数 nn，代表竞选总统的人数。</p><p>接下来有 nn 行，分别为第一个候选人到第 nn 个候选人的票数。</p><p>输出格式<br>共两行，第一行是一个整数 mm，为当上总统的人的号数。</p><p>第二行是当上总统的人的选票。</p><p>输入输出样例<br>输入 #1<br>5<br>98765<br>12365<br>87954<br>1022356<br>985678<br>输出 #1<br>4<br>1022356<br>说明/提示<br>票数可能会很大，可能会到 100100 位数字。<br>我的代码</p><pre><code class="cpp">​```cpp#include&lt;bits/stdc++.h&gt;using namespace std;int n,mixsum;//涉及极大数问题 字符串解决string a,mix;int main(){    cin&gt;&gt;n;    for(int i=1;i&lt;=n;i++){        cin&gt;&gt;a;        if(mix.empty()){            mix=a;            mixsum=i;        }        if(a.size()&gt;mix.size()){            mix=a;            mixsum=i;        }        else if(a.size()&lt;mix.size()){            continue;        }        else if(a.size()==mix.size()){            if(a.compare(mix)&gt;0){                mix=a;                mixsum=i;            }            else{                continue;            }        }    }    cout&lt;&lt;mixsum&lt;&lt;endl;    cout&lt;&lt;mix&lt;&lt;endl;     return 0;}</code></pre><p>参考链接<br><a href="http://c.biancheng.net/view/1447.html" target="_blank" rel="noopener">C++ string字符串比较方法详解</a><br><a href="https://baike.baidu.com/item/ASCII/309296?fromtitle=ascii%E7%A0%81&amp;fromid=99077&amp;fr=aladdin" target="_blank" rel="noopener">百度百科ASCII</a></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
       <categories>
-        <category>markdown</category>
+          
+          <category> C++ </category>
+          
       </categories>
-      <tags>
-        <tag>markdown Latex</tag>
-      </tags>
-  </entry>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
 </search>
