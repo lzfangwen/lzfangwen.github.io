@@ -97,7 +97,7 @@
 <meta property="og:site_name" content="方文の个人博客">
 <meta property="og:description" content="一些常用的Latex公式 转自Latex数学公式基础   LaTeX写数学公式  行内公式用$...$括起来，如$ x^2 $：$x^2$  独立公式 单独占一行，不和其他文字混编用$$...$$括起来，如$$ f(x) &#x3D; x^2 $$：$$f(x) &#x3D; x^2$$  多行公式     在独立公式中使用\来换行   $$    2x+3y&#x3D;34\\    x+4y&#x3D;25   $$">
 <meta property="article:published_time" content="2020-04-08T08:37:48.000Z">
-<meta property="article:modified_time" content="2020-04-09T14:55:12.684Z">
+<meta property="article:modified_time" content="2020-04-14T02:46:49.647Z">
 <meta property="article:author" content="方文">
 <meta property="article:tag" content="markdown Latex">
 <meta name="twitter:card" content="summary">
@@ -413,24 +413,33 @@ $$         </code></pre><p>$$<br>2x+3y=34\<br>x+4y=25<br>$$</p>
 
 <ol>
 <li><p>\frac`分数</p>
+<blockquote>
 <p><code>\feac 1 2</code>$\frac 1 2$</p>
 <p><code>\frac {2x}{x+y}</code>$\frac {2x}{x+y}$</p>
+</blockquote>
 </li>
 <li><p><code>\partial</code>偏导</p>
+<blockquote>
 <p><code>\partial</code> $\partial$</p>
 <p><code>\partial x</code> $\partial x$</p>
 <p><code>\frac {\partial E(x)} {\partial x}</code>$\frac {\partial E(x)} {\partial x}$</p>
+</blockquote>
 </li>
 <li><p><code>\sqrt</code>开根号</p>
+<blockquote>
 <p><code>\sqrt x</code>$\sqrt x$</p>
 <p><code>\sqrt {x^2 + y}</code>$\sqrt {x^2 + y}$</p>
 <p><code>\sqrt [n]{x}</code>$\sqrt [n]{x}$</p>
+</blockquote>
 </li>
 <li><p><code>^</code>指数</p>
+<blockquote>
 <p><code>x^2</code>$x^2$</p>
 <p><code>x^{a^2+b^2}</code>$x^{a^2+b^2}$</p>
+</blockquote>
 </li>
 <li><p><code>_</code>下标、正下标</p>
+<blockquote>
 <p><code>x_i</code>$x_i$</p>
 <p><code>x_i^2</code>$x_i^2$</p>
 <p><code>x_{i+1}^2</code>$x_{i+1}^2$</p>
@@ -439,6 +448,12 @@ $$         </code></pre><p>$$<br>2x+3y=34\<br>x+4y=25<br>$$</p>
 <p><code>\sum\limits_{i=1}</code>$ \sum\limits_{i=1} $</p>
 <p>若是普通符号，那知么要用<code>\mathop</code>先转成数学道符号再用<code>\limits</code>，如</p>
 <p><code>$ \mathop{a}\limits_{i=``1``} $</code>$ \mathop{a}\limits_{i=<code>1</code>} $</p>
+</blockquote>
+</li>
+<li><p><code>\</code>转义字符的使用</p>
+<blockquote>
+<p><code>\%</code>$%$</p>
+</blockquote>
 </li>
 </ol>
 <h2 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a><strong>关系运算符</strong></h2><table>
@@ -698,55 +713,55 @@ $$         </code></pre><p>$$<br>2x+3y=34\<br>x+4y=25<br>$$</p>
 </tr>
 <tr>
 <td><code>\Delta</code></td>
-<td>$\Delta</td>
+<td>$\Delta$</td>
 <td><code>\delta</code></td>
 <td>$\delta$</td>
 </tr>
 <tr>
 <td><code>E</code></td>
-<td>$E</td>
+<td>$E$</td>
 <td>\epsilon</td>
 <td>$\epsilon$</td>
 </tr>
 <tr>
 <td><code>Z</code></td>
-<td>$Z</td>
+<td>$Z$</td>
 <td><code>\zeta</code></td>
 <td>$\zeta$</td>
 </tr>
 <tr>
 <td><code>H</code></td>
-<td>$H</td>
+<td>$H$</td>
 <td><code>\eta</code></td>
 <td>$\eta$</td>
 </tr>
 <tr>
 <td><code>\Theta</code></td>
-<td>$\Theta</td>
+<td>$\Theta$</td>
 <td><code>\theta</code></td>
 <td>$\theta$</td>
 </tr>
 <tr>
 <td><code>I</code></td>
-<td>$I</td>
+<td>$I$</td>
 <td><code>\iota</code></td>
 <td>$\iota$</td>
 </tr>
 <tr>
 <td><code>K</code></td>
-<td>$K</td>
+<td>$K$</td>
 <td><code>\kappa</code></td>
 <td>$\kappa$</td>
 </tr>
 <tr>
 <td><code>Lambda</code></td>
-<td>$Lambda</td>
+<td>$Lambda$</td>
 <td><code>\lambda</code></td>
 <td>$\lambda$</td>
 </tr>
 <tr>
 <td><code>M</code></td>
-<td>$M</td>
+<td>$M$</td>
 <td><code>\mu</code></td>
 <td>$\mu$</td>
 </tr>
@@ -964,7 +979,7 @@ $$         </code></pre><p>$$<br>2x+3y=34\<br>x+4y=25<br>$$</p>
               
                 <a href="/lzfangwen.github.io/archives">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

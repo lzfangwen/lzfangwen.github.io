@@ -6,7 +6,7 @@
   <link href="/lzfangwen.github.io/atom.xml" rel="self"/>
   
   <link href="https://lzfangwen.github.io/blog/"/>
-  <updated>2020-04-09T09:13:34.729Z</updated>
+  <updated>2020-04-14T07:10:11.512Z</updated>
   <id>https://lzfangwen.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,81 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>计算机网络-学习笔记4</title>
+    <link href="https://lzfangwen.github.io/blog/2020/04/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/"/>
+    <id>https://lzfangwen.github.io/blog/2020/04/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/</id>
+    <published>2020-04-14T01:38:41.000Z</published>
+    <updated>2020-04-14T07:10:11.512Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;流量控制与可靠传输机制&quot;&gt;&lt;a href=&quot;#流量控制与可靠传输机制&quot; class=&quot;headerlink&quot; title=&quot;流量控制与可靠传输机制&quot;&gt;&lt;/a&gt;流量控制与可靠传输机制&lt;/h2&gt;&lt;h3 id=&quot;数据链路层的流量控制&quot;&gt;&lt;a href=&quot;#数据链路层的流量控制&quot; class=&quot;headerlink&quot; title=&quot;数据链路层的流量控制&quot;&gt;&lt;/a&gt;数据链路层的流量控制&lt;/h3&gt;&lt;p&gt;较高的发送速度和较低的接收能力的不匹配，会造成传输出错，因此流量控制也是数据链路层的一项重要工作。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="计算机网络" scheme="https://lzfangwen.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+    
+      <category term="计算机网络" scheme="https://lzfangwen.github.io/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算机网络-学习笔记3</title>
+    <link href="https://lzfangwen.github.io/blog/2020/04/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/"/>
+    <id>https://lzfangwen.github.io/blog/2020/04/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/</id>
+    <published>2020-04-13T07:30:42.000Z</published>
+    <updated>2020-04-14T01:37:46.113Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;数据链路层&quot;&gt;&lt;a href=&quot;#数据链路层&quot; class=&quot;headerlink&quot; title=&quot;数据链路层&quot;&gt;&lt;/a&gt;数据链路层&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;结点&lt;/strong&gt;:主机、路由器&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;链路&lt;/strong&gt;:网络中两个结点之间的&lt;strong&gt;物理通道&lt;/strong&gt;,链路的传输介质主要有双绞线、光纤和微波。分为有线链路、无线链路。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;数据链路&lt;/strong&gt;：网络中两个结点之间的逻辑通道，把实现控制数据传输协议的硬件和软件加到链路上就构成数据链路。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;帧&lt;/strong&gt;：链路层的协议数据单元，封装网络层数据报。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;数据链路层&lt;/strong&gt;负责通过一条链路从一个结点向另一个物理链路直接相连的相邻结点传送数据报。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="计算机网络" scheme="https://lzfangwen.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+    
+      <category term="计算机网络" scheme="https://lzfangwen.github.io/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据库原理及应用-学习笔记2</title>
+    <link href="https://lzfangwen.github.io/blog/2020/04/12/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/"/>
+    <id>https://lzfangwen.github.io/blog/2020/04/12/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/</id>
+    <published>2020-04-12T01:26:21.000Z</published>
+    <updated>2020-04-12T01:26:21.216Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;script&gt;
+        document.querySelectorAll(&#39;.github-emoji&#39;)
+          .forEach(el =&gt; {
+            if (!el.dataset.src) { return; }
+       
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>操作系统-习题1</title>
@@ -42,7 +117,7 @@
     <link href="https://lzfangwen.github.io/blog/2020/04/08/Latex%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E5%9F%BA%E7%A1%80/"/>
     <id>https://lzfangwen.github.io/blog/2020/04/08/Latex%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E5%9F%BA%E7%A1%80/</id>
     <published>2020-04-08T08:37:48.000Z</published>
-    <updated>2020-04-09T14:55:12.684Z</updated>
+    <updated>2020-04-14T02:46:49.647Z</updated>
     
     <summary type="html">
     
@@ -88,33 +163,6 @@ $$         &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;$$&lt;br&gt;2x+3y=34\&lt;br&gt;x+4y
     
     
       <category term="计算机网络" scheme="https://lzfangwen.github.io/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>测试</title>
-    <link href="https://lzfangwen.github.io/blog/2020/04/07/%E6%B5%8B%E8%AF%95/"/>
-    <id>https://lzfangwen.github.io/blog/2020/04/07/%E6%B5%8B%E8%AF%95/</id>
-    <published>2020-04-07T10:06:31.000Z</published>
-    <updated>2020-04-07T10:06:31.076Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;script&gt;
-        document.querySelectorAll(&#39;.github-emoji&#39;)
-          .forEach(el =&gt; {
-            if (!el.dataset.src) { return; }
-       
-        
-      
-    
-    </summary>
-    
-    
     
   </entry>
   
@@ -288,6 +336,27 @@ $$         &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;$$&lt;br&gt;2x+3y=34\&lt;br&gt;x+4y
   </entry>
   
   <entry>
+    <title>操作系统学习笔记3</title>
+    <link href="https://lzfangwen.github.io/blog/2020/03/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/"/>
+    <id>https://lzfangwen.github.io/blog/2020/03/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/</id>
+    <published>2020-03-21T16:00:00.000Z</published>
+    <updated>2020-03-31T03:05:41.722Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;进程的调度&quot;&gt;&lt;a href=&quot;#进程的调度&quot; class=&quot;headerlink&quot; title=&quot;进程的调度&quot;&gt;&lt;/a&gt;进程的调度&lt;/h2&gt;&lt;h3 id=&quot;时机&quot;&gt;&lt;a href=&quot;#时机&quot; class=&quot;headerlink&quot; title=&quot;时机&quot;&gt;&lt;/a&gt;时机&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;https://img-blog.csdnimg.cn/20200321215121803.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70&quot; alt=&quot;在这里插入图片描述&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="OS" scheme="https://lzfangwen.github.io/blog/categories/OS/"/>
+    
+    
+      <category term="OS" scheme="https://lzfangwen.github.io/blog/tags/OS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>计算机网络 学习笔记1</title>
     <link href="https://lzfangwen.github.io/blog/2020/03/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/"/>
     <id>https://lzfangwen.github.io/blog/2020/03/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</id>
@@ -306,27 +375,6 @@ $$         &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;$$&lt;br&gt;2x+3y=34\&lt;br&gt;x+4y
     
     
       <category term="计算机网络" scheme="https://lzfangwen.github.io/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>操作系统学习笔记3</title>
-    <link href="https://lzfangwen.github.io/blog/2020/03/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/"/>
-    <id>https://lzfangwen.github.io/blog/2020/03/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/</id>
-    <published>2020-03-21T16:00:00.000Z</published>
-    <updated>2020-03-31T03:05:41.722Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;进程的调度&quot;&gt;&lt;a href=&quot;#进程的调度&quot; class=&quot;headerlink&quot; title=&quot;进程的调度&quot;&gt;&lt;/a&gt;进程的调度&lt;/h2&gt;&lt;h3 id=&quot;时机&quot;&gt;&lt;a href=&quot;#时机&quot; class=&quot;headerlink&quot; title=&quot;时机&quot;&gt;&lt;/a&gt;时机&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;https://img-blog.csdnimg.cn/20200321215121803.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70&quot; alt=&quot;在这里插入图片描述&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="OS" scheme="https://lzfangwen.github.io/blog/categories/OS/"/>
-    
-    
-      <category term="OS" scheme="https://lzfangwen.github.io/blog/tags/OS/"/>
     
   </entry>
   
@@ -435,28 +483,6 @@ $$         &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;$$&lt;br&gt;2x+3y=34\&lt;br&gt;x+4y
     
     
       <category term="SQLserver" scheme="https://lzfangwen.github.io/blog/tags/SQLserver/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C++ string字符比较函数compare</title>
-    <link href="https://lzfangwen.github.io/blog/2020/03/10/C++%20string%E5%AD%97%E7%AC%A6%E6%AF%94%E8%BE%83%E5%87%BD%E6%95%B0compare%20/"/>
-    <id>https://lzfangwen.github.io/blog/2020/03/10/C++%20string%E5%AD%97%E7%AC%A6%E6%AF%94%E8%BE%83%E5%87%BD%E6%95%B0compare%20/</id>
-    <published>2020-03-09T16:00:00.000Z</published>
-    <updated>2020-03-31T10:19:34.375Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;﻿# compare()函数&lt;/p&gt;
-&lt;p&gt; 在洛谷刷题时遇到一题需要使用字符串比较的题于是查了一下c++的字符比较函数，发现写的都比较复杂，我看不太懂&lt;del&gt;随便写写 ~&lt;/del&gt;copy&lt;del&gt;~ 便于自己复习&lt;br&gt;  ~&lt;/del&gt;可能有错误不要打我~~ &lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="C++" scheme="https://lzfangwen.github.io/blog/categories/C/"/>
-    
-    
-      <category term="C++" scheme="https://lzfangwen.github.io/blog/tags/C/"/>
     
   </entry>
   
