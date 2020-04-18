@@ -6,7 +6,7 @@
   <link href="/lzfangwen.github.io/atom.xml" rel="self"/>
   
   <link href="https://lzfangwen.github.io/blog/"/>
-  <updated>2020-04-18T02:07:41.269Z</updated>
+  <updated>2020-04-18T13:46:19.225Z</updated>
   <id>https://lzfangwen.github.io/blog/</id>
   
   <author>
@@ -17,11 +17,62 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>计算机网络-学习笔记7</title>
+    <link href="https://lzfangwen.github.io/blog/2020/04/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B07/"/>
+    <id>https://lzfangwen.github.io/blog/2020/04/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B07/</id>
+    <published>2020-04-18T08:03:04.000Z</published>
+    <updated>2020-04-18T13:46:19.225Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;无线局域网&quot;&gt;&lt;a href=&quot;#无线局域网&quot; class=&quot;headerlink&quot; title=&quot;无线局域网&quot;&gt;&lt;/a&gt;无线局域网&lt;/h2&gt;
+    
+    </summary>
+    
+    
+      <category term="计算机网络" scheme="https://lzfangwen.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+    
+      <category term="计算机网络" scheme="https://lzfangwen.github.io/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算机网络-学习笔记6</title>
+    <link href="https://lzfangwen.github.io/blog/2020/04/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B06/"/>
+    <id>https://lzfangwen.github.io/blog/2020/04/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B06/</id>
+    <published>2020-04-18T03:04:53.000Z</published>
+    <updated>2020-04-18T08:03:45.141Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;局域网基本概念和体系结构&quot;&gt;&lt;a href=&quot;#局域网基本概念和体系结构&quot; class=&quot;headerlink&quot; title=&quot;局域网基本概念和体系结构&quot;&gt;&lt;/a&gt;局域网基本概念和体系结构&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;局域网(Local Area Network) :简称&lt;strong&gt;LAN&lt;/strong&gt;,是指在某一区域内由多台计算机互联成的计算机组,使用&lt;strong&gt;广播信道&lt;/strong&gt;。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;覆盖的地理范围较小,只在一个相对独立的局部范围内联,如一座或集中的建筑群内。&lt;/li&gt;
+&lt;li&gt;使用专门铺设的传输介质(双绞线、同轴电缆)进行联网,数据传输高(10Mb/s~10Gb/s)&lt;/li&gt;
+&lt;li&gt;通信延迟时间短,误码率低,可靠性较高。&lt;/li&gt;
+&lt;li&gt;各站为平等关系,共享传输信道。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;决定局域网的主要要素为:&lt;strong&gt;网络拓扑&lt;/strong&gt;,&lt;strong&gt;传输介质&lt;/strong&gt;与&lt;strong&gt;介质访问控制方法&lt;/strong&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="计算机网络" scheme="https://lzfangwen.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+    
+      <category term="计算机网络" scheme="https://lzfangwen.github.io/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
     <title>计算机网络-学习笔记5</title>
     <link href="https://lzfangwen.github.io/blog/2020/04/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B05/"/>
     <id>https://lzfangwen.github.io/blog/2020/04/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B05/</id>
     <published>2020-04-14T08:17:19.000Z</published>
-    <updated>2020-04-18T02:07:41.269Z</updated>
+    <updated>2020-04-18T08:04:25.572Z</updated>
     
     <summary type="html">
     
@@ -440,48 +491,6 @@ $$         &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;$$&lt;br&gt;2x+3y=34\&lt;br&gt;x+4y
     
     
       <category term="计算机组成原理" scheme="https://lzfangwen.github.io/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>计算机组成原理-学习笔记2</title>
-    <link href="https://lzfangwen.github.io/blog/2020/03/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/"/>
-    <id>https://lzfangwen.github.io/blog/2020/03/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/</id>
-    <published>2020-03-13T01:51:02.000Z</published>
-    <updated>2020-03-31T03:04:36.223Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;﻿&lt;img src=&quot;https://img-blog.csdnimg.cn/20200313111304663.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70&quot; alt=&quot;在这里插入图片描述&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="计算机组成原理" scheme="https://lzfangwen.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
-    
-    
-      <category term="计算机组成原理" scheme="https://lzfangwen.github.io/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>操作系统-学习笔记1</title>
-    <link href="https://lzfangwen.github.io/blog/2020/03/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/"/>
-    <id>https://lzfangwen.github.io/blog/2020/03/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</id>
-    <published>2020-03-12T16:00:00.000Z</published>
-    <updated>2020-03-31T03:05:54.405Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;操作系统概述&quot;&gt;&lt;a href=&quot;#操作系统概述&quot; class=&quot;headerlink&quot; title=&quot;操作系统概述&quot;&gt;&lt;/a&gt;操作系统概述&lt;/h2&gt;
-    
-    </summary>
-    
-    
-      <category term="OS" scheme="https://lzfangwen.github.io/blog/categories/OS/"/>
-    
-    
-      <category term="OS" scheme="https://lzfangwen.github.io/blog/tags/OS/"/>
     
   </entry>
   

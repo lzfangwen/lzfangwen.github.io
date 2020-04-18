@@ -2591,4 +2591,354 @@ $$         </code></pre><p>$$<br>2x+3y=34\<br>x+4y=25<br>$$</p>
         <tag>计算机网络</tag>
       </tags>
   </entry>
+  <entry>
+    <title>计算机网络-学习笔记7</title>
+    <url>/lzfangwen.github.io/2020/04/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B07/</url>
+    <content><![CDATA[<h2 id="无线局域网"><a href="#无线局域网" class="headerlink" title="无线局域网"></a>无线局域网</h2><a id="more"></a>
+
+<h3 id="802-11的MAC帧头格式"><a href="#802-11的MAC帧头格式" class="headerlink" title="802.11的MAC帧头格式"></a>802.11的MAC帧头格式</h3><p><img src="http://qiniuyun.lzfangwen.cn/blog/20200418/9FDVa0Dj8ITL.png" alt="mark"></p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200418/OWn93V1O0TLM.png" alt="mark"></p>
+<h3 id="无线局域网的分类"><a href="#无线局域网的分类" class="headerlink" title="无线局域网的分类"></a>无线局域网的分类</h3><ol>
+<li><p>有固定基础设施无线局域网</p>
+<blockquote>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200418/4nCfiC6IW7Gq.png" alt="mark"></p>
+</blockquote>
+</li>
+<li><p>无固定基础设施无线局域网的自组织网络</p>
+<blockquote>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200418/6N8EyLb3KLE6.png" alt="mark"></p>
+</blockquote>
+</li>
+</ol>
+<h2 id="广域网"><a href="#广域网" class="headerlink" title="广域网"></a>广域网</h2><p>广域网(WAN, Wide Area Network) ,通常跨接很大的物理范围,所覆盖的范围从几十公里到几千公里,它能连接多个城市或国家,或横跨几个洲并能提供远距离通信,形成国际性的远程网络。</p>
+<p>广域网的通信子网主要使用<strong>分组交换</strong>技术。广域网的通信子网可以利用公用分组交换网、卫星通信网和无线分组交换网,它将分布在不同地区的<strong>局域网或计算机系统</strong>互连起来,达到<strong>资源共享</strong>的目的。如因特网(Internet)是世界范围内最大的广域网。</p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200418/Wapjw33KX3z1.png" alt="mark"></p>
+<h3 id="PPP协议"><a href="#PPP协议" class="headerlink" title="PPP协议"></a>PPP协议</h3><p>点对点协议PP (Point-to-Point Protocol)是目前使用最广泛的数据链路层协议,用户使用拨号电话接入因特网时一般都使用PPP协议。</p>
+<p><strong>只支持全双工链路</strong></p>
+<p><strong>要求</strong></p>
+<blockquote>
+<p><strong>简单</strong>    对于链路层的帧,无需纠错,无需序号,无需流量控制。</p>
+<p><strong>封装成帧</strong>     帧定界符</p>
+<p><strong>透明传输</strong>     与帧定界符一样比特组合的数据应该如何处理:异步线路用字节填充,同步线路用比特填充。</p>
+<p><strong>多种网络层协议</strong>    封装的IP数据报可以采用多种协议。</p>
+<p><strong>多种类型链路</strong>    串行/并行,同步/异步,电/光..</p>
+<p><strong>差错检测</strong>    错就丢弃。</p>
+<p><strong>检测连接状态</strong>    链路是否正常工作。</p>
+<p><strong>最大传送单元</strong>    数据部分最大长度MTU.</p>
+<p><strong>网络层地址协商</strong>    知道通信双方的网络层地址。</p>
+<p><strong>数据压缩协商</strong></p>
+</blockquote>
+<p><strong>不要求</strong></p>
+<blockquote>
+<p>纠错</p>
+<p>流量控制</p>
+<p>序号</p>
+<p>不支持多点线路</p>
+</blockquote>
+<h4 id="PPP协议的三个组成部分"><a href="#PPP协议的三个组成部分" class="headerlink" title="PPP协议的三个组成部分"></a>PPP协议的三个组成部分</h4><blockquote>
+<ol>
+<li>一个将IP数据报封装到串行链路(同步串行/异步串行)的方法。</li>
+<li>链路控制协议<strong>LCP</strong>:建立并维护数据链路连接。<strong>身份验证</strong></li>
+<li>网络控制协议<strong>NCP</strong>: PPP可支持多种网络层协议,每个不同的网络层协议都要一个相应的NCP来配置,为网络层协议建立和配置逻辑连接。</li>
+</ol>
+</blockquote>
+<h4 id="PPP协议的状态图"><a href="#PPP协议的状态图" class="headerlink" title="PPP协议的状态图"></a>PPP协议的状态图</h4><p><img src="http://qiniuyun.lzfangwen.cn/blog/20200418/PUebqhQlSlsO.png" alt="mark"></p>
+<h4 id="PPP协议的帧格式"><a href="#PPP协议的帧格式" class="headerlink" title="PPP协议的帧格式"></a>PPP协议的帧格式</h4><p><img src="http://qiniuyun.lzfangwen.cn/blog/20200418/7iFO3B7SjJEV.png" alt="mark"></p>
+<h3 id="HDLC协议"><a href="#HDLC协议" class="headerlink" title="HDLC协议"></a>HDLC协议</h3><blockquote>
+<p>高级数据链路控制(High-Level Data Link Control或简称HDLC) ,是一个在同步网上传输数据、面向比特的数据铂路层协议,它是由国际标准化组织(IS0)根据IBM公司的SDLC(SynchronousData Link Control)协议扩展开发而成的.</p>
+<p>数据报文可透明传输,用于实现透明传输的”0比特插入法”易于硬件实现</p>
+<p><strong>采用全双工通信</strong></p>
+<p>所有帧采用<strong>CRC检验</strong>,对信息帧进行顺序<strong>编号</strong>,可防止漏收或重份,传输可靠性高。</p>
+</blockquote>
+<h4 id="HDLC的站"><a href="#HDLC的站" class="headerlink" title="HDLC的站"></a>HDLC的站</h4><blockquote>
+<ul>
+<li><p>主站</p>
+</li>
+<li><p>从站</p>
+</li>
+<li><p>复合站</p>
+</li>
+</ul>
+<ol>
+<li><p>主站的主要功能是发送命令(包括数据信息)帧、接收响应帧,并负责对整个链路的控制系统的初启、流程的控制、差错检测或恢复等。</p>
+</li>
+<li><p>从站的主要功能是接收由主站发来的命令帧,向主站发送响应帧,并且配合主站参与差错恢复等链路控制。</p>
+</li>
+<li><p>复合站的主要功能是既能发送,又能接收命令帧和响应帧,并且负责整个链路的控制。</p>
+</li>
+</ol>
+<p><strong>三种数据操作方式:</strong></p>
+<ol>
+<li>正常响应方式</li>
+<li>异步平衡方式</li>
+<li>异步响应方式</li>
+</ol>
+</blockquote>
+<h4 id="HDLC的帧格式"><a href="#HDLC的帧格式" class="headerlink" title="HDLC的帧格式"></a>HDLC的帧格式</h4><blockquote>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200418/jcI6yjCCBTl3.png" alt="mark"></p>
+<ul>
+<li>信息帧(1)第1位为<strong>0</strong>,用来<strong>传输数据信息</strong>,或使用捎带技术对数据进行确认</li>
+<li>监督帧(S) <strong>10</strong>,用于<strong>流量控制和差错控制</strong>,执行对信息帧的确认、请求重发和请求暂停发送等功能</li>
+<li>无编号帧(U) <strong>11</strong>,用于提供对<strong>链路</strong>的建立、拆除等多种控制功能。</li>
+</ul>
+</blockquote>
+<h3 id="PPP协议-amp-HDLC协议"><a href="#PPP协议-amp-HDLC协议" class="headerlink" title="PPP协议&amp;HDLC协议"></a>PPP协议&amp;HDLC协议</h3><p><strong>相同</strong></p>
+<blockquote>
+<p>HDLC, PPP只支持全双工链路。</p>
+<p>都可以实现透明传输。</p>
+<p>都可以实现差错检测,但不纠正差错。</p>
+</blockquote>
+<p><strong>不同</strong></p>
+<table>
+<thead>
+<tr>
+<th>PPP协议</th>
+<th>面向字节</th>
+<th>2B协议字段</th>
+<th>无序号和确认机制</th>
+<th>不可靠</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>HDLC协议</strong></td>
+<td><strong>面向比特</strong></td>
+<td><strong>没有</strong></td>
+<td><strong>有编号和确认机制</strong></td>
+<td><strong>可靠</strong></td>
+</tr>
+</tbody></table>
+<h2 id="链路层设备"><a href="#链路层设备" class="headerlink" title="链路层设备"></a>链路层设备</h2><h3 id="物理层扩展以太网"><a href="#物理层扩展以太网" class="headerlink" title="物理层扩展以太网"></a>物理层扩展以太网</h3><p><img src="http://qiniuyun.lzfangwen.cn/blog/20200418/sH7o37wEabT1.png" alt="mark"></p>
+<h3 id="链路层扩展以太网"><a href="#链路层扩展以太网" class="headerlink" title="链路层扩展以太网"></a>链路层扩展以太网</h3><p><strong>网桥&amp;交换机</strong></p>
+<p><strong>网桥</strong>根据<strong>MAC帧的目的地址</strong>对帧进行<strong>转发</strong>和<strong>过滤</strong>。当网桥收到一个帧时,并不向所有接口转发此帧,而是先检查此帧的目的MAC地址,然后再确定将该帧转发到哪一个接口,或者是把它丢弃(即过滤)。</p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200418/xd1Twm6d3qcH.png" alt="mark"></p>
+<p>网桥优点:</p>
+<ol>
+<li>过滤通信量,增大吞吐量。</li>
+<li>扩大了物理范围。</li>
+<li>提高了可靠性。</li>
+<li>可互连不同物理层、不同MAC子层和不同速率的以太网。</li>
+</ol>
+<p>网段: 一般指一个计算机网络中使用同一物理层设备, (传输介质,中继器,集线器等)能够直接通讯的那一部分。</p>
+<h3 id="网桥分类–透明网桥"><a href="#网桥分类–透明网桥" class="headerlink" title="网桥分类–透明网桥"></a>网桥分类–透明网桥</h3><p>透明网桥: “透明”指以太网上的站点并不知道所发送的帧将经过哪几个网桥,是一种即插即用设备-自学  习。</p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200418/2oFuXlaHlF6t.png" alt="mark"></p>
+<h3 id="网桥分类–源路由网桥"><a href="#网桥分类–源路由网桥" class="headerlink" title="网桥分类–源路由网桥"></a>网桥分类–源路由网桥</h3><p>源路由网桥:在发送帧时,把详细的最佳路由信息(路由最少/时间最短)放在帧的首部中。</p>
+<p>方法:源站以广播方式向欲通信的目的站发送一个发现帧。</p>
+<h3 id="多接口网桥–以太网交换机"><a href="#多接口网桥–以太网交换机" class="headerlink" title="多接口网桥–以太网交换机"></a>多接口网桥–以太网交换机</h3><p><img src="http://qiniuyun.lzfangwen.cn/blog/20200418/M27o3BorMGQ4.png" alt="mark"></p>
+<p><strong>两种交换方式</strong></p>
+<blockquote>
+<ul>
+<li><strong>直通式交换机</strong> 查完目的地址(6B)就立刻转发。延迟小,可靠性低,无法支持具有不同速率的端口的交换。</li>
+<li><strong>存储转发式交换机</strong> 将帧放入高速缓存,并检查否正确,正确则转发,错误则丢弃。延迟大,可靠性高,可以支持具有不同速率的端口的交换。</li>
+</ul>
+</blockquote>
+<h3 id="冲突域和广播域"><a href="#冲突域和广播域" class="headerlink" title="冲突域和广播域"></a>冲突域和广播域</h3><ul>
+<li><strong>冲突域</strong>:在同一个冲突域中的每一个节点都能收到所有被发送的帧。简单的说就是同一时间内只能有一台设备发送信息的范围。</li>
+<li><strong>广播域</strong>:网络中能接收任一设备发出的广播帧的所有设备的集合。简单的说如果站点发出一个广播信号,所有能接收收到这个信号的设备范围称为一个广播域。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>能否隔离冲突域</th>
+<th>能否隔离广播域</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>物理层设备【傻瓜】(中继器、集线器)</td>
+<td>×</td>
+<td>×</td>
+</tr>
+<tr>
+<td>链路层设备【路人】（网桥、交换机）</td>
+<td>√</td>
+<td>×</td>
+</tr>
+<tr>
+<td>网络层设备【大佬】（路由器）</td>
+<td>√</td>
+<td>√</td>
+</tr>
+</tbody></table>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>计算机网络</category>
+      </categories>
+      <tags>
+        <tag>计算机网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机网络-学习笔记6</title>
+    <url>/lzfangwen.github.io/2020/04/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B06/</url>
+    <content><![CDATA[<h2 id="局域网基本概念和体系结构"><a href="#局域网基本概念和体系结构" class="headerlink" title="局域网基本概念和体系结构"></a>局域网基本概念和体系结构</h2><blockquote>
+<p>局域网(Local Area Network) :简称<strong>LAN</strong>,是指在某一区域内由多台计算机互联成的计算机组,使用<strong>广播信道</strong>。</p>
+<ul>
+<li>覆盖的地理范围较小,只在一个相对独立的局部范围内联,如一座或集中的建筑群内。</li>
+<li>使用专门铺设的传输介质(双绞线、同轴电缆)进行联网,数据传输高(10Mb/s~10Gb/s)</li>
+<li>通信延迟时间短,误码率低,可靠性较高。</li>
+<li>各站为平等关系,共享传输信道。</li>
+</ul>
+<p>决定局域网的主要要素为:<strong>网络拓扑</strong>,<strong>传输介质</strong>与<strong>介质访问控制方法</strong>。</p>
+</blockquote>
+<a id="more"></a>
+
+<h3 id="局域网拓扑结构"><a href="#局域网拓扑结构" class="headerlink" title="局域网拓扑结构"></a>局域网拓扑结构</h3><p><img src="http://qiniuyun.lzfangwen.cn/blog/20200418/NE8p3jpibvgR.png" alt="mark"></p>
+<h3 id="局域网传输介质"><a href="#局域网传输介质" class="headerlink" title="局域网传输介质"></a>局域网传输介质</h3><blockquote>
+<ul>
+<li>有线局域网<ul>
+<li>常用介质：双绞线、同轴电缆、光纤</li>
+</ul>
+</li>
+<li>无限局域网<ul>
+<li>常用介质：电磁波</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h3 id="局域网介质访问控制方法"><a href="#局域网介质访问控制方法" class="headerlink" title="局域网介质访问控制方法"></a>局域网介质访问控制方法</h3><blockquote>
+<ol>
+<li><p>CSMA/CD     常用于<strong>总线型局域网</strong>，也用于树型网络</p>
+</li>
+<li><p>令牌总线       常用于<strong>总线型局域网</strong>,也用于树型网络</p>
+<p>​                       它是把总线型或树型网络中的各个工作站按一定顺序如按接口地址大小排列形成一个逻辑环。只有令牌持有者才能控制总线,才有发送信息的权力。</p>
+</li>
+<li><p>令牌环           用于<strong>环形局域网</strong>，如令牌环网</p>
+</li>
+</ol>
+</blockquote>
+<h3 id="局域网的分类"><a href="#局域网的分类" class="headerlink" title="局域网的分类"></a>局域网的分类</h3><blockquote>
+<ol>
+<li><strong>以太网</strong>    以太网是应用最为广泛的局域网,包括标准以太网(10Mbps)、快速以太网(100Mbps)千兆以太网(1000 Mbps)和10G以太网,它们都符合<strong>IEEE802.3</strong>系列标准规范。逻辑拓扑总线型,物理拓扑是星型或拓展星型。使用CSMA/CD.2</li>
+<li><strong>令牌环网</strong>   物理上采用了星形拓扑结构,逻辑上是环形拓扑结构。已是“明日黄花”。</li>
+<li><strong>FDDI网(Flber Distriburted Data Interface)</strong>      物理上采用了双环拓扑结构,逻辑上是环形拓扑结构。</li>
+<li><strong>ATM网(Asynchronous Transfer Mode)</strong>       较新型的单元交换技术,使用53字节固定长度的单元进行交换。</li>
+<li><strong>无线局域网(Wireless Local Area Network; WLAN)</strong>     采用<strong>IEEE 802.11标准</strong>。</li>
+</ol>
+</blockquote>
+<h3 id="IEEE-802标准"><a href="#IEEE-802标准" class="headerlink" title="IEEE 802标准"></a>IEEE 802标准</h3><blockquote>
+<p>EEE 802系列标准是IEEE 802 LAN/MAN标准委员会制定的局域网、城域网技术标准(1980年2月成立)。其中最广泛使用的有以太网、令牌环、无线局域网等。这一系列标准中的每一个子标准都由委员会中的一个,专门工作组负责。</p>
+</blockquote>
+<blockquote>
+<p>IEEE 802.3:以太网介质访问控制协议(CSMA/CD)及物理层技术规范</p>
+<p>IEEE 802.5 :令牌环网(Token-Ring)的介质访问控制协议及物理层技术规范。</p>
+<p>LEEE 802.8:光纤技术咨询组,提供有关光纤联网的技术咨询。</p>
+<p>IEEE 802.11:无线局城网(WLAN)的介质访问控制协议及物理层技术规范</p>
+</blockquote>
+<h3 id="MAC子层和LLC子层"><a href="#MAC子层和LLC子层" class="headerlink" title="MAC子层和LLC子层"></a>MAC子层和LLC子层</h3><blockquote>
+<p><strong>链路层的两个控制子层</strong></p>
+<p>IEEE 802标准所描述的局域网参考模型只对应OSI参考模型的<strong>数据链路层与物理层</strong>,它将数据链路层划分为逻辑链路层LLC子层和介质访问控制MAC子层。</p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200418/ihbhtJk2W8Of.png" alt="mark"></p>
+</blockquote>
+<h2 id="以太网"><a href="#以太网" class="headerlink" title="以太网"></a>以太网</h2><blockquote>
+<p>以太网(Ethernet)指的是由xerox公司创建并由Xerox, Intel和DEC公司联合开发的基带总线局域网规范,是当今域网采用的最通用的通信协议标准。以太网络使用CSMA/CD (载波监听多检测)技术。</p>
+</blockquote>
+<h3 id="以太网在局域网各种技术中占统治性地位"><a href="#以太网在局域网各种技术中占统治性地位" class="headerlink" title="以太网在局域网各种技术中占统治性地位:"></a><strong>以太网在局域网各种技术中占统治性地位:</strong></h3><blockquote>
+<ol>
+<li>造价低廉(以太网网卡不到10                                               块) ;</li>
+<li>是应用最广泛的局域网技术;</li>
+<li>比令牌环网、ATM网便宜,简单;</li>
+<li><strong>满足网络速率要求: 10Mb/s~10Gb/s.</strong></li>
+</ol>
+</blockquote>
+<h3 id="以太网两个标准"><a href="#以太网两个标准" class="headerlink" title="以太网两个标准"></a><strong>以太网两个标准</strong></h3><blockquote>
+<p>DIX Ethernet V2:第一个局域网产品(以太网)规约。</p>
+<p>IEE 802.3: IEE 802委员会802.3工作组制定的第一个IEE的以太网标准。(帧格式有一丢丢改动)</p>
+</blockquote>
+<p><strong>802.3局域网 AKA</strong> <strong>以太网</strong>[^1]</p>
+<p>[^1]: Also Known As”的缩写，意思是又名、亦称、也被称为</p>
+<h3 id="以太网提供无连接、不可靠的服务"><a href="#以太网提供无连接、不可靠的服务" class="headerlink" title="以太网提供无连接、不可靠的服务"></a><strong>以太网提供无连接、不可靠的服务</strong></h3><ul>
+<li><strong>无连接</strong>:发送方和接收方之间无“握手过程”。</li>
+<li><strong>不可靠</strong>:不对发送方的数据帧编号,接收方不向发送方进行确认,差错帧直接丢弃,差错纠正由高层负责。</li>
+<li>以太网只实现无差错接收,不实现可靠传输。</li>
+</ul>
+<h3 id="以太网传输介质与拓扑结构的发展"><a href="#以太网传输介质与拓扑结构的发展" class="headerlink" title="以太网传输介质与拓扑结构的发展"></a><strong>以太网传输介质与拓扑结构的发展</strong></h3><blockquote>
+<p>​                    粗同轴电缆—-&gt;细同轴电缆—–&gt;双绞线+集线器</p>
+<p>物理拓扑         总线型——————————&gt;星型</p>
+<blockquote>
+<p>使用集线器的以太网在逻辑上仍是一个总线网,</p>
+<p>各站共享逻辑上的总线,使用的还是CSMA/CD协议</p>
+<p>以太网拓扑:<strong>逻辑上总线型,物理上星型。</strong></p>
+</blockquote>
+</blockquote>
+<h3 id="10BASE-T以太网"><a href="#10BASE-T以太网" class="headerlink" title="10BASE-T以太网"></a><strong>10BASE-T以太网</strong></h3><blockquote>
+<p>10BASE-T是传送基带信号的双绞线以太网, T表示采用双绞线,现10BASE-T采用的是无屏蔽双绞线(UTP) ,传输速率是<strong>10Mb/s</strong></p>
+<p>物理上采用星型拓扑,逻辑上总线型,每段双绞线最长为100m。</p>
+<p>采用<strong>曼特斯特编码</strong></p>
+<p>采用CSMA/CA介质访问控制</p>
+</blockquote>
+<h3 id="适配器与MAC地址"><a href="#适配器与MAC地址" class="headerlink" title="适配器与MAC地址"></a><strong>适配器与MAC地址</strong></h3><blockquote>
+<p>计算机与外界有局域网的连接是通过<strong>通信适配器</strong>的。</p>
+<p>网络接口板</p>
+<p>网络接口卡NIC (network interface card)</p>
+<p>Now,不再使用单独网卡。</p>
+<p>适配器上装有处理器和存储器(包括RAM和ROM)</p>
+<p>ROM上有计算机硬件地址<strong>MAC地址</strong></p>
+<p>在局域网中,硬件地址又称为物理地址,或MAC地址。【实际上是标识符】</p>
+<p>MAC地址:每个适配器有一个全球唯一的48位二进制地址,前24位代表厂家(由IEEE规定),后24位厂家自己指定。常用6个十六进制数表示,如02-60-8c-e4-b1-21</p>
+</blockquote>
+<h3 id="以太网MAC帧"><a href="#以太网MAC帧" class="headerlink" title="以太网MAC帧"></a><strong>以太网MAC帧</strong></h3><blockquote>
+<p>最常用的MAC帧是以太网V2的格式</p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200418/KMROh3tLvfiA.png" alt="mark"></p>
+<p>与IEE 802.3的区别: 1.第三个字段是长度/类型2.当长度/类型字段值小于0x0600时,数据字段必须装入LLC子层。</p>
+</blockquote>
+<h3 id="高速以太网"><a href="#高速以太网" class="headerlink" title="高速以太网"></a><strong>高速以太网</strong></h3><blockquote>
+<p>速率2100Mb/s的以太网称为高速以太网。</p>
+<ol>
+<li><p><strong>100BASE-T以太网</strong></p>
+<p>在双绞线上传送100Mb/s基带信号的星型拓扑以太网,仍使用IEEE802.3的CSMA/CD协议。支持全双工和半双工，可在全双工方式下工作而无冲突。</p>
+</li>
+<li><p><strong>吉比特以太网</strong></p>
+<p>在光纤或双绞线上传送1Gb/s信号</p>
+<p>支持全双工和半双工，可在全双工方式下工作而无冲突。</p>
+</li>
+<li><p><strong>10吉比特</strong></p>
+<p>10吉比特以太网在光纤上传送10Gb/s信号。</p>
+<p>只支持全双工，无争用问题。</p>
+</li>
+</ol>
+</blockquote>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>计算机网络</category>
+      </categories>
+      <tags>
+        <tag>计算机网络</tag>
+      </tags>
+  </entry>
 </search>
