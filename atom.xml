@@ -6,7 +6,7 @@
   <link href="/lzfangwen.github.io/atom.xml" rel="self"/>
   
   <link href="https://lzfangwen.github.io/blog/"/>
-  <updated>2020-04-20T02:49:59.576Z</updated>
+  <updated>2020-04-20T02:57:20.484Z</updated>
   <id>https://lzfangwen.github.io/blog/</id>
   
   <author>
@@ -21,17 +21,16 @@
     <link href="https://lzfangwen.github.io/blog/2020/04/19/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B08/"/>
     <id>https://lzfangwen.github.io/blog/2020/04/19/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B08/</id>
     <published>2020-04-19T00:06:03.000Z</published>
-    <updated>2020-04-20T02:49:59.576Z</updated>
+    <updated>2020-04-20T02:57:20.484Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;文件管理&quot;&gt;&lt;a href=&quot;#文件管理&quot; class=&quot;headerlink&quot; title=&quot;文件管理&quot;&gt;&lt;/a&gt;文件管理&lt;/h1&gt;&lt;h1 id=&quot;存储器管理&quot;&gt;&lt;a href=&quot;#存储器管理&quot; class=&quot;headerlink&quot;
-        
-      
+      &lt;h1 id=&quot;文件管理&quot;&gt;&lt;a href=&quot;#文件管理&quot; class=&quot;headerlink&quot; title=&quot;文件管理&quot;&gt;&lt;/a&gt;文件管理&lt;/h1&gt;&lt;h1 id=&quot;存储器管理&quot;&gt;&lt;a href=&quot;#存储器管理&quot; class=&quot;headerlink&quot; title=&quot;存储器管理&quot;&gt;&lt;/a&gt;存储器管理&lt;/h1&gt;&lt;h2 id=&quot;内存的基础知识&quot;&gt;&lt;a href=&quot;#内存的基础知识&quot; class=&quot;headerlink&quot; title=&quot;内存的基础知识&quot;&gt;&lt;/a&gt;内存的基础知识&lt;/h2&gt;&lt;p&gt;内存是用于存放数据的硬件。程序执行前&lt;strong&gt;需要先放到内存中才能被CPU处理&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;内存地址从0开始,&lt;strong&gt;每个地址对应一个存储单元&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;如果计算机“&lt;strong&gt;按字节编址&lt;/strong&gt;”则每个存储单元大小为1字节,即18,即8个二进制位&lt;/li&gt;
+&lt;li&gt;如果字长为16位的计算机&lt;strong&gt;,按字编址&lt;/strong&gt;” ,则每个存储单元大小为1个字;每个字的犬小为16个二进制位&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     
