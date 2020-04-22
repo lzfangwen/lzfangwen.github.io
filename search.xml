@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Untitled</title>
+    <url>/lzfangwen.github.io/2020/04/22/Untitled/</url>
+    <content><![CDATA[<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+  </entry>
+  <entry>
     <title>JavaEE-学习笔记1</title>
     <url>/lzfangwen.github.io/2020/04/01/JavaEE-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</url>
     <content><![CDATA[<script>
@@ -227,126 +250,120 @@ mathjax: flase  ##是否开启数学公式</code>  </p>
       </tags>
   </entry>
   <entry>
-    <title>操作系统-学习笔记2</title>
-    <url>/lzfangwen.github.io/2020/03/20/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/</url>
-    <content><![CDATA[<h2 id="程序的顺序执行"><a href="#程序的顺序执行" class="headerlink" title="程序的顺序执行"></a>程序的顺序执行</h2><a id="more"></a>
-
-<p><img src="https://img-blog.csdnimg.cn/2020031316272059.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="程序的并发执行"><a href="#程序的并发执行" class="headerlink" title="程序的并发执行"></a>程序的并发执行</h2><p><img src="https://img-blog.csdnimg.cn/20200313163136346.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200313163144468.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="前驱图"><a href="#前驱图" class="headerlink" title="前驱图"></a>前驱图</h2><p><img src="https://img-blog.csdnimg.cn/20200313162759444.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="进程的描述"><a href="#进程的描述" class="headerlink" title="进程的描述"></a>进程的描述</h2><p><img src="https://img-blog.csdnimg.cn/20200313163722388.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/2020031316381162.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200320101837346.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="进程的组织形式"><a href="#进程的组织形式" class="headerlink" title="进程的组织形式"></a>进程的组织形式</h2><p><img src="https://img-blog.csdnimg.cn/20200320102130397.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>进程与程序的区别</strong><br><img src="https://img-blog.csdnimg.cn/20200313165514735.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>特性</strong><br><img src="https://img-blog.csdnimg.cn/20200313165610535.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="进程的基本状态及转换"><a href="#进程的基本状态及转换" class="headerlink" title="进程的基本状态及转换"></a>进程的基本状态及转换</h2><p>三种基本状态</p>
-<ul>
-<li><strong>就绪状态(Ready)</strong><br>得到了除CPU以外的所有必要资源</li>
-<li><strong>执行状态(Running)</strong><br>已获得处理机，程序正在被执行</li>
-<li><strong>堵塞状态(Waiting/Blocked,又称等待态)</strong><br>因等待某事件发生而暂时无法继续执行，从而放弃处理机，使程序执行处于暂停状态<br><img src="https://img-blog.csdnimg.cn/20200320103846258.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">)<img src="https://img-blog.csdnimg.cn/2020032010381917.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h2 id="进程控制"><a href="#进程控制" class="headerlink" title="进程控制"></a>进程控制</h2><img src="https://img-blog.csdnimg.cn/20200320104832851.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h2 id="进程通信"><a href="#进程通信" class="headerlink" title="进程通信"></a>进程通信</h2><strong>进程之间的信息交换</strong><br><img src="https://img-blog.csdnimg.cn/20200320105838352.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2></li>
-</ul>
-<p> <strong>线程是一个基本的CPU执行单元 ，也是程序执行流的最小单位</strong><br> <img src="https://img-blog.csdnimg.cn/20200320110828452.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200320111301772.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200320112545394.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p><strong>设置进程同步机制四条规则</strong></p>
-<p>进程在并发执行时为了保证结果的可再现性，各进程执行序列必须加以限制以保证互斥地使用临界资源，相互合作完成任务。多个相关进程在执行次序上的协调称为进程同步。用于保证多个进程在执行次序上的协调关系的相应机制称为进程同步机制。</p>
-<p>所有的进程同步机制应遵循下述四条准则：</p>
-<ul>
-<li><strong>空闲让进</strong><br>当无进程进入临界区时，相应的临界资源处于空闲状态，因而允许一个请求进入临界区的进程立即进入自己的临界区。</li>
-<li><strong>忙则等待</strong><br>当已有进程进入自己的临界区时，即相应的临界资源正被访问，因而其它试图进入临界区的进程必须等待，以保证进程互斥地访问临界资源。</li>
-<li><strong>有限等待</strong><br>对要求访问临界资源的进程，应保证进程能在有限时间进入临界区，以免陷入“饥饿”状态。</li>
-<li><strong>让权等待</strong><br>当进程不能进入自己的临界区时，应立即释放处理机，以免进程陷入忙等。</li>
-</ul>
-<h4 id="临界区"><a href="#临界区" class="headerlink" title="临界区"></a>临界区</h4><p><strong>每个进程中访问临界资源的那段代码称为临界区</strong>（Critical Section）（临界资源是一次仅允许一个进程使用的共享资源）。每次只准许一个进程进入临界区，进入后不允许其他进程进入。不论是硬件临界资源，还是软件临界资源，多个进程必须互斥地对它进行访问。<br>多个进程中涉及到同一个临界资源的临界区称为相关临界区。.</p>
-<h2 id="处理机调度"><a href="#处理机调度" class="headerlink" title="处理机调度"></a>处理机调度</h2><p><img src="https://img-blog.csdnimg.cn/2020032011364476.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200320113935411.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h3 id="七状态模型"><a href="#七状态模型" class="headerlink" title="七状态模型"></a>七状态模型</h3><p><img src="https://img-blog.csdnimg.cn/20200320113916159.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
-      <categories>
-        <category>OS</category>
-      </categories>
-      <tags>
-        <tag>OS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>操作系统学习笔记3</title>
-    <url>/lzfangwen.github.io/2020/03/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/</url>
-    <content><![CDATA[<h2 id="进程的调度"><a href="#进程的调度" class="headerlink" title="进程的调度"></a>进程的调度</h2><h3 id="时机"><a href="#时机" class="headerlink" title="时机"></a>时机</h3><p><img src="https://img-blog.csdnimg.cn/20200321215121803.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><a id="more"></a><br><img src="https://img-blog.csdnimg.cn/20200321215616103.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h3 id="方式"><a href="#方式" class="headerlink" title="方式"></a>方式</h3><p><img src="https://img-blog.csdnimg.cn/20200321215708658.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h3 id="切换与过程"><a href="#切换与过程" class="headerlink" title="切换与过程"></a>切换与过程</h3><p><img src="https://img-blog.csdnimg.cn/20200321220025428.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="调度算法的评价指标"><a href="#调度算法的评价指标" class="headerlink" title="调度算法的评价指标"></a>调度算法的评价指标</h2><h3 id="CPU利用率"><a href="#CPU利用率" class="headerlink" title="CPU利用率"></a>CPU利用率</h3><p>指CPU忙碌 的时间占总时间的比例<br><img src="https://img-blog.csdnimg.cn/20200321221647667.png" alt="在这里插入图片描述"></p>
-<h3 id="系统吞吐量"><a href="#系统吞吐量" class="headerlink" title="系统吞吐量"></a>系统吞吐量</h3><p>指单位时间内完成作业的数量<br><img src="https://img-blog.csdnimg.cn/2020032122170056.png" alt="在这里插入图片描述"></p>
-<h3 id="周转时间"><a href="#周转时间" class="headerlink" title="周转时间"></a>周转时间</h3><p> 指从<strong>作业被提交给系统开始</strong>，到<strong>作业完成为止</strong>的这段时间间隔<br> <img src="https://img-blog.csdnimg.cn/20200321220753841.png" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200321220859207.png" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200321221708381.png" alt="在这里插入图片描述"></p>
-<h3 id="等待时间"><a href="#等待时间" class="headerlink" title="等待时间"></a>等待时间</h3><p> 指进程/作业<strong>处于等待处理机状态时间之和</strong><br>等待时间=周转时间-运行时间-I/O操作的时间<img src="https://img-blog.csdnimg.cn/20200321221739884.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
-<h3 id="响应时间"><a href="#响应时间" class="headerlink" title="响应时间"></a>响应时间</h3><p> 指用户<strong>提交请求</strong>到<strong>首次产生响应</strong>所用的时间</p>
-<h2 id="调度算法"><a href="#调度算法" class="headerlink" title="调度算法"></a>调度算法</h2><p> <img src="https://img-blog.csdnimg.cn/20200322103738586.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200322111605743.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h3 id="先来先服务算法（FCDS，First-Come-FIrst-Serve）"><a href="#先来先服务算法（FCDS，First-Come-FIrst-Serve）" class="headerlink" title="先来先服务算法（FCDS，First Come FIrst Serve）"></a>先来先服务算法（FCDS，First Come FIrst Serve）</h3><p> <img src="https://img-blog.csdnimg.cn/20200322101814472.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200322102610499.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h3 id="短作业优先（SJF，Shortest-Job-First）"><a href="#短作业优先（SJF，Shortest-Job-First）" class="headerlink" title="短作业优先（SJF，Shortest Job First）"></a>短作业优先（SJF，Shortest Job First）</h3><p> <img src="https://img-blog.csdnimg.cn/20200322102933743.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200322102507330.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">)<img src="https://img-blog.csdnimg.cn/20200322102354444.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h3 id="高响应优先（HRRN，Highest-Response-Ratio-Next）"><a href="#高响应优先（HRRN，Highest-Response-Ratio-Next）" class="headerlink" title="高响应优先（HRRN，Highest Response Ratio Next）"></a>高响应优先（HRRN，Highest Response Ratio Next）</h3><p> <img src="https://img-blog.csdnimg.cn/20200322103713380.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200322103723522.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h3 id="时间片轮转调度算法（RR，Round-Robin）"><a href="#时间片轮转调度算法（RR，Round-Robin）" class="headerlink" title="时间片轮转调度算法（RR，Round-Robin）"></a>时间片轮转调度算法（RR，Round-Robin）</h3><p> <img src="https://img-blog.csdnimg.cn/2020032210572321.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200322105826975.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h3 id="优先级调度算法"><a href="#优先级调度算法" class="headerlink" title="优先级调度算法"></a>优先级调度算法</h3><p> <img src="https://img-blog.csdnimg.cn/20200322110647521.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">)<img src="https://img-blog.csdnimg.cn/2020032211023247.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200322110243922.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200322110658166.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h3 id="多级反馈队列调度算法"><a href="#多级反馈队列调度算法" class="headerlink" title="多级反馈队列调度算法"></a>多级反馈队列调度算法</h3><p> <img src="https://img-blog.csdnimg.cn/20200322111151807.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200322111410276.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="【"></p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
-      <categories>
-        <category>OS</category>
-      </categories>
-      <tags>
-        <tag>OS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>操作系统-学习笔记6</title>
-    <url>/lzfangwen.github.io/2020/04/05/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B06/</url>
-    <content><![CDATA[<h2 id="信号量机制"><a href="#信号量机制" class="headerlink" title="信号量机制"></a>信号量机制</h2><p>用户进程可以通过使用操作系统提供的一对原语来对信号量进行操作,从而很方便的实现了进程互斥、进程同步。</p>
-<p><strong>信号量</strong>其实就是一个变量(可以是一个整数,也可以是更复杂的记录型变量),可以用一个信号量来<strong>表示系统中某种资源的数量</strong>,比如:系统中只有一台打印机,就可以设置一个初值为1的信号量</p>
-<p><strong>原语</strong>是一种特殊的程序段,其<strong>执行只能一气呵成,不可被中断</strong>。原语是由<strong>关中断/开中断指令</strong>实现的。软件解决方案的主要问题是由“进入区的各种操作无法一气呵成” ,因此如果能把进入区、退作都用“原语”这些操作能“一气呵成”就能避免问题</p>
+    <title>Markdown高级技巧</title>
+    <url>/lzfangwen.github.io/2020/04/22/Markdown%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7/</url>
+    <content><![CDATA[<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><p><code>&lt;font color="red"&gt;红色&lt;/font&gt;</code></p>
+<p><font color="red">红色</font></p>
+<p><code>使用 &lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;Alt&lt;/kbd&gt;+&lt;kbd&gt;Del&lt;/kbd&gt; 重启电脑</code></p>
+<p>使用 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Del</kbd> 重启电脑</p>
 <a id="more"></a>
 
-<p>一对原语: <strong>wait(S)</strong>原语和<strong>signal(S)</strong>原语,可以把原语理解为我们自己写的函数,函数名分别为wait和signal,括号里的<strong>信号量S</strong>其实就是函数调用时传入的一个参数。</p>
-<p>wait, signal原语常<strong>简称为P、V操作</strong>(来自荷兰语proberen和verhogen) 。因此,做题的时候常把wait(S)、 signal(S)两个操作分别写为P(S)、v(S)</p>
-<h3 id="整型信号量"><a href="#整型信号量" class="headerlink" title="整型信号量"></a>整型信号量</h3><p>用一个<strong>整数型的变量</strong>作为信号量，用来表示系统中某种资源的数量。</p>
-<p>与普通整数变量的区别：对信号量的操作只有三种，初始化、P操作、V操作</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200405/vQcqEgpVyiX2.png" alt="mark"></p>
-<h3 id="记录型信号量"><a href="#记录型信号量" class="headerlink" title="记录型信号量"></a>记录型信号量</h3><p>整型信号量的缺陷是存在“忙等”问题,因此人们又提出了“记录型信号量” ,即用记录型数据结构表示的信号量。</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200405/xFbfQ2XoSTEn.png" alt="mark"></p>
-<p>在考研题目中wait(s)、 signal()也可以记为P(S)、V(S),这对原语可用于<strong>实现系统资源的“申请”和“释放”</strong></p>
-<p><strong>S.value的初值</strong>表示系统中某种资源的数目。</p>
-<p>对信号量s的<strong>一次P操作</strong>意味着进程<strong>请求V一个单位的该类资</strong>源,因此需要执行S.value–,表示资源数减1,当S.value &lt;0时表示该类资源已分配完毕,因此进程应<strong>调用block原语进行自我阻塞</strong>(当前运行的进程从<strong>运行态→阻塞态</strong>) ,主动放弃处理机,并插入该类资源的等待队列S.L中。可见,该机制<strong>遵循了“让权等待”原则</strong>，不会出现“忙等”现象。</p>
-<p>对信号量s的<strong>一次V操作意味</strong>着进程<strong>释放一个单位的该类资源</strong>,因此需要执行s.value++,表示资源数加1,若加1后仍是S.value &lt;-0,表示依然有进程在等待该类资源,因此应<strong>调用wakeup原语唤醒等待队列中的第1个进程</strong>(被唤醒进程从<strong>阻塞态→就绪态</strong>)</p>
-<h2 id="用信号量机制实现进程互斥、同步、前驱关系"><a href="#用信号量机制实现进程互斥、同步、前驱关系" class="headerlink" title="用信号量机制实现进程互斥、同步、前驱关系"></a>用信号量机制实现进程互斥、同步、前驱关系</h2><h3 id="进程互斥"><a href="#进程互斥" class="headerlink" title="进程互斥"></a>进程互斥</h3><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200405/cUpoPSPURO2z.png" alt="mark"></p>
-<h3 id="进程同步"><a href="#进程同步" class="headerlink" title="进程同步"></a>进程同步</h3><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200405/HNWT5QLI2Pgx.png" alt="mark"></p>
-<h3 id="前驱关系"><a href="#前驱关系" class="headerlink" title="前驱关系"></a>前驱关系</h3><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200405/X3vDETalxf78.png" alt="mark"></p>
+<h2 id="转义"><a href="#转义" class="headerlink" title="转义"></a>转义</h2><p><code>**文本加粗**</code></p>
+<p><strong>文本加粗</strong></p>
+<p><code>\*\*正常显示星号\*\*</code></p>
+<p>**正常显示星号**</p>
+<h2 id="流程图、时序图（顺序图）、甘特图"><a href="#流程图、时序图（顺序图）、甘特图" class="headerlink" title="流程图、时序图（顺序图）、甘特图"></a>流程图、时序图（顺序图）、甘特图</h2><h3 id="向Hexo中插入mermaid-diagrams"><a href="#向Hexo中插入mermaid-diagrams" class="headerlink" title="向Hexo中插入mermaid diagrams"></a>向Hexo中插入mermaid diagrams</h3><p>转自教程<a href="https://wangxiaoyu-go.github.io/2018/11/23/hexo-filter-mermaid-diagrams/" target="_blank" rel="noopener">Hexo中插入mermaid diagrams</a></p>
+<p><a href="https://github.com/webappdevelp/hexo-filter-mermaid-diagrams" target="_blank" rel="noopener">Github项目</a></p>
+<p><a href="https://mermaid-js.github.io/mermaid/#/" target="_blank" rel="noopener">官方</a></p>
+<h4 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h4><p><code>npm install hexo-filter-mermaid-diagrams</code></p>
+<h4 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h4><p>在hexo的<code>_config.yml</code>文件（根目录的并非主题的）中，添加以下内容：</p>
+<pre><code># mermaid chart
+mermaid: ## mermaid url https://github.com/knsv/mermaid
+  enable: true  # default true
+  version: "7.1.2" # default v7.1.2
+  options:  # find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js
+    #startOnload: true  // default true</code></pre><h4 id="js文件修改"><a href="#js文件修改" class="headerlink" title="js文件修改"></a>js文件修改</h4><ol>
+<li>修改位置 （next主题为例）<br><code>themes/next/layout/_partials/footer.swig</code></li>
+<li>根据footer的格式不同，添加的内容不同。<br>格式有<code>after_footer.pug</code> , <code>after-footer.ejs</code> ,<code>footer.swig</code>等。<br>以下在next的<code>footer.swig</code>添加的内容。其他格式参考<a href="https://github.com/webappdevelp/hexo-filter-mermaid-diagrams" target="_blank" rel="noopener">github: hexo-filter-mermaid-diagrams</a></li>
+</ol>
+<pre><code>{% if theme.mermaid.enable %}
+  <script src="https://unpkg.com/mermaid@{{ theme.mermaid.version }}/dist/mermaid.min.js"></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({{ JSON.stringify(theme.mermaid.options) }});
+    }
+  </script>
+{% endif %}</code></pre><p>到此为止，设置的部分就结束了。</p>
+<h4 id="个性化背景颜色"><a href="#个性化背景颜色" class="headerlink" title="个性化背景颜色"></a>个性化背景颜色</h4><p>个人希望没有背景颜色，是透明的。<br>hexo有供用户设置的css文件。需要在这里添加需要的css内容。</p>
+<ul>
+<li>文件位置（next主题为例）<br><code>themes\next\source\css\_custom\custom.styl</code></li>
+<li>添加内容</li>
+</ul>
+<pre><code>.mermaid {
+ background: transparent;
+}</code></pre><h3 id="流程图-Flow-Chart"><a href="#流程图-Flow-Chart" class="headerlink" title="流程图 Flow Chart"></a>流程图 Flow Chart</h3><p><a href="http://www.guide2it.com/post/2019-03-10-1-make-flowcharts-with-mermaid-in-markdown/" target="_blank" rel="noopener">Hexo+Mermaid(一)：记住三、四、五，玩转Mermaid流程图</a></p>
+<blockquote>
+<p>```mermaid<br>graph LR<br>A[方形] –&gt;B(圆角)<br>    B –&gt; C{条件a}<br>    C –&gt;|a=1| D[结果1]<br>    C –&gt;|a=2| E[结果2]<br>    F[横向流程图]<br>```</p>
+</blockquote>
+<pre class="mermaid">graph LR
+A[方形] --&gt;B(圆角)
+    B --&gt; C{条件a}
+    C --&gt;|a=1| D[结果1]
+    C --&gt;|a=2| E[结果2]
+    F[横向流程图]</pre>
+<blockquote>
+<p>```mermaid<br>graph TD<br>A[方形] –&gt; B(圆角)<br>    B –&gt; C{条件a}<br>    C –&gt; |a=1| D[结果1]<br>    C –&gt; |a=2| E[结果2]<br>    F[竖向流程图]<br>```</p>
+</blockquote>
+<pre class="mermaid">graph TD
+A[方形] --&gt; B(圆角)
+    B --&gt; C{条件a}
+    C --&gt; |a=1| D[结果1]
+    C --&gt; |a=2| E[结果2]
+    F[竖向流程图]</pre>
+
+<h3 id="时序图-Sequence-Diagram"><a href="#时序图-Sequence-Diagram" class="headerlink" title="时序图 Sequence Diagram"></a>时序图 Sequence Diagram</h3><p><a href="http://www.guide2it.com/post/2019-03-10-2-make-sequence-diagrams-with-mermaid-in-markdown/" target="_blank" rel="noopener">Hexo+Mermaid(二)：六步玩转Mermaid时</a></p>
+<blockquote>
+<p>```mermaid<br>%% 时序图例子,-&gt; 直线，–&gt;虚线，-&gt;&gt;实线箭头<br>  sequenceDiagram<br>    participant 张三<br>    participant 李四<br>    张三-&gt;王五: 王五你好吗？<br>    loop 健康检查<br>        王五-&gt;王五: 与疾病战斗<br>    end<br>    Note right of 王五: 合理 食物 <br>看医生…<br>    李四–&gt;&gt;张三: 很好!<br>    王五-&gt;李四: 你怎么样?<br>    李四–&gt;王五: 很好!<br>```</p>
+</blockquote>
+<pre class="mermaid">%% 时序图例子,-&gt; 直线，--&gt;虚线，-&gt;&gt;实线箭头
+  sequenceDiagram
+    participant 张三
+    participant 李四
+    张三-&gt;王五: 王五你好吗？
+    loop 健康检查
+        王五-&gt;王五: 与疾病战斗
+    end
+    Note right of 王五: 合理 食物 <br>看医生...
+    李四--&gt;&gt;张三: 很好!
+    王五-&gt;李四: 你怎么样?
+    李四--&gt;王五: 很好!</pre>
+<h3 id="甘特图-Gantt-chart"><a href="#甘特图-Gantt-chart" class="headerlink" title="甘特图 Gantt chart"></a>甘特图 Gantt chart</h3><p><a href="http://www.guide2it.com/post/2019-03-10-3-make-gantt-with-mermaid-in-markdown/" target="_blank" rel="noopener">Hexo+Mermaid(三)：用Mermaid在Hexo中实现超简单的甘特图</a></p>
+<blockquote>
+<p>```mermaid<br>gantt<br>    title A Gantt Diagram<br>    dateFormat  YYYY-MM-DD<br>    section Section<br>    A task           :a1, 2014-01-01, 30d<br>    Another task     :after a1  , 20d<br>    section Another<br>    Task in sec      :2014-01-12  , 12d<br>    another task      : 24d<br>```</p>
+</blockquote>
+<pre class="mermaid">gantt
+    title A Gantt Diagram
+    dateFormat  YYYY-MM-DD
+    section Section
+    A task           :a1, 2014-01-01, 30d
+    Another task     :after a1  , 20d
+    section Another
+    Task in sec      :2014-01-12  , 12d
+    another task      : 24d</pre>
+
+<blockquote>
+<p>```mermaid<br>gantt<br>        dateFormat  YYYY-MM-DD<br>        title 软件开发甘特图<br>        section 设计<br>        需求                      :done,    des1, 2014-01-06,2014-01-08<br>        原型                      :active,  des2, 2014-01-09, 3d<br>        UI设计                     :         des3, after des2, 5d<br>        未来任务                     :         des4, after des3, 5d<br>        section 开发<br>        学习准备理解需求                      :crit, done, 2014-01-06,24h<br>        设计框架                             :crit, done, after des2, 2d<br>        开发                                 :crit, active, 3d<br>        未来任务                              :crit, 5d<br>        耍                                   :2d<br>        section 测试<br>        功能测试                              :active, a1, after des3, 3d<br>        压力测试                               :after a1  , 20h<br>        测试报告                               : 48h<br>```</p>
+</blockquote>
+<pre class="mermaid">gantt
+        dateFormat  YYYY-MM-DD
+        title 软件开发甘特图
+        section 设计
+        需求                      :done,    des1, 2014-01-06,2014-01-08
+        原型                      :active,  des2, 2014-01-09, 3d
+        UI设计                     :         des3, after des2, 5d
+        未来任务                     :         des4, after des3, 5d
+        section 开发
+        学习准备理解需求                      :crit, done, 2014-01-06,24h
+        设计框架                             :crit, done, after des2, 2d
+        开发                                 :crit, active, 3d
+        未来任务                              :crit, 5d
+        耍                                   :2d
+        section 测试
+        功能测试                              :active, a1, after des3, 3d
+        压力测试                               :after a1  , 20h
+        测试报告                               : 48h</pre>
+
+<p><a href="https://www.runoob.com/markdown/md-advance.html" target="_blank" rel="noopener">菜鸟教程</a></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -367,10 +384,10 @@ mathjax: flase  ##是否开启数学公式</code>  </p>
           });
       </script>]]></content>
       <categories>
-        <category>OS</category>
+        <category>hexo</category>
       </categories>
       <tags>
-        <tag>OS</tag>
+        <tag>markdown mermaid</tag>
       </tags>
   </entry>
   <entry>
@@ -845,6 +862,238 @@ $$         </code></pre><p>$$<br>2x+3y=34\<br>x+4y=25<br>$$</p>
       </tags>
   </entry>
   <entry>
+    <title>操作系统-学习笔记2</title>
+    <url>/lzfangwen.github.io/2020/03/20/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/</url>
+    <content><![CDATA[<h2 id="程序的顺序执行"><a href="#程序的顺序执行" class="headerlink" title="程序的顺序执行"></a>程序的顺序执行</h2><a id="more"></a>
+
+<p><img src="https://img-blog.csdnimg.cn/2020031316272059.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="程序的并发执行"><a href="#程序的并发执行" class="headerlink" title="程序的并发执行"></a>程序的并发执行</h2><p><img src="https://img-blog.csdnimg.cn/20200313163136346.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200313163144468.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="前驱图"><a href="#前驱图" class="headerlink" title="前驱图"></a>前驱图</h2><p><img src="https://img-blog.csdnimg.cn/20200313162759444.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="进程的描述"><a href="#进程的描述" class="headerlink" title="进程的描述"></a>进程的描述</h2><p><img src="https://img-blog.csdnimg.cn/20200313163722388.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/2020031316381162.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200320101837346.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="进程的组织形式"><a href="#进程的组织形式" class="headerlink" title="进程的组织形式"></a>进程的组织形式</h2><p><img src="https://img-blog.csdnimg.cn/20200320102130397.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>进程与程序的区别</strong><br><img src="https://img-blog.csdnimg.cn/20200313165514735.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>特性</strong><br><img src="https://img-blog.csdnimg.cn/20200313165610535.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="进程的基本状态及转换"><a href="#进程的基本状态及转换" class="headerlink" title="进程的基本状态及转换"></a>进程的基本状态及转换</h2><p>三种基本状态</p>
+<ul>
+<li><strong>就绪状态(Ready)</strong><br>得到了除CPU以外的所有必要资源</li>
+<li><strong>执行状态(Running)</strong><br>已获得处理机，程序正在被执行</li>
+<li><strong>堵塞状态(Waiting/Blocked,又称等待态)</strong><br>因等待某事件发生而暂时无法继续执行，从而放弃处理机，使程序执行处于暂停状态<br><img src="https://img-blog.csdnimg.cn/20200320103846258.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">)<img src="https://img-blog.csdnimg.cn/2020032010381917.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h2 id="进程控制"><a href="#进程控制" class="headerlink" title="进程控制"></a>进程控制</h2><img src="https://img-blog.csdnimg.cn/20200320104832851.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h2 id="进程通信"><a href="#进程通信" class="headerlink" title="进程通信"></a>进程通信</h2><strong>进程之间的信息交换</strong><br><img src="https://img-blog.csdnimg.cn/20200320105838352.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2></li>
+</ul>
+<p> <strong>线程是一个基本的CPU执行单元 ，也是程序执行流的最小单位</strong><br> <img src="https://img-blog.csdnimg.cn/20200320110828452.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200320111301772.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200320112545394.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><strong>设置进程同步机制四条规则</strong></p>
+<p>进程在并发执行时为了保证结果的可再现性，各进程执行序列必须加以限制以保证互斥地使用临界资源，相互合作完成任务。多个相关进程在执行次序上的协调称为进程同步。用于保证多个进程在执行次序上的协调关系的相应机制称为进程同步机制。</p>
+<p>所有的进程同步机制应遵循下述四条准则：</p>
+<ul>
+<li><strong>空闲让进</strong><br>当无进程进入临界区时，相应的临界资源处于空闲状态，因而允许一个请求进入临界区的进程立即进入自己的临界区。</li>
+<li><strong>忙则等待</strong><br>当已有进程进入自己的临界区时，即相应的临界资源正被访问，因而其它试图进入临界区的进程必须等待，以保证进程互斥地访问临界资源。</li>
+<li><strong>有限等待</strong><br>对要求访问临界资源的进程，应保证进程能在有限时间进入临界区，以免陷入“饥饿”状态。</li>
+<li><strong>让权等待</strong><br>当进程不能进入自己的临界区时，应立即释放处理机，以免进程陷入忙等。</li>
+</ul>
+<h4 id="临界区"><a href="#临界区" class="headerlink" title="临界区"></a>临界区</h4><p><strong>每个进程中访问临界资源的那段代码称为临界区</strong>（Critical Section）（临界资源是一次仅允许一个进程使用的共享资源）。每次只准许一个进程进入临界区，进入后不允许其他进程进入。不论是硬件临界资源，还是软件临界资源，多个进程必须互斥地对它进行访问。<br>多个进程中涉及到同一个临界资源的临界区称为相关临界区。.</p>
+<h2 id="处理机调度"><a href="#处理机调度" class="headerlink" title="处理机调度"></a>处理机调度</h2><p><img src="https://img-blog.csdnimg.cn/2020032011364476.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200320113935411.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="七状态模型"><a href="#七状态模型" class="headerlink" title="七状态模型"></a>七状态模型</h3><p><img src="https://img-blog.csdnimg.cn/20200320113916159.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>OS</category>
+      </categories>
+      <tags>
+        <tag>OS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>操作系统学习笔记3</title>
+    <url>/lzfangwen.github.io/2020/03/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/</url>
+    <content><![CDATA[<h2 id="进程的调度"><a href="#进程的调度" class="headerlink" title="进程的调度"></a>进程的调度</h2><h3 id="时机"><a href="#时机" class="headerlink" title="时机"></a>时机</h3><p><img src="https://img-blog.csdnimg.cn/20200321215121803.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><a id="more"></a><br><img src="https://img-blog.csdnimg.cn/20200321215616103.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="方式"><a href="#方式" class="headerlink" title="方式"></a>方式</h3><p><img src="https://img-blog.csdnimg.cn/20200321215708658.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="切换与过程"><a href="#切换与过程" class="headerlink" title="切换与过程"></a>切换与过程</h3><p><img src="https://img-blog.csdnimg.cn/20200321220025428.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="调度算法的评价指标"><a href="#调度算法的评价指标" class="headerlink" title="调度算法的评价指标"></a>调度算法的评价指标</h2><h3 id="CPU利用率"><a href="#CPU利用率" class="headerlink" title="CPU利用率"></a>CPU利用率</h3><p>指CPU忙碌 的时间占总时间的比例<br><img src="https://img-blog.csdnimg.cn/20200321221647667.png" alt="在这里插入图片描述"></p>
+<h3 id="系统吞吐量"><a href="#系统吞吐量" class="headerlink" title="系统吞吐量"></a>系统吞吐量</h3><p>指单位时间内完成作业的数量<br><img src="https://img-blog.csdnimg.cn/2020032122170056.png" alt="在这里插入图片描述"></p>
+<h3 id="周转时间"><a href="#周转时间" class="headerlink" title="周转时间"></a>周转时间</h3><p> 指从<strong>作业被提交给系统开始</strong>，到<strong>作业完成为止</strong>的这段时间间隔<br> <img src="https://img-blog.csdnimg.cn/20200321220753841.png" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200321220859207.png" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200321221708381.png" alt="在这里插入图片描述"></p>
+<h3 id="等待时间"><a href="#等待时间" class="headerlink" title="等待时间"></a>等待时间</h3><p> 指进程/作业<strong>处于等待处理机状态时间之和</strong><br>等待时间=周转时间-运行时间-I/O操作的时间<img src="https://img-blog.csdnimg.cn/20200321221739884.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<h3 id="响应时间"><a href="#响应时间" class="headerlink" title="响应时间"></a>响应时间</h3><p> 指用户<strong>提交请求</strong>到<strong>首次产生响应</strong>所用的时间</p>
+<h2 id="调度算法"><a href="#调度算法" class="headerlink" title="调度算法"></a>调度算法</h2><p> <img src="https://img-blog.csdnimg.cn/20200322103738586.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200322111605743.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="先来先服务算法（FCDS，First-Come-FIrst-Serve）"><a href="#先来先服务算法（FCDS，First-Come-FIrst-Serve）" class="headerlink" title="先来先服务算法（FCDS，First Come FIrst Serve）"></a>先来先服务算法（FCDS，First Come FIrst Serve）</h3><p> <img src="https://img-blog.csdnimg.cn/20200322101814472.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200322102610499.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="短作业优先（SJF，Shortest-Job-First）"><a href="#短作业优先（SJF，Shortest-Job-First）" class="headerlink" title="短作业优先（SJF，Shortest Job First）"></a>短作业优先（SJF，Shortest Job First）</h3><p> <img src="https://img-blog.csdnimg.cn/20200322102933743.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200322102507330.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">)<img src="https://img-blog.csdnimg.cn/20200322102354444.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="高响应优先（HRRN，Highest-Response-Ratio-Next）"><a href="#高响应优先（HRRN，Highest-Response-Ratio-Next）" class="headerlink" title="高响应优先（HRRN，Highest Response Ratio Next）"></a>高响应优先（HRRN，Highest Response Ratio Next）</h3><p> <img src="https://img-blog.csdnimg.cn/20200322103713380.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200322103723522.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="时间片轮转调度算法（RR，Round-Robin）"><a href="#时间片轮转调度算法（RR，Round-Robin）" class="headerlink" title="时间片轮转调度算法（RR，Round-Robin）"></a>时间片轮转调度算法（RR，Round-Robin）</h3><p> <img src="https://img-blog.csdnimg.cn/2020032210572321.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200322105826975.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="优先级调度算法"><a href="#优先级调度算法" class="headerlink" title="优先级调度算法"></a>优先级调度算法</h3><p> <img src="https://img-blog.csdnimg.cn/20200322110647521.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">)<img src="https://img-blog.csdnimg.cn/2020032211023247.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200322110243922.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200322110658166.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="多级反馈队列调度算法"><a href="#多级反馈队列调度算法" class="headerlink" title="多级反馈队列调度算法"></a>多级反馈队列调度算法</h3><p> <img src="https://img-blog.csdnimg.cn/20200322111151807.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200322111410276.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="【"></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>OS</category>
+      </categories>
+      <tags>
+        <tag>OS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>操作系统-习题1</title>
+    <url>/lzfangwen.github.io/2020/04/09/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E4%B9%A0%E9%A2%981/</url>
+    <content><![CDATA[<p><strong>学习通 老师布置的第三章的题目 有关 安全序列 银行家算法</strong></p>
+<a id="more"></a>
+
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200409/op1yvQCI6DKH.png" alt="mark"></p>
+<p>(1)</p>
+<table>
+<thead>
+<tr>
+<th>进程</th>
+<th align="center">最大需求数</th>
+<th align="center">已占有资源</th>
+<th align="center">最多还需要</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>P1</td>
+<td align="center">5     5     9</td>
+<td align="center">2     1     2</td>
+<td align="center">3     4     7</td>
+</tr>
+<tr>
+<td>P2</td>
+<td align="center">5     4     6</td>
+<td align="center">4     0     2</td>
+<td align="center">1     4     4</td>
+</tr>
+<tr>
+<td>P3</td>
+<td align="center">4     0     11</td>
+<td align="center">4     0     5</td>
+<td align="center">0     0     6</td>
+</tr>
+<tr>
+<td>P4</td>
+<td align="center">4     2     5</td>
+<td align="center">2     0     4</td>
+<td align="center">2     2     1</td>
+</tr>
+<tr>
+<td>P5</td>
+<td align="center">8     2     4</td>
+<td align="center">3     1     4</td>
+<td align="center">5     1     0</td>
+</tr>
+</tbody></table>
+<p>$T_0$时刻 系统剩余资源 Available=(2,3,3)</p>
+<p>现在系统处于安全状态</p>
+<p>安全序列：P4，P3，P5，P1，P2</p>
+<p>（2）</p>
+<p>$T_0$时刻P4提出（2,0,1）请求后 系统剩余资源 Available=(0,3,2)  可以满足P1提出的（0,2,0）请求</p>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200409/s0UEB8LiFJI3.png" alt="mark"></p>
+<p>（1）</p>
+<table>
+<thead>
+<tr>
+<th>Process    进程</th>
+<th align="center">Max                 最大需求</th>
+<th align="center">Allocation               已分配</th>
+<th align="center">Need                         最多还需要</th>
+<th>Available               系统可用资源</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$p_0$</td>
+<td align="center">(0,0,4,4)</td>
+<td align="center">(0,0,3,2)</td>
+<td align="center">(0,0,1,2)</td>
+<td>(1,6,2,2)</td>
+</tr>
+<tr>
+<td>$p_1$</td>
+<td align="center">(2,7,5,0)</td>
+<td align="center">(1,0,0,0)</td>
+<td align="center">(1,7,5,0)</td>
+<td></td>
+</tr>
+<tr>
+<td>$p_2$</td>
+<td align="center">(3,6,10,10)</td>
+<td align="center">(1,3,5,4)</td>
+<td align="center">(2,3,5,6)</td>
+<td></td>
+</tr>
+<tr>
+<td>$p_3$</td>
+<td align="center">(0,9,8,4)</td>
+<td align="center">(0,3,3,2)</td>
+<td align="center">(0,6,5,2)</td>
+<td></td>
+</tr>
+<tr>
+<td>$p_4$</td>
+<td align="center">(0,6,6,10)</td>
+<td align="center">(0,0,1,4)</td>
+<td align="center">(0,6,5,6)</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>安全序列：$p_0$，$p_3$，$p_4$，$p_1$，$p_2$</p>
+<p>系统是安全的</p>
+<p>(2)$p_2$的请求Request(1,2,2,2)</p>
+<p>假如系统分配后 $p_2$ Need(1,1,3,4)</p>
+<p>​                                Available(0,4,0,0)    </p>
+<p>系统陷入死锁        所以系统不能将资源分配给它</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>OS</category>
+      </categories>
+      <tags>
+        <tag>OS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>操作系统-学习笔记5</title>
     <url>/lzfangwen.github.io/2020/04/04/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B05/</url>
     <content><![CDATA[<h2 id="进程互斥的软件实现方法"><a href="#进程互斥的软件实现方法" class="headerlink" title="进程互斥的软件实现方法"></a>进程互斥的软件实现方法</h2><h3 id="单标志法"><a href="#单标志法" class="headerlink" title="单标志法"></a>单标志法</h3><p> <strong>算法思想</strong>：两个进程在 <strong>访问临界区</strong>后会把使用临界区的权限转交给另一个进程。也就是说<strong>每个进程进入临界区的权限只能被另一个进程赋予</strong></p>
@@ -874,110 +1123,6 @@ $$         </code></pre><p>$$<br>2x+3y=34\<br>x+4y=25<br>$$</p>
 <p>逻辑上来看Swap和TSL并无太大区别,都是先记录下此时临界区是否已经被上锁(记录在old变量上) ,再将上锁标记lock设置为true,最后检查old,如果old为false则说明之前没有别的进程,对临界区上锁,则可跳出循环,进入临界区。</p>
 <p>优点:实现简单,无需像软件实现方法那样严格检查是否会有逻辑漏洞;适用于多处理机环境</p>
 <p>缺点:不满足“让权等待”原则,暂时无法进入临界区的进程会占用CPU并循环执行TSL指令,从而导致“忙等”。</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
-      <categories>
-        <category>OS</category>
-      </categories>
-      <tags>
-        <tag>OS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>操作系统-学习笔记7</title>
-    <url>/lzfangwen.github.io/2020/04/05/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B07/</url>
-    <content><![CDATA[<h2 id="生产者和消费者问题"><a href="#生产者和消费者问题" class="headerlink" title="生产者和消费者问题"></a>生产者和消费者问题</h2><p>系统中有一组生产者进程和一组消费者进程,生产者进程每次生产一个产品放入缓冲区,消费者,进程每次从缓冲区中取出一个产品并使用。(注:这里的“产品”理解为某种数据)生产者、消费者共享一个<strong>初始为空、大小为n的缓冲区</strong>。</p>
-<p>只有缓冲区没满时,生产者才能把产品放入缓冲区,否则必须等待。</p>
-<p>只有缓冲区不空时,消费者才能从中取出产品,否则必须等待。</p>
-<p>缓冲区是临界资源,<strong>各进程必须互斥地访问</strong>。</p>
-<a id="more"></a>
-
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200405/sTX4f7vOIavn.png" alt="mark"></p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200405/qgByT9YI8llH.png" alt="mark"></p>
-<p><strong>实现互斥的P操作一定要在实现同步的P操作之后</strong></p>
-<p>V操作不会导致进程阻塞，因此两个V操作顺序可以交换</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200405/0A4f6z2oszli.png" alt="mark"></p>
-<h2 id="多生产者-多消费者问题"><a href="#多生产者-多消费者问题" class="headerlink" title="多生产者-多消费者问题"></a>多生产者-多消费者问题</h2><p>桌子上有一只盘子,每次只能向其中放入一个水果。爸爸专向盘子中放苹果,妈妈专向盘子中放橘子,儿子专等着吃盘子中的橘子,女儿专等着吃盘子中的苹果。只有盘子空时,爸爸或妈妈才可向盘子中放一个水果。仅当盘子中有自己需要的水果时,儿子或女儿可以从盘子中取出水果。</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/t5GvRuDas2En.png" alt="mark"></p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/bm7Iwt05IMiy.png" alt="mark"></p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/pBMktfFR9GF9.png" alt="mark"></p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/SppmnSNjAx4D.png" alt="mark"></p>
-<p>原因在于:本题中的缓冲区大小为1,在任何时刻, apple, orange, plate三个同步信号量中最多只有一个是1,因此在任何时刻,最多只有一个进程的P操作不会被阻塞,并顺利地进入临界区…</p>
-<p><strong>总结:</strong>在生产者-消费者问题中,如果缓冲区大小为1,那么有可能不需要设置互斥信号量就可以实现互斥访问缓冲区的功能。当然,这不是绝对的,要具体问题具体分析。</p>
-<p>建议:在考试中如果来不及仔细分析,可以加上互斥信号量,保证各进程一定会互斥地访问缓冲区。但需要注意的是,实现互斥的P操作一定要在实现同步的P操作之后,否则可能引起“死锁”PV<strong>操作题目的解题思路:</strong></p>
-<ol>
-<li>关系分析。找出题目中描述的各个进程,分析它们之间的同步、互斥关系。</li>
-<li>整理思路。根据各进程的操作流程确定P、V操作的大致顺序</li>
-<li>设置信号量。设置需要的信号量,并根据题目条件确定信号量初值。(互斥信号量初值一般为1,同步信号量的初始值要看对应资源的初始值是多少)</li>
-</ol>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/rtMKz5svYszz.png" alt="mark"></p>
-<h2 id="吸烟者问题"><a href="#吸烟者问题" class="headerlink" title="吸烟者问题"></a>吸烟者问题</h2><p>假设一个系统有<strong>三个抽烟者进程</strong>和<strong>一个供应者进程</strong>。每个抽烟者不停地卷烟并抽掉它,但是要卷起并抽掉一支烟,抽烟者需要有三种材料:烟草、纸和胶水。三个抽烟者中,第一个拥有烟草、,第二个拥有纸、第三个拥有胶水。供应者进程无限地提供三种材料,供应者每次将两种材料放桌子上,拥有剩下那种材料的抽烟者卷一根烟并抽掉它,并给供应者进程一个信号告诉完成了,供应者就会放另外两种材料在桌上，这个过程一直重复（让三个抽烟者轮流抽烟）</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/f0YnUJdo0VET.png" alt="mark"></p>
-<p><strong>问题分析</strong></p>
-<p>本质上这题也属于“生产者-消费者”问题,更详细的说应该是“可生产多种产品的单生产者-多消费者”。</p>
-<ol>
-<li>关系分析。找出题目中描述的各个进程,分析它们之间的同步、互斥关系。</li>
-<li>整理思路。根据各进程的操作流程确定P、V操作的大致顺序</li>
-</ol>
-<p>桌子可以抽象为容量为1的缓冲区，要互斥访问</p>
-<p>三种材料 可以抽象为三种组合</p>
-<p>​    组合一：纸+胶水</p>
-<p>​    组合二:烟草+胶水</p>
-<p>​    组合三:烟草+纸</p>
-<p>同步关系（要从事件的角度分析）</p>
-<p>​    桌子上有组合一    →    第一个抽烟者取走东西</p>
-<p>​    桌子上有组合二    →    第二个抽烟者取走东西</p>
-<p>​    桌子上有组合三    →    第三个抽烟者取走东西</p>
-<p>​    发出完成信号        →    供应者将下一个组合放在桌上</p>
-<p>​        PV操作顺序 “前V后P”</p>
-<p>​        (必须发生在前面的事件之后执行V操作，必须发生在后面的事件之前执行P操作)</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/kFNJqbY66BmN.png" alt="mark"></p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/twBBqexItxDH.png" alt="mark"></p>
-<h2 id="读者-写者问题"><a href="#读者-写者问题" class="headerlink" title="读者-写者问题"></a>读者-写者问题</h2><p>有读者和写者两组并发进程,共享一个文件,当两个或两个以上的读进程同时访问共享数据时不会产生副作用,但若某个写进程和其他进程(读进程或写进程)同时访问共享数据时则可能导致·数据不一致的错误。</p>
-<p>因此要求: </p>
-<ol>
-<li>允许多个读者可以同时对文件执行读操作; </li>
-<li>只允许一个写者往文件中写信息; </li>
-<li>任一写者在完成写操作之前不允许其他读者或写者工作;</li>
-<li>写者执行写操作,应让已有的读者和写者全部退出。</li>
-</ol>
-<p><strong>问题分析</strong></p>
-<p>两类进程:写进程、读进程</p>
-<p>互斥关系:写进程一写进程、写进程一读进程。读进程与读进程不存在互斥问题</p>
-<p>写者进程和任何进程都互斥,设置一个互斥信号量rw,在写者访问共享文件前后分别执行P, V操作。</p>
-<p>读者进程和写者进程也要互斥,因此读者访问共享文件前后也要对rw执行P、V操作。</p>
-<p>如果所有读者进程在访问共享文件之前都执行P(rw)操作,那么会导致各个读进程之间也无法同时访问文件。</p>
-<p><strong>Key:读者写者问题的核心思想–怎么处理该问题呢?</strong></p>
-<p>P(rw)和Vrw)其实就是对共享文件的“加锁”和”解锁” 。既然各个读进程需要同时访问,而读进程与写进程又必须互斥访间,那么我们可以让第一个访问文件的读进程“加锁” ,让最后一个访问完文件的读进程“解锁”。可以设置一个整数变量count来记录当前有几个读进程在访问文件。</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/mogqygCIeL4m.png" alt="mark"></p>
-<p>读进程源源不断会导致写进程饿死</p>
-<p>解决方法：</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/38XxSpldwRzG.png" alt="mark"></p>
-<p>读者-写者问题为我们解决复杂的互斥问题提供了一个参考思路。</p>
-<p>其<strong>核心思想</strong>在于设置了一个<strong>计数器count</strong>用来记录当前正在访间共享文件的读进程数。我们可以用count的值来判断当前进入的进程是否是第一个/最后一个读进程,从而做出不同的处理。</p>
-<p>另外,对count变量的检查和赋值不能一气呵成导致了一些错误,如果<strong>需要实现“一气呵成”,自然应该想到用互斥信号量。</strong></p>
-<p>最后,还要认真体会我们是如何解决“写进程饥饿”问题的。</p>
-<p>绝大多数的考研PV操作大题都可以用之前介绍的几种生产者-消费者问题的思想来解决,如果遇到更复杂的问题,可以想想能否用读者写者问题的这几个思想来解决。</p>
-<h2 id="哲学家进餐问题"><a href="#哲学家进餐问题" class="headerlink" title="哲学家进餐问题"></a>哲学家进餐问题</h2><p>张圆桌上坐着5名哲学家,每两个哲学家之间的桌上摆一根筷子,桌子的中间是一碗米饭。哲学家们倾注毕生的精力用于思考和进餐,哲学家在思考时,并不影响他人。只有当哲学家饥饿时,才试图拿起左、右两根筷子(一根一根地拿起)。如果筷子已在他人手上,则需等待。饥饿的哲学家只有同时拿起两根筷子才可以开始进餐,当进餐完毕后,放下筷子继续思考。</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/WCHmiiXhRtMz.png" alt="mark"></p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/ahbISrdfq3o3.png" alt="mark"></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1139,6 +1284,565 @@ $$         </code></pre><p>$$<br>2x+3y=34\<br>x+4y=25<br>$$</p>
       </tags>
   </entry>
   <entry>
+    <title>操作系统-学习笔记8</title>
+    <url>/lzfangwen.github.io/2020/04/19/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B08/</url>
+    <content><![CDATA[<h1 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h1><h1 id="存储器管理"><a href="#存储器管理" class="headerlink" title="存储器管理"></a>存储器管理</h1><h2 id="内存的基础知识"><a href="#内存的基础知识" class="headerlink" title="内存的基础知识"></a>内存的基础知识</h2><p>内存是用于存放数据的硬件。程序执行前<strong>需要先放到内存中才能被CPU处理</strong></p>
+<ul>
+<li>内存地址从0开始,<strong>每个地址对应一个存储单元</strong></li>
+<li>如果计算机“<strong>按字节编址</strong>”则每个存储单元大小为1字节,即18,即8个二进制位</li>
+<li>如果字长为16位的计算机<strong>,按字编址</strong>” ,则每个存储单元大小为1个字;每个字的犬小为16个二进制位</li>
+</ul>
+<a id="more"></a>
+
+<h3 id="进程的运行原理"><a href="#进程的运行原理" class="headerlink" title="进程的运行原理"></a>进程的运行原理</h3><p><img src="http://qiniuyun.lzfangwen.cn/blog/20200419/po5UOteElwQR.png" alt="mark"></p>
+<p>可见,我们写的代码要翻译成CPU能识别的指令。这些指令会告诉CPU应该去内存的哪个地址存/取数据,这个数据应该做什么样的处理。在这个例子中,指令中直接给出了变量x的实际存放地址(物理地址)但实际在生成机器指令的时候并不知道该进程的数据会被放到什么位置。所以编译生成的指令中一般是使用<strong>逻辑地址(相对地址)</strong></p>
+<h3 id="从写程序到程序运行"><a href="#从写程序到程序运行" class="headerlink" title="从写程序到程序运行"></a>从写程序到程序运行</h3><p><img src="http://qiniuyun.lzfangwen.cn/blog/20200419/ohp5gwJxi5E6.png" alt="mark"></p>
+<p>编译:由编译程序将用户源代码编译成若干个目标模块(编译就是把高级语言翻译为机器语言)</p>
+<p>链接:由链接程序将编译后形成的一组目标模块,以及所需库函数链接在一起,形成一个完整的装入模块装入(装载) :由装入程序将装入模块装入内存运行</p>
+<h3 id="装入模块装入内存"><a href="#装入模块装入内存" class="headerlink" title="装入模块装入内存"></a>装入模块装入内存</h3><p>装入的三种方式(用三种不同的方法完成逻辑地址到物理地址的转换) :</p>
+<ol>
+<li><p><strong>绝对装入</strong></p>
+<blockquote>
+<p>在编译时,如果知道程序将放到内存中的哪个位置,编译程序将产生绝对地址的目标代码。装入程序按照装入模块中的地址,将程序和数据装入内存。</p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200419/HWhnVYhHMYNa.png" alt="mark"></p>
+<p><strong>绝对装入只适用于单道程序环境</strong>。</p>
+<p>程序中使用的绝对地址,可在编译或汇编时给出,也可由程序员直接赋予。通常情况下都是编译或汇编时再转换为绝对地址。</p>
+</blockquote>
+</li>
+<li><p><strong>静态重定位</strong></p>
+<blockquote>
+<p>静态重定位:又称<strong>可重定位装入</strong>。编译、链接后的装入模块的地址都是从0开始的,指令中使用的地址、数据存放的地址都是相对于起始地址而言的逻辑地址。可根据内存的当前情况,将装入模块装入到内存的适当位置。装入时对地址进行“<strong>重定位</strong>” ,将逻辑地址变换为物理地址(地址变换是在装入时一次完成的)</p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200419/t09YVpGMlObb.png" alt="mark"></p>
+<p>静态重定位的特点是在一个作业装入内存时,必须<strong>分配其要求的全部内存空间</strong>,如果没有足够的内存,就不能装入该作业。作业一旦进入内存后,<strong>在运行期间就不能再移动</strong>,也不能再申请内存空间。</p>
+</blockquote>
+</li>
+<li><p><strong>动态重定位</strong></p>
+<blockquote>
+<p>动态重定位:又称<strong>动态运行时装入</strong>。编译、链接后的装入模块的地址都是从0开始的。装入程序把装入模块装入内存后,并不会立即把逻辑地址转换为物理地址,而是<strong>把地址转换推迟到程序真正要执行时才进行</strong>。因此装入内存后所有的地址依然是逻辑地址。这种方式需要一个<strong>重定位寄存器的支持</strong>。</p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200419/f456nJEC4yym.png" alt="mark"></p>
+<p>并且可将程序分配到不连续的存储区中;在程序运行前只需装入它的部分代码即可投入运行,然后在程序运行期间,根据需要动态申请分配内存;便于程序段的共享,可以向用户提供一个比存储空间大得多的地址空间</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="链接的三种方式"><a href="#链接的三种方式" class="headerlink" title="链接的三种方式"></a>链接的三种方式</h3><ol>
+<li><strong>静态链接</strong>:在程序运行之前,先将各目标模块及它们所需的库函数连接成一个完整的可执行文件(装入模块)之后不再拆开。</li>
+<li><strong>装入时动态链接</strong>:将各目标模块装入内存时,边装入边链接的链接方式。</li>
+<li><strong>运行时动态链接</strong>:在程序执行中需要该目标模块时,才对它进行链接。其优点是便于修改和更新,便于实现对目标模块的共享</li>
+</ol>
+<h2 id="内存管理的概念"><a href="#内存管理的概念" class="headerlink" title="内存管理的概念"></a>内存管理的概念</h2><h3 id="内存空间的分配与回收"><a href="#内存空间的分配与回收" class="headerlink" title="内存空间的分配与回收"></a>内存空间的分配与回收</h3><h4 id="连续分配管理方式"><a href="#连续分配管理方式" class="headerlink" title="连续分配管理方式"></a>连续分配管理方式</h4><h5 id="单一连续分配"><a href="#单一连续分配" class="headerlink" title="单一连续分配"></a>单一连续分配</h5><blockquote>
+<p>在单一连续分配方式中,内存被分为<strong>系统区和用户区</strong>。系统区通常位于内存的低地址部分,用于存放操作系统相关数据;用户区用于存放用户进程相关数据。内存中<strong>只能有一道用户程序</strong>,用户程序独占整个用户区”空间。</p>
+<p><strong>优点</strong>:实现简单;<strong>无外部碎片</strong>;可以采用覆盖技术扩充内存;不一定需要采駛内存保护(eg:早期的PC操作系统MS-DOS)</p>
+<p><strong>缺点</strong>:只能用于单用户、单任务的操作系统中;有内部碎片</p>
+<blockquote>
+<p>分配给某进程的内存区域中,如果有些部分没有用上,就是“内部碎片”</p>
+</blockquote>
+<p>存储器利用率极低。</p>
+<img src="http://qiniuyun.lzfangwen.cn/blog/20200419/JvxJE8NPo7MN.png" alt="mark" style="zoom: 50%;">
+</blockquote>
+<h5 id="固定分区分配"><a href="#固定分区分配" class="headerlink" title="固定分区分配"></a>固定分区分配</h5><p>20世纪60年代出现了支持多道程序的系统,为了能在内存中装入多道程序,且这些程序之间又不会相互干扰,,于是将整个用户空间划分为若干个國定大小的分区,在每个分区中只装入一道作业,这样就形成了最早的、最简单的一种可运行多道程序的内存管理方式。</p>
+<p>固定分区分配</p>
+<ul>
+<li><p>分区大小相等</p>
+<blockquote>
+<p>分区大小相等:缺乏灵活性,但是很适合用于用一台计算机控制多个相同对象的场合(比如:钢铁厂有n个相同的炼钢炉,就可把内存分为n个大小相等的区域存放n个炼钢炉控制程序)</p>
+</blockquote>
+</li>
+<li><p>分区大小不等</p>
+<blockquote>
+<p>分区大小不等:增加了灵活性,可以满足不同大小的进程需求。根据常在系统中运行的作业大小情况进行划分(比如:划分多个小分区、适量中等分区、少量大分区)</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p> 操作系统需要建立一个数据结构–<strong>分区说明表</strong>,来实现各个分区的分配与回收。每个表项对应一个分区,通常按分区大小排列。每个表项包括对应分区的<strong>大小、起始地址、状态</strong>(是否已分配)。</p>
+<p>用数据结构的数组(或链表)即可表示这个表</p>
+<p>当某用户程序要装入内存时,由操作系统内核程序根据用户程序大小检索该表,从中找到一个能满足大小的、未分配的分区,将之分配给该程序,然后修改状态为“已分配”</p>
+<p><strong>优点:实现简单,无外部碎片</strong>。</p>
+</blockquote>
+<h5 id="动态分区分配"><a href="#动态分区分配" class="headerlink" title="动态分区分配"></a>动态分区分配</h5><p><strong>动态分区分配</strong>又称为<strong>可变分区分配</strong>。这种分配方式<strong>不会预先划分内存分区</strong>,而是在进程装入内存时,<strong>根据进程的大小动态地建立分区</strong>,并使分区的大小正好适合进程的需要。因此系统分区的大小和数目是可变的。</p>
+<p><strong>动态分区分配没有内部碎片,但是有外部碎片</strong>。</p>
+<p><strong>内部碎片</strong>,分配给某进程的内存区域中,如果有些部分没有用上。</p>
+<p><strong>外部碎片</strong>,是指内存中的某些空闲分区由于太小而难以利用。</p>
+<p>如果内存中空闲空间的总和本来可以满足某进程的要求,但由于进程需要的是一整块连续的内存空间,因此这些“碎片”不能满足进程的需求。</p>
+<p>可以通过<strong>紧凑(拼凑, Compaction)</strong>技术来解决外部碎片。</p>
+<ul>
+<li>两种数据结构</li>
+</ul>
+<ol>
+<li><p><strong>空闲分区表</strong></p>
+<blockquote>
+<p>空闲分区表:每个空闲分区对应一个表项。表项中包含分区号分区大小、分区起始地址等信息<img src="http://qiniuyun.lzfangwen.cn/blog/20200419/uKFQ1hSoSnEU.png" alt="mark"></p>
+</blockquote>
+</li>
+<li><p><strong>空闲分区链</strong></p>
+<blockquote>
+<p>空闲分区链:每个分区的起始部分和末尾部分分别设置前向指针和后向指针。起始部分处还可记录分区大小等信息<img src="http://qiniuyun.lzfangwen.cn/blog/20200419/emnC2xwL558e.png" alt="mark"></p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><strong>动态分区分配算法</strong></li>
+</ul>
+<ol>
+<li><p><strong>首次适应算法</strong></p>
+<blockquote>
+<p>算法思想:每次都从低地址开始查找,找到第一个能满足大小的空闲分区。</p>
+<p>如何实现:<strong>空闲分区以地址递增的次序排列</strong>。每次分配内存时顺序查找<strong>空闲分区链</strong>(或<strong>空闲分区表</strong>) ,找到大小能满足要求的第一个空闲分区。</p>
+</blockquote>
+</li>
+<li><p><strong>最佳适应算法</strong></p>
+<blockquote>
+<p>算法思想:由于动态分区分配是一种连续分配方式,为各进程分配的空间必须是连续的一整片区域。因此为了保证当“大进程”到来时能有连续的大片空间,可以尽可能多地留下大片的空闲区,即,优先使用更小的空闲区。</p>
+<p>如何实现<strong>:空闲分区按容量递增次序链接</strong>。每次分配内存时顺序查找<strong>空闲分区链</strong>(或<strong>空闲分区表</strong>，找到大小能满足要求的第一个空闲分区。</p>
+</blockquote>
+</li>
+<li><p><strong>最坏适应算法</strong></p>
+<blockquote>
+<p>又称<strong>最大适应算法</strong>(Largest Fit)</p>
+<p>算法思想:为了解决最佳适应算法的问题–即留下太多难以利用的小碎片,可以在每次分配时优先使用最大的连续空闲区,这样分配后剩余的空闲区就不会太小,更方便使用。</p>
+<p>如何实现:<strong>空闲分区按容量递减次序链接</strong>。每次分配内存时顺序查找空闲分区链(或空闲分区表) ,找到大小能满足要求的第一个空闲分区。</p>
+<p><strong>缺点</strong>:每次都选最大的分区进行分配,虽然可以让分配后留下的空闲区更大,更可用,但是这种方式会导致较大的连续空闲区被迅速用完。如果之后有“大进程”到达,就没有内存分区可用了。</p>
+</blockquote>
+</li>
+<li><p><strong>邻近适应算法</strong></p>
+<blockquote>
+<p>AKA <strong>循环首次适应算法</strong></p>
+<p>算法思想:首次适应算法每次都从链头开始查找的。这可能会导致低地址部分出现很多小的空闲分区,而每次分配查找时,都要经过这些分区,因此也增加了查找的开销。如果每次都从上次查找结束的位置开始检索,就能解决上述问题。</p>
+<p>如何实现:空闲分区以地址递增的顺序排列(可排成一个循环链表)。每次分配内存时<strong>从上次查找结束的位置开始查找</strong>空闲分区链(或空闲分区表) ,找到大小能满足要求的第一个空闲分区。</p>
+<p>优点</p>
+<ul>
+<li>首次适应算法每次都要从头查找,每次都需要检索低地址的小分区。但是这种规则也决定了当低地址部分有更小的分区可以满足需求时,会更有可能用到低地址部分的小分区,也会更有可能把高地址部分的,大分区保留下来</li>
+</ul>
+<p>缺点</p>
+<ul>
+<li>邻近适应算法的规则可能会导致无论低地址、高地址部分的空闲分区都有相同的概率被使用,也就导致了高地址部分的大分区更可能被使用,划分为小分区,最后导致无大分区可用</li>
+</ul>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>算法</th>
+<th>算法思想</th>
+<th>分区排列顺序</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>首次适应</td>
+<td>从头到尾找适合的分区</td>
+<td>空闲分区以地址递增次序排序</td>
+<td>综合看性能最好。算,法开销小,回收分区后一般不需要对空闲区队列重新排序</td>
+<td></td>
+</tr>
+<tr>
+<td>最佳适应</td>
+<td>优先使用更小的分区,以保留更多大分区</td>
+<td>空闲分区以容量递增次序排列</td>
+<td>会有更多的大分区被保留下来,更能满足大进程需求</td>
+<td>会产生很多太小的、难以利用的碎片;<strong>算法开销大</strong>,回收分区后可能需要对空闲分区队列重新排序</td>
+</tr>
+<tr>
+<td>最坏适应</td>
+<td>优先使用更大的分区,以防止产生太小的不可用的碎片</td>
+<td>空闲分区以容量递减次序排列</td>
+<td>可以减少难以利用的小碎片</td>
+<td>大分区容易被用完,不禾于大进程;<strong>算法开销大</strong>(原因同上)</td>
+</tr>
+<tr>
+<td>临近适应</td>
+<td>由首次适应演变而来,每次从上次查找结束位置开始查找</td>
+<td>空闲分区以地址,递增次序排列(可排列成循环链表)</td>
+<td>不用每次都从低地址的小分区开始检索。算法开销小(原因同次适应算法)</td>
+<td>会使高地址的大分区也被用完</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<h4 id="非连续分配管理方式"><a href="#非连续分配管理方式" class="headerlink" title="非连续分配管理方式"></a>非连续分配管理方式</h4><h5 id="基本分页存储管理"><a href="#基本分页存储管理" class="headerlink" title="基本分页存储管理"></a><strong>基本分页存储管理</strong></h5><blockquote>
+<p>将内存空间分为一个个<strong>大小相等的分区</strong>(比如:每个分区4KB) ,每个分区就是一个“<strong>页框</strong>” ,或称“<strong>页帧</strong>”、“<strong>内存块</strong>”、“<strong>物理块</strong>”。每个页框有一个编号,即“<strong>页框号</strong>” (或者“<strong>内存块号</strong>”、“<strong>页帧号</strong>”、“<strong>物理块号</strong>” )页框号<strong>从0开始</strong>。</p>
+<p>将用户进程的地址空间也分为<strong>与页框大小相等</strong>的一个个区域,称为“<strong>页</strong>”或“<strong>页面</strong>” 。每个页面也有一个编号,即“页号”页号也是<strong>从0开始</strong>。</p>
+<p>(注:进程的最后一个页面可能没有一个页框那么大。因此,<strong>页框不能太大,否则可能产生过大的内部碎片</strong>)</p>
+<p>操作系统<strong>以页框为单位为各个进程分配</strong>内存空间。进程的每个页面分别放入一个页框中。也就是说,进程的<strong>页面与内存的页框有一一对应的关系</strong>。   </p>
+</blockquote>
+<h5 id="实现地址的转换"><a href="#实现地址的转换" class="headerlink" title="实现地址的转换"></a><strong>实现地址的转换</strong></h5><blockquote>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200419/0FzHRtjSfTto.png" alt="mark"></p>
+<p>eg.    CPU执行指令1,需要访问逻辑地址为80的内存单元,如何转化为物理地址?</p>
+<p>逻辑地址为80的内存单元:应该在<strong>1号页</strong>,该页在内存中的<strong>起始位置为450</strong>,逻辑地址为80的内存单元相对于该页的起始地址而言,“<strong>偏移量”应该是30</strong>    <strong>实际物理地址</strong>=450+ 30=480</p>
+<ol>
+<li><p>要算出逻辑地址对应的<strong>页号</strong></p>
+</li>
+<li><p>要知道该页号对应<strong>页面在内存中的起始地址</strong></p>
+</li>
+<li><p>要算出逻辑地址<strong>在页面内的“偏移量”</strong></p>
+</li>
+<li><p><strong>物理地址=页面始址+页内偏移量</strong></p>
+<blockquote>
+<p>页号=逻辑地址/页面长度(取除法的<strong>整数</strong>部分)</p>
+<p>页内偏移量=逻辑地址%页面长度(取除法的<strong>余数</strong>部分)</p>
+<p>页面在内存中的起始位置:操作系统需要用某种数据结构记录进程各个页面的起始位置。</p>
+</blockquote>
+<blockquote>
+<p>页号=80/50=1</p>
+<p>页内偏移量=80 % 50= 30</p>
+<p>1号页在内存中存放的起始位置450</p>
+</blockquote>
+</li>
+</ol>
+</blockquote>
+<h5 id="逻辑地址结构"><a href="#逻辑地址结构" class="headerlink" title="逻辑地址结构"></a><strong>逻辑地址结构</strong></h5><p><img src="http://qiniuyun.lzfangwen.cn/blog/20200419/VWp4DtKPHcYW.png" alt="mark"></p>
+<p>地址结构包含两个部分:前一部分为页号,后一部分为页内偏移量w。在上图所示的例子中,地址长度为32位,其中0-11位为“页内偏移量”,或称“页内地址” ; 12~31位为“页号”</p>
+<p><strong>如果有K位表示“页内偏移量” ,则说明该系统中一个页面的大小是$ 2^K $个内存单元如果有M位表示“页号” ,则说明在该系统中,一个进程最多允许有$ 2^M $个页面</strong></p>
+<h5 id="页表"><a href="#页表" class="headerlink" title="页表"></a><strong>页表</strong></h5><p>为了能知道进程的每个页面在内存中存放的位置,操作系统要为每个进程建立一张页表。</p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200419/nJYpkLCMmkvS.png" alt="mark"></p>
+<ol>
+<li><p>一个进程对应一张页表</p>
+</li>
+<li><p>进程的每一页对应一个页表项,每个页表项由“页号”和“块号”组成</p>
+</li>
+<li><p>页表记录进程页面和实际存放的内存块之间的对应关系</p>
+</li>
+<li><p>每个页表项的长度是相同的,<strong>页号是“隐含”的</strong></p>
+</li>
+</ol>
+<h5 id="基本地址交换机构"><a href="#基本地址交换机构" class="headerlink" title="基本地址交换机构"></a>基本地址交换机构</h5><p>  <img src="http://qiniuyun.lzfangwen.cn/blog/20200421/Dncndo8PN9LG.png" alt="mark"></p>
+<p>基本地址变换机构可以借助进程的页表将逻辑地址转换为物理地址。</p>
+<p>通常会在系统中设置一个<strong>页表寄存器(PTR)</strong> ,存放<strong>页表在内存中的起始地址F</strong>和<strong>页表长度M</strong>.进程未执行时,页表的始址和页表长度放在<strong>进程控制块(PCB)中</strong>,当进程被调度时,操作系统内核会把它们放到页表寄存器中。</p>
+<p>注意:<strong>页面大小是2的整数幂</strong></p>
+<p>设页面大小为L,逻辑地址A到物理地址E的变换过程如下:</p>
+<ol>
+<li>计算页号P和页内偏移量w (如果用十进制数手算,则P=A/L, W=A%L;但是在计算机实际运行时,逻辑地址结构是固定不变的,因此计算机硬件可以更快地得到二进制表示的页号、页内偏移量)</li>
+<li>比较页号P和页表长度M,若P$\geq$M,则产生越界中断,否则继续执行。(注意:页号是从0开始的,而页表长度至少是1,因此<strong>P=M时也会越界</strong>)</li>
+<li>页表中页号P对应的<strong>页表项地址=页表起始地址F+页号P×页表项长度,</strong>取出该页表项内容b,即为内存块号。(注意区分<strong>页表项长度、页表长度、页面大小的区别。页表长度</strong>指的是这个页表中总共有几个页表项,即总共有几个页;页表项长度指的是每个页表项占多大的存储空间;<strong>页面大小</strong>指的是一个页面占多大的存储空间）</li>
+<li>计算E=b×L+w,用得到的物理地址E去访存。(如果内存块号、页面偏移量是用二进制表示的,那么把二者拼接起来就是最终的物理地址了)</li>
+</ol>
+<h5 id="具有快表的地址交换机构"><a href="#具有快表的地址交换机构" class="headerlink" title="具有快表的地址交换机构"></a>具有快表的地址交换机构</h5><p><strong>局部性原理</strong></p>
+<blockquote>
+<p><strong>时间局部性</strong>:如果执行了程序中的某条指令,那么不久后这条指令很有可能再次执行;如果某个数据被访问过,不久之后该数据很可能再次被访问。(因为程序中存在大量的循环)</p>
+<p><strong>空间局部性</strong>:一旦程序访问了某个存储单元,在不久之后,其附近的存储单元也很有可能被访问。(因为很多数据在内存中都是连续存放的）</p>
+</blockquote>
+<p><strong>什么是快表（TLB）</strong></p>
+<blockquote>
+<p>快表,又称<strong>联想寄存器(TLB)</strong> ,是一种<strong>访问速度比内存快很多</strong>的高速缓冲存储器,用来存放当前访问的若干页表项,以加速地址变换的过程。与此对应,内存中的页表常称为<strong>慢表</strong>。</p>
+</blockquote>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200419/wq02ONIlqPtF.png" alt="mark"></p>
+<p><strong>引入快表后，地址的变换过程</strong></p>
+<ol>
+<li><p>CPU给出逻辑地址, 由某个硬件算得页号、页内偏移量,将页号与快表中的所有页号进行比较。</p>
+</li>
+<li><p>如果找到匹配的页号,说明要访问的页表项在快表中有副本,则直接从中取出该页对应的内存块号,再将内存块号与页内偏移量拼接形成物理地址,最后,<strong>访问</strong>该物理地址对应的<strong>内存单元</strong>。因此,若<strong>快表命中</strong>,则访问某个逻辑地址仅需<strong>一次访存</strong>即可。</p>
+</li>
+<li><p>如果没有找到匹配的页号,则需要<strong>访问内存中的页表</strong>,找到对应页表项,得到页面存放的内存块号,再将内存块号与页内偏移量拼接形成物理地址,最后,访问该物理地址对应的内存单元。因此若<strong>快表未命中</strong>,则访问某个逻辑地址需要<strong>两次访存(</strong>注意:在找到页表项后,应同时将其存入快表,以便后面可能的再次访问。但若快表已满,则必须按照一定的算法对旧的页表项进行替换)</p>
+<p>由于查询快表的速度比查询页表的速度快很多,因此只要快表命中,就可以节省很多时间。因为局部性原理,一般来说快表的命中率可以达到90%以上。</p>
+<blockquote>
+<p>eg.</p>
+<p>某系统使用基本分页存储管理,并采用了具有快表的地址变换机构。访问一次快表耗时1us,访问一次内存耗时100us。若快表的命中率为90%,那么访问一个逻辑地址的平均耗时是多少?</p>
+<p>(1+100) * 0.9 + (1+100+100)* 0.1=111 us</p>
+<p>有的系统支持快表和慢表同时查找,如果是这样,平均耗时应该是(1+100) * 0.9 + (100+100) *0.1=110.9 us</p>
+<p>若未采用快表机制,则访问一个逻辑地址需要100+100 =200us</p>
+<p>显然,引入快表机制后,访问一个逻辑地址的速度快多了。</p>
+</blockquote>
+<p> <img src="C:%5CUsers%5C%E9%83%9D%E6%97%8B%E6%96%8C%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200419230838293.png" alt="image-20200419230838293"></p>
+<h5 id="两级页表"><a href="#两级页表" class="headerlink" title="两级页表"></a>两级页表</h5><p>单级页表的问题</p>
+<ul>
+<li>页表必须连续存放,因此当页表很大时,需要占用很多个连续的页框。</li>
+<li>没有必要让整个页表常驻内存,因为进程在一段时间内可能只需要访问某几个特定的页面。</li>
+</ul>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200420/gVprkxsSFd7k.png" alt="mark"></p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200420/XTr6er5J0pMT.png" alt="mark"></p>
+<p>若采用多级页表机制,则<strong>各级页表的大小不能超过一个页面</strong></p>
+<blockquote>
+<p>eg.:某系统按字节编址,采用40位逻辑地址,页面大小为4KB,页表项大小为4B,假设采用纯页式存储,则要采用()级页表,页内偏移量为()位?</p>
+<p>页面大小=4KB=$2 ^{12}$B,按字节编址,因此页内偏移量为12位</p>
+<p>页号=40-12=28位</p>
+<p>页面大小=$2 ^{12}$B,页表项大小=4B,则每个页面可存放$2 ^{12}$/4=$2 ^{10}$个页表项因此各级页表最多包含$2 ^{10}$个页表项,需要10位二进制位才能映射到$2 ^{10}$个页表项,因此每一级的页表对应页号应为10位。总共28位的页号至少要分为三级</p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200420/C60oNnRiXfrS.png" alt="mark"></p>
+</blockquote>
+<p>两级页表的访存次数分析(假设没有快表机构),</p>
+<ul>
+<li>第一次访存:访问内存中的页目录表</li>
+<li>第二次访存:访问内存中的二级页表</li>
+<li>第三次访存:访问目标内存单元</li>
+</ul>
+<h5 id="基本分段存储管理方式"><a href="#基本分段存储管理方式" class="headerlink" title="基本分段存储管理方式"></a>基本分段存储管理方式</h5><h6 id="分段"><a href="#分段" class="headerlink" title="分段"></a><strong>分段</strong></h6><p>进程的地址空间:按照程序<strong>自身的逻辑</strong>关系<strong>划分为若干个段</strong>,每个段都有一个段名(在低级语言中,程序员使用段名来编程) ,<strong>每段从0开始编址</strong></p>
+<p>内存分配规则:以段为单位进行分配<strong>,每个段在内存中占据连续空间,但各段之间可以不相邻</strong>。</p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200420/J9v6YEdtgc8L.png" alt="mark"></p>
+<p>分段系统的逻辑地址结构由段号(段名)和段内地址(段内偏移量)所组成。如</p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200420/p1dDHMWD4a9H.png" alt="mark"></p>
+<p>段号的位数决定了每个进程最多可以分几个段段内地址位数决定了每个段的最大长度是多少</p>
+<p>在上述例子中,若系统是按字节寻址的,则段号占16位,因此在该系统中,每个进程最多有$2^{16}$= 64K个段</p>
+<p>段内地址占16位,因此每个段的最大长度是$2^{16}$ = 64KB.</p>
+<h6 id="段表"><a href="#段表" class="headerlink" title="段表"></a><strong>段表</strong></h6><p>问题:程序分多个段,各段离散地装入内存,为了保证程序能正常运行,就必须能从物理内存中,找到各个逻辑段的存放位置。为此,需为每个进程建立一张段映射表,简称“<strong>段表</strong>”</p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200420/08QcoPEtVWPw.png" alt="mark"></p>
+<ol>
+<li>每个段对应一个段表项,其中记录了该段在内存中的起始位置(又称“基址”)和段的长度。</li>
+<li><strong>各个段表项的长度是相同的</strong>。例如:某系统按字节寻址,采用分段存储管理,逻辑地址结构为(段号16位,段内地址16位) ,因此用16位”即可表示最大段长。物理内存大小为4GB (可用32位表示整个物理内存地址空间)。因此,可以让每个段表项占16+32=48位,即6B,由于段表项长度相同,因此<strong>段号可以是隐含的,不占存储空间</strong>。若段表存放的起始地址为M,则K号段对应的段表项存放的地址为M+K6</li>
+</ol>
+<h6 id="地址变换"><a href="#地址变换" class="headerlink" title="地址变换"></a><strong>地址变换</strong></h6><p><img src="http://qiniuyun.lzfangwen.cn/blog/20200420/K5uOF5nJelLo.png" alt="mark"></p>
+<h6 id="分段、分页管理的对比"><a href="#分段、分页管理的对比" class="headerlink" title="分段、分页管理的对比"></a><strong>分段、分页管理的对比</strong></h6><blockquote>
+<p><strong>页是信息的物理单位</strong>。分页的主要目的是为了实现离散分配,提高内存利用率。分页仅仅是系统管理上的需要,完全是系统行为,<strong>对用户是不可见的</strong>。</p>
+<p><strong>段是信息的逻辑单位</strong>。分页的主要目的是更好地满足用户需求。一个段通常包含着一组属于一个逻辑模块的信息。分段<strong>对用户是可见的</strong>,用户编程时需要显式地给出段名。</p>
+</blockquote>
+<blockquote>
+<p>页的大小固定且由系统决定。</p>
+<p>段的长度却不固定,决定于用户编写的程序。</p>
+</blockquote>
+<blockquote>
+<p>分页的用户进程地址空间是一维的,程序员只需给出一个记忆符即可表示一个地址。</p>
+<p>分段的用户进程地址空间是二维的,程序员在标识一个地址时,既要给出段名,也要给出段内地址。</p>
+</blockquote>
+<blockquote>
+<p><strong>分段比分页更容易实现信息的共享和保护</strong>。不能被修改的代码称为纯代码或可重入代码(不属于临界资源) ,这样的代码是可以共享的。可修改的代码是不能共享的</p>
+</blockquote>
+<p>访问一个逻辑地址需要几次访存?</p>
+<blockquote>
+<p>分页(单级页表) :第一次访存–查内存中的页表,第二次访存–访问目标内存单元。总共两次访存</p>
+<p>分段:第一次访存–查内存中的段表,第二次访存–访问目标内存单元。总共两次访存</p>
+</blockquote>
+</li>
+</ol>
+<h5 id="段页式管理方式"><a href="#段页式管理方式" class="headerlink" title="段页式管理方式"></a>段页式管理方式</h5><table>
+<thead>
+<tr>
+<th></th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>分页管理</td>
+<td>内部空间利用率高，不会产生外部碎片，只会有少量的页内碎片</td>
+<td>不方便按照逻辑模块实现信息的共享和保护</td>
+</tr>
+<tr>
+<td>分段管理</td>
+<td>很方便按照逻辑模块实现信息的共享和保护</td>
+<td>如果段长过大，为其分配很大的连续空间会很不方便。另外，段式管理会产生外部碎片<a href="分段管理中产生的外部碎片也可以用“紧凑”来解决，只是需要付出较大的时间代价">^1</a></td>
+</tr>
+</tbody></table>
+<h6 id="分段-分页-段页式管理"><a href="#分段-分页-段页式管理" class="headerlink" title="分段+分页=段页式管理"></a>分段+分页=段页式管理</h6><p><img src="http://qiniuyun.lzfangwen.cn/blog/20200420/1n4urzBOQxYi.png" alt="mark"></p>
+<p>将进程按逻辑模块分段,再将各段分页(如每页面4KB)</p>
+<p>再将内存空间分为大小相同的内存块/页框/页帧/物理块进程前将各页面分别装入各内存块中</p>
+<h6 id="段页式管理的逻辑地址"><a href="#段页式管理的逻辑地址" class="headerlink" title="段页式管理的逻辑地址"></a>段页式管理的逻辑地址</h6><p>分段系统的逻辑地址结构由段号和段内地址(段内偏移量)组成。如:</p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200420/rOdbqmrsqdk6.png" alt="mark"></p>
+<p>段页式系统的逻辑地址结构由段号、页号、页内地址(页内偏移量)组成。如:</p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200420/BpN1H9vT4YDw.png" alt="mark"></p>
+<p><strong>段号的位数决定了每个进程最多可以分几个段</strong></p>
+<p><strong>页号位数决定了每个段最大有多少页</strong></p>
+<p><strong>页内偏移量决定了页面大小、内存块大小是多少</strong></p>
+<blockquote>
+<p>在上述例子中,若系统是按字节寻址的,则段号占16位,因此在该系统中,每个进程最多有216=64K个段页号占4位,因此每个段最多有$2^{16}$页</p>
+<p>页内偏移量占12位,因此每个页面每个内存块大小为2= 4096=4KB</p>
+</blockquote>
+<p>分段”对用户是见序员编程时需要显式地给出段号、段内地址。而将各段“分页”对用户是不可见的。系统会根据段内地址自动划分页号和页内偏移量。</p>
+<p>因此<strong>段页式管理的地址结构是二维的</strong>。</p>
+<h6 id="段表、页表"><a href="#段表、页表" class="headerlink" title="段表、页表"></a>段表、页表</h6><p><img src="http://qiniuyun.lzfangwen.cn/blog/20200420/Vm84OP0K9Ovp.png" alt="mark"></p>
+<p>每个段对应一个段表项,每个段表项由段号、页表长度、页表存放块号(页表起始地址)<strong>组成</strong>。每个<strong>段表项长度相等,段号是隐含的</strong>。每个页面对应一个页表项,每个页表项由页争、页面存放的内存块号组成。每个页表项长度相等,页号是隐含的。</p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200420/zPDOShGp2BLf.png" alt="mark"></p>
+<p>也可引入快表机构，用段号和页号作为查询快表的关键字。若快表命中仅需一次访存</p>
+<h3 id="内存空间的扩展"><a href="#内存空间的扩展" class="headerlink" title="内存空间的扩展"></a>内存空间的扩展</h3><h4 id="覆盖技术"><a href="#覆盖技术" class="headerlink" title="覆盖技术"></a>覆盖技术</h4><p><img src="http://qiniuyun.lzfangwen.cn/blog/20200419/BHoS2vTtMLAG.png" alt="mark"></p>
+<p>必须由程序员声明覆盖结构,操作系统完成自动覆盖。</p>
+<p>缺点:对用户不透明,增加了用户编程负担。覆盖技术只用于早期的操作系统中,现在已成为历史。</p>
+<h4 id="交换技术"><a href="#交换技术" class="headerlink" title="交换技术"></a>交换技术</h4><p>交换(对换)技术的设计思想:内存空间紧张时,系统将内存中某些进程暂时换出外存,把外存中·某些已具备运行条件的进程<strong>换入</strong>内存(进程在内存与磁盘间动态调度)</p>
+<p>暂时换出外存等待的进程状态为<strong>挂起状态(挂起态, suspend)</strong></p>
+<p>挂起态又可以进一步细分为<strong>就绪挂起、阻塞挂起</strong>两种状态   </p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200419/4shgMvrJHgbi.png" alt="mark"></p>
+<blockquote>
+<img src="http://qiniuyun.lzfangwen.cn/blog/20200419/YIBfEeES4ReJ.png" alt="mark" style="zoom: 67%;">
+
+<ol>
+<li>具有对换功能的操作系统中,通常把磁盘空间分为<strong>文件区</strong>和<strong>对换区</strong>两部分。<strong>文件区</strong>主要用于存放文件,<strong>主要追求存储空间的利用率</strong>,因此对文件区空间的管理<strong>采用离散分配方式</strong>;对换区空间只占磁盘空间的小部分,<strong>被换出的进程数据就存放在对换区</strong>。由于对换的速度直接影响到系统的整体速度,因此对换区空间的管理<strong>主要追求换入换出速度</strong>,因此通常对换区<strong>采用连续分配方式</strong>(学过文件管理章节后即可理解)。总之<strong>对换区的I/O 速度比文件区的更快</strong>。</li>
+<li>交换通常在许多进程运行且内存吃紧时进行,而系统负荷降低就暂停。例如:在发现许多进程运行时经常发生缺页,就说明内存紧张,此时可以换出一些进程;如果缺页率明显下降,就可以暂停换出。</li>
+<li>可优先换出阻塞进程;可换出优先级低的进程;为了防止优先级低的进程在被调入内存后很快又被换出,有的系统还会考虑进程在内存的驻留时间….</li>
+<li>注意：PCB会常驻内存，不会被换出外存 </li>
+</ol>
+</blockquote>
+<h3 id="地址转换"><a href="#地址转换" class="headerlink" title="地址转换"></a>地址转换</h3><p>为了使编程更方便,程序员写程序时应该只需要关注指令、数据的逻辑地址。而<strong>逻辑地址到物理地址的转换</strong>(这个过程称为<strong>地址重定位</strong>)应该由操作系统负责,这样就保证了程序员写程序时不需要关注物理内存的实际情况。</p>
+<h3 id="内存保护"><a href="#内存保护" class="headerlink" title="内存保护"></a>内存保护</h3><p>内存保护可采取两种方法:</p>
+<ol>
+<li>在CPU中设置一对上、下限寄存器,存放进程的上、下限地址。进程的指令要访问某个地址时, CPU检查是否越界。</li>
+<li>采用<strong>重定位寄存器</strong>(又称<strong>基址寄存器</strong>)和<strong>界地址寄存器</strong>(又称<strong>限长寄存器</strong>)进行越界检查。重定位寄存器中存放的是进程的起始物理地址。界地址寄存器中存放的是进程的最大逻辑地址。</li>
+</ol>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200419/PUqWKAzn5IH5.png" alt="mark"></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>OS</category>
+      </categories>
+      <tags>
+        <tag>OS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>操作系统-学习笔记7</title>
+    <url>/lzfangwen.github.io/2020/04/05/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B07/</url>
+    <content><![CDATA[<h2 id="生产者和消费者问题"><a href="#生产者和消费者问题" class="headerlink" title="生产者和消费者问题"></a>生产者和消费者问题</h2><p>系统中有一组生产者进程和一组消费者进程,生产者进程每次生产一个产品放入缓冲区,消费者,进程每次从缓冲区中取出一个产品并使用。(注:这里的“产品”理解为某种数据)生产者、消费者共享一个<strong>初始为空、大小为n的缓冲区</strong>。</p>
+<p>只有缓冲区没满时,生产者才能把产品放入缓冲区,否则必须等待。</p>
+<p>只有缓冲区不空时,消费者才能从中取出产品,否则必须等待。</p>
+<p>缓冲区是临界资源,<strong>各进程必须互斥地访问</strong>。</p>
+<a id="more"></a>
+
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200405/sTX4f7vOIavn.png" alt="mark"></p>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200405/qgByT9YI8llH.png" alt="mark"></p>
+<p><strong>实现互斥的P操作一定要在实现同步的P操作之后</strong></p>
+<p>V操作不会导致进程阻塞，因此两个V操作顺序可以交换</p>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200405/0A4f6z2oszli.png" alt="mark"></p>
+<h2 id="多生产者-多消费者问题"><a href="#多生产者-多消费者问题" class="headerlink" title="多生产者-多消费者问题"></a>多生产者-多消费者问题</h2><p>桌子上有一只盘子,每次只能向其中放入一个水果。爸爸专向盘子中放苹果,妈妈专向盘子中放橘子,儿子专等着吃盘子中的橘子,女儿专等着吃盘子中的苹果。只有盘子空时,爸爸或妈妈才可向盘子中放一个水果。仅当盘子中有自己需要的水果时,儿子或女儿可以从盘子中取出水果。</p>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/t5GvRuDas2En.png" alt="mark"></p>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/bm7Iwt05IMiy.png" alt="mark"></p>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/pBMktfFR9GF9.png" alt="mark"></p>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/SppmnSNjAx4D.png" alt="mark"></p>
+<p>原因在于:本题中的缓冲区大小为1,在任何时刻, apple, orange, plate三个同步信号量中最多只有一个是1,因此在任何时刻,最多只有一个进程的P操作不会被阻塞,并顺利地进入临界区…</p>
+<p><strong>总结:</strong>在生产者-消费者问题中,如果缓冲区大小为1,那么有可能不需要设置互斥信号量就可以实现互斥访问缓冲区的功能。当然,这不是绝对的,要具体问题具体分析。</p>
+<p>建议:在考试中如果来不及仔细分析,可以加上互斥信号量,保证各进程一定会互斥地访问缓冲区。但需要注意的是,实现互斥的P操作一定要在实现同步的P操作之后,否则可能引起“死锁”PV<strong>操作题目的解题思路:</strong></p>
+<ol>
+<li>关系分析。找出题目中描述的各个进程,分析它们之间的同步、互斥关系。</li>
+<li>整理思路。根据各进程的操作流程确定P、V操作的大致顺序</li>
+<li>设置信号量。设置需要的信号量,并根据题目条件确定信号量初值。(互斥信号量初值一般为1,同步信号量的初始值要看对应资源的初始值是多少)</li>
+</ol>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/rtMKz5svYszz.png" alt="mark"></p>
+<h2 id="吸烟者问题"><a href="#吸烟者问题" class="headerlink" title="吸烟者问题"></a>吸烟者问题</h2><p>假设一个系统有<strong>三个抽烟者进程</strong>和<strong>一个供应者进程</strong>。每个抽烟者不停地卷烟并抽掉它,但是要卷起并抽掉一支烟,抽烟者需要有三种材料:烟草、纸和胶水。三个抽烟者中,第一个拥有烟草、,第二个拥有纸、第三个拥有胶水。供应者进程无限地提供三种材料,供应者每次将两种材料放桌子上,拥有剩下那种材料的抽烟者卷一根烟并抽掉它,并给供应者进程一个信号告诉完成了,供应者就会放另外两种材料在桌上，这个过程一直重复（让三个抽烟者轮流抽烟）</p>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/f0YnUJdo0VET.png" alt="mark"></p>
+<p><strong>问题分析</strong></p>
+<p>本质上这题也属于“生产者-消费者”问题,更详细的说应该是“可生产多种产品的单生产者-多消费者”。</p>
+<ol>
+<li>关系分析。找出题目中描述的各个进程,分析它们之间的同步、互斥关系。</li>
+<li>整理思路。根据各进程的操作流程确定P、V操作的大致顺序</li>
+</ol>
+<p>桌子可以抽象为容量为1的缓冲区，要互斥访问</p>
+<p>三种材料 可以抽象为三种组合</p>
+<p>​    组合一：纸+胶水</p>
+<p>​    组合二:烟草+胶水</p>
+<p>​    组合三:烟草+纸</p>
+<p>同步关系（要从事件的角度分析）</p>
+<p>​    桌子上有组合一    →    第一个抽烟者取走东西</p>
+<p>​    桌子上有组合二    →    第二个抽烟者取走东西</p>
+<p>​    桌子上有组合三    →    第三个抽烟者取走东西</p>
+<p>​    发出完成信号        →    供应者将下一个组合放在桌上</p>
+<p>​        PV操作顺序 “前V后P”</p>
+<p>​        (必须发生在前面的事件之后执行V操作，必须发生在后面的事件之前执行P操作)</p>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/kFNJqbY66BmN.png" alt="mark"></p>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/twBBqexItxDH.png" alt="mark"></p>
+<h2 id="读者-写者问题"><a href="#读者-写者问题" class="headerlink" title="读者-写者问题"></a>读者-写者问题</h2><p>有读者和写者两组并发进程,共享一个文件,当两个或两个以上的读进程同时访问共享数据时不会产生副作用,但若某个写进程和其他进程(读进程或写进程)同时访问共享数据时则可能导致·数据不一致的错误。</p>
+<p>因此要求: </p>
+<ol>
+<li>允许多个读者可以同时对文件执行读操作; </li>
+<li>只允许一个写者往文件中写信息; </li>
+<li>任一写者在完成写操作之前不允许其他读者或写者工作;</li>
+<li>写者执行写操作,应让已有的读者和写者全部退出。</li>
+</ol>
+<p><strong>问题分析</strong></p>
+<p>两类进程:写进程、读进程</p>
+<p>互斥关系:写进程一写进程、写进程一读进程。读进程与读进程不存在互斥问题</p>
+<p>写者进程和任何进程都互斥,设置一个互斥信号量rw,在写者访问共享文件前后分别执行P, V操作。</p>
+<p>读者进程和写者进程也要互斥,因此读者访问共享文件前后也要对rw执行P、V操作。</p>
+<p>如果所有读者进程在访问共享文件之前都执行P(rw)操作,那么会导致各个读进程之间也无法同时访问文件。</p>
+<p><strong>Key:读者写者问题的核心思想–怎么处理该问题呢?</strong></p>
+<p>P(rw)和Vrw)其实就是对共享文件的“加锁”和”解锁” 。既然各个读进程需要同时访问,而读进程与写进程又必须互斥访间,那么我们可以让第一个访问文件的读进程“加锁” ,让最后一个访问完文件的读进程“解锁”。可以设置一个整数变量count来记录当前有几个读进程在访问文件。</p>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/mogqygCIeL4m.png" alt="mark"></p>
+<p>读进程源源不断会导致写进程饿死</p>
+<p>解决方法：</p>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/38XxSpldwRzG.png" alt="mark"></p>
+<p>读者-写者问题为我们解决复杂的互斥问题提供了一个参考思路。</p>
+<p>其<strong>核心思想</strong>在于设置了一个<strong>计数器count</strong>用来记录当前正在访间共享文件的读进程数。我们可以用count的值来判断当前进入的进程是否是第一个/最后一个读进程,从而做出不同的处理。</p>
+<p>另外,对count变量的检查和赋值不能一气呵成导致了一些错误,如果<strong>需要实现“一气呵成”,自然应该想到用互斥信号量。</strong></p>
+<p>最后,还要认真体会我们是如何解决“写进程饥饿”问题的。</p>
+<p>绝大多数的考研PV操作大题都可以用之前介绍的几种生产者-消费者问题的思想来解决,如果遇到更复杂的问题,可以想想能否用读者写者问题的这几个思想来解决。</p>
+<h2 id="哲学家进餐问题"><a href="#哲学家进餐问题" class="headerlink" title="哲学家进餐问题"></a>哲学家进餐问题</h2><p>张圆桌上坐着5名哲学家,每两个哲学家之间的桌上摆一根筷子,桌子的中间是一碗米饭。哲学家们倾注毕生的精力用于思考和进餐,哲学家在思考时,并不影响他人。只有当哲学家饥饿时,才试图拿起左、右两根筷子(一根一根地拿起)。如果筷子已在他人手上,则需等待。饥饿的哲学家只有同时拿起两根筷子才可以开始进餐,当进餐完毕后,放下筷子继续思考。</p>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/WCHmiiXhRtMz.png" alt="mark"></p>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200406/ahbISrdfq3o3.png" alt="mark"></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>OS</category>
+      </categories>
+      <tags>
+        <tag>OS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>操作系统-学习笔记6</title>
+    <url>/lzfangwen.github.io/2020/04/05/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B06/</url>
+    <content><![CDATA[<h2 id="信号量机制"><a href="#信号量机制" class="headerlink" title="信号量机制"></a>信号量机制</h2><p>用户进程可以通过使用操作系统提供的一对原语来对信号量进行操作,从而很方便的实现了进程互斥、进程同步。</p>
+<p><strong>信号量</strong>其实就是一个变量(可以是一个整数,也可以是更复杂的记录型变量),可以用一个信号量来<strong>表示系统中某种资源的数量</strong>,比如:系统中只有一台打印机,就可以设置一个初值为1的信号量</p>
+<p><strong>原语</strong>是一种特殊的程序段,其<strong>执行只能一气呵成,不可被中断</strong>。原语是由<strong>关中断/开中断指令</strong>实现的。软件解决方案的主要问题是由“进入区的各种操作无法一气呵成” ,因此如果能把进入区、退作都用“原语”这些操作能“一气呵成”就能避免问题</p>
+<a id="more"></a>
+
+<p>一对原语: <strong>wait(S)</strong>原语和<strong>signal(S)</strong>原语,可以把原语理解为我们自己写的函数,函数名分别为wait和signal,括号里的<strong>信号量S</strong>其实就是函数调用时传入的一个参数。</p>
+<p>wait, signal原语常<strong>简称为P、V操作</strong>(来自荷兰语proberen和verhogen) 。因此,做题的时候常把wait(S)、 signal(S)两个操作分别写为P(S)、v(S)</p>
+<h3 id="整型信号量"><a href="#整型信号量" class="headerlink" title="整型信号量"></a>整型信号量</h3><p>用一个<strong>整数型的变量</strong>作为信号量，用来表示系统中某种资源的数量。</p>
+<p>与普通整数变量的区别：对信号量的操作只有三种，初始化、P操作、V操作</p>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200405/vQcqEgpVyiX2.png" alt="mark"></p>
+<h3 id="记录型信号量"><a href="#记录型信号量" class="headerlink" title="记录型信号量"></a>记录型信号量</h3><p>整型信号量的缺陷是存在“忙等”问题,因此人们又提出了“记录型信号量” ,即用记录型数据结构表示的信号量。</p>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200405/xFbfQ2XoSTEn.png" alt="mark"></p>
+<p>在考研题目中wait(s)、 signal()也可以记为P(S)、V(S),这对原语可用于<strong>实现系统资源的“申请”和“释放”</strong></p>
+<p><strong>S.value的初值</strong>表示系统中某种资源的数目。</p>
+<p>对信号量s的<strong>一次P操作</strong>意味着进程<strong>请求V一个单位的该类资</strong>源,因此需要执行S.value–,表示资源数减1,当S.value &lt;0时表示该类资源已分配完毕,因此进程应<strong>调用block原语进行自我阻塞</strong>(当前运行的进程从<strong>运行态→阻塞态</strong>) ,主动放弃处理机,并插入该类资源的等待队列S.L中。可见,该机制<strong>遵循了“让权等待”原则</strong>，不会出现“忙等”现象。</p>
+<p>对信号量s的<strong>一次V操作意味</strong>着进程<strong>释放一个单位的该类资源</strong>,因此需要执行s.value++,表示资源数加1,若加1后仍是S.value &lt;-0,表示依然有进程在等待该类资源,因此应<strong>调用wakeup原语唤醒等待队列中的第1个进程</strong>(被唤醒进程从<strong>阻塞态→就绪态</strong>)</p>
+<h2 id="用信号量机制实现进程互斥、同步、前驱关系"><a href="#用信号量机制实现进程互斥、同步、前驱关系" class="headerlink" title="用信号量机制实现进程互斥、同步、前驱关系"></a>用信号量机制实现进程互斥、同步、前驱关系</h2><h3 id="进程互斥"><a href="#进程互斥" class="headerlink" title="进程互斥"></a>进程互斥</h3><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200405/cUpoPSPURO2z.png" alt="mark"></p>
+<h3 id="进程同步"><a href="#进程同步" class="headerlink" title="进程同步"></a>进程同步</h3><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200405/HNWT5QLI2Pgx.png" alt="mark"></p>
+<h3 id="前驱关系"><a href="#前驱关系" class="headerlink" title="前驱关系"></a>前驱关系</h3><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200405/X3vDETalxf78.png" alt="mark"></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>OS</category>
+      </categories>
+      <tags>
+        <tag>OS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>数据库原理及应用-学习笔记1</title>
     <url>/lzfangwen.github.io/2020/03/13/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</url>
     <content><![CDATA[<p>﻿## DBMS（数据库系统）</p>
@@ -1185,6 +1889,61 @@ $$         </code></pre><p>$$<br>2x+3y=34\<br>x+4y=25<br>$$</p>
       </tags>
   </entry>
   <entry>
+    <title>计算机组成原理-学习笔记1</title>
+    <url>/lzfangwen.github.io/2020/03/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</url>
+    <content><![CDATA[<p><strong>B站 王道考研视频 学习笔记 纯粹自己整理方便复习使用 侵删</strong></p>
+<p>﻿# 第一章 计算机系统简介</p>
+<h2 id="软硬件"><a href="#软硬件" class="headerlink" title="软硬件"></a>软硬件<a id="more"></a><img src="https://img-blog.csdnimg.cn/20200313110251157.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt=""></h2><p><img src="https://img-blog.csdnimg.cn/20200313110314482.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt=""><br><img src="https://img-blog.csdnimg.cn/20200313110725516.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200313110746978.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><a href="https://www.icourse163.org/spoc/learn/HHIT-1451455173?tid=1451908450#/learn/content?type=detail&amp;id=1220058249&amp;cid=1228881649" target="_blank" rel="noopener">慕课链接</a></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>计算机组成原理</category>
+      </categories>
+      <tags>
+        <tag>计算机组成原理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据库原理及应用-学习笔记2</title>
+    <url>/lzfangwen.github.io/2020/04/12/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/</url>
+    <content><![CDATA[<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+  </entry>
+  <entry>
     <title>计算机组成原理-学习笔记2</title>
     <url>/lzfangwen.github.io/2020/03/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/</url>
     <content><![CDATA[<p>﻿<img src="https://img-blog.csdnimg.cn/20200313111304663.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
@@ -1216,211 +1975,6 @@ $$         </code></pre><p>$$<br>2x+3y=34\<br>x+4y=25<br>$$</p>
       </categories>
       <tags>
         <tag>计算机组成原理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>计算机网络-学习笔记2</title>
-    <url>/lzfangwen.github.io/2020/04/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/</url>
-    <content><![CDATA[<h2 id="数据通信基础知识"><a href="#数据通信基础知识" class="headerlink" title="数据通信基础知识"></a>数据通信基础知识</h2><h3 id="典型的数据通信模型"><a href="#典型的数据通信模型" class="headerlink" title="典型的数据通信模型"></a>典型的数据通信模型</h3><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/CPvLE6vyYds2.png" alt="mark"></p>
-<a id="more"></a>
-
-<h3 id="相关术语"><a href="#相关术语" class="headerlink" title="相关术语"></a>相关术语</h3><p>通信的目的是传送消息</p>
-<p><strong>数据</strong>:传送信息的实体,通常是有意义的符号序列。</p>
-<p><strong>信号</strong>:数据的电气/电磁的表现,是数据在传输过程中的存在形式。</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/N1nHo1I7kInr.png" alt="mark"></p>
-<p><strong>信源</strong>:产生和发送数据的源头。</p>
-<p><strong>信宿</strong>:接收数据的终点。</p>
-<p><strong>信道</strong>:信号的传输媒介。一般用来表示向某一个方向传送信息的介质,因此一条通信线路往往包含一条发送信道和一条接收信道。</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/lJeU3FYMQMf8.png" alt="mark"></p>
-<h3 id="三种通信方式"><a href="#三种通信方式" class="headerlink" title="三种通信方式"></a>三种通信方式</h3><p>从通信双方信息的交换方式看，可以有三种基本方式：</p>
-<ol>
-<li><strong>单工通信</strong>：只有一个方向的通信而没有反方向的交互,仅需要<strong>一条</strong>信道。</li>
-<li><strong>半双工通信</strong>：通信的双方都可以发送或接收信息,但任何一方都不能同时发送和接收,需要<strong>两条</strong>信道。</li>
-<li><strong>全双工通信</strong>：通信双方可以同时发送和接受信息,也需要<strong>两条</strong>信道。</li>
-</ol>
-<h3 id="两种数据传输方式"><a href="#两种数据传输方式" class="headerlink" title="两种数据传输方式"></a>两种数据传输方式</h3><ol>
-<li><p><strong>串行传输</strong>：速度<strong>慢</strong>，费用<strong>低</strong>，适合<strong>远</strong>距离</p>
-</li>
-<li><p><strong>并行传输</strong>：速度<strong>快</strong>，费用<strong>高</strong>，适合<strong>近</strong>距离</p>
-<p>​                    用于计算机内部数据传输（电脑上的井口 就为并行传输）</p>
-</li>
-</ol>
-<h3 id="码元"><a href="#码元" class="headerlink" title="码元"></a>码元</h3><p><strong>码元</strong>是指用一个固定时长的信号波形(数字脉冲) ,代表不同离散数值的基本波形,是数字通信中数字信号的计量单位,这个时长内的信号称为k进制码元,而该时长称为码元宽度。当码元的离散状态有M个时(M大于2) ,此时码元为M进制码元。</p>
-<p>1码元可以携带多个比特的信息量。例如,在使用二进制编码时,只有两种不同的码元,一种代表0状态,另一种代表1状态</p>
-<h3 id="速率、波特、带宽"><a href="#速率、波特、带宽" class="headerlink" title="速率、波特、带宽"></a>速率、波特、带宽</h3><p><strong>速率</strong>也叫数据率,是指数据的<strong>传输速率</strong>,表示单位时间内传输的数据量。可以用<strong>码元传输速</strong>率和<strong>信息传输速率</strong>表示</p>
-<ul>
-<li><strong>码元传输速率</strong>:别名码元速率、波形速率、调制速率、符号速率等,它表示单位时间内数字通信系统所传输的码元个数(也可称为脉冲个数或信号变化的次数) ,单位是<strong>波特(Baud)</strong> 。 1波特表示数字通信系统每秒传输一个码元。这里的码元可以是多进制的,也可以是二进制的,但码元速率与进制数无关。====</li>
-<li><strong>信息传输速率</strong>:别名信息速率、比特率等,表示单位时间内数字通信系统传输的二进制码元个数(即比特数)·单位是比特/秒(b/s) 。</li>
-</ul>
-<p>关系:若一个码元携带n bit的信息量,则MBaud的码元传输速率所对应的信息传输速率为MXn bit/s。</p>
-<p>带宽:表示在单位时间内从网络中的某一点到另一点所能通过的“<strong>最高数据率</strong>” ,常用来表示网络的通信线路所能输数据的能力。单位是b/s </p>
-<h4 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h4><p>某一数字通信系统传输的是四进制码元,4s传输了8000个码元,求系统的码元传输速率是多·少?信息传输速率是多少?若另一通信系统传输的是十六进制码元,6s传输了7200个码元,求他的码元传输速率是多少?信息传输速率是多少?并指出哪个系统传输速率快?</p>
-<blockquote>
-<p>2000波特    4000b/s    1200波特    4800b/s    十六进制最快</p>
-<p>四进制码元系统</p>
-<p>码元传输速率就是8000/4-2000Baud,信息传输速率就是20001log24=4000b/s</p>
-<p>十六进制码元系统</p>
-<p>码元传输速率就是7200/6-1200Baud,信息传输速率就是1200*10g216-4800b/s</p>
-<p>系统传输的是<strong>比特流</strong>,通常比较的是信息传输速率,所以传输十六进制码元的通信系统传输速率较快,如果用该系统去传输四进制码元会有更高的码元传输速率。</p>
-</blockquote>
-<h2 id="奈式准则-amp-香农定理"><a href="#奈式准则-amp-香农定理" class="headerlink" title="奈式准则&amp;香农定理"></a>奈式准则&amp;香农定理</h2><h3 id="失真"><a href="#失真" class="headerlink" title="失真"></a>失真</h3><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/l7i9Y8YJXplH.png" alt="mark"></p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/Npx9FIGhDJRS.png" alt="mark"></p>
-<h3 id="奈式准则（奈奎斯特定理）"><a href="#奈式准则（奈奎斯特定理）" class="headerlink" title="奈式准则（奈奎斯特定理）"></a>奈式准则（奈奎斯特定理）</h3><p><strong>奈氏准则</strong>:在理想低通(无噪声,带宽受限)条件下,为了避免码间串扰,极限码元传输速率为2W Baud, w是信道带宽，单位是Hz。</p>
-<p><strong>只有这两个公式 带宽才用Hz</strong></p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/TOqH4IK30nC0.png" alt="mark"></p>
-<ol>
-<li>在任何信道中,<strong>码元传输的速率是有上限的</strong>。若传输速率超过此上限,就会出现严重的码间串扰问题,使接收端对码元的完全正确识别成为不可能。</li>
-<li>信道的频带越宽(即能通过的信号高频分量越多) ,就可以用更高的速率进行码元的有效传输。</li>
-<li><strong>奈氏准则给出了码元传输速率的限制,但并没有对信息传输速率给出限制。</strong></li>
-<li>由于码元的传输速率受奈氏准则的制约,所以要提高数据的传输速率,就必须设法使每个码元能携带更多个比特的信息量,这就需要采用多元制的调制方法</li>
-</ol>
-<p>eg.</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/WW0KKr5lKwp1.png" alt="mark"></p>
-<h3 id="香农定理"><a href="#香农定理" class="headerlink" title="香农定理"></a>香农定理</h3><p>噪声存在于所有的电子设备和通信信道中。由于噪声随机产生,它的瞬时值有时会很大,因此噪声会使接收端对码元的判决产生错误。但是噪声的影响是相对的,若信号较强,那么噪声影响相对较小。因此,信噪比就很重要。<strong>信噪比=信号的平均功率/噪声的平均功率,常记为S/N,并用分贝(dB)作为度量单位</strong>,</p>
-<p><strong>即:信噪比（dB）$$=10\log_{10}（S/N）$$ 数值等价</strong></p>
-<p><strong>香农定理</strong>:在带宽受限且有噪声的信道中,为了不产生误差,信息的数据传输速率有上限值</p>
-<p><strong>信道的极限数据传输速率=$Wlog_2(1+S/N) (b/s)$ ，其中W指带宽（Hz）</strong></p>
-<ol>
-<li>信道的带宽或信道中的信噪比越大,则信息的极限传输速率就越高。</li>
-<li>对一定的传输带宽和一定的信噪比,信息传输速率的上限就确定了。</li>
-<li>只要信息的传输速率低于信道的极限传输速率,就一定能找到某种方法来实现无差错的传输。</li>
-<li>香农定理得出的为极限信息传输速率,实际信道能达到的传输速率要比它低不少。</li>
-<li>从香农定理可以看出,若信道带宽W或信噪比S/N没有上限(不可能) ,那么信道的极限信息传输速率也就没有上限。</li>
-</ol>
-<p>eg.</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/mq9HLO75vfiL.png" alt="mark"></p>
-<h3 id="“nice”和“香浓”"><a href="#“nice”和“香浓”" class="headerlink" title="“nice”和“香浓”"></a>“nice”和“香浓”</h3><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/7GoI2OdlQyxj.png" alt="mark"></p>
-<h2 id="编码与调制"><a href="#编码与调制" class="headerlink" title="编码与调制"></a>编码与调制</h2><h3 id="基带信号与宽带信号"><a href="#基带信号与宽带信号" class="headerlink" title="基带信号与宽带信号"></a>基带信号与宽带信号</h3><p><strong>信道</strong>:信号的传输媒介。一般用来表示向某一个方向传送信息的介质,因此一条通信线路往往包含条发送信道和一条接收信道。</p>
-<ul>
-<li>传输信号：<ul>
-<li>模拟信道(传送模拟信号)</li>
-<li>数字信道(传送数字信号)</li>
-</ul>
-</li>
-<li>传输介质：<ul>
-<li>无线信道 </li>
-<li>有线信道</li>
-</ul>
-</li>
-</ul>
-<p>信道上传送的信号</p>
-<ul>
-<li><p><strong>基带信号</strong></p>
-<p>将数字信号1和0直接用两种不同的电压表示,再送到<strong>数字信道</strong>上去传输(<strong>基带传输</strong>)。来自信源的信号,像计算机输出的代表各种文字或图像文件的数据信号都属于基带信号。基带信号就是发出的直接表达了要传输的信息的信号,比如我们说话的声波就是基带信号</p>
-</li>
-<li><p><strong>宽带信号</strong></p>
-<p>将基带信号进行调制后形成的频分复用模拟信号,再传送到<strong>模拟信道</strong>上去传输(<strong>宽带传输</strong>).,把基带信号经过载波调制后,把信号的频率范围搬移到较高的频段以便在信道中传输(即仅频率范围内能够通过信道)</p>
-</li>
-</ul>
-<p>在传输距离较<strong>近</strong>时,计算机网络采用<strong>基带传输</strong>方式(近距离衰减小,从而信号内容不易发生变化)</p>
-<p>在传输距离较<strong>远</strong>时,计算机网络采用<strong>宽带传输</strong>方式(远距离衰减大,即使信号变化大也能最后过滤出来基带信号)</p>
-<h3 id="编码与调制-1"><a href="#编码与调制-1" class="headerlink" title="编码与调制"></a>编码与调制</h3><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/EB69RsCbxxVX.png" alt="mark"></p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/jMO7XCoQ8wVv.png" alt="mark"></p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/UEnmhshwNlcK.png" alt="mark"></p>
-<h3 id="数字数据编码为数字信号"><a href="#数字数据编码为数字信号" class="headerlink" title="数字数据编码为数字信号"></a>数字数据编码为数字信号</h3><ul>
-<li><strong>非归零编码【NRZ】</strong><ul>
-<li><strong>高1低0</strong>    编码容易实现,但没有检错功能且无法判断一个码元的开始和结束,”以至于<strong>收发双方难以保持同步</strong>。</li>
-</ul>
-</li>
-<li>归零编码【RZ】<ul>
-<li>信号电平在一个码元之内都要恢夏到零的这种编码成编码方式。</li>
-</ul>
-</li>
-<li>反向不归零编码【NRZI】<ul>
-<li>信号电平翻转表示0,信号电平不变表示1.</li>
-</ul>
-</li>
-<li><strong>曼切斯特编码</strong><ul>
-<li>将一个码元分成两个相等的间隔,前一个间隔为低电平后一个间隔为高电平表示码元1;码元0则正好相反。也可以采用相反的规定。该编码的特点是在每一个码元的中间出现电平跳变,位中间的跳变既作时钟信号(可用于同步)又作数据信号,但它所占的频带宽度是原始的基带宽度的两倍。每一个码元都被调成两个电平,所以数据传输速率只有调制速率的$1/2$</li>
-</ul>
-</li>
-<li><strong>差分曼切斯特编码</strong><ul>
-<li><strong>同1异0</strong>    常用于局域网传输,其规则是:若码元为1,则前半个码元的电平与上一个码元的后半个码元的电,平相同,若为0,则相反。该编码的特点是,在每个码元的中间,都有一次电平的跳转,可以实现自同步,且抗干扰性强于曼彻斯特编码</li>
-</ul>
-</li>
-<li>4B/5B编码<ul>
-<li>比特流中插入额外的比特以打破-连串的0或1,就是用5个比特来编码4个比特的数据,之后再传给接收方,因此称为4B/5B,编码效率为80%</li>
-</ul>
-</li>
-</ul>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/BTyfKLsdSerN.png" alt="mark"></p>
-<h3 id="数字数据调制为模拟信号"><a href="#数字数据调制为模拟信号" class="headerlink" title="数字数据调制为模拟信号"></a>数字数据调制为模拟信号</h3><p>数字数据调制技术在发送端将数字信号转换为模拟信号,而在接收端将模拟信号还原为数字信号,分别对应于调制解调器的调制和解调过程。</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/3dNDqruxdEjR.png" alt="mark"></p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/iOr7w6xHyQuX.png" alt="mark"></p>
-<p>​                    1200*4=4800b/s</p>
-<h3 id="模拟数据编码为数字信号"><a href="#模拟数据编码为数字信号" class="headerlink" title="模拟数据编码为数字信号"></a>模拟数据编码为数字信号</h3><p>计算机内部处理的是二进制数据,处理的都是数字音频,所以需要将模拟音频通过采样、量化转换成有限个数字表示的离散序列(即实现<strong>音频数字化</strong>)</p>
-<p>最典型的例子就是对音频信号进行编码的脉码调制(<strong>PCM</strong>) ,在计算机应用中,能够达到<strong>最高保真水平</strong>的就是PCM编码,被广泛用于素材保存及音乐欣赏, CD,DVD以及我们常见的WAV文件中均有应用。它主要包括三步:抽样、量化、编码。</p>
-<ol>
-<li><p><strong>抽样</strong>:对模拟信号周期性扫描,把时间上连续的信号变成时间上离散的信号。为了使所得的离散信号能无失真地代表被抽样的模拟数据,要使用采样定理进行采样: </p>
-<p>​                            $$f_{采样频率} \geq f{信号最高频率}$$</p>
-</li>
-<li><p><strong>量化</strong>:把抽样取得的电平幅值按照一定的分级标度转化为对应的数字值,并取整数,这就把连续的电平幅值转换为离散的数字量。</p>
-</li>
-<li><p><strong>编码</strong>:把量化的结果转换为与之对应的二进制编码。</p>
-</li>
-</ol>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/SAmVCiJaaMat.png" alt="mark"></p>
-<h3 id="模拟数据调制为模拟信号"><a href="#模拟数据调制为模拟信号" class="headerlink" title="模拟数据调制为模拟信号"></a>模拟数据调制为模拟信号</h3><p>为了实现传输的有效性,可能需要较高的频率。这种调制方式还可以使用<strong>频分复用技术</strong>,充分利用带宽资源。在电话机和本地交换机所传输的信号是采用模拟信号传输模拟数据的方式;模拟的声音数据是加载到模拟的载波信号中传输的。</p>
-<h2 id="物理层传输介质"><a href="#物理层传输介质" class="headerlink" title="物理层传输介质"></a>物理层传输介质</h2><p>传输介质也称传输媒体/传输媒介,它就是数据传输系统中在发送设备和接收设备之间的<strong>物理通路</strong>。</p>
-<p><strong>传输媒体并不是物理层</strong>。传输媒体在物理层的下面,因为物理层是体系结构的第一层,因此有时称传输媒体为0层。在传输媒体中传输的是信号,但传输媒体并不知道所传输的信号代表什么意思。但物理层规定了<strong>电气特性</strong>,因此能够识别所传送的比特流。</p>
-<p>传输介质</p>
-<ul>
-<li>导向性传输介质：电磁波被导向沿着固体媒介(铜线/光纤)传播。</li>
-<li>非导向性传输介质：自由空间,介质可以是空气、真空、海水等。</li>
-</ul>
-<h3 id="双绞线"><a href="#双绞线" class="headerlink" title="双绞线"></a>双绞线</h3><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/pz2JCTyqoQ07.png" alt="mark"></p>
-<h3 id="同轴电缆"><a href="#同轴电缆" class="headerlink" title="同轴电缆"></a>同轴电缆</h3><p>同轴电缆由<strong>导体铜质芯线</strong>、<strong>绝缘层</strong>、<strong>网状编织屏蔽层</strong>和<strong>塑料外层</strong>构成。按特性阻抗数值的不同,通常将同轴电缆分,为两类: 502同轴电缆和750同轴电缆。其中, 502同轴电缆主要用于传送基带数字信号,又称为<strong>基带同轴电缆</strong>,它在局域网中得到广泛应用; 752同轴电缆主要用于传送宽带信号,又称为<strong>宽带同轴电缆</strong>,它主要用于有线电视系统。</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/53J7HgEVjXB1.png" alt="mark"></p>
-<h3 id="光纤"><a href="#光纤" class="headerlink" title="光纤"></a>光纤</h3><p>光纤通信就是利用光导纤维(简称光纤)传递<strong>光脉冲</strong>来进行通信。有光脉冲表示1,无光脉冲表示0。而可见光的频率大约是$10^8$MHz,因此光纤通信系统的<strong>带宽远远大于</strong>目前其他各种传输媒体的带宽。</p>
-<p>光纤在发送端有光源,可以采用发光二极管或半导体激光器,它们在电脉冲作用下能产生出光脉冲;在接收端用光电二极管做成光检测器,在检测到光脉冲时可还原出电脉冲。</p>
-<p>光纤主要由<strong>纤芯(实心的</strong>! )和包层构成,光波通过纤芯进行传导,包层较纤芯有较低的折射率。当光线从高折射率的介质射向低折射率的介质时,其折射角将大于入射角。因此,如果入射角足够大,就会出现全反射,即光线碰到包层时候就会折射回纤芯、这个过程不断重复,光也就沿着光纤传输下去。</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/pzDmg5D4j8C4.png" alt="mark"></p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/Gw2xKokbrzAj.png" alt="mark">光纤的特点：</p>
-<ol>
-<li>传输损耗小,中继距离长,对远距离传输特别经济。</li>
-<li>抗雷电和电磁干扰性能好。</li>
-<li>无串音干扰,保密性好,也不易被窃听或截取数据。</li>
-<li>体积小,重量轻。</li>
-</ol>
-<h3 id="非导向性传输介质"><a href="#非导向性传输介质" class="headerlink" title="非导向性传输介质"></a>非导向性传输介质</h3><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/pjRfo1QlRkMJ.png" alt="mark"></p>
-<h2 id="物理层设备"><a href="#物理层设备" class="headerlink" title="物理层设备"></a>物理层设备</h2><h3 id="中继器"><a href="#中继器" class="headerlink" title="中继器"></a>中继器</h3><p><strong>诞生原因</strong>:由于存在损耗,在线路上传输的信号功率会逐渐衰减,衰减到一定程度时将造成信号失真,因此会导致接收错误。</p>
-<p><strong>中继器的功能</strong>:对信号进行<strong>再生和还原</strong>,对衰减的信号进行放大,保持与原数据相同,以增加信号传输的距离,延长网络的长度。</p>
-<p>​                                        <strong>再生数字信号</strong></p>
-<p><strong>中继器的两端</strong>:</p>
-<ul>
-<li>两端的网络部分是网段,而不是子网,适用于完全相同的<strong>两类</strong>网络的互连,且两个网段速率要相同。</li>
-<li>中继器只将任何电缆段上的数据发送到另一段电缆上,它仅作用于信号的电气部分,并不管数据中是否有错误数据或不适于网段的数据。</li>
-<li>两端可连相同媒体,也可连不同媒体。</li>
-<li>中继器两端的网段一定要是同一个协议。(中继器不会存储转发,傻)</li>
-</ul>
-<p><strong>5-4-3规则</strong>:网络标准中都对信号的延迟范围作了具体的规定,因而中继器只能在规定的范围内进行,否则会网络故障</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/AhOklmr7g2ph.png" alt="mark"></p>
-<h3 id="集线器（多口中继器）"><a href="#集线器（多口中继器）" class="headerlink" title="集线器（多口中继器）"></a>集线器（多口中继器）</h3><p><strong>集线器的功能</strong>:对信号进行再生<strong>放大转发</strong>,对衰减的信号进行放大,接着转发到其他所有(除输入端口外)处于工作状态的端口上,以增加信号传输的距离,延长网络的长度。不具备信号的定向传送能力,是一个共享式设备。</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200409/BkEofHpp8S9K.png" alt="mark"></p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
-      <categories>
-        <category>计算机网络</category>
-      </categories>
-      <tags>
-        <tag>计算机网络</tag>
       </tags>
   </entry>
   <entry>
@@ -1715,11 +2269,184 @@ $$         </code></pre><p>$$<br>2x+3y=34\<br>x+4y=25<br>$$</p>
       </tags>
   </entry>
   <entry>
-    <title>计算机组成原理-学习笔记1</title>
-    <url>/lzfangwen.github.io/2020/03/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</url>
-    <content><![CDATA[<p><strong>B站 王道考研视频 学习笔记 纯粹自己整理方便复习使用 侵删</strong></p>
-<p>﻿# 第一章 计算机系统简介</p>
-<h2 id="软硬件"><a href="#软硬件" class="headerlink" title="软硬件"></a>软硬件<a id="more"></a><img src="https://img-blog.csdnimg.cn/20200313110251157.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt=""></h2><p><img src="https://img-blog.csdnimg.cn/20200313110314482.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt=""><br><img src="https://img-blog.csdnimg.cn/20200313110725516.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200313110746978.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><a href="https://www.icourse163.org/spoc/learn/HHIT-1451455173?tid=1451908450#/learn/content?type=detail&amp;id=1220058249&amp;cid=1228881649" target="_blank" rel="noopener">慕课链接</a></p>
+    <title>计算机网络-学习笔记2</title>
+    <url>/lzfangwen.github.io/2020/04/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/</url>
+    <content><![CDATA[<h2 id="数据通信基础知识"><a href="#数据通信基础知识" class="headerlink" title="数据通信基础知识"></a>数据通信基础知识</h2><h3 id="典型的数据通信模型"><a href="#典型的数据通信模型" class="headerlink" title="典型的数据通信模型"></a>典型的数据通信模型</h3><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/CPvLE6vyYds2.png" alt="mark"></p>
+<a id="more"></a>
+
+<h3 id="相关术语"><a href="#相关术语" class="headerlink" title="相关术语"></a>相关术语</h3><p>通信的目的是传送消息</p>
+<p><strong>数据</strong>:传送信息的实体,通常是有意义的符号序列。</p>
+<p><strong>信号</strong>:数据的电气/电磁的表现,是数据在传输过程中的存在形式。</p>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/N1nHo1I7kInr.png" alt="mark"></p>
+<p><strong>信源</strong>:产生和发送数据的源头。</p>
+<p><strong>信宿</strong>:接收数据的终点。</p>
+<p><strong>信道</strong>:信号的传输媒介。一般用来表示向某一个方向传送信息的介质,因此一条通信线路往往包含一条发送信道和一条接收信道。</p>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/lJeU3FYMQMf8.png" alt="mark"></p>
+<h3 id="三种通信方式"><a href="#三种通信方式" class="headerlink" title="三种通信方式"></a>三种通信方式</h3><p>从通信双方信息的交换方式看，可以有三种基本方式：</p>
+<ol>
+<li><strong>单工通信</strong>：只有一个方向的通信而没有反方向的交互,仅需要<strong>一条</strong>信道。</li>
+<li><strong>半双工通信</strong>：通信的双方都可以发送或接收信息,但任何一方都不能同时发送和接收,需要<strong>两条</strong>信道。</li>
+<li><strong>全双工通信</strong>：通信双方可以同时发送和接受信息,也需要<strong>两条</strong>信道。</li>
+</ol>
+<h3 id="两种数据传输方式"><a href="#两种数据传输方式" class="headerlink" title="两种数据传输方式"></a>两种数据传输方式</h3><ol>
+<li><p><strong>串行传输</strong>：速度<strong>慢</strong>，费用<strong>低</strong>，适合<strong>远</strong>距离</p>
+</li>
+<li><p><strong>并行传输</strong>：速度<strong>快</strong>，费用<strong>高</strong>，适合<strong>近</strong>距离</p>
+<p>​                    用于计算机内部数据传输（电脑上的井口 就为并行传输）</p>
+</li>
+</ol>
+<h3 id="码元"><a href="#码元" class="headerlink" title="码元"></a>码元</h3><p><strong>码元</strong>是指用一个固定时长的信号波形(数字脉冲) ,代表不同离散数值的基本波形,是数字通信中数字信号的计量单位,这个时长内的信号称为k进制码元,而该时长称为码元宽度。当码元的离散状态有M个时(M大于2) ,此时码元为M进制码元。</p>
+<p>1码元可以携带多个比特的信息量。例如,在使用二进制编码时,只有两种不同的码元,一种代表0状态,另一种代表1状态</p>
+<h3 id="速率、波特、带宽"><a href="#速率、波特、带宽" class="headerlink" title="速率、波特、带宽"></a>速率、波特、带宽</h3><p><strong>速率</strong>也叫数据率,是指数据的<strong>传输速率</strong>,表示单位时间内传输的数据量。可以用<strong>码元传输速</strong>率和<strong>信息传输速率</strong>表示</p>
+<ul>
+<li><strong>码元传输速率</strong>:别名码元速率、波形速率、调制速率、符号速率等,它表示单位时间内数字通信系统所传输的码元个数(也可称为脉冲个数或信号变化的次数) ,单位是<strong>波特(Baud)</strong> 。 1波特表示数字通信系统每秒传输一个码元。这里的码元可以是多进制的,也可以是二进制的,但码元速率与进制数无关。====</li>
+<li><strong>信息传输速率</strong>:别名信息速率、比特率等,表示单位时间内数字通信系统传输的二进制码元个数(即比特数)·单位是比特/秒(b/s) 。</li>
+</ul>
+<p>关系:若一个码元携带n bit的信息量,则MBaud的码元传输速率所对应的信息传输速率为MXn bit/s。</p>
+<p>带宽:表示在单位时间内从网络中的某一点到另一点所能通过的“<strong>最高数据率</strong>” ,常用来表示网络的通信线路所能输数据的能力。单位是b/s </p>
+<h4 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h4><p>某一数字通信系统传输的是四进制码元,4s传输了8000个码元,求系统的码元传输速率是多·少?信息传输速率是多少?若另一通信系统传输的是十六进制码元,6s传输了7200个码元,求他的码元传输速率是多少?信息传输速率是多少?并指出哪个系统传输速率快?</p>
+<blockquote>
+<p>2000波特    4000b/s    1200波特    4800b/s    十六进制最快</p>
+<p>四进制码元系统</p>
+<p>码元传输速率就是8000/4-2000Baud,信息传输速率就是20001log24=4000b/s</p>
+<p>十六进制码元系统</p>
+<p>码元传输速率就是7200/6-1200Baud,信息传输速率就是1200*10g216-4800b/s</p>
+<p>系统传输的是<strong>比特流</strong>,通常比较的是信息传输速率,所以传输十六进制码元的通信系统传输速率较快,如果用该系统去传输四进制码元会有更高的码元传输速率。</p>
+</blockquote>
+<h2 id="奈式准则-amp-香农定理"><a href="#奈式准则-amp-香农定理" class="headerlink" title="奈式准则&amp;香农定理"></a>奈式准则&amp;香农定理</h2><h3 id="失真"><a href="#失真" class="headerlink" title="失真"></a>失真</h3><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/l7i9Y8YJXplH.png" alt="mark"></p>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/Npx9FIGhDJRS.png" alt="mark"></p>
+<h3 id="奈式准则（奈奎斯特定理）"><a href="#奈式准则（奈奎斯特定理）" class="headerlink" title="奈式准则（奈奎斯特定理）"></a>奈式准则（奈奎斯特定理）</h3><p><strong>奈氏准则</strong>:在理想低通(无噪声,带宽受限)条件下,为了避免码间串扰,极限码元传输速率为2W Baud, w是信道带宽，单位是Hz。</p>
+<p><strong>只有这两个公式 带宽才用Hz</strong></p>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/TOqH4IK30nC0.png" alt="mark"></p>
+<ol>
+<li>在任何信道中,<strong>码元传输的速率是有上限的</strong>。若传输速率超过此上限,就会出现严重的码间串扰问题,使接收端对码元的完全正确识别成为不可能。</li>
+<li>信道的频带越宽(即能通过的信号高频分量越多) ,就可以用更高的速率进行码元的有效传输。</li>
+<li><strong>奈氏准则给出了码元传输速率的限制,但并没有对信息传输速率给出限制。</strong></li>
+<li>由于码元的传输速率受奈氏准则的制约,所以要提高数据的传输速率,就必须设法使每个码元能携带更多个比特的信息量,这就需要采用多元制的调制方法</li>
+</ol>
+<p>eg.</p>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/WW0KKr5lKwp1.png" alt="mark"></p>
+<h3 id="香农定理"><a href="#香农定理" class="headerlink" title="香农定理"></a>香农定理</h3><p>噪声存在于所有的电子设备和通信信道中。由于噪声随机产生,它的瞬时值有时会很大,因此噪声会使接收端对码元的判决产生错误。但是噪声的影响是相对的,若信号较强,那么噪声影响相对较小。因此,信噪比就很重要。<strong>信噪比=信号的平均功率/噪声的平均功率,常记为S/N,并用分贝(dB)作为度量单位</strong>,</p>
+<p><strong>即:信噪比（dB）$$=10\log_{10}（S/N）$$ 数值等价</strong></p>
+<p><strong>香农定理</strong>:在带宽受限且有噪声的信道中,为了不产生误差,信息的数据传输速率有上限值</p>
+<p><strong>信道的极限数据传输速率=$Wlog_2(1+S/N) (b/s)$ ，其中W指带宽（Hz）</strong></p>
+<ol>
+<li>信道的带宽或信道中的信噪比越大,则信息的极限传输速率就越高。</li>
+<li>对一定的传输带宽和一定的信噪比,信息传输速率的上限就确定了。</li>
+<li>只要信息的传输速率低于信道的极限传输速率,就一定能找到某种方法来实现无差错的传输。</li>
+<li>香农定理得出的为极限信息传输速率,实际信道能达到的传输速率要比它低不少。</li>
+<li>从香农定理可以看出,若信道带宽W或信噪比S/N没有上限(不可能) ,那么信道的极限信息传输速率也就没有上限。</li>
+</ol>
+<p>eg.</p>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/mq9HLO75vfiL.png" alt="mark"></p>
+<h3 id="“nice”和“香浓”"><a href="#“nice”和“香浓”" class="headerlink" title="“nice”和“香浓”"></a>“nice”和“香浓”</h3><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/7GoI2OdlQyxj.png" alt="mark"></p>
+<h2 id="编码与调制"><a href="#编码与调制" class="headerlink" title="编码与调制"></a>编码与调制</h2><h3 id="基带信号与宽带信号"><a href="#基带信号与宽带信号" class="headerlink" title="基带信号与宽带信号"></a>基带信号与宽带信号</h3><p><strong>信道</strong>:信号的传输媒介。一般用来表示向某一个方向传送信息的介质,因此一条通信线路往往包含条发送信道和一条接收信道。</p>
+<ul>
+<li>传输信号：<ul>
+<li>模拟信道(传送模拟信号)</li>
+<li>数字信道(传送数字信号)</li>
+</ul>
+</li>
+<li>传输介质：<ul>
+<li>无线信道 </li>
+<li>有线信道</li>
+</ul>
+</li>
+</ul>
+<p>信道上传送的信号</p>
+<ul>
+<li><p><strong>基带信号</strong></p>
+<p>将数字信号1和0直接用两种不同的电压表示,再送到<strong>数字信道</strong>上去传输(<strong>基带传输</strong>)。来自信源的信号,像计算机输出的代表各种文字或图像文件的数据信号都属于基带信号。基带信号就是发出的直接表达了要传输的信息的信号,比如我们说话的声波就是基带信号</p>
+</li>
+<li><p><strong>宽带信号</strong></p>
+<p>将基带信号进行调制后形成的频分复用模拟信号,再传送到<strong>模拟信道</strong>上去传输(<strong>宽带传输</strong>).,把基带信号经过载波调制后,把信号的频率范围搬移到较高的频段以便在信道中传输(即仅频率范围内能够通过信道)</p>
+</li>
+</ul>
+<p>在传输距离较<strong>近</strong>时,计算机网络采用<strong>基带传输</strong>方式(近距离衰减小,从而信号内容不易发生变化)</p>
+<p>在传输距离较<strong>远</strong>时,计算机网络采用<strong>宽带传输</strong>方式(远距离衰减大,即使信号变化大也能最后过滤出来基带信号)</p>
+<h3 id="编码与调制-1"><a href="#编码与调制-1" class="headerlink" title="编码与调制"></a>编码与调制</h3><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/EB69RsCbxxVX.png" alt="mark"></p>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/jMO7XCoQ8wVv.png" alt="mark"></p>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/UEnmhshwNlcK.png" alt="mark"></p>
+<h3 id="数字数据编码为数字信号"><a href="#数字数据编码为数字信号" class="headerlink" title="数字数据编码为数字信号"></a>数字数据编码为数字信号</h3><ul>
+<li><strong>非归零编码【NRZ】</strong><ul>
+<li><strong>高1低0</strong>    编码容易实现,但没有检错功能且无法判断一个码元的开始和结束,”以至于<strong>收发双方难以保持同步</strong>。</li>
+</ul>
+</li>
+<li>归零编码【RZ】<ul>
+<li>信号电平在一个码元之内都要恢夏到零的这种编码成编码方式。</li>
+</ul>
+</li>
+<li>反向不归零编码【NRZI】<ul>
+<li>信号电平翻转表示0,信号电平不变表示1.</li>
+</ul>
+</li>
+<li><strong>曼切斯特编码</strong><ul>
+<li>将一个码元分成两个相等的间隔,前一个间隔为低电平后一个间隔为高电平表示码元1;码元0则正好相反。也可以采用相反的规定。该编码的特点是在每一个码元的中间出现电平跳变,位中间的跳变既作时钟信号(可用于同步)又作数据信号,但它所占的频带宽度是原始的基带宽度的两倍。每一个码元都被调成两个电平,所以数据传输速率只有调制速率的$1/2$</li>
+</ul>
+</li>
+<li><strong>差分曼切斯特编码</strong><ul>
+<li><strong>同1异0</strong>    常用于局域网传输,其规则是:若码元为1,则前半个码元的电平与上一个码元的后半个码元的电,平相同,若为0,则相反。该编码的特点是,在每个码元的中间,都有一次电平的跳转,可以实现自同步,且抗干扰性强于曼彻斯特编码</li>
+</ul>
+</li>
+<li>4B/5B编码<ul>
+<li>比特流中插入额外的比特以打破-连串的0或1,就是用5个比特来编码4个比特的数据,之后再传给接收方,因此称为4B/5B,编码效率为80%</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/BTyfKLsdSerN.png" alt="mark"></p>
+<h3 id="数字数据调制为模拟信号"><a href="#数字数据调制为模拟信号" class="headerlink" title="数字数据调制为模拟信号"></a>数字数据调制为模拟信号</h3><p>数字数据调制技术在发送端将数字信号转换为模拟信号,而在接收端将模拟信号还原为数字信号,分别对应于调制解调器的调制和解调过程。</p>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/3dNDqruxdEjR.png" alt="mark"></p>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/iOr7w6xHyQuX.png" alt="mark"></p>
+<p>​                    1200*4=4800b/s</p>
+<h3 id="模拟数据编码为数字信号"><a href="#模拟数据编码为数字信号" class="headerlink" title="模拟数据编码为数字信号"></a>模拟数据编码为数字信号</h3><p>计算机内部处理的是二进制数据,处理的都是数字音频,所以需要将模拟音频通过采样、量化转换成有限个数字表示的离散序列(即实现<strong>音频数字化</strong>)</p>
+<p>最典型的例子就是对音频信号进行编码的脉码调制(<strong>PCM</strong>) ,在计算机应用中,能够达到<strong>最高保真水平</strong>的就是PCM编码,被广泛用于素材保存及音乐欣赏, CD,DVD以及我们常见的WAV文件中均有应用。它主要包括三步:抽样、量化、编码。</p>
+<ol>
+<li><p><strong>抽样</strong>:对模拟信号周期性扫描,把时间上连续的信号变成时间上离散的信号。为了使所得的离散信号能无失真地代表被抽样的模拟数据,要使用采样定理进行采样: </p>
+<p>​                            $$f_{采样频率} \geq f{信号最高频率}$$</p>
+</li>
+<li><p><strong>量化</strong>:把抽样取得的电平幅值按照一定的分级标度转化为对应的数字值,并取整数,这就把连续的电平幅值转换为离散的数字量。</p>
+</li>
+<li><p><strong>编码</strong>:把量化的结果转换为与之对应的二进制编码。</p>
+</li>
+</ol>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/SAmVCiJaaMat.png" alt="mark"></p>
+<h3 id="模拟数据调制为模拟信号"><a href="#模拟数据调制为模拟信号" class="headerlink" title="模拟数据调制为模拟信号"></a>模拟数据调制为模拟信号</h3><p>为了实现传输的有效性,可能需要较高的频率。这种调制方式还可以使用<strong>频分复用技术</strong>,充分利用带宽资源。在电话机和本地交换机所传输的信号是采用模拟信号传输模拟数据的方式;模拟的声音数据是加载到模拟的载波信号中传输的。</p>
+<h2 id="物理层传输介质"><a href="#物理层传输介质" class="headerlink" title="物理层传输介质"></a>物理层传输介质</h2><p>传输介质也称传输媒体/传输媒介,它就是数据传输系统中在发送设备和接收设备之间的<strong>物理通路</strong>。</p>
+<p><strong>传输媒体并不是物理层</strong>。传输媒体在物理层的下面,因为物理层是体系结构的第一层,因此有时称传输媒体为0层。在传输媒体中传输的是信号,但传输媒体并不知道所传输的信号代表什么意思。但物理层规定了<strong>电气特性</strong>,因此能够识别所传送的比特流。</p>
+<p>传输介质</p>
+<ul>
+<li>导向性传输介质：电磁波被导向沿着固体媒介(铜线/光纤)传播。</li>
+<li>非导向性传输介质：自由空间,介质可以是空气、真空、海水等。</li>
+</ul>
+<h3 id="双绞线"><a href="#双绞线" class="headerlink" title="双绞线"></a>双绞线</h3><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/pz2JCTyqoQ07.png" alt="mark"></p>
+<h3 id="同轴电缆"><a href="#同轴电缆" class="headerlink" title="同轴电缆"></a>同轴电缆</h3><p>同轴电缆由<strong>导体铜质芯线</strong>、<strong>绝缘层</strong>、<strong>网状编织屏蔽层</strong>和<strong>塑料外层</strong>构成。按特性阻抗数值的不同,通常将同轴电缆分,为两类: 502同轴电缆和750同轴电缆。其中, 502同轴电缆主要用于传送基带数字信号,又称为<strong>基带同轴电缆</strong>,它在局域网中得到广泛应用; 752同轴电缆主要用于传送宽带信号,又称为<strong>宽带同轴电缆</strong>,它主要用于有线电视系统。</p>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/53J7HgEVjXB1.png" alt="mark"></p>
+<h3 id="光纤"><a href="#光纤" class="headerlink" title="光纤"></a>光纤</h3><p>光纤通信就是利用光导纤维(简称光纤)传递<strong>光脉冲</strong>来进行通信。有光脉冲表示1,无光脉冲表示0。而可见光的频率大约是$10^8$MHz,因此光纤通信系统的<strong>带宽远远大于</strong>目前其他各种传输媒体的带宽。</p>
+<p>光纤在发送端有光源,可以采用发光二极管或半导体激光器,它们在电脉冲作用下能产生出光脉冲;在接收端用光电二极管做成光检测器,在检测到光脉冲时可还原出电脉冲。</p>
+<p>光纤主要由<strong>纤芯(实心的</strong>! )和包层构成,光波通过纤芯进行传导,包层较纤芯有较低的折射率。当光线从高折射率的介质射向低折射率的介质时,其折射角将大于入射角。因此,如果入射角足够大,就会出现全反射,即光线碰到包层时候就会折射回纤芯、这个过程不断重复,光也就沿着光纤传输下去。</p>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/pzDmg5D4j8C4.png" alt="mark"></p>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/Gw2xKokbrzAj.png" alt="mark">光纤的特点：</p>
+<ol>
+<li>传输损耗小,中继距离长,对远距离传输特别经济。</li>
+<li>抗雷电和电磁干扰性能好。</li>
+<li>无串音干扰,保密性好,也不易被窃听或截取数据。</li>
+<li>体积小,重量轻。</li>
+</ol>
+<h3 id="非导向性传输介质"><a href="#非导向性传输介质" class="headerlink" title="非导向性传输介质"></a>非导向性传输介质</h3><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/pjRfo1QlRkMJ.png" alt="mark"></p>
+<h2 id="物理层设备"><a href="#物理层设备" class="headerlink" title="物理层设备"></a>物理层设备</h2><h3 id="中继器"><a href="#中继器" class="headerlink" title="中继器"></a>中继器</h3><p><strong>诞生原因</strong>:由于存在损耗,在线路上传输的信号功率会逐渐衰减,衰减到一定程度时将造成信号失真,因此会导致接收错误。</p>
+<p><strong>中继器的功能</strong>:对信号进行<strong>再生和还原</strong>,对衰减的信号进行放大,保持与原数据相同,以增加信号传输的距离,延长网络的长度。</p>
+<p>​                                        <strong>再生数字信号</strong></p>
+<p><strong>中继器的两端</strong>:</p>
+<ul>
+<li>两端的网络部分是网段,而不是子网,适用于完全相同的<strong>两类</strong>网络的互连,且两个网段速率要相同。</li>
+<li>中继器只将任何电缆段上的数据发送到另一段电缆上,它仅作用于信号的电气部分,并不管数据中是否有错误数据或不适于网段的数据。</li>
+<li>两端可连相同媒体,也可连不同媒体。</li>
+<li>中继器两端的网段一定要是同一个协议。(中继器不会存储转发,傻)</li>
+</ul>
+<p><strong>5-4-3规则</strong>:网络标准中都对信号的延迟范围作了具体的规定,因而中继器只能在规定的范围内进行,否则会网络故障</p>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200408/AhOklmr7g2ph.png" alt="mark"></p>
+<h3 id="集线器（多口中继器）"><a href="#集线器（多口中继器）" class="headerlink" title="集线器（多口中继器）"></a>集线器（多口中继器）</h3><p><strong>集线器的功能</strong>:对信号进行再生<strong>放大转发</strong>,对衰减的信号进行放大,接着转发到其他所有(除输入端口外)处于工作状态的端口上,以增加信号传输的距离,延长网络的长度。不具备信号的定向传送能力,是一个共享式设备。</p>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200409/BkEofHpp8S9K.png" alt="mark"></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1740,10 +2467,141 @@ $$         </code></pre><p>$$<br>2x+3y=34\<br>x+4y=25<br>$$</p>
           });
       </script>]]></content>
       <categories>
-        <category>计算机组成原理</category>
+        <category>计算机网络</category>
       </categories>
       <tags>
-        <tag>计算机组成原理</tag>
+        <tag>计算机网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机网络-学习笔记3</title>
+    <url>/lzfangwen.github.io/2020/04/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/</url>
+    <content><![CDATA[<h1 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h1><p><strong>结点</strong>:主机、路由器</p>
+<p><strong>链路</strong>:网络中两个结点之间的<strong>物理通道</strong>,链路的传输介质主要有双绞线、光纤和微波。分为有线链路、无线链路。</p>
+<p><strong>数据链路</strong>：网络中两个结点之间的逻辑通道，把实现控制数据传输协议的硬件和软件加到链路上就构成数据链路。</p>
+<p><strong>帧</strong>：链路层的协议数据单元，封装网络层数据报。</p>
+<blockquote>
+<p><strong>数据链路层</strong>负责通过一条链路从一个结点向另一个物理链路直接相连的相邻结点传送数据报。</p>
+</blockquote>
+<a id="more"></a>
+
+<h2 id="功能概述"><a href="#功能概述" class="headerlink" title="功能概述"></a>功能概述</h2><p>数据链路层在物理层提供服务的基础上<strong>向网络层提供服务</strong>,其最基本的服务是将源自网络层来的数据可靠地传输到相邻节点的目标机网络层。其主要作用是<strong>加强物理层传输原始比特流的功能</strong>,将物理层提供的可能出错的物理连接改造成为<strong>逻辑上无差错的数据链路</strong>,使之对网络层表现为一条无差错的链路。</p>
+<ul>
+<li>功能一：为网络层提供服务。无确认无连接服务，有确认无连接服务，有确认面向连接服务。有连接一定有确认！</li>
+<li>功能二：链路管理，即连接的建立、维持、释放(用于面向连接的服务)。</li>
+<li>功能三：组帧。</li>
+<li>功能四：流量控制。限制发送方。</li>
+<li>功能五：差错控制（帧错/位错）。</li>
+</ul>
+<h2 id="封装成帧"><a href="#封装成帧" class="headerlink" title="封装成帧"></a>封装成帧</h2><p><strong>封装成帧</strong>就是在一段数据的前后部分添加首部和尾部,这样就构成了一个帧。接收端在收到物理层上交的比特流后,就能根据首部和尾部的标记,从收到的比特流中识别帧的开始和结束。首部和尾部包含许多的控制信息,他们的一个重要作用:<strong>帧定界</strong>(确定帧的界限)。</p>
+<p><strong>帧同步</strong>:接收方应当能从接收到的二进制比特流中区分出帧的起始和终止。</p>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200413/tkTqDi9GvcYN.png" alt="mark"></p>
+<p>组帧的四种方法：</p>
+<ol>
+<li><p>字符计数法</p>
+<blockquote>
+<p>帧首部使用一个计数字段（第一个字节，八位）来表明帧内字符数。</p>
+<img src="http://q8375k9tz.bkt.clouddn.com/blog/20200413/wL0IDs4VGEjs.png" alt="mark" style="zoom:150%;">
+</blockquote>
+</li>
+<li><p>字符（节）填充法</p>
+<blockquote>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200413/mSvO5mxPIhRk.png" alt="mark"></p>
+<ul>
+<li><p>当传送的帧是由文本文件组成（文本文件的字符都是从键盘上输入的，都是ASCL码）</p>
+<p>不管从键盘上输入什么字符都可以在帧内传出,即<strong>透明传输</strong></p>
+</li>
+<li><p>当传送的帧是由ASCLL码的文本文件组成时（二进制的程序或图像等）就要<strong>采用字符填充的方式实现透明传输</strong>。</p>
+</li>
+<li></li>
+</ul>
+</blockquote>
+</li>
+<li><p>零比特填充法</p>
+</li>
+</ol>
+<blockquote>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200414/NugarvoR0BRL.png" alt="mark"></p>
+<p>操作：</p>
+<ol>
+<li><p>在发送端，扫描整个信息字段，只要连续5个1，就立即填入一个0.</p>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200414/M3byTU0i5ojR.png" alt="mark"></p>
+</li>
+<li><p>在接收端收到一个帧时，先找到标志字段认定边界，再用硬件对比特流进行扫描。发现连续5个1时，就把后面的0删掉</p>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200414/rs3YCHovSqpK.png" alt="mark"></p>
+</li>
+</ol>
+</blockquote>
+<ol start="4">
+<li><p>违规编码法</p>
+<blockquote>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200414/rmAVH2b0hvaH.png" alt="mark"></p>
+<p>可以用 <strong>“高高”，“低低”</strong>来定界帧的起始和终止。</p>
+</blockquote>
+</li>
+</ol>
+<p>由于字节计数法中COunt字段的脆弱性（其值若有差错将导致灾难性后果）及字符填充实现上的复杂性和不兼容性，目前较为普遍的帧同步法是<strong>比特填充</strong>和<strong>违规编码法</strong>。</p>
+<h3 id="透明传输"><a href="#透明传输" class="headerlink" title="透明传输"></a>透明传输</h3><p>透明传输是指不管所传数据是什么样的比特组合,都应当能够在链路上传送。因此,链路层就“看不见”有什么妨碍数据传输的东西。当所传数据中</p>
+<p>的比特组合恰巧与某一个控制信息完全一样时,就必须采取适当的措施,使收方不会将这样的数据误以为是某种控制信息。这样才能保证数据链路层的传输是透明的。</p>
+<h2 id="差错控制（检错编码）"><a href="#差错控制（检错编码）" class="headerlink" title="差错控制（检错编码）"></a>差错控制（检错编码）</h2><p>概括来说，传输的差错都是由于噪声引起的。</p>
+<ol>
+<li>全局性    由于线路本身电气特性所产生的<strong>随机噪声</strong>(热噪声),是信道固有的,随机存在的。解决办法:提高信噪比来减少或避免干扰。(对传感器下手)</li>
+<li>局部性     外界特定的短暂原因所造成的<strong>冲击噪声</strong>,是产生差错的主要原因。通常利用编码技术来解决。</li>
+</ol>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200414/s3DqlvPuuWY7.png" alt="mark"></p>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200414/j8mDntj7aj7v.png" alt="mark"></p>
+<p>编码的不同</p>
+<blockquote>
+<p>数据链路层编码和物理层的数据编码与调制<strong>不同</strong>。</p>
+<p><strong>物理层编码针对的是**</strong>单个比特**,解决传输过程中比特的同步等问题,如曼彻斯特编码。</p>
+<p>而数据链路层的编码针对的是<strong>一组比特</strong>,它通过冗余码的技术实现一组二进制比特串在传输过程是否出现了差错。</p>
+</blockquote>
+<h3 id="奇偶检验码"><a href="#奇偶检验码" class="headerlink" title="奇偶检验码"></a><strong>奇偶检验码</strong></h3><blockquote>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200414/OlVoquTv6wQa.png" alt="mark"></p>
+<p>特点：只能检查出奇数个比特错误，检错能力位50%。</p>
+</blockquote>
+<h3 id="CRC循环冗余码"><a href="#CRC循环冗余码" class="headerlink" title="CRC循环冗余码"></a><strong>CRC循环冗余码</strong></h3><blockquote>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200414/EmRGBYEdxWkL.png" alt="mark"></p>
+<p>eg.    要发送的数据是1101 0110 11，采用CRC检验，生成多项式是10011，        那么最终发送的数据应该是？</p>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200414/faDG56TaMOSg.png" alt="mark"></p>
+<p>guo<img src="http://q8375k9tz.bkt.clouddn.com/blog/20200414/NbeDaVeDmQiJ.png" alt="mark"></p>
+<p><strong>接收端检错过程</strong>    </p>
+<p>​    把收到的每一个帧都除以同样的除数,然后检查得到的余数R.</p>
+<ol>
+<li><p>余数为0,判定这个帧没有差错,<strong>接受</strong>。</p>
+</li>
+<li><p>余数为不为0,判定这个帧有差错(无法确定到位) ,<strong>丢弃</strong>。</p>
+<p> FCS的生成以及接收端CRC检验都是由<strong>硬件</strong>实现,处理很迅速,因此不会延误数据的传输。</p>
+</li>
+</ol>
+</blockquote>
+<p>在数据链路层仅仅使用循环冗余检验CRC差错检测技术,只能做到对帧的无差错接收,即“凡是接收端数据链路层接受的帧,我们都能以非常接近于1的概率认为这些帧在传输过程中没有产生差错”。接收端丢弃的帧虽然曾收到了,但是最终还是因为有差错被丢弃。“凡是接收端数据链路层接收的帧均无差错”</p>
+<p>“可靠传输” :数据链路层发送端发送什么,接收端就收到什么。</p>
+<p>链路层使用CRC检验,能够实现无比特差错的传输,但这还不是可靠传输。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>计算机网络</category>
+      </categories>
+      <tags>
+        <tag>计算机网络</tag>
       </tags>
   </entry>
   <entry>
@@ -1814,162 +2672,6 @@ $$         </code></pre><p>$$<br>2x+3y=34\<br>x+4y=25<br>$$</p>
       <tags>
         <tag>计算机网络</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>操作系统-习题1</title>
-    <url>/lzfangwen.github.io/2020/04/09/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E4%B9%A0%E9%A2%981/</url>
-    <content><![CDATA[<p><strong>学习通 老师布置的第三章的题目 有关 安全序列 银行家算法</strong></p>
-<a id="more"></a>
-
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200409/op1yvQCI6DKH.png" alt="mark"></p>
-<p>(1)</p>
-<table>
-<thead>
-<tr>
-<th>进程</th>
-<th align="center">最大需求数</th>
-<th align="center">已占有资源</th>
-<th align="center">最多还需要</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>P1</td>
-<td align="center">5     5     9</td>
-<td align="center">2     1     2</td>
-<td align="center">3     4     7</td>
-</tr>
-<tr>
-<td>P2</td>
-<td align="center">5     4     6</td>
-<td align="center">4     0     2</td>
-<td align="center">1     4     4</td>
-</tr>
-<tr>
-<td>P3</td>
-<td align="center">4     0     11</td>
-<td align="center">4     0     5</td>
-<td align="center">0     0     6</td>
-</tr>
-<tr>
-<td>P4</td>
-<td align="center">4     2     5</td>
-<td align="center">2     0     4</td>
-<td align="center">2     2     1</td>
-</tr>
-<tr>
-<td>P5</td>
-<td align="center">8     2     4</td>
-<td align="center">3     1     4</td>
-<td align="center">5     1     0</td>
-</tr>
-</tbody></table>
-<p>$T_0$时刻 系统剩余资源 Available=(2,3,3)</p>
-<p>现在系统处于安全状态</p>
-<p>安全序列：P4，P3，P5，P1，P2</p>
-<p>（2）</p>
-<p>$T_0$时刻P4提出（2,0,1）请求后 系统剩余资源 Available=(0,3,2)  可以满足P1提出的（0,2,0）请求</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200409/s0UEB8LiFJI3.png" alt="mark"></p>
-<p>（1）</p>
-<table>
-<thead>
-<tr>
-<th>Process    进程</th>
-<th align="center">Max                 最大需求</th>
-<th align="center">Allocation               已分配</th>
-<th align="center">Need                         最多还需要</th>
-<th>Available               系统可用资源</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>$p_0$</td>
-<td align="center">(0,0,4,4)</td>
-<td align="center">(0,0,3,2)</td>
-<td align="center">(0,0,1,2)</td>
-<td>(1,6,2,2)</td>
-</tr>
-<tr>
-<td>$p_1$</td>
-<td align="center">(2,7,5,0)</td>
-<td align="center">(1,0,0,0)</td>
-<td align="center">(1,7,5,0)</td>
-<td></td>
-</tr>
-<tr>
-<td>$p_2$</td>
-<td align="center">(3,6,10,10)</td>
-<td align="center">(1,3,5,4)</td>
-<td align="center">(2,3,5,6)</td>
-<td></td>
-</tr>
-<tr>
-<td>$p_3$</td>
-<td align="center">(0,9,8,4)</td>
-<td align="center">(0,3,3,2)</td>
-<td align="center">(0,6,5,2)</td>
-<td></td>
-</tr>
-<tr>
-<td>$p_4$</td>
-<td align="center">(0,6,6,10)</td>
-<td align="center">(0,0,1,4)</td>
-<td align="center">(0,6,5,6)</td>
-<td></td>
-</tr>
-</tbody></table>
-<p>安全序列：$p_0$，$p_3$，$p_4$，$p_1$，$p_2$</p>
-<p>系统是安全的</p>
-<p>(2)$p_2$的请求Request(1,2,2,2)</p>
-<p>假如系统分配后 $p_2$ Need(1,1,3,4)</p>
-<p>​                                Available(0,4,0,0)    </p>
-<p>系统陷入死锁        所以系统不能将资源分配给它</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
-      <categories>
-        <category>OS</category>
-      </categories>
-      <tags>
-        <tag>OS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数据库原理及应用-学习笔记2</title>
-    <url>/lzfangwen.github.io/2020/04/12/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/</url>
-    <content><![CDATA[<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
   </entry>
   <entry>
     <title>计算机网络-学习笔记4</title>
@@ -2154,416 +2856,6 @@ $$         </code></pre><p>$$<br>2x+3y=34\<br>x+4y=25<br>$$</p>
 <p>数据链路层采用了选择重传( SR )协议,发送方已经发送了编号为0~3的帧。现已收到1号帧的确认,而0、2号帧依次超时,则发送方需要重传的帧数是(  )。</p>
 <p>A.2         B.3         C.4         D.5</p>
 <p>答案为 A </p>
-</blockquote>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
-      <categories>
-        <category>计算机网络</category>
-      </categories>
-      <tags>
-        <tag>计算机网络</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>计算机网络-学习笔记3</title>
-    <url>/lzfangwen.github.io/2020/04/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/</url>
-    <content><![CDATA[<h1 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h1><p><strong>结点</strong>:主机、路由器</p>
-<p><strong>链路</strong>:网络中两个结点之间的<strong>物理通道</strong>,链路的传输介质主要有双绞线、光纤和微波。分为有线链路、无线链路。</p>
-<p><strong>数据链路</strong>：网络中两个结点之间的逻辑通道，把实现控制数据传输协议的硬件和软件加到链路上就构成数据链路。</p>
-<p><strong>帧</strong>：链路层的协议数据单元，封装网络层数据报。</p>
-<blockquote>
-<p><strong>数据链路层</strong>负责通过一条链路从一个结点向另一个物理链路直接相连的相邻结点传送数据报。</p>
-</blockquote>
-<a id="more"></a>
-
-<h2 id="功能概述"><a href="#功能概述" class="headerlink" title="功能概述"></a>功能概述</h2><p>数据链路层在物理层提供服务的基础上<strong>向网络层提供服务</strong>,其最基本的服务是将源自网络层来的数据可靠地传输到相邻节点的目标机网络层。其主要作用是<strong>加强物理层传输原始比特流的功能</strong>,将物理层提供的可能出错的物理连接改造成为<strong>逻辑上无差错的数据链路</strong>,使之对网络层表现为一条无差错的链路。</p>
-<ul>
-<li>功能一：为网络层提供服务。无确认无连接服务，有确认无连接服务，有确认面向连接服务。有连接一定有确认！</li>
-<li>功能二：链路管理，即连接的建立、维持、释放(用于面向连接的服务)。</li>
-<li>功能三：组帧。</li>
-<li>功能四：流量控制。限制发送方。</li>
-<li>功能五：差错控制（帧错/位错）。</li>
-</ul>
-<h2 id="封装成帧"><a href="#封装成帧" class="headerlink" title="封装成帧"></a>封装成帧</h2><p><strong>封装成帧</strong>就是在一段数据的前后部分添加首部和尾部,这样就构成了一个帧。接收端在收到物理层上交的比特流后,就能根据首部和尾部的标记,从收到的比特流中识别帧的开始和结束。首部和尾部包含许多的控制信息,他们的一个重要作用:<strong>帧定界</strong>(确定帧的界限)。</p>
-<p><strong>帧同步</strong>:接收方应当能从接收到的二进制比特流中区分出帧的起始和终止。</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200413/tkTqDi9GvcYN.png" alt="mark"></p>
-<p>组帧的四种方法：</p>
-<ol>
-<li><p>字符计数法</p>
-<blockquote>
-<p>帧首部使用一个计数字段（第一个字节，八位）来表明帧内字符数。</p>
-<img src="http://q8375k9tz.bkt.clouddn.com/blog/20200413/wL0IDs4VGEjs.png" alt="mark" style="zoom:150%;">
-</blockquote>
-</li>
-<li><p>字符（节）填充法</p>
-<blockquote>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200413/mSvO5mxPIhRk.png" alt="mark"></p>
-<ul>
-<li><p>当传送的帧是由文本文件组成（文本文件的字符都是从键盘上输入的，都是ASCL码）</p>
-<p>不管从键盘上输入什么字符都可以在帧内传出,即<strong>透明传输</strong></p>
-</li>
-<li><p>当传送的帧是由ASCLL码的文本文件组成时（二进制的程序或图像等）就要<strong>采用字符填充的方式实现透明传输</strong>。</p>
-</li>
-<li></li>
-</ul>
-</blockquote>
-</li>
-<li><p>零比特填充法</p>
-</li>
-</ol>
-<blockquote>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200414/NugarvoR0BRL.png" alt="mark"></p>
-<p>操作：</p>
-<ol>
-<li><p>在发送端，扫描整个信息字段，只要连续5个1，就立即填入一个0.</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200414/M3byTU0i5ojR.png" alt="mark"></p>
-</li>
-<li><p>在接收端收到一个帧时，先找到标志字段认定边界，再用硬件对比特流进行扫描。发现连续5个1时，就把后面的0删掉</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200414/rs3YCHovSqpK.png" alt="mark"></p>
-</li>
-</ol>
-</blockquote>
-<ol start="4">
-<li><p>违规编码法</p>
-<blockquote>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200414/rmAVH2b0hvaH.png" alt="mark"></p>
-<p>可以用 <strong>“高高”，“低低”</strong>来定界帧的起始和终止。</p>
-</blockquote>
-</li>
-</ol>
-<p>由于字节计数法中COunt字段的脆弱性（其值若有差错将导致灾难性后果）及字符填充实现上的复杂性和不兼容性，目前较为普遍的帧同步法是<strong>比特填充</strong>和<strong>违规编码法</strong>。</p>
-<h3 id="透明传输"><a href="#透明传输" class="headerlink" title="透明传输"></a>透明传输</h3><p>透明传输是指不管所传数据是什么样的比特组合,都应当能够在链路上传送。因此,链路层就“看不见”有什么妨碍数据传输的东西。当所传数据中</p>
-<p>的比特组合恰巧与某一个控制信息完全一样时,就必须采取适当的措施,使收方不会将这样的数据误以为是某种控制信息。这样才能保证数据链路层的传输是透明的。</p>
-<h2 id="差错控制（检错编码）"><a href="#差错控制（检错编码）" class="headerlink" title="差错控制（检错编码）"></a>差错控制（检错编码）</h2><p>概括来说，传输的差错都是由于噪声引起的。</p>
-<ol>
-<li>全局性    由于线路本身电气特性所产生的<strong>随机噪声</strong>(热噪声),是信道固有的,随机存在的。解决办法:提高信噪比来减少或避免干扰。(对传感器下手)</li>
-<li>局部性     外界特定的短暂原因所造成的<strong>冲击噪声</strong>,是产生差错的主要原因。通常利用编码技术来解决。</li>
-</ol>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200414/s3DqlvPuuWY7.png" alt="mark"></p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200414/j8mDntj7aj7v.png" alt="mark"></p>
-<p>编码的不同</p>
-<blockquote>
-<p>数据链路层编码和物理层的数据编码与调制<strong>不同</strong>。</p>
-<p><strong>物理层编码针对的是**</strong>单个比特**,解决传输过程中比特的同步等问题,如曼彻斯特编码。</p>
-<p>而数据链路层的编码针对的是<strong>一组比特</strong>,它通过冗余码的技术实现一组二进制比特串在传输过程是否出现了差错。</p>
-</blockquote>
-<h3 id="奇偶检验码"><a href="#奇偶检验码" class="headerlink" title="奇偶检验码"></a><strong>奇偶检验码</strong></h3><blockquote>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200414/OlVoquTv6wQa.png" alt="mark"></p>
-<p>特点：只能检查出奇数个比特错误，检错能力位50%。</p>
-</blockquote>
-<h3 id="CRC循环冗余码"><a href="#CRC循环冗余码" class="headerlink" title="CRC循环冗余码"></a><strong>CRC循环冗余码</strong></h3><blockquote>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200414/EmRGBYEdxWkL.png" alt="mark"></p>
-<p>eg.    要发送的数据是1101 0110 11，采用CRC检验，生成多项式是10011，        那么最终发送的数据应该是？</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200414/faDG56TaMOSg.png" alt="mark"></p>
-<p>guo<img src="http://q8375k9tz.bkt.clouddn.com/blog/20200414/NbeDaVeDmQiJ.png" alt="mark"></p>
-<p><strong>接收端检错过程</strong>    </p>
-<p>​    把收到的每一个帧都除以同样的除数,然后检查得到的余数R.</p>
-<ol>
-<li><p>余数为0,判定这个帧没有差错,<strong>接受</strong>。</p>
-</li>
-<li><p>余数为不为0,判定这个帧有差错(无法确定到位) ,<strong>丢弃</strong>。</p>
-<p> FCS的生成以及接收端CRC检验都是由<strong>硬件</strong>实现,处理很迅速,因此不会延误数据的传输。</p>
-</li>
-</ol>
-</blockquote>
-<p>在数据链路层仅仅使用循环冗余检验CRC差错检测技术,只能做到对帧的无差错接收,即“凡是接收端数据链路层接受的帧,我们都能以非常接近于1的概率认为这些帧在传输过程中没有产生差错”。接收端丢弃的帧虽然曾收到了,但是最终还是因为有差错被丢弃。“凡是接收端数据链路层接收的帧均无差错”</p>
-<p>“可靠传输” :数据链路层发送端发送什么,接收端就收到什么。</p>
-<p>链路层使用CRC检验,能够实现无比特差错的传输,但这还不是可靠传输。</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
-      <categories>
-        <category>计算机网络</category>
-      </categories>
-      <tags>
-        <tag>计算机网络</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>计算机网络-学习笔记5</title>
-    <url>/lzfangwen.github.io/2020/04/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B05/</url>
-    <content><![CDATA[<h2 id="信道划分介质访问控制"><a href="#信道划分介质访问控制" class="headerlink" title="信道划分介质访问控制"></a>信道划分介质访问控制</h2><a id="more"></a>
-
-<h2 id="传输数据使用的两种链路"><a href="#传输数据使用的两种链路" class="headerlink" title="传输数据使用的两种链路"></a>传输数据使用的两种链路</h2><ul>
-<li><p><strong>点对点链路</strong></p>
-<p>​    两个相邻节点通过一个链路相连,没有第三者。</p>
-<p>​    应用: PPP协议,常用于<strong>广域网</strong>。</p>
-</li>
-<li><p><strong>广播式链路</strong></p>
-<p>​    所有主机共享通信介质。</p>
-<p>​    应用:早期的总线以太网、无线局域网,常用于<strong>局域网</strong>。</p>
-<p>​    典型拓扑结构:总线型、星型(逻辑总线型)</p>
-</li>
-</ul>
-<h2 id="介质访问控制"><a href="#介质访问控制" class="headerlink" title="介质访问控制"></a>介质访问控制</h2><p>介质访问控制的内容就是,采取一定的措施,使得两对节点之间的通信不会发生互相干扰的情况</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200415/sYksTMKwnq4r.png" alt="mark"></p>
-<blockquote>
-<p>信道划分介质访问控制(<strong>MAC</strong> Mutiple Access Control )协议:</p>
-<ul>
-<li><p>基于多路复用技术划分资源。</p>
-</li>
-<li><p><strong>网络负载重</strong>:共享信道效率高,且公平</p>
-</li>
-<li><p><strong>网络负载轻</strong>:共享信道效率低</p>
-</li>
-</ul>
-<p>随机访问MAC协议:<strong>冲突</strong></p>
-<ul>
-<li>用户根据意愿随机发送信息,发送信息时可独占信道带宽。</li>
-<li><strong>网络负载重</strong>:产生冲突开销</li>
-<li><strong>网络负载轻</strong>:共享信道效率高,单个结点可利用信道全部带宽</li>
-</ul>
-<p>轮询访问MAC协议/轮流协议/轮转访问MAC协议:</p>
-<ul>
-<li>既要不产生冲突,又要发送时占全部带宽<ul>
-<li>轮询协议</li>
-<li>令牌传递协议</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<h3 id="静态划分信道–信道划分介质访问控制"><a href="#静态划分信道–信道划分介质访问控制" class="headerlink" title="静态划分信道–信道划分介质访问控制"></a>静态划分信道–信道划分介质访问控制</h3><p>信道划分介质访问控制:将使用介质的每个设备与来自同一信道上的其他设备的通信隔离开,把时域和频域资源合理地分配给网络上的设备。</p>
-<p><strong>多路复用技术</strong></p>
-<blockquote>
-<p>把多个信号组合在一条物理信道上进行传输,使得多个计算机或终端设备共享信道资源,</p>
-</blockquote>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200415/EX6QzW3QhwRs.png" alt="mark"></p>
-<h4 id="频分多路复用FDM"><a href="#频分多路复用FDM" class="headerlink" title="频分多路复用FDM"></a>频分多路复用FDM</h4><blockquote>
-<p>用户在分配到一定的频带后,在通信过程中自始至终都占用这个频带。频分复用的所有用户在同样的时间占用不同的带宽(频率带宽)资源。</p>
-<p>充分利用传输介质带宽,系统效率较高;由于技术比较成熟,实现也比较容易。</p>
-</blockquote>
-<h4 id="时分多路复用TDM"><a href="#时分多路复用TDM" class="headerlink" title="时分多路复用TDM"></a>时分多路复用TDM</h4><blockquote>
-<p>将时间划分为一段段等长的时分复用帧(TDM帧) 。每一个时分复用的用户在每一个TDM帧中占用<strong>固定序号的时隙</strong>,所有用户轮流占用信道。</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200415/rkTVm2dncpvv.png" alt="mark"></p>
-</blockquote>
-<h4 id="改进的时分复用–统计时分复用STDM"><a href="#改进的时分复用–统计时分复用STDM" class="headerlink" title="改进的时分复用–统计时分复用STDM"></a>改进的时分复用–统计时分复用STDM</h4><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200415/NYeFWCjkktsv.png" alt="mark"></p>
-<h4 id="波分多路复用WDM"><a href="#波分多路复用WDM" class="headerlink" title="波分多路复用WDM"></a>波分多路复用WDM</h4><blockquote>
-<p>波分多路复用就是<strong>光的频分多路复用</strong>,在一根光纤中传输多种不同波长(频率)的光信号,由于波长(频率)·不同,所以各路光信号互不干扰,最后再用波长分解复用器将各路波长分解出来。</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200415/zaVPLjexWx1C.png" alt="mark"></p>
-</blockquote>
-<h4 id="码分多路复用CDM"><a href="#码分多路复用CDM" class="headerlink" title="码分多路复用CDM"></a>码分多路复用CDM</h4><blockquote>
-<p><strong>码分多址(CDMA)是码分复用的一种方式</strong></p>
-<p>一个比特分为多个码片/芯片(chip),每个站点被指定一个唯一的m位的芯片序列。</p>
-<p>发送1时站点发送芯片序列，发送0时发送芯片序列反码(通常把0写成-1)</p>
-<p><strong>如何不打架</strong>：多个站点同时发送数据的时候，要求各个站点芯片序列相互正交</p>
-<p><strong>如何合并</strong>：各路数据在信道中被线性相加。</p>
-<p><strong>如何分离</strong>：合并的数据和源站规格化内积。、</p>
-</blockquote>
-<h3 id="动态分配信道"><a href="#动态分配信道" class="headerlink" title="动态分配信道"></a>动态分配信道</h3><blockquote>
-<p><strong>动态媒体接入控制/多点接入</strong></p>
-<p>特点：信道并非在用户通信时固定分配用户</p>
-</blockquote>
-<p><strong>随机访问介质访问控制</strong></p>
-<blockquote>
-<p>所有用户可随机发送信息。</p>
-<p>发送信息时占<strong>全部带宽</strong></p>
-<p>不协调-&gt;冲突</p>
-</blockquote>
-<h4 id="ALOHA协议"><a href="#ALOHA协议" class="headerlink" title="ALOHA协议"></a>ALOHA协议</h4><h5 id="纯ALOHA协议"><a href="#纯ALOHA协议" class="headerlink" title="纯ALOHA协议"></a>纯ALOHA协议</h5><blockquote>
-<p>思想：不监听信道，不按时间槽发送，随机发送。<strong>想发就发</strong></p>
-<p>冲突如何检测?</p>
-<ul>
-<li>如果发生冲突,接收方在就会检测出差错,然后不予确认,发送方在一定时间内收不到就判断发生冲突。</li>
-</ul>
-<p>冲突如何解决?</p>
-<ul>
-<li>超时后等一随机时间再重传。</li>
-</ul>
-<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200418/BqBp9elChVEh.png" alt="mark"></p>
-</blockquote>
-<h5 id="时隙ALOHA协议"><a href="#时隙ALOHA协议" class="headerlink" title="时隙ALOHA协议"></a>时隙ALOHA协议</h5><blockquote>
-<p>时隙ALOHA协议的思想:把时间分成若干个相同的时间片,所有用户在时间片开始时刻同步接入网络信道,若发生冲突,则必须等到下一个时间片开始时刻再发送。<strong>控制想发就发的随意性</strong></p>
-<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200418/jciHBEkR4HYc.png" alt="mark"></p>
-</blockquote>
-<h5 id="两者区别"><a href="#两者区别" class="headerlink" title="两者区别"></a>两者区别</h5><blockquote>
-<ol>
-<li>纯ALOHA比时隙ALOHA吞吐量更低，效率更低</li>
-<li>纯ALOHA想发就发，时隙ALOHA只有时间片段开始时才能发</li>
-</ol>
-</blockquote>
-<h4 id="CSMA协议"><a href="#CSMA协议" class="headerlink" title="CSMA协议"></a>CSMA协议</h4><blockquote>
-<p>载波监听多路访间协议CSMA (carrier sense multiple access)</p>
-</blockquote>
-<blockquote>
-<p>cs:载波侦听/监听,每一个站在发送数据之前要检测一下总线上是否有其他计算机在发送数据。</p>
-<p>MA:多点接入,表示许多计算机以多点接入的方式连接在一根总线上。</p>
-</blockquote>
-<h5 id="坚持CSMA"><a href="#坚持CSMA" class="headerlink" title="坚持CSMA"></a>坚持CSMA</h5><blockquote>
-<p>坚持指的是对于监听信道<strong>忙</strong>之后的坚持。</p>
-<p>坚持CSMA思想:如果一个主机要发送消息,那么它先监听信道。</p>
-<ul>
-<li><p><strong>空闲则直接传输,不必等待。</strong></p>
-</li>
-<li><p><strong>忙则一直监听,直到空闲马上传输。</strong></p>
-</li>
-<li><p>如果有冲突(一段时间内未收到肯定回复) ,则等待一个随机长的时间再监听,重复上述过程。</p>
-<p>优点:只要媒体空闲,站点就马上发送,避免了媒体利用率的损失。</p>
-<p>缺点:假如有两个或两个以上的站点有数据想发送，冲突就不可避免。</p>
-</li>
-</ul>
-</blockquote>
-<h6 id="非坚持CAMA"><a href="#非坚持CAMA" class="headerlink" title="非坚持CAMA"></a>非坚持CAMA</h6><blockquote>
-<p>非坚持指的是对于监听信道<strong>忙</strong>之后就不继续监听。</p>
-<p>非坚持CSMA思想:如果一个主机要发送消息,那么它先监听信道。</p>
-<ul>
-<li><p><strong>空闲则直接传输,不必等待。</strong></p>
-</li>
-<li><p><strong>忙则等待一个随机的时间之后再进行监听。</strong></p>
-<p>优点:采用随机的重发延迟时间可以减少冲突发生的可能性。</p>
-<p>缺点:可能存在大家都在延迟等待过程中,使得媒体仍可能处于空闲状态,媒体使用率降低。</p>
-</li>
-</ul>
-</blockquote>
-<h5 id="p-坚持CSMA"><a href="#p-坚持CSMA" class="headerlink" title="p-坚持CSMA"></a>p-坚持CSMA</h5><blockquote>
-<p>p-坚持指的是对于监听信道<strong>空闲</strong>的处理。</p>
-<p>p-坚持CSMA思想:如果一个主机要发送消息,那么它先监听信道。</p>
-<ul>
-<li><p><strong>空闲则以p概率直接传输,不必等待;概率1-p等待到下一个时间槽再传输。</strong></p>
-</li>
-<li><p><strong>忙着等待一个随机的时间之后再进行监听</strong></p>
-<p>优点：既能像非坚持算法那样减少冲突,又能像坚持算法那样减少媒体空闲时间的这种方案</p>
-<p>缺点：发生冲突后还是要坚持把数据帧发送完，造成了浪费</p>
-</li>
-</ul>
-</blockquote>
-<h5 id="三种CSMA对比区别"><a href="#三种CSMA对比区别" class="headerlink" title="三种CSMA对比区别"></a>三种CSMA对比区别</h5><p><img src="http://qiniuyun.lzfangwen.cn/blog/20200418/zufy2rGaFmyv.png" alt="mark"></p>
-<h4 id="CSMA-CD协议"><a href="#CSMA-CD协议" class="headerlink" title="CSMA/CD协议"></a>CSMA/CD协议</h4><blockquote>
-<p> 载波监听多点接入/碰撞检测CSMA/CD (carrier sense multiple access with collision detection)</p>
-</blockquote>
-<blockquote>
-<p><strong>CS</strong>:载波侦听/监听,每一个站在<strong>发送数据之前</strong>以及<strong>发送数据时</strong>都要检测一下总线上是否有其他计算c机在发送数据。</p>
-<p><strong>MA</strong>:多点接入,表示许多计算机以多点接入的方式连接在一根总线上。<strong>总线型网络</strong>,</p>
-<p><strong>CD</strong>:碰撞检测(冲突检测) , “<strong>边发送边监听</strong>” ,适配器边发送数据边检测信道上信号电压的变化情况,以便判断自己在发送数据时其他站是否也在发送数据。<strong>半双工网络</strong></p>
-</blockquote>
-<h5 id="传播时延对载波监听的影响"><a href="#传播时延对载波监听的影响" class="headerlink" title="传播时延对载波监听的影响"></a>传播时延对载波监听的影响</h5><blockquote>
-<p>最迟多久才能知道自己发送的数据没和别人碰撞?</p>
-<ul>
-<li><p>最多是两倍的总线端到端的传播时延(2$\tau$)</p>
-</li>
-<li><p>总线的端到端往返传播时延争用期/冲突窗口/碰撞窗口</p>
-<p>只要经过2$\tau$时间还没有检测到碰撞,就能肯定这次发送不会发生碰撞。</p>
-</li>
-</ul>
-</blockquote>
-<h5 id="如何确定碰撞后的重传时机"><a href="#如何确定碰撞后的重传时机" class="headerlink" title="如何确定碰撞后的重传时机"></a>如何确定碰撞后的重传时机</h5><p><strong>截断二进制指数规避算法</strong></p>
-<blockquote>
-<ol>
-<li>确定基本退避(<strong>推迟</strong>)时间为争用期2$\tau$。</li>
-<li>定义参数k,它等于<strong>重传次数</strong>,但k不超过10,即k-mint[重传次数, 10]。当重传次数不超过10时, k等于重传次数;当重传次数大于10时, k就不再增大而一直等于10。</li>
-<li>从离散的整数集合<strong>[0,1,2k-1]</strong>中随机取出一个数r,重传所需要退避的时间就是r倍的基本退避时间,即2r$\tau$。</li>
-<li>当重传达<strong>16次</strong>仍不能成功时,说明网络太拥挤,认为此帧永远无法正确发出,抛弃此帧并向高层报告出错。</li>
-</ol>
-<ul>
-<li>第一次重传, k-1, r从{0, 1}选;</li>
-<li>重传推迟时间为0或2$\tau$,在这两个时间中随机选一个;,</li>
-<li>若再次碰撞,则在第二次重传时, k-2, r从{0, 1, 2, 3}选;</li>
-<li>重传推迟时间为0或2$\tau$或4$\tau$或6$\tau$,在这四个时间中随机选一个;</li>
-<li>若再次碰撞,则第三次重传时, k=3,r从10, 1, 2, 3, 4, 5, 6, 7选……</li>
-</ul>
-<p><strong>若连续多次发生冲突,就表明可能有较多的站参与争用信道。使用此算法可使重传需要推迟的平均时间随重传次数的增大而增大,因而减小发生碰撞的概率,有利于整个系统的稳定。</strong></p>
-</blockquote>
-<p>eg.</p>
-<blockquote>
-<p>例:在以太网的二进制回退算法中,在11次碰撞之后,站点会在0~ (? )之间选择一个随机数。</p>
-<p>k=min{11,10}=10</p>
-<p>$2^k-1=2^{10}-1=1023$</p>
-<p>r$\in$[0,1,2,,1023]</p>
-</blockquote>
-<h5 id="最小帧长问题"><a href="#最小帧长问题" class="headerlink" title="最小帧长问题"></a>最小帧长问题</h5><blockquote>
-<p>帧的传输时延至少要两倍于信号在总线中的传播时延。</p>
-<p>$$\frac {帧长(bit)}{数据传输速率} \geq 2\tau$$</p>
-<p>最小帧长=总线传播时延$\times$数据传输速率$\times$2</p>
-<p>2$\tau\times$数据传输速率</p>
-<p><strong>以太网规定最短帧长为64B,凡是长度小于64B的都是由于冲突而异常终止的无效帧。</strong></p>
-</blockquote>
-<h4 id="CSMA-CA协议"><a href="#CSMA-CA协议" class="headerlink" title="CSMA/CA协议"></a>CSMA/CA协议</h4><blockquote>
-<p>载波监听多点接入/碰撞避免CSMA/CA (carrier sense multiple access with collision avoidance)</p>
-</blockquote>
-<blockquote>
-<p>发送数据前,先检测信道是否空闲。</p>
-<p>空闲则发出<strong>RTS (request to send)</strong> , RTS包括发射端的地址、接收端的地址、下一份数据将持续发送的时间等信息;信道忙则等待。</p>
-<p>接收端收到RTS后,将响应<strong>CTS (clear to send)</strong></p>
-<p>发送端收到CTS后,开始发送数据帧(同时<strong>预约信道</strong>:发送方告知其他站点自己要传多久数据)</p>
-<p>接收端收到数据帧后,将用CRC来检验数据是否正确,正确则响应<strong>ACK帧</strong>。</p>
-<p>发送方收到ACK就可以进行下一个数据帧的发送,若没有则一直重传至规定重发次数为止(采用<strong>二进制指数退避算法</strong>来确定随机的推迟时间)</p>
-</blockquote>
-<blockquote>
-<ol>
-<li><strong>预约信道</strong></li>
-<li><strong>ACK帧</strong></li>
-<li><strong>RTS/CTS帧</strong></li>
-</ol>
-</blockquote>
-<p><strong>CSMA/CD与CSMA/CA</strong></p>
-<blockquote>
-<p>相同点:</p>
-<ul>
-<li>CSMA/CD与CSMA/CA机制都从属于CSMA的思路,其核心是<strong>先听再说</strong>。换言之,两个在接入信道之前都须要进行监听。当发现信道空闲后,才能进行接入。</li>
-</ul>
-<p>不同点:</p>
-<ol>
-<li><strong>传输介质不同</strong>: CSMA/CD用于总线式以太网【有线】 ,而CSMA/CA用于无线局域网【无线】。</li>
-<li><strong>载波检测方式不同</strong>:因传输介质不同, CSMA/CD与CSMA/CA的检测方式也不同。CSMA/CD通过电缆中电压的变化来检测,当数据发生碰撞时,电缆中的电压就会随着发生变化;而CSMA/CA采用能量检测(ED)、载波检测(CS)和能量载波混合检测三种检测信道空闲的方式。</li>
-<li><strong>CSMA/CD检测冲突, CSMA/CA避免冲突</strong>,二者出现冲突后都会进行<strong>有上限的重传</strong>。</li>
-</ol>
-</blockquote>
-<h4 id="轮询协议"><a href="#轮询协议" class="headerlink" title="轮询协议"></a>轮询协议</h4><blockquote>
-<p>主节点轮流“邀请”从属节点发送数据</p>
-<ol>
-<li>轮询开销</li>
-<li>等待延迟</li>
-<li>单点故障</li>
-</ol>
-</blockquote>
-<h4 id="令牌传递协议"><a href="#令牌传递协议" class="headerlink" title="令牌传递协议"></a>令牌传递协议</h4><blockquote>
-<p>令牌:一个特殊格式的MAC控制帧,不含任何信息。控制信道的使用,确保同一时刻只有一个结点独占信道。</p>
-<p><strong>令牌环网无碰撞</strong></p>
-<p>每个结点都可以在一定时间内（令牌持有时间）获得发送数据的权力，并不是无限制地持有令牌</p>
-<p>问题：</p>
-<ol>
-<li><p>令牌开销</p>
-</li>
-<li><p>等待延迟</p>
-</li>
-<li><p>单点故障</p>
-</li>
-</ol>
-<p>应用于令牌环网（物理星型拓扑，逻辑环形拓扑）。</p>
-<p>采用令牌传送方式的网络常用于<strong>负载较重、通信量较大</strong>的网络中。</p>
-<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200418/pMVfBycSrE7i.png" alt="mark"></p>
 </blockquote>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -2942,384 +3234,302 @@ $$         </code></pre><p>$$<br>2x+3y=34\<br>x+4y=25<br>$$</p>
       </tags>
   </entry>
   <entry>
-    <title>操作系统-学习笔记8</title>
-    <url>/lzfangwen.github.io/2020/04/19/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B08/</url>
-    <content><![CDATA[<h1 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h1><h1 id="存储器管理"><a href="#存储器管理" class="headerlink" title="存储器管理"></a>存储器管理</h1><h2 id="内存的基础知识"><a href="#内存的基础知识" class="headerlink" title="内存的基础知识"></a>内存的基础知识</h2><p>内存是用于存放数据的硬件。程序执行前<strong>需要先放到内存中才能被CPU处理</strong></p>
-<ul>
-<li>内存地址从0开始,<strong>每个地址对应一个存储单元</strong></li>
-<li>如果计算机“<strong>按字节编址</strong>”则每个存储单元大小为1字节,即18,即8个二进制位</li>
-<li>如果字长为16位的计算机<strong>,按字编址</strong>” ,则每个存储单元大小为1个字;每个字的犬小为16个二进制位</li>
-</ul>
-<a id="more"></a>
+    <title>计算机网络-学习笔记5</title>
+    <url>/lzfangwen.github.io/2020/04/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B05/</url>
+    <content><![CDATA[<h2 id="信道划分介质访问控制"><a href="#信道划分介质访问控制" class="headerlink" title="信道划分介质访问控制"></a>信道划分介质访问控制</h2><a id="more"></a>
 
-<h3 id="进程的运行原理"><a href="#进程的运行原理" class="headerlink" title="进程的运行原理"></a>进程的运行原理</h3><p><img src="http://qiniuyun.lzfangwen.cn/blog/20200419/po5UOteElwQR.png" alt="mark"></p>
-<p>可见,我们写的代码要翻译成CPU能识别的指令。这些指令会告诉CPU应该去内存的哪个地址存/取数据,这个数据应该做什么样的处理。在这个例子中,指令中直接给出了变量x的实际存放地址(物理地址)但实际在生成机器指令的时候并不知道该进程的数据会被放到什么位置。所以编译生成的指令中一般是使用<strong>逻辑地址(相对地址)</strong></p>
-<h3 id="从写程序到程序运行"><a href="#从写程序到程序运行" class="headerlink" title="从写程序到程序运行"></a>从写程序到程序运行</h3><p><img src="http://qiniuyun.lzfangwen.cn/blog/20200419/ohp5gwJxi5E6.png" alt="mark"></p>
-<p>编译:由编译程序将用户源代码编译成若干个目标模块(编译就是把高级语言翻译为机器语言)</p>
-<p>链接:由链接程序将编译后形成的一组目标模块,以及所需库函数链接在一起,形成一个完整的装入模块装入(装载) :由装入程序将装入模块装入内存运行</p>
-<h3 id="装入模块装入内存"><a href="#装入模块装入内存" class="headerlink" title="装入模块装入内存"></a>装入模块装入内存</h3><p>装入的三种方式(用三种不同的方法完成逻辑地址到物理地址的转换) :</p>
-<ol>
-<li><p><strong>绝对装入</strong></p>
-<blockquote>
-<p>在编译时,如果知道程序将放到内存中的哪个位置,编译程序将产生绝对地址的目标代码。装入程序按照装入模块中的地址,将程序和数据装入内存。</p>
-<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200419/HWhnVYhHMYNa.png" alt="mark"></p>
-<p><strong>绝对装入只适用于单道程序环境</strong>。</p>
-<p>程序中使用的绝对地址,可在编译或汇编时给出,也可由程序员直接赋予。通常情况下都是编译或汇编时再转换为绝对地址。</p>
-</blockquote>
+<h2 id="传输数据使用的两种链路"><a href="#传输数据使用的两种链路" class="headerlink" title="传输数据使用的两种链路"></a>传输数据使用的两种链路</h2><ul>
+<li><p><strong>点对点链路</strong></p>
+<p>​    两个相邻节点通过一个链路相连,没有第三者。</p>
+<p>​    应用: PPP协议,常用于<strong>广域网</strong>。</p>
 </li>
-<li><p><strong>静态重定位</strong></p>
-<blockquote>
-<p>静态重定位:又称<strong>可重定位装入</strong>。编译、链接后的装入模块的地址都是从0开始的,指令中使用的地址、数据存放的地址都是相对于起始地址而言的逻辑地址。可根据内存的当前情况,将装入模块装入到内存的适当位置。装入时对地址进行“<strong>重定位</strong>” ,将逻辑地址变换为物理地址(地址变换是在装入时一次完成的)</p>
-<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200419/t09YVpGMlObb.png" alt="mark"></p>
-<p>静态重定位的特点是在一个作业装入内存时,必须<strong>分配其要求的全部内存空间</strong>,如果没有足够的内存,就不能装入该作业。作业一旦进入内存后,<strong>在运行期间就不能再移动</strong>,也不能再申请内存空间。</p>
-</blockquote>
-</li>
-<li><p><strong>动态重定位</strong></p>
-<blockquote>
-<p>动态重定位:又称<strong>动态运行时装入</strong>。编译、链接后的装入模块的地址都是从0开始的。装入程序把装入模块装入内存后,并不会立即把逻辑地址转换为物理地址,而是<strong>把地址转换推迟到程序真正要执行时才进行</strong>。因此装入内存后所有的地址依然是逻辑地址。这种方式需要一个<strong>重定位寄存器的支持</strong>。</p>
-<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200419/f456nJEC4yym.png" alt="mark"></p>
-<p>并且可将程序分配到不连续的存储区中;在程序运行前只需装入它的部分代码即可投入运行,然后在程序运行期间,根据需要动态申请分配内存;便于程序段的共享,可以向用户提供一个比存储空间大得多的地址空间</p>
-</blockquote>
-</li>
-</ol>
-<h3 id="链接的三种方式"><a href="#链接的三种方式" class="headerlink" title="链接的三种方式"></a>链接的三种方式</h3><ol>
-<li><strong>静态链接</strong>:在程序运行之前,先将各目标模块及它们所需的库函数连接成一个完整的可执行文件(装入模块)之后不再拆开。</li>
-<li><strong>装入时动态链接</strong>:将各目标模块装入内存时,边装入边链接的链接方式。</li>
-<li><strong>运行时动态链接</strong>:在程序执行中需要该目标模块时,才对它进行链接。其优点是便于修改和更新,便于实现对目标模块的共享</li>
-</ol>
-<h2 id="内存管理的概念"><a href="#内存管理的概念" class="headerlink" title="内存管理的概念"></a>内存管理的概念</h2><h3 id="内存空间的分配与回收"><a href="#内存空间的分配与回收" class="headerlink" title="内存空间的分配与回收"></a>内存空间的分配与回收</h3><h4 id="连续分配管理方式"><a href="#连续分配管理方式" class="headerlink" title="连续分配管理方式"></a>连续分配管理方式</h4><h5 id="单一连续分配"><a href="#单一连续分配" class="headerlink" title="单一连续分配"></a>单一连续分配</h5><blockquote>
-<p>在单一连续分配方式中,内存被分为<strong>系统区和用户区</strong>。系统区通常位于内存的低地址部分,用于存放操作系统相关数据;用户区用于存放用户进程相关数据。内存中<strong>只能有一道用户程序</strong>,用户程序独占整个用户区”空间。</p>
-<p><strong>优点</strong>:实现简单;<strong>无外部碎片</strong>;可以采用覆盖技术扩充内存;不一定需要采駛内存保护(eg:早期的PC操作系统MS-DOS)</p>
-<p><strong>缺点</strong>:只能用于单用户、单任务的操作系统中;有内部碎片<a href="分配给某进程的内存区域中,如果有些部分没有用上,就是“内部碎片”">^1</a></p>
-<p>;存储器利用率极低。</p>
-<img src="http://qiniuyun.lzfangwen.cn/blog/20200419/JvxJE8NPo7MN.png" alt="mark" style="zoom: 50%;">
-</blockquote>
-<h5 id="固定分区分配"><a href="#固定分区分配" class="headerlink" title="固定分区分配"></a>固定分区分配</h5><p>20世纪60年代出现了支持多道程序的系统,为了能在内存中装入多道程序,且这些程序之间又不会相互干扰,,于是将整个用户空间划分为若干个國定大小的分区,在每个分区中只装入一道作业,这样就形成了最早的、最简单的一种可运行多道程序的内存管理方式。</p>
-<p>固定分区分配</p>
-<ul>
-<li><p>分区大小相等</p>
-<blockquote>
-<p>分区大小相等:缺乏灵活性,但是很适合用于用一台计算机控制多个相同对象的场合(比如:钢铁厂有n个相同的炼钢炉,就可把内存分为n个大小相等的区域存放n个炼钢炉控制程序)</p>
-</blockquote>
-</li>
-<li><p>分区大小不等</p>
-<blockquote>
-<p>分区大小不等:增加了灵活性,可以满足不同大小的进程需求。根据常在系统中运行的作业大小情况进行划分(比如:划分多个小分区、适量中等分区、少量大分区)</p>
-</blockquote>
+<li><p><strong>广播式链路</strong></p>
+<p>​    所有主机共享通信介质。</p>
+<p>​    应用:早期的总线以太网、无线局域网,常用于<strong>局域网</strong>。</p>
+<p>​    典型拓扑结构:总线型、星型(逻辑总线型)</p>
 </li>
 </ul>
+<h2 id="介质访问控制"><a href="#介质访问控制" class="headerlink" title="介质访问控制"></a>介质访问控制</h2><p>介质访问控制的内容就是,采取一定的措施,使得两对节点之间的通信不会发生互相干扰的情况</p>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200415/sYksTMKwnq4r.png" alt="mark"></p>
 <blockquote>
-<p> 操作系统需要建立一个数据结构–<strong>分区说明表</strong>,来实现各个分区的分配与回收。每个表项对应一个分区,通常按分区大小排列。每个表项包括对应分区的<strong>大小、起始地址、状态</strong>(是否已分配)。</p>
-<p>用数据结构的数组(或链表)即可表示这个表</p>
-<p>当某用户程序要装入内存时,由操作系统内核程序根据用户程序大小检索该表,从中找到一个能满足大小的、未分配的分区,将之分配给该程序,然后修改状态为“已分配”</p>
-<p><strong>优点:实现简单,无外部碎片</strong>。</p>
-</blockquote>
-<h5 id="动态分区分配"><a href="#动态分区分配" class="headerlink" title="动态分区分配"></a>动态分区分配</h5><p><strong>动态分区分配</strong>又称为<strong>可变分区分配</strong>。这种分配方式<strong>不会预先划分内存分区</strong>,而是在进程装入内存时,<strong>根据进程的大小动态地建立分区</strong>,并使分区的大小正好适合进程的需要。因此系统分区的大小和数目是可变的。</p>
-<p><strong>动态分区分配没有内部碎片,但是有外部碎片</strong>。</p>
-<p><strong>内部碎片</strong>,分配给某进程的内存区域中,如果有些部分没有用上。</p>
-<p><strong>外部碎片</strong>,是指内存中的某些空闲分区由于太小而难以利用。</p>
-<p>如果内存中空闲空间的总和本来可以满足某进程的要求,但由于进程需要的是一整块连续的内存空间,因此这些“碎片”不能满足进程的需求。</p>
-<p>可以通过<strong>紧凑(拼凑, Compaction)</strong>技术来解决外部碎片。</p>
+<p>信道划分介质访问控制(<strong>MAC</strong> Mutiple Access Control )协议:</p>
 <ul>
-<li>两种数据结构</li>
+<li><p>基于多路复用技术划分资源。</p>
+</li>
+<li><p><strong>网络负载重</strong>:共享信道效率高,且公平</p>
+</li>
+<li><p><strong>网络负载轻</strong>:共享信道效率低</p>
+</li>
 </ul>
-<ol>
-<li><p><strong>空闲分区表</strong></p>
-<blockquote>
-<p>空闲分区表:每个空闲分区对应一个表项。表项中包含分区号分区大小、分区起始地址等信息<img src="http://qiniuyun.lzfangwen.cn/blog/20200419/uKFQ1hSoSnEU.png" alt="mark"></p>
-</blockquote>
-</li>
-<li><p><strong>空闲分区链</strong></p>
-<blockquote>
-<p>空闲分区链:每个分区的起始部分和末尾部分分别设置前向指针和后向指针。起始部分处还可记录分区大小等信息<img src="http://qiniuyun.lzfangwen.cn/blog/20200419/emnC2xwL558e.png" alt="mark"></p>
-</blockquote>
-</li>
-</ol>
+<p>随机访问MAC协议:<strong>冲突</strong></p>
 <ul>
-<li><strong>动态分区分配算法</strong></li>
+<li>用户根据意愿随机发送信息,发送信息时可独占信道带宽。</li>
+<li><strong>网络负载重</strong>:产生冲突开销</li>
+<li><strong>网络负载轻</strong>:共享信道效率高,单个结点可利用信道全部带宽</li>
 </ul>
-<ol>
-<li><p><strong>首次适应算法</strong></p>
-<blockquote>
-<p>算法思想:每次都从低地址开始查找,找到第一个能满足大小的空闲分区。</p>
-<p>如何实现:<strong>空闲分区以地址递增的次序排列</strong>。每次分配内存时顺序查找<strong>空闲分区链</strong>(或<strong>空闲分区表</strong>) ,找到大小能满足要求的第一个空闲分区。</p>
-</blockquote>
-</li>
-<li><p><strong>最佳适应算法</strong></p>
-<blockquote>
-<p>算法思想:由于动态分区分配是一种连续分配方式,为各进程分配的空间必须是连续的一整片区域。因此为了保证当“大进程”到来时能有连续的大片空间,可以尽可能多地留下大片的空闲区,即,优先使用更小的空闲区。</p>
-<p>如何实现<strong>:空闲分区按容量递增次序链接</strong>。每次分配内存时顺序查找<strong>空闲分区链</strong>(或<strong>空闲分区表</strong>，找到大小能满足要求的第一个空闲分区。</p>
-</blockquote>
-</li>
-<li><p><strong>最坏适应算法</strong></p>
-<blockquote>
-<p>又称<strong>最大适应算法</strong>(Largest Fit)</p>
-<p>算法思想:为了解决最佳适应算法的问题–即留下太多难以利用的小碎片,可以在每次分配时优先使用最大的连续空闲区,这样分配后剩余的空闲区就不会太小,更方便使用。</p>
-<p>如何实现:<strong>空闲分区按容量递减次序链接</strong>。每次分配内存时顺序查找空闲分区链(或空闲分区表) ,找到大小能满足要求的第一个空闲分区。</p>
-<p><strong>缺点</strong>:每次都选最大的分区进行分配,虽然可以让分配后留下的空闲区更大,更可用,但是这种方式会导致较大的连续空闲区被迅速用完。如果之后有“大进程”到达,就没有内存分区可用了。</p>
-</blockquote>
-</li>
-<li><p><strong>邻近适应算法</strong></p>
-<blockquote>
-<p>AKA <strong>循环首次适应算法</strong></p>
-<p>算法思想:首次适应算法每次都从链头开始查找的。这可能会导致低地址部分出现很多小的空闲分区,而每次分配查找时,都要经过这些分区,因此也增加了查找的开销。如果每次都从上次查找结束的位置开始检索,就能解决上述问题。</p>
-<p>如何实现:空闲分区以地址递增的顺序排列(可排成一个循环链表)。每次分配内存时<strong>从上次查找结束的位置开始查找</strong>空闲分区链(或空闲分区表) ,找到大小能满足要求的第一个空闲分区。</p>
-<p>优点</p>
+<p>轮询访问MAC协议/轮流协议/轮转访问MAC协议:</p>
 <ul>
-<li>首次适应算法每次都要从头查找,每次都需要检索低地址的小分区。但是这种规则也决定了当低地址部分有更小的分区可以满足需求时,会更有可能用到低地址部分的小分区,也会更有可能把高地址部分的,大分区保留下来</li>
+<li>既要不产生冲突,又要发送时占全部带宽<ul>
+<li>轮询协议</li>
+<li>令牌传递协议</li>
 </ul>
-<p>缺点</p>
-<ul>
-<li>邻近适应算法的规则可能会导致无论低地址、高地址部分的空闲分区都有相同的概率被使用,也就导致了高地址部分的大分区更可能被使用,划分为小分区,最后导致无大分区可用</li>
+</li>
 </ul>
 </blockquote>
-<table>
-<thead>
-<tr>
-<th>算法</th>
-<th>算法思想</th>
-<th>分区排列顺序</th>
-<th>优点</th>
-<th>缺点</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>首次适应</td>
-<td>从头到尾找适合的分区</td>
-<td>空闲分区以地址递增次序排序</td>
-<td>综合看性能最好。算,法开销小,回收分区后一般不需要对空闲区队列重新排序</td>
-<td></td>
-</tr>
-<tr>
-<td>最佳适应</td>
-<td>优先使用更小的分区,以保留更多大分区</td>
-<td>空闲分区以容量递增次序排列</td>
-<td>会有更多的大分区被保留下来,更能满足大进程需求</td>
-<td>会产生很多太小的、难以利用的碎片;<strong>算法开销大</strong>,回收分区后可能需要对空闲分区队列重新排序</td>
-</tr>
-<tr>
-<td>最坏适应</td>
-<td>优先使用更大的分区,以防止产生太小的不可用的碎片</td>
-<td>空闲分区以容量递减次序排列</td>
-<td>可以减少难以利用的小碎片</td>
-<td>大分区容易被用完,不禾于大进程;<strong>算法开销大</strong>(原因同上)</td>
-</tr>
-<tr>
-<td>临近适应</td>
-<td>由首次适应演变而来,每次从上次查找结束位置开始查找</td>
-<td>空闲分区以地址,递增次序排列(可排列成循环链表)</td>
-<td>不用每次都从低地址的小分区开始检索。算法开销小(原因同次适应算法)</td>
-<td>会使高地址的大分区也被用完</td>
-</tr>
-</tbody></table>
-</li>
-</ol>
-<h4 id="非连续分配管理方式"><a href="#非连续分配管理方式" class="headerlink" title="非连续分配管理方式"></a>非连续分配管理方式</h4><h5 id="基本分页存储管理"><a href="#基本分页存储管理" class="headerlink" title="基本分页存储管理"></a><strong>基本分页存储管理</strong></h5><blockquote>
-<p>将内存空间分为一个个<strong>大小相等的分区</strong>(比如:每个分区4KB) ,每个分区就是一个“<strong>页框</strong>” ,或称“<strong>页帧</strong>”、“<strong>内存块</strong>”、“<strong>物理块</strong>”。每个页框有一个编号,即“<strong>页框号</strong>” (或者“<strong>内存块号</strong>”、“<strong>页帧号</strong>”、“<strong>物理块号</strong>” )页框号<strong>从0开始</strong>。</p>
-<p>将用户进程的地址空间也分为<strong>与页框大小相等</strong>的一个个区域,称为“<strong>页</strong>”或“<strong>页面</strong>” 。每个页面也有一个编号,即“页号”页号也是<strong>从0开始</strong>。</p>
-<p>(注:进程的最后一个页面可能没有一个页框那么大。因此,<strong>页框不能太大,否则可能产生过大的内部碎片</strong>)</p>
-<p>操作系统<strong>以页框为单位为各个进程分配</strong>内存空间。进程的每个页面分别放入一个页框中。也就是说,进程的<strong>页面与内存的页框有一一对应的关系</strong>。   </p>
+<h3 id="静态划分信道–信道划分介质访问控制"><a href="#静态划分信道–信道划分介质访问控制" class="headerlink" title="静态划分信道–信道划分介质访问控制"></a>静态划分信道–信道划分介质访问控制</h3><p>信道划分介质访问控制:将使用介质的每个设备与来自同一信道上的其他设备的通信隔离开,把时域和频域资源合理地分配给网络上的设备。</p>
+<p><strong>多路复用技术</strong></p>
+<blockquote>
+<p>把多个信号组合在一条物理信道上进行传输,使得多个计算机或终端设备共享信道资源,</p>
 </blockquote>
-<h5 id="实现地址的转换"><a href="#实现地址的转换" class="headerlink" title="实现地址的转换"></a><strong>实现地址的转换</strong></h5><blockquote>
-<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200419/0FzHRtjSfTto.png" alt="mark"></p>
-<p>eg.    CPU执行指令1,需要访问逻辑地址为80的内存单元,如何转化为物理地址?</p>
-<p>逻辑地址为80的内存单元:应该在<strong>1号页</strong>,该页在内存中的<strong>起始位置为450</strong>,逻辑地址为80的内存单元相对于该页的起始地址而言,“<strong>偏移量”应该是30</strong>    <strong>实际物理地址</strong>=450+ 30=480</p>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200415/EX6QzW3QhwRs.png" alt="mark"></p>
+<h4 id="频分多路复用FDM"><a href="#频分多路复用FDM" class="headerlink" title="频分多路复用FDM"></a>频分多路复用FDM</h4><blockquote>
+<p>用户在分配到一定的频带后,在通信过程中自始至终都占用这个频带。频分复用的所有用户在同样的时间占用不同的带宽(频率带宽)资源。</p>
+<p>充分利用传输介质带宽,系统效率较高;由于技术比较成熟,实现也比较容易。</p>
+</blockquote>
+<h4 id="时分多路复用TDM"><a href="#时分多路复用TDM" class="headerlink" title="时分多路复用TDM"></a>时分多路复用TDM</h4><blockquote>
+<p>将时间划分为一段段等长的时分复用帧(TDM帧) 。每一个时分复用的用户在每一个TDM帧中占用<strong>固定序号的时隙</strong>,所有用户轮流占用信道。</p>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200415/rkTVm2dncpvv.png" alt="mark"></p>
+</blockquote>
+<h4 id="改进的时分复用–统计时分复用STDM"><a href="#改进的时分复用–统计时分复用STDM" class="headerlink" title="改进的时分复用–统计时分复用STDM"></a>改进的时分复用–统计时分复用STDM</h4><p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200415/NYeFWCjkktsv.png" alt="mark"></p>
+<h4 id="波分多路复用WDM"><a href="#波分多路复用WDM" class="headerlink" title="波分多路复用WDM"></a>波分多路复用WDM</h4><blockquote>
+<p>波分多路复用就是<strong>光的频分多路复用</strong>,在一根光纤中传输多种不同波长(频率)的光信号,由于波长(频率)·不同,所以各路光信号互不干扰,最后再用波长分解复用器将各路波长分解出来。</p>
+<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200415/zaVPLjexWx1C.png" alt="mark"></p>
+</blockquote>
+<h4 id="码分多路复用CDM"><a href="#码分多路复用CDM" class="headerlink" title="码分多路复用CDM"></a>码分多路复用CDM</h4><blockquote>
+<p><strong>码分多址(CDMA)是码分复用的一种方式</strong></p>
+<p>一个比特分为多个码片/芯片(chip),每个站点被指定一个唯一的m位的芯片序列。</p>
+<p>发送1时站点发送芯片序列，发送0时发送芯片序列反码(通常把0写成-1)</p>
+<p><strong>如何不打架</strong>：多个站点同时发送数据的时候，要求各个站点芯片序列相互正交</p>
+<p><strong>如何合并</strong>：各路数据在信道中被线性相加。</p>
+<p><strong>如何分离</strong>：合并的数据和源站规格化内积。、</p>
+</blockquote>
+<h3 id="动态分配信道"><a href="#动态分配信道" class="headerlink" title="动态分配信道"></a>动态分配信道</h3><blockquote>
+<p><strong>动态媒体接入控制/多点接入</strong></p>
+<p>特点：信道并非在用户通信时固定分配用户</p>
+</blockquote>
+<p><strong>随机访问介质访问控制</strong></p>
+<blockquote>
+<p>所有用户可随机发送信息。</p>
+<p>发送信息时占<strong>全部带宽</strong></p>
+<p>不协调-&gt;冲突</p>
+</blockquote>
+<h4 id="ALOHA协议"><a href="#ALOHA协议" class="headerlink" title="ALOHA协议"></a>ALOHA协议</h4><h5 id="纯ALOHA协议"><a href="#纯ALOHA协议" class="headerlink" title="纯ALOHA协议"></a>纯ALOHA协议</h5><blockquote>
+<p>思想：不监听信道，不按时间槽发送，随机发送。<strong>想发就发</strong></p>
+<p>冲突如何检测?</p>
+<ul>
+<li>如果发生冲突,接收方在就会检测出差错,然后不予确认,发送方在一定时间内收不到就判断发生冲突。</li>
+</ul>
+<p>冲突如何解决?</p>
+<ul>
+<li>超时后等一随机时间再重传。</li>
+</ul>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200418/BqBp9elChVEh.png" alt="mark"></p>
+</blockquote>
+<h5 id="时隙ALOHA协议"><a href="#时隙ALOHA协议" class="headerlink" title="时隙ALOHA协议"></a>时隙ALOHA协议</h5><blockquote>
+<p>时隙ALOHA协议的思想:把时间分成若干个相同的时间片,所有用户在时间片开始时刻同步接入网络信道,若发生冲突,则必须等到下一个时间片开始时刻再发送。<strong>控制想发就发的随意性</strong></p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200418/jciHBEkR4HYc.png" alt="mark"></p>
+</blockquote>
+<h5 id="两者区别"><a href="#两者区别" class="headerlink" title="两者区别"></a>两者区别</h5><blockquote>
 <ol>
-<li><p>要算出逻辑地址对应的<strong>页号</strong></p>
-</li>
-<li><p>要知道该页号对应<strong>页面在内存中的起始地址</strong></p>
-</li>
-<li><p>要算出逻辑地址<strong>在页面内的“偏移量”</strong></p>
-</li>
-<li><p><strong>物理地址=页面始址+页内偏移量</strong></p>
-<blockquote>
-<p>页号=逻辑地址/页面长度(取除法的<strong>整数</strong>部分)</p>
-<p>页内偏移量=逻辑地址%页面长度(取除法的<strong>余数</strong>部分)</p>
-<p>页面在内存中的起始位置:操作系统需要用某种数据结构记录进程各个页面的起始位置。</p>
-</blockquote>
-<blockquote>
-<p>页号=80/50=1</p>
-<p>页内偏移量=80 % 50= 30</p>
-<p>1号页在内存中存放的起始位置450</p>
-</blockquote>
-</li>
+<li>纯ALOHA比时隙ALOHA吞吐量更低，效率更低</li>
+<li>纯ALOHA想发就发，时隙ALOHA只有时间片段开始时才能发</li>
 </ol>
 </blockquote>
-<h5 id="逻辑地址结构"><a href="#逻辑地址结构" class="headerlink" title="逻辑地址结构"></a><strong>逻辑地址结构</strong></h5><p><img src="http://qiniuyun.lzfangwen.cn/blog/20200419/VWp4DtKPHcYW.png" alt="mark"></p>
-<p>地址结构包含两个部分:前一部分为页号,后一部分为页内偏移量w。在上图所示的例子中,地址长度为32位,其中0-11位为“页内偏移量”,或称“页内地址” ; 12~31位为“页号”</p>
-<p><strong>如果有K位表示“页内偏移量” ,则说明该系统中一个页面的大小是$ 2^K $个内存单元如果有M位表示“页号” ,则说明在该系统中,一个进程最多允许有$ 2^M $个页面</strong></p>
-<h5 id="页表"><a href="#页表" class="headerlink" title="页表"></a><strong>页表</strong></h5><p>为了能知道进程的每个页面在内存中存放的位置,操作系统要为每个进程建立一张页表。</p>
-<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200419/nJYpkLCMmkvS.png" alt="mark"></p>
-<ol>
-<li><p>一个进程对应一张页表</p>
-</li>
-<li><p>进程的每一页对应一个页表项,每个页表项由“页号”和“块号”组成</p>
-</li>
-<li><p>页表记录进程页面和实际存放的内存块之间的对应关系</p>
-</li>
-<li><p>每个页表项的长度是相同的,<strong>页号是“隐含”的</strong></p>
-</li>
-</ol>
-<h5 id="基本地址交换机构"><a href="#基本地址交换机构" class="headerlink" title="基本地址交换机构"></a>基本地址交换机构</h5><p>   <img src="C:%5CUsers%5C%E9%83%9D%E6%97%8B%E6%96%8C%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200419170057116.png" alt="image-20200419170057116"></p>
-<p>基本地址变换机构可以借助进程的页表将逻辑地址转换为物理地址。</p>
-<p>通常会在系统中设置一个<strong>页表寄存器(PTR)</strong> ,存放<strong>页表在内存中的起始地址F</strong>和<strong>页表长度M</strong>.进程未执行时,页表的始址和页表长度放在<strong>进程控制块(PCB)中</strong>,当进程被调度时,操作系统内核会把它们放到页表寄存器中。</p>
-<p>注意:<strong>页面大小是2的整数幂</strong></p>
-<p>设页面大小为L,逻辑地址A到物理地址E的变换过程如下:</p>
-<ol>
-<li>计算页号P和页内偏移量w (如果用十进制数手算,则P=A/L, W=A%L;但是在计算机实际运行时,逻辑地址结构是固定不变的,因此计算机硬件可以更快地得到二进制表示的页号、页内偏移量)</li>
-<li>比较页号P和页表长度M,若P$\geq$M,则产生越界中断,否则继续执行。(注意:页号是从0开始的,而页表长度至少是1,因此<strong>P=M时也会越界</strong>)</li>
-<li>页表中页号P对应的<strong>页表项地址=页表起始地址F+页号P×页表项长度,</strong>取出该页表项内容b,即为内存块号。(注意区分<strong>页表项长度、页表长度、页面大小的区别。页表长度</strong>指的是这个页表中总共有几个页表项,即总共有几个页;页表项长度指的是每个页表项占多大的存储空间;<strong>页面大小</strong>指的是一个页面占多大的存储空间）</li>
-<li>计算E=b×L+w,用得到的物理地址E去访存。(如果内存块号、页面偏移量是用二进制表示的,那么把二者拼接起来就是最终的物理地址了)</li>
-</ol>
-<h5 id="具有快表的地址交换机构"><a href="#具有快表的地址交换机构" class="headerlink" title="具有快表的地址交换机构"></a>具有快表的地址交换机构</h5><p><strong>局部性原理</strong></p>
-<blockquote>
-<p><strong>时间局部性</strong>:如果执行了程序中的某条指令,那么不久后这条指令很有可能再次执行;如果某个数据被访问过,不久之后该数据很可能再次被访问。(因为程序中存在大量的循环)</p>
-<p><strong>空间局部性</strong>:一旦程序访问了某个存储单元,在不久之后,其附近的存储单元也很有可能被访问。(因为很多数据在内存中都是连续存放的）</p>
+<h4 id="CSMA协议"><a href="#CSMA协议" class="headerlink" title="CSMA协议"></a>CSMA协议</h4><blockquote>
+<p>载波监听多路访间协议CSMA (carrier sense multiple access)</p>
 </blockquote>
-<p><strong>什么是快表（TLB）</strong></p>
 <blockquote>
-<p>快表,又称<strong>联想寄存器(TLB)</strong> ,是一种<strong>访问速度比内存快很多</strong>的高速缓冲存储器,用来存放当前访问的若干页表项,以加速地址变换的过程。与此对应,内存中的页表常称为<strong>慢表</strong>。</p>
+<p>cs:载波侦听/监听,每一个站在发送数据之前要检测一下总线上是否有其他计算机在发送数据。</p>
+<p>MA:多点接入,表示许多计算机以多点接入的方式连接在一根总线上。</p>
 </blockquote>
-<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200419/wq02ONIlqPtF.png" alt="mark"></p>
-<p><strong>引入快表后，地址的变换过程</strong></p>
-<ol>
-<li><p>CPU给出逻辑地址, 由某个硬件算得页号、页内偏移量,将页号与快表中的所有页号进行比较。</p>
+<h5 id="坚持CSMA"><a href="#坚持CSMA" class="headerlink" title="坚持CSMA"></a>坚持CSMA</h5><blockquote>
+<p>坚持指的是对于监听信道<strong>忙</strong>之后的坚持。</p>
+<p>坚持CSMA思想:如果一个主机要发送消息,那么它先监听信道。</p>
+<ul>
+<li><p><strong>空闲则直接传输,不必等待。</strong></p>
 </li>
-<li><p>如果找到匹配的页号,说明要访问的页表项在快表中有副本,则直接从中取出该页对应的内存块号,再将内存块号与页内偏移量拼接形成物理地址,最后,<strong>访问</strong>该物理地址对应的<strong>内存单元</strong>。因此,若<strong>快表命中</strong>,则访问某个逻辑地址仅需<strong>一次访存</strong>即可。</p>
+<li><p><strong>忙则一直监听,直到空闲马上传输。</strong></p>
 </li>
-<li><p>如果没有找到匹配的页号,则需要<strong>访问内存中的页表</strong>,找到对应页表项,得到页面存放的内存块号,再将内存块号与页内偏移量拼接形成物理地址,最后,访问该物理地址对应的内存单元。因此若<strong>快表未命中</strong>,则访问某个逻辑地址需要<strong>两次访存(</strong>注意:在找到页表项后,应同时将其存入快表,以便后面可能的再次访问。但若快表已满,则必须按照一定的算法对旧的页表项进行替换)</p>
-<p>由于查询快表的速度比查询页表的速度快很多,因此只要快表命中,就可以节省很多时间。因为局部性原理,一般来说快表的命中率可以达到90%以上。</p>
+<li><p>如果有冲突(一段时间内未收到肯定回复) ,则等待一个随机长的时间再监听,重复上述过程。</p>
+<p>优点:只要媒体空闲,站点就马上发送,避免了媒体利用率的损失。</p>
+<p>缺点:假如有两个或两个以上的站点有数据想发送，冲突就不可避免。</p>
+</li>
+</ul>
+</blockquote>
+<h6 id="非坚持CAMA"><a href="#非坚持CAMA" class="headerlink" title="非坚持CAMA"></a>非坚持CAMA</h6><blockquote>
+<p>非坚持指的是对于监听信道<strong>忙</strong>之后就不继续监听。</p>
+<p>非坚持CSMA思想:如果一个主机要发送消息,那么它先监听信道。</p>
+<ul>
+<li><p><strong>空闲则直接传输,不必等待。</strong></p>
+</li>
+<li><p><strong>忙则等待一个随机的时间之后再进行监听。</strong></p>
+<p>优点:采用随机的重发延迟时间可以减少冲突发生的可能性。</p>
+<p>缺点:可能存在大家都在延迟等待过程中,使得媒体仍可能处于空闲状态,媒体使用率降低。</p>
+</li>
+</ul>
+</blockquote>
+<h5 id="p-坚持CSMA"><a href="#p-坚持CSMA" class="headerlink" title="p-坚持CSMA"></a>p-坚持CSMA</h5><blockquote>
+<p>p-坚持指的是对于监听信道<strong>空闲</strong>的处理。</p>
+<p>p-坚持CSMA思想:如果一个主机要发送消息,那么它先监听信道。</p>
+<ul>
+<li><p><strong>空闲则以p概率直接传输,不必等待;概率1-p等待到下一个时间槽再传输。</strong></p>
+</li>
+<li><p><strong>忙着等待一个随机的时间之后再进行监听</strong></p>
+<p>优点：既能像非坚持算法那样减少冲突,又能像坚持算法那样减少媒体空闲时间的这种方案</p>
+<p>缺点：发生冲突后还是要坚持把数据帧发送完，造成了浪费</p>
+</li>
+</ul>
+</blockquote>
+<h5 id="三种CSMA对比区别"><a href="#三种CSMA对比区别" class="headerlink" title="三种CSMA对比区别"></a>三种CSMA对比区别</h5><p><img src="http://qiniuyun.lzfangwen.cn/blog/20200418/zufy2rGaFmyv.png" alt="mark"></p>
+<h4 id="CSMA-CD协议"><a href="#CSMA-CD协议" class="headerlink" title="CSMA/CD协议"></a>CSMA/CD协议</h4><blockquote>
+<p> 载波监听多点接入/碰撞检测CSMA/CD (carrier sense multiple access with collision detection)</p>
+</blockquote>
 <blockquote>
+<p><strong>CS</strong>:载波侦听/监听,每一个站在<strong>发送数据之前</strong>以及<strong>发送数据时</strong>都要检测一下总线上是否有其他计算c机在发送数据。</p>
+<p><strong>MA</strong>:多点接入,表示许多计算机以多点接入的方式连接在一根总线上。<strong>总线型网络</strong>,</p>
+<p><strong>CD</strong>:碰撞检测(冲突检测) , “<strong>边发送边监听</strong>” ,适配器边发送数据边检测信道上信号电压的变化情况,以便判断自己在发送数据时其他站是否也在发送数据。<strong>半双工网络</strong></p>
+</blockquote>
+<h5 id="传播时延对载波监听的影响"><a href="#传播时延对载波监听的影响" class="headerlink" title="传播时延对载波监听的影响"></a>传播时延对载波监听的影响</h5><blockquote>
+<p>最迟多久才能知道自己发送的数据没和别人碰撞?</p>
+<ul>
+<li><p>最多是两倍的总线端到端的传播时延(2$\tau$)</p>
+</li>
+<li><p>总线的端到端往返传播时延争用期/冲突窗口/碰撞窗口</p>
+<p>只要经过2$\tau$时间还没有检测到碰撞,就能肯定这次发送不会发生碰撞。</p>
+</li>
+</ul>
+</blockquote>
+<h5 id="如何确定碰撞后的重传时机"><a href="#如何确定碰撞后的重传时机" class="headerlink" title="如何确定碰撞后的重传时机"></a>如何确定碰撞后的重传时机</h5><p><strong>截断二进制指数规避算法</strong></p>
+<blockquote>
+<ol>
+<li>确定基本退避(<strong>推迟</strong>)时间为争用期2$\tau$。</li>
+<li>定义参数k,它等于<strong>重传次数</strong>,但k不超过10,即k-mint[重传次数, 10]。当重传次数不超过10时, k等于重传次数;当重传次数大于10时, k就不再增大而一直等于10。</li>
+<li>从离散的整数集合<strong>[0,1,2k-1]</strong>中随机取出一个数r,重传所需要退避的时间就是r倍的基本退避时间,即2r$\tau$。</li>
+<li>当重传达<strong>16次</strong>仍不能成功时,说明网络太拥挤,认为此帧永远无法正确发出,抛弃此帧并向高层报告出错。</li>
+</ol>
+<ul>
+<li>第一次重传, k-1, r从{0, 1}选;</li>
+<li>重传推迟时间为0或2$\tau$,在这两个时间中随机选一个;,</li>
+<li>若再次碰撞,则在第二次重传时, k-2, r从{0, 1, 2, 3}选;</li>
+<li>重传推迟时间为0或2$\tau$或4$\tau$或6$\tau$,在这四个时间中随机选一个;</li>
+<li>若再次碰撞,则第三次重传时, k=3,r从10, 1, 2, 3, 4, 5, 6, 7选……</li>
+</ul>
+<p><strong>若连续多次发生冲突,就表明可能有较多的站参与争用信道。使用此算法可使重传需要推迟的平均时间随重传次数的增大而增大,因而减小发生碰撞的概率,有利于整个系统的稳定。</strong></p>
+</blockquote>
 <p>eg.</p>
-<p>某系统使用基本分页存储管理,并采用了具有快表的地址变换机构。访问一次快表耗时1us,访问一次内存耗时100us。若快表的命中率为90%,那么访问一个逻辑地址的平均耗时是多少?</p>
-<p>(1+100) * 0.9 + (1+100+100)* 0.1=111 us</p>
-<p>有的系统支持快表和慢表同时查找,如果是这样,平均耗时应该是(1+100) * 0.9 + (100+100) *0.1=110.9 us</p>
-<p>若未采用快表机制,则访问一个逻辑地址需要100+100 =200us</p>
-<p>显然,引入快表机制后,访问一个逻辑地址的速度快多了。</p>
-</blockquote>
-<p> <img src="C:%5CUsers%5C%E9%83%9D%E6%97%8B%E6%96%8C%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200419230838293.png" alt="image-20200419230838293"></p>
-<h5 id="两级页表"><a href="#两级页表" class="headerlink" title="两级页表"></a>两级页表</h5><p>单级页表的问题</p>
-<ul>
-<li>页表必须连续存放,因此当页表很大时,需要占用很多个连续的页框。</li>
-<li>没有必要让整个页表常驻内存,因为进程在一段时间内可能只需要访问某几个特定的页面。</li>
-</ul>
-<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200420/gVprkxsSFd7k.png" alt="mark"></p>
-<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200420/XTr6er5J0pMT.png" alt="mark"></p>
-<p>若采用多级页表机制,则<strong>各级页表的大小不能超过一个页面</strong></p>
 <blockquote>
-<p>eg.:某系统按字节编址,采用40位逻辑地址,页面大小为4KB,页表项大小为4B,假设采用纯页式存储,则要采用()级页表,页内偏移量为()位?</p>
-<p>页面大小=4KB=$2 ^{12}$B,按字节编址,因此页内偏移量为12位</p>
-<p>页号=40-12=28位</p>
-<p>页面大小=$2 ^{12}$B,页表项大小=4B,则每个页面可存放$2 ^{12}$/4=$2 ^{10}$个页表项因此各级页表最多包含$2 ^{10}$个页表项,需要10位二进制位才能映射到$2 ^{10}$个页表项,因此每一级的页表对应页号应为10位。总共28位的页号至少要分为三级</p>
-<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200420/C60oNnRiXfrS.png" alt="mark"></p>
+<p>例:在以太网的二进制回退算法中,在11次碰撞之后,站点会在0~ (? )之间选择一个随机数。</p>
+<p>k=min{11,10}=10</p>
+<p>$2^k-1=2^{10}-1=1023$</p>
+<p>r$\in$[0,1,2,,1023]</p>
 </blockquote>
-<p>两级页表的访存次数分析(假设没有快表机构),</p>
-<ul>
-<li>第一次访存:访问内存中的页目录表</li>
-<li>第二次访存:访问内存中的二级页表</li>
-<li>第三次访存:访问目标内存单元</li>
-</ul>
-<h5 id="基本分段存储管理方式"><a href="#基本分段存储管理方式" class="headerlink" title="基本分段存储管理方式"></a>基本分段存储管理方式</h5><h6 id="分段"><a href="#分段" class="headerlink" title="分段"></a><strong>分段</strong></h6><p>进程的地址空间:按照程序<strong>自身的逻辑</strong>关系<strong>划分为若干个段</strong>,每个段都有一个段名(在低级语言中,程序员使用段名来编程) ,<strong>每段从0开始编址</strong></p>
-<p>内存分配规则:以段为单位进行分配<strong>,每个段在内存中占据连续空间,但各段之间可以不相邻</strong>。</p>
-<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200420/J9v6YEdtgc8L.png" alt="mark"></p>
-<p>分段系统的逻辑地址结构由段号(段名)和段内地址(段内偏移量)所组成。如</p>
-<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200420/p1dDHMWD4a9H.png" alt="mark"></p>
-<p>段号的位数决定了每个进程最多可以分几个段段内地址位数决定了每个段的最大长度是多少</p>
-<p>在上述例子中,若系统是按字节寻址的,则段号占16位,因此在该系统中,每个进程最多有$2^{16}$= 64K个段</p>
-<p>段内地址占16位,因此每个段的最大长度是$2^{16}$ = 64KB.</p>
-<h6 id="段表"><a href="#段表" class="headerlink" title="段表"></a><strong>段表</strong></h6><p>问题:程序分多个段,各段离散地装入内存,为了保证程序能正常运行,就必须能从物理内存中,找到各个逻辑段的存放位置。为此,需为每个进程建立一张段映射表,简称“<strong>段表</strong>”</p>
-<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200420/08QcoPEtVWPw.png" alt="mark"></p>
+<h5 id="最小帧长问题"><a href="#最小帧长问题" class="headerlink" title="最小帧长问题"></a>最小帧长问题</h5><blockquote>
+<p>帧的传输时延至少要两倍于信号在总线中的传播时延。</p>
+<p>$$\frac {帧长(bit)}{数据传输速率} \geq 2\tau$$</p>
+<p>最小帧长=总线传播时延$\times$数据传输速率$\times$2</p>
+<p>2$\tau\times$数据传输速率</p>
+<p><strong>以太网规定最短帧长为64B,凡是长度小于64B的都是由于冲突而异常终止的无效帧。</strong></p>
+</blockquote>
+<h4 id="CSMA-CA协议"><a href="#CSMA-CA协议" class="headerlink" title="CSMA/CA协议"></a>CSMA/CA协议</h4><blockquote>
+<p>载波监听多点接入/碰撞避免CSMA/CA (carrier sense multiple access with collision avoidance)</p>
+</blockquote>
+<blockquote>
+<p>发送数据前,先检测信道是否空闲。</p>
+<p>空闲则发出<strong>RTS (request to send)</strong> , RTS包括发射端的地址、接收端的地址、下一份数据将持续发送的时间等信息;信道忙则等待。</p>
+<p>接收端收到RTS后,将响应<strong>CTS (clear to send)</strong></p>
+<p>发送端收到CTS后,开始发送数据帧(同时<strong>预约信道</strong>:发送方告知其他站点自己要传多久数据)</p>
+<p>接收端收到数据帧后,将用CRC来检验数据是否正确,正确则响应<strong>ACK帧</strong>。</p>
+<p>发送方收到ACK就可以进行下一个数据帧的发送,若没有则一直重传至规定重发次数为止(采用<strong>二进制指数退避算法</strong>来确定随机的推迟时间)</p>
+</blockquote>
+<blockquote>
 <ol>
-<li>每个段对应一个段表项,其中记录了该段在内存中的起始位置(又称“基址”)和段的长度。</li>
-<li><strong>各个段表项的长度是相同的</strong>。例如:某系统按字节寻址,采用分段存储管理,逻辑地址结构为(段号16位,段内地址16位) ,因此用16位”即可表示最大段长。物理内存大小为4GB (可用32位表示整个物理内存地址空间)。因此,可以让每个段表项占16+32=48位,即6B,由于段表项长度相同,因此<strong>段号可以是隐含的,不占存储空间</strong>。若段表存放的起始地址为M,则K号段对应的段表项存放的地址为M+K6</li>
+<li><strong>预约信道</strong></li>
+<li><strong>ACK帧</strong></li>
+<li><strong>RTS/CTS帧</strong></li>
 </ol>
-<h6 id="地址变换"><a href="#地址变换" class="headerlink" title="地址变换"></a><strong>地址变换</strong></h6><p><img src="http://qiniuyun.lzfangwen.cn/blog/20200420/K5uOF5nJelLo.png" alt="mark"></p>
-<h6 id="分段、分页管理的对比"><a href="#分段、分页管理的对比" class="headerlink" title="分段、分页管理的对比"></a><strong>分段、分页管理的对比</strong></h6><blockquote>
-<p><strong>页是信息的物理单位</strong>。分页的主要目的是为了实现离散分配,提高内存利用率。分页仅仅是系统管理上的需要,完全是系统行为,<strong>对用户是不可见的</strong>。</p>
-<p><strong>段是信息的逻辑单位</strong>。分页的主要目的是更好地满足用户需求。一个段通常包含着一组属于一个逻辑模块的信息。分段<strong>对用户是可见的</strong>,用户编程时需要显式地给出段名。</p>
 </blockquote>
+<p><strong>CSMA/CD与CSMA/CA</strong></p>
 <blockquote>
-<p>页的大小固定且由系统决定。</p>
-<p>段的长度却不固定,决定于用户编写的程序。</p>
+<p>相同点:</p>
+<ul>
+<li>CSMA/CD与CSMA/CA机制都从属于CSMA的思路,其核心是<strong>先听再说</strong>。换言之,两个在接入信道之前都须要进行监听。当发现信道空闲后,才能进行接入。</li>
+</ul>
+<p>不同点:</p>
+<ol>
+<li><strong>传输介质不同</strong>: CSMA/CD用于总线式以太网【有线】 ,而CSMA/CA用于无线局域网【无线】。</li>
+<li><strong>载波检测方式不同</strong>:因传输介质不同, CSMA/CD与CSMA/CA的检测方式也不同。CSMA/CD通过电缆中电压的变化来检测,当数据发生碰撞时,电缆中的电压就会随着发生变化;而CSMA/CA采用能量检测(ED)、载波检测(CS)和能量载波混合检测三种检测信道空闲的方式。</li>
+<li><strong>CSMA/CD检测冲突, CSMA/CA避免冲突</strong>,二者出现冲突后都会进行<strong>有上限的重传</strong>。</li>
+</ol>
 </blockquote>
-<blockquote>
-<p>分页的用户进程地址空间是一维的,程序员只需给出一个记忆符即可表示一个地址。</p>
-<p>分段的用户进程地址空间是二维的,程序员在标识一个地址时,既要给出段名,也要给出段内地址。</p>
+<h4 id="轮询协议"><a href="#轮询协议" class="headerlink" title="轮询协议"></a>轮询协议</h4><blockquote>
+<p>主节点轮流“邀请”从属节点发送数据</p>
+<ol>
+<li>轮询开销</li>
+<li>等待延迟</li>
+<li>单点故障</li>
+</ol>
 </blockquote>
-<blockquote>
-<p><strong>分段比分页更容易实现信息的共享和保护</strong>。不能被修改的代码称为纯代码或可重入代码(不属于临界资源) ,这样的代码是可以共享的。可修改的代码是不能共享的</p>
-</blockquote>
-<p>访问一个逻辑地址需要几次访存?</p>
-<blockquote>
-<p>分页(单级页表) :第一次访存–查内存中的页表,第二次访存–访问目标内存单元。总共两次访存</p>
-<p>分段:第一次访存–查内存中的段表,第二次访存–访问目标内存单元。总共两次访存</p>
-</blockquote>
+<h4 id="令牌传递协议"><a href="#令牌传递协议" class="headerlink" title="令牌传递协议"></a>令牌传递协议</h4><blockquote>
+<p>令牌:一个特殊格式的MAC控制帧,不含任何信息。控制信道的使用,确保同一时刻只有一个结点独占信道。</p>
+<p><strong>令牌环网无碰撞</strong></p>
+<p>每个结点都可以在一定时间内（令牌持有时间）获得发送数据的权力，并不是无限制地持有令牌</p>
+<p>问题：</p>
+<ol>
+<li><p>令牌开销</p>
+</li>
+<li><p>等待延迟</p>
+</li>
+<li><p>单点故障</p>
 </li>
 </ol>
-<h5 id="段页式管理方式"><a href="#段页式管理方式" class="headerlink" title="段页式管理方式"></a>段页式管理方式</h5><table>
-<thead>
-<tr>
-<th></th>
-<th>优点</th>
-<th>缺点</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>分页管理</td>
-<td>内部空间利用率高，不会产生外部碎片，只会有少量的页内碎片</td>
-<td>不方便按照逻辑模块实现信息的共享和保护</td>
-</tr>
-<tr>
-<td>分段管理</td>
-<td>很方便按照逻辑模块实现信息的共享和保护</td>
-<td>如果段长过大，为其分配很大的连续空间会很不方便。另外，段式管理会产生外部碎片<a href="分配给某进程的内存区域中,如果有些部分没有用上,就是“内部碎片”">^1</a></td>
-</tr>
-</tbody></table>
-<h6 id="分段-分页-段页式管理"><a href="#分段-分页-段页式管理" class="headerlink" title="分段+分页=段页式管理"></a>分段+分页=段页式管理</h6><p><img src="http://qiniuyun.lzfangwen.cn/blog/20200420/1n4urzBOQxYi.png" alt="mark"></p>
-<p>将进程按逻辑模块分段,再将各段分页(如每页面4KB)</p>
-<p>再将内存空间分为大小相同的内存块/页框/页帧/物理块进程前将各页面分别装入各内存块中</p>
-<h6 id="段页式管理的逻辑地址"><a href="#段页式管理的逻辑地址" class="headerlink" title="段页式管理的逻辑地址"></a>段页式管理的逻辑地址</h6><p>分段系统的逻辑地址结构由段号和段内地址(段内偏移量)组成。如:</p>
-<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200420/rOdbqmrsqdk6.png" alt="mark"></p>
-<p>段页式系统的逻辑地址结构由段号、页号、页内地址(页内偏移量)组成。如:</p>
-<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200420/BpN1H9vT4YDw.png" alt="mark"></p>
-<p><strong>段号的位数决定了每个进程最多可以分几个段</strong></p>
-<p><strong>页号位数决定了每个段最大有多少页</strong></p>
-<p><strong>页内偏移量决定了页面大小、内存块大小是多少</strong></p>
-<blockquote>
-<p>在上述例子中,若系统是按字节寻址的,则段号占16位,因此在该系统中,每个进程最多有216=64K个段页号占4位,因此每个段最多有$2^{16}$页</p>
-<p>页内偏移量占12位,因此每个页面每个内存块大小为2= 4096=4KB</p>
+<p>应用于令牌环网（物理星型拓扑，逻辑环形拓扑）。</p>
+<p>采用令牌传送方式的网络常用于<strong>负载较重、通信量较大</strong>的网络中。</p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200418/pMVfBycSrE7i.png" alt="mark"></p>
 </blockquote>
-<p>分段”对用户是见序员编程时需要显式地给出段号、段内地址。而将各段“分页”对用户是不可见的。系统会根据段内地址自动划分页号和页内偏移量。</p>
-<p>因此<strong>段页式管理的地址结构是二维的</strong>。</p>
-<h6 id="段表、页表"><a href="#段表、页表" class="headerlink" title="段表、页表"></a>段表、页表</h6><p><img src="http://qiniuyun.lzfangwen.cn/blog/20200420/Vm84OP0K9Ovp.png" alt="mark"></p>
-<p>每个段对应一个段表项,每个段表项由段号、页表长度、页表存放块号(页表起始地址)<strong>组成</strong>。每个<strong>段表项长度相等,段号是隐含的</strong>。每个页面对应一个页表项,每个页表项由页争、页面存放的内存块号组成。每个页表项长度相等,页号是隐含的。</p>
-<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200420/zPDOShGp2BLf.png" alt="mark"></p>
-<p>也可引入快表机构，用段号和页号作为查询快表的关键字。若快表命中仅需一次访存</p>
-<h3 id="内存空间的扩展"><a href="#内存空间的扩展" class="headerlink" title="内存空间的扩展"></a>内存空间的扩展</h3><h4 id="覆盖技术"><a href="#覆盖技术" class="headerlink" title="覆盖技术"></a>覆盖技术</h4><p><img src="http://qiniuyun.lzfangwen.cn/blog/20200419/BHoS2vTtMLAG.png" alt="mark"></p>
-<p>必须由程序员声明覆盖结构,操作系统完成自动覆盖。</p>
-<p>缺点:对用户不透明,增加了用户编程负担。覆盖技术只用于早期的操作系统中,现在已成为历史。</p>
-<h4 id="交换技术"><a href="#交换技术" class="headerlink" title="交换技术"></a>交换技术</h4><p>交换(对换)技术的设计思想:内存空间紧张时,系统将内存中某些进程暂时换出外存,把外存中·某些已具备运行条件的进程<strong>换入</strong>内存(进程在内存与磁盘间动态调度)</p>
-<p>暂时换出外存等待的进程状态为<strong>挂起状态(挂起态, suspend)</strong></p>
-<p>挂起态又可以进一步细分为<strong>就绪挂起、阻塞挂起</strong>两种状态   </p>
-<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200419/4shgMvrJHgbi.png" alt="mark"></p>
-<blockquote>
-<img src="http://qiniuyun.lzfangwen.cn/blog/20200419/YIBfEeES4ReJ.png" alt="mark" style="zoom: 67%;">
-
-<ol>
-<li>具有对换功能的操作系统中,通常把磁盘空间分为<strong>文件区</strong>和<strong>对换区</strong>两部分。<strong>文件区</strong>主要用于存放文件,<strong>主要追求存储空间的利用率</strong>,因此对文件区空间的管理<strong>采用离散分配方式</strong>;对换区空间只占磁盘空间的小部分,<strong>被换出的进程数据就存放在对换区</strong>。由于对换的速度直接影响到系统的整体速度,因此对换区空间的管理<strong>主要追求换入换出速度</strong>,因此通常对换区<strong>采用连续分配方式</strong>(学过文件管理章节后即可理解)。总之<strong>对换区的I/O 速度比文件区的更快</strong>。</li>
-<li>交换通常在许多进程运行且内存吃紧时进行,而系统负荷降低就暂停。例如:在发现许多进程运行时经常发生缺页,就说明内存紧张,此时可以换出一些进程;如果缺页率明显下降,就可以暂停换出。</li>
-<li>可优先换出阻塞进程;可换出优先级低的进程;为了防止优先级低的进程在被调入内存后很快又被换出,有的系统还会考虑进程在内存的驻留时间….</li>
-<li>注意：PCB会常驻内存，不会被换出外存 </li>
-</ol>
-</blockquote>
-<h3 id="地址转换"><a href="#地址转换" class="headerlink" title="地址转换"></a>地址转换</h3><p>为了使编程更方便,程序员写程序时应该只需要关注指令、数据的逻辑地址。而<strong>逻辑地址到物理地址的转换</strong>(这个过程称为<strong>地址重定位</strong>)应该由操作系统负责,这样就保证了程序员写程序时不需要关注物理内存的实际情况。</p>
-<h3 id="内存保护"><a href="#内存保护" class="headerlink" title="内存保护"></a>内存保护</h3><p>内存保护可采取两种方法:</p>
-<ol>
-<li>在CPU中设置一对上、下限寄存器,存放进程的上、下限地址。进程的指令要访问某个地址时, CPU检查是否越界。</li>
-<li>采用<strong>重定位寄存器</strong>(又称<strong>基址寄存器</strong>)和<strong>界地址寄存器</strong>(又称<strong>限长寄存器</strong>)进行越界检查。重定位寄存器中存放的是进程的起始物理地址。界地址寄存器中存放的是进程的最大逻辑地址。</li>
-</ol>
-<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200419/PUqWKAzn5IH5.png" alt="mark"></p>
 <script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>计算机网络</category>
+      </categories>
+      <tags>
+        <tag>计算机网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机网络-学习笔记8</title>
+    <url>/lzfangwen.github.io/2020/04/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B08/</url>
+    <content><![CDATA[<h1 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h1><p>主要任务是把分组从源端传到目标端，分分组交换网上的不同主机提供通信服务。</p>
+<p>网络层的传输单位是<strong>数据报</strong></p>
+<ul>
+<li>功能一：路由选择与分组转发   <strong>最佳路径</strong></li>
+<li>功能二：异构网络互联</li>
+<li>功能三：拥塞控制</li>
+</ul>
+<h2 id="数据交换方式"><a href="#数据交换方式" class="headerlink" title="数据交换方式"></a>数据交换方式</h2><h3 id="电路交换"><a href="#电路交换" class="headerlink" title="电路交换"></a>电路交换</h3><p>电话网络</p>
+<pre class="mermaid">graph LR
+A(建立连接 呼叫/电路建立) --&gt;B(通信)
+    B --&gt; C(释放连接)
+
+    F[横向流程图]</pre>
+
+<h3 id="报文交换"><a href="#报文交换" class="headerlink" title="报文交换"></a>报文交换</h3><h3 id="分组交换"><a href="#分组交换" class="headerlink" title="分组交换"></a>分组交换</h3><h4 id="数据报方式"><a href="#数据报方式" class="headerlink" title="数据报方式"></a>数据报方式</h4><h4 id="虚电路方式"><a href="#虚电路方式" class="headerlink" title="虚电路方式"></a>虚电路方式</h4><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }

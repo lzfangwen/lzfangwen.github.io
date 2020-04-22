@@ -6,7 +6,7 @@
   <link href="/lzfangwen.github.io/atom.xml" rel="self"/>
   
   <link href="https://lzfangwen.github.io/blog/"/>
-  <updated>2020-04-20T02:57:20.484Z</updated>
+  <updated>2020-04-22T07:08:56.227Z</updated>
   <id>https://lzfangwen.github.io/blog/</id>
   
   <author>
@@ -17,11 +17,89 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Untitled</title>
+    <link href="https://lzfangwen.github.io/blog/2020/04/22/Untitled/"/>
+    <id>https://lzfangwen.github.io/blog/2020/04/22/Untitled/</id>
+    <published>2020-04-22T07:08:56.227Z</published>
+    <updated>2020-04-22T07:08:56.227Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;script&gt;
+        document.querySelectorAll(&#39;.github-emoji&#39;)
+          .forEach(el =&gt; {
+            if (!el.dataset.src) { return; }
+       
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Markdown高级技巧</title>
+    <link href="https://lzfangwen.github.io/blog/2020/04/22/Markdown%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7/"/>
+    <id>https://lzfangwen.github.io/blog/2020/04/22/Markdown%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7/</id>
+    <published>2020-04-22T06:33:52.000Z</published>
+    <updated>2020-04-22T08:24:30.314Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;HTML&quot;&gt;&lt;a href=&quot;#HTML&quot; class=&quot;headerlink&quot; title=&quot;HTML&quot;&gt;&lt;/a&gt;HTML&lt;/h2&gt;&lt;p&gt;&lt;code&gt;&amp;lt;font color=&quot;red&quot;&amp;gt;红色&amp;lt;/font&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;font color=&quot;red&quot;&gt;红色&lt;/font&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;使用 &amp;lt;kbd&amp;gt;Ctrl&amp;lt;/kbd&amp;gt;+&amp;lt;kbd&amp;gt;Alt&amp;lt;/kbd&amp;gt;+&amp;lt;kbd&amp;gt;Del&amp;lt;/kbd&amp;gt; 重启电脑&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;使用 &lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;Alt&lt;/kbd&gt;+&lt;kbd&gt;Del&lt;/kbd&gt; 重启电脑&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="https://lzfangwen.github.io/blog/categories/hexo/"/>
+    
+    
+      <category term="markdown mermaid" scheme="https://lzfangwen.github.io/blog/tags/markdown-mermaid/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算机网络-学习笔记8</title>
+    <link href="https://lzfangwen.github.io/blog/2020/04/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B08/"/>
+    <id>https://lzfangwen.github.io/blog/2020/04/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B08/</id>
+    <published>2020-04-22T06:13:31.000Z</published>
+    <updated>2020-04-22T07:31:22.622Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;网络层&quot;&gt;&lt;a href=&quot;#网络层&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="OS" scheme="https://lzfangwen.github.io/blog/categories/OS/"/>
+    
+    
+      <category term="OS" scheme="https://lzfangwen.github.io/blog/tags/OS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>操作系统-学习笔记8</title>
     <link href="https://lzfangwen.github.io/blog/2020/04/19/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B08/"/>
     <id>https://lzfangwen.github.io/blog/2020/04/19/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B08/</id>
     <published>2020-04-19T00:06:03.000Z</published>
-    <updated>2020-04-20T02:57:20.484Z</updated>
+    <updated>2020-04-22T08:26:25.857Z</updated>
     
     <summary type="html">
     
@@ -430,70 +508,6 @@ $$         &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;$$&lt;br&gt;2x+3y=34\&lt;br&gt;x+4y
     
     
       <category term="Hamming Code" scheme="https://lzfangwen.github.io/blog/tags/Hamming-Code/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>操作系统学习笔记3</title>
-    <link href="https://lzfangwen.github.io/blog/2020/03/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/"/>
-    <id>https://lzfangwen.github.io/blog/2020/03/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/</id>
-    <published>2020-03-21T16:00:00.000Z</published>
-    <updated>2020-03-31T03:05:41.722Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;进程的调度&quot;&gt;&lt;a href=&quot;#进程的调度&quot; class=&quot;headerlink&quot; title=&quot;进程的调度&quot;&gt;&lt;/a&gt;进程的调度&lt;/h2&gt;&lt;h3 id=&quot;时机&quot;&gt;&lt;a href=&quot;#时机&quot; class=&quot;headerlink&quot; title=&quot;时机&quot;&gt;&lt;/a&gt;时机&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;https://img-blog.csdnimg.cn/20200321215121803.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70&quot; alt=&quot;在这里插入图片描述&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="OS" scheme="https://lzfangwen.github.io/blog/categories/OS/"/>
-    
-    
-      <category term="OS" scheme="https://lzfangwen.github.io/blog/tags/OS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>计算机网络 学习笔记1</title>
-    <link href="https://lzfangwen.github.io/blog/2020/03/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/"/>
-    <id>https://lzfangwen.github.io/blog/2020/03/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</id>
-    <published>2020-03-21T16:00:00.000Z</published>
-    <updated>2020-03-31T03:05:17.561Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;B站 王道考研视频 学习笔记 纯粹自己整理方便复习使用 侵删&lt;/strong&gt;&lt;/p&gt;
-&lt;h1 id=&quot;计算机网络&quot;&gt;&lt;a href=&quot;#计算机网络&quot; class=&quot;headerlink&quot; title=&quot;计算机网络&quot;&gt;&lt;/a&gt;计算机网络&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://img-blog.csdnimg.cn/20200318084558533.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70&quot; alt=&quot;在这里插入图片描述&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="计算机网络" scheme="https://lzfangwen.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-    
-      <category term="计算机网络" scheme="https://lzfangwen.github.io/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>操作系统-学习笔记2</title>
-    <link href="https://lzfangwen.github.io/blog/2020/03/20/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/"/>
-    <id>https://lzfangwen.github.io/blog/2020/03/20/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/</id>
-    <published>2020-03-19T16:00:00.000Z</published>
-    <updated>2020-03-31T03:05:48.331Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;程序的顺序执行&quot;&gt;&lt;a href=&quot;#程序的顺序执行&quot; class=&quot;headerlink&quot; title=&quot;程序的顺序执行&quot;&gt;&lt;/a&gt;程序的顺序执行&lt;/h2&gt;
-    
-    </summary>
-    
-    
-      <category term="OS" scheme="https://lzfangwen.github.io/blog/categories/OS/"/>
-    
-    
-      <category term="OS" scheme="https://lzfangwen.github.io/blog/tags/OS/"/>
     
   </entry>
   
