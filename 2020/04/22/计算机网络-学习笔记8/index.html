@@ -90,17 +90,23 @@
 
 
 
-<meta name="description" content="网络层主要任务是把分组从源端传到目标端，分分组交换网上的不同主机提供通信服务。 网络层的传输单位是数据报  功能一：路由选择与分组转发   最佳路径 功能二：异构网络互联 功能三：拥塞控制  数据交换方式电路交换电话网络 graph LR A(建立连接 呼叫&#x2F;电路建立) --&gt;B(通信)     B --&gt; C(释放连接)      F[横向流程图]  报文交换分组交换数据报方式虚电路">
+<meta name="description" content="网络层主要任务是把分组从源端传到目标端，分分组交换网上的不同主机提供通信服务。 网络层的传输单位是数据报  功能一：路由选择与分组转发   最佳路径 功能二：异构网络互联 功能三：拥塞控制  数据交换方式电路交换电话网络 graph LR A(建立连接 呼叫&#x2F;电路建立) --&gt;B(通信)     B --&gt; C(释放连接&#x2F;拆除设备)     F(特点:独占资源)  优点  通信时延小">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机网络-学习笔记8">
 <meta property="og:url" content="https://lzfangwen.github.io/blog/2020/04/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B08/index.html">
 <meta property="og:site_name" content="方文の个人博客">
-<meta property="og:description" content="网络层主要任务是把分组从源端传到目标端，分分组交换网上的不同主机提供通信服务。 网络层的传输单位是数据报  功能一：路由选择与分组转发   最佳路径 功能二：异构网络互联 功能三：拥塞控制  数据交换方式电路交换电话网络 graph LR A(建立连接 呼叫&#x2F;电路建立) --&gt;B(通信)     B --&gt; C(释放连接)      F[横向流程图]  报文交换分组交换数据报方式虚电路">
+<meta property="og:description" content="网络层主要任务是把分组从源端传到目标端，分分组交换网上的不同主机提供通信服务。 网络层的传输单位是数据报  功能一：路由选择与分组转发   最佳路径 功能二：异构网络互联 功能三：拥塞控制  数据交换方式电路交换电话网络 graph LR A(建立连接 呼叫&#x2F;电路建立) --&gt;B(通信)     B --&gt; C(释放连接&#x2F;拆除设备)     F(特点:独占资源)  优点  通信时延小">
+<meta property="og:image" content="http://qiniuyun.lzfangwen.cn/blog/20200422/jK6r28FwHXMJ.png">
+<meta property="og:image" content="http://qiniuyun.lzfangwen.cn/blog/20200422/CTe7Hjb05CHf.png">
+<meta property="og:image" content="http://qiniuyun.lzfangwen.cn/blog/20200422/pnsewUnRQ0zv.png">
+<meta property="og:image" content="http://qiniuyun.lzfangwen.cn/blog/20200422/9i4xmF3cOmkT.png">
+<meta property="og:image" content="http://qiniuyun.lzfangwen.cn/blog/20200422/53U8o82aoKYB.png">
 <meta property="article:published_time" content="2020-04-22T06:13:31.000Z">
-<meta property="article:modified_time" content="2020-04-22T07:31:22.622Z">
+<meta property="article:modified_time" content="2020-04-22T10:22:26.455Z">
 <meta property="article:author" content="方文">
 <meta property="article:tag" content="OS">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://qiniuyun.lzfangwen.cn/blog/20200422/jK6r28FwHXMJ.png">
 
 
 
@@ -406,11 +412,184 @@
 <h2 id="数据交换方式"><a href="#数据交换方式" class="headerlink" title="数据交换方式"></a>数据交换方式</h2><h3 id="电路交换"><a href="#电路交换" class="headerlink" title="电路交换"></a>电路交换</h3><p>电话网络</p>
 <pre class="mermaid">graph LR
 A(建立连接 呼叫/电路建立) --&gt;B(通信)
-    B --&gt; C(释放连接)
+    B --&gt; C(释放连接/拆除设备)
+    F(特点:独占资源)</pre>
 
-    F[横向流程图]</pre>
+<p><strong>优点</strong></p>
+<ol>
+<li>通信时延小</li>
+<li>有序传输</li>
+<li>没有冲突</li>
+<li>实时性强</li>
+</ol>
+<p><strong>缺点</strong></p>
+<ol>
+<li>建立连接时间长</li>
+<li>线路独占，使用效率低</li>
+<li>无差错控制能力</li>
+</ol>
+<h3 id="报文交换"><a href="#报文交换" class="headerlink" title="报文交换"></a>报文交换</h3><p><strong>报文</strong>：源应用发送的信息整体。</p>
+<p><strong>优点</strong></p>
+<ol>
+<li>无需建立连接</li>
+<li>存储转发，动态分配线路</li>
+<li>线路可靠性较高</li>
+<li>线路利用率较高</li>
+<li>多目标服务</li>
+</ol>
+<p><strong>缺点</strong></p>
+<ol>
+<li>有存储转发时延</li>
+<li>报文大小不定，需要网络结点有较大的缓存空间</li>
+</ol>
+<h3 id="分组交换"><a href="#分组交换" class="headerlink" title="分组交换"></a>分组交换</h3><p><strong>分组</strong>：把大的数据块分割成小的数据块</p>
+<p><strong>优点</strong></p>
+<ol>
+<li>无需建立连接</li>
+<li>存储转发,动态分配线路</li>
+<li>线路可靠性较高</li>
+<li>线路利用率较高</li>
+<li>相对于报文交换，存储管理更容易</li>
+</ol>
+<p><strong>缺点</strong></p>
+<ol>
+<li>有存储转发时延</li>
+<li>需要传输额外的信息量</li>
+<li>乱序到达目的主机时，要对分组排序重组</li>
+</ol>
+<p><strong>三种数据交换方式比较总结</strong></p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200422/jK6r28FwHXMJ.png" alt="mark"></p>
+<ol>
+<li>报文交换和分组交换都采用存储转发</li>
+<li>传送数据量大，且传送时间远大于呼叫时，选择电路交换。电路交换传输时延最小。</li>
+<li>从信道利用率看，报文交换和分组交换优于电路交换，其中分组交换时延更小。</li>
+</ol>
+<h4 id="数据报方式"><a href="#数据报方式" class="headerlink" title="数据报方式"></a>数据报方式</h4><p><strong>数据报方式</strong>为网络层提供<strong>无连接服务</strong></p>
+<blockquote>
+<p>无连接服务:不事先为分组的传输确定传输路径,每个分组独立确定传输路径,不同分组传输路径可能不同</p>
+</blockquote>
+<p><strong>每个分组携带源和目的地址</strong></p>
+<p><strong>路由器根据分组的目的地址转发分组</strong>:基于路由协议/算法构建转发表:检索转发表;每个分组独立选路。</p>
+<h4 id="虚电路方式"><a href="#虚电路方式" class="headerlink" title="虚电路方式"></a>虚电路方式</h4><p><strong>虚电路方式</strong>为网络层提供<strong>连接服务</strong></p>
+<blockquote>
+<p>连接服务:首先为分组的传输确定传输路径(建立连接) ,然后沿该路径(连接)传输系列分组,系列分组传输路径相同,传输结束后拆除连接。</p>
+</blockquote>
+<p>虚电路将数据报方式和电路交换方式结合,以发挥两者优点。·</p>
+<p>虚电路:一条源主机到目的主机类似于电路的路径(逻辑连接) ,路径上所有结点都要维持这条虚电路的建立,都维持一张虚电路表,每一项记录了一个打开的虚电路的信息。</p>
+<p>通信过程:</p>
+<pre class="mermaid">graph LR
+A(建立连接 /虚电路建立) --&gt;B(数据传输/全双工通信)
+    B --&gt; C(释放连接/虚电路释放)</pre>
 
-<h3 id="报文交换"><a href="#报文交换" class="headerlink" title="报文交换"></a>报文交换</h3><h3 id="分组交换"><a href="#分组交换" class="headerlink" title="分组交换"></a>分组交换</h3><h4 id="数据报方式"><a href="#数据报方式" class="headerlink" title="数据报方式"></a>数据报方式</h4><h4 id="虚电路方式"><a href="#虚电路方式" class="headerlink" title="虚电路方式"></a>虚电路方式</h4><script>
+<p>每个分组携带<strong>虚电路号</strong>,而非自的地址。</p>
+<p>源主机发送“呼叫请求”分组并收到“呼叫应答”分组后才算建立连接。</p>
+<p>源主机发送“释放请求”分组以拆除虚电路。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>数据报服务</th>
+<th>虚电路服务</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>连接的建立</td>
+<td>不要</td>
+<td>必须有</td>
+</tr>
+<tr>
+<td>目的地址</td>
+<td>每个分组都有完整的目的地址</td>
+<td>仅在建立连接阶段使用，之后每个分组使用长度较短的虚电路号</td>
+</tr>
+<tr>
+<td>路由选择</td>
+<td>每个分组独立地进行路由选择和转发</td>
+<td>属于同一条虚电路的分组按照同一路由转发</td>
+</tr>
+<tr>
+<td>分组顺序</td>
+<td>不保证分组的有序到达</td>
+<td>保证分组的有序到达</td>
+</tr>
+<tr>
+<td>可靠性</td>
+<td>不保证可靠通信，可靠性由用户主机来保证</td>
+<td>可靠性由网络保证</td>
+</tr>
+<tr>
+<td>对网络故障的适应性</td>
+<td>出故障的结点丢失分组，其他分组路径选择发生变化，可正常传输</td>
+<td>所有经过故障点的虚电路均不能正常工作</td>
+</tr>
+<tr>
+<td>差错处理和流量控制</td>
+<td>由用户进行流量控制，不保证数据报的可靠性</td>
+<td>可由分组交换网负责，也可由用户主机负责</td>
+</tr>
+</tbody></table>
+<h2 id="路由算法和路由协议概述"><a href="#路由算法和路由协议概述" class="headerlink" title="路由算法和路由协议概述"></a>路由算法和路由协议概述</h2><h3 id="静态路由算法（非自适应路由算法）"><a href="#静态路由算法（非自适应路由算法）" class="headerlink" title="静态路由算法（非自适应路由算法）"></a>静态路由算法（非自适应路由算法）</h3><p>管理员手工配置路由信息</p>
+<p><strong>优点</strong>：简便、可靠,在负荷稳定、拓扑变化不大的网络中运行效果很好,广泛用于高度安全性的,,络和较小的商业网络。</p>
+<p><strong>缺点</strong>：路由更新慢,不适用大型网络。</p>
+<h3 id="动态路由算法（自适应路由算法）"><a href="#动态路由算法（自适应路由算法）" class="headerlink" title="动态路由算法（自适应路由算法）"></a>动态路由算法（自适应路由算法）</h3><p>路由器间彼此交换信息,按照路由算法优化出路由表项。</p>
+<p>优点：路由更新快,适用大型网络,及时响应链路费用或网络拓扑变化。</p>
+<p>缺点：算法复杂,增加网络负担。</p>
+<h4 id="全局性-链路状态路由算法-OSPF"><a href="#全局性-链路状态路由算法-OSPF" class="headerlink" title="全局性    链路状态路由算法 OSPF"></a>全局性    链路状态路由算法 OSPF</h4><p>所有路由器掌握完整的网络拓扑和链路费用信息</p>
+<h4 id="分散性-距离向量路由算法-RIP"><a href="#分散性-距离向量路由算法-RIP" class="headerlink" title="分散性    距离向量路由算法    RIP"></a>分散性    距离向量路由算法    RIP</h4><p>路由器只掌握物理相连的邻居及链路费用</p>
+<p>RIP是一种分布式的基于<strong>距离向量</strong>的路由选择协议,是因特网的协议标准,最大优点是<strong>简单</strong>。</p>
+<p>RIP协议要求网络中每一个路由器都维护<strong>从它自己到其他每一个目的网络的唯一最佳距离记录</strong>(即一组距离)。</p>
+<blockquote>
+<p>距离:通常为“跳数” ,即从源端口到目的端口所经过的路由器个数,经过一个路由器跳数+1。特别的,从一路由器到直接连接的网络距离为1. RIP允许一条路由最多只能包含15个路由器,因此<strong>距离为16表示网络不可达</strong>。</p>
+</blockquote>
+<p>RIP协议只适用小互联网</p>
+<h5 id="RIP协议交换数据"><a href="#RIP协议交换数据" class="headerlink" title="RIP协议交换数据"></a><strong>RIP协议交换数据</strong></h5><ol>
+<li><p>仅和<strong>相邻路由器</strong>交换信息。</p>
+</li>
+<li><p>路由器交换的信息是<strong>自己的路由表</strong>。</p>
+</li>
+<li><p>每30秒交换一次路由信息,然后路由器根据新信息更新路由表。若超过180s没收到邻居路由器的通告,则判定邻居没了,并更新自己路由表。</p>
+<p>路由器刚开始工作时,只知道直接连接的网络的距离(距离为1) ,接着每一个路由器也只和数目非常有限的相邻路由器交换并更新路由信息。</p>
+<p>经过若干次更新后,所有路由器最终都会知道到达本自治系统任何一个网络的最短距离和下一跳路由器的地址,·即“<strong>收敛</strong>”。</p>
+</li>
+</ol>
+<p><strong>特点：好消息传的块，坏消息传的慢</strong></p>
+<h5 id="距离向量算法"><a href="#距离向量算法" class="headerlink" title="距离向量算法"></a>距离向量算法</h5><ol>
+<li><p>修改相邻路由器发来的RIP报文中所有表项</p>
+<p>对地址为x的相邻路由器发来的RIP报文,修改此报文中的所有项目:把“下一跳”字段中的地址改为x,并把所有的“距离”字段+1</p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200422/CTe7Hjb05CHf.png" alt="mark"></p>
+</li>
+<li><p>对修改后的RIP报文中的每一个项目,进行以下步骤:</p>
+<ol>
+<li><p>R1路由表中若没有Net3,则把该项目填入R1路由表</p>
+</li>
+<li><p>R1路由表中若有Net3,则查看下一跳路由器地址:</p>
+<p>若下一跳是x,则用收到的项目替换源路由表中的项目;</p>
+<p>若下一跳不是x,原来距离比从x走的距离远则更新,否则不作处理。</p>
+</li>
+</ol>
+</li>
+<li><p>若180s还没收到相邻路由器x的更新路由表,则把x记为不可达的路由器,即把距离设置为16</p>
+</li>
+<li><p>返回</p>
+</li>
+</ol>
+<p>eg.</p>
+<blockquote>
+<p>已知路由器R6的路由表,现收到相邻路由器R4发来的路由更新信息,试更新路由器R1的路由表</p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200422/pnsewUnRQ0zv.png" alt="mark"></p>
+</blockquote>
+<blockquote>
+<p>考虑如图所示的子网,该子网使用了距离-向量算法,下面的向量刚刚到达路由器C :来自B的向量为(5,0,8, 12,6,2) ;来自D的向量为(16, 12,6, 0,9, 10 ) ;来自E的向量为(7,6,3,9,0,4).经过测量, C到B, D和E的延迟分别为6, 3和5,那么C到达所有结点的最短路径是()</p>
+<p>A. (5,6,0, 9,6,2)         B. (11 , 6,0, 3,5, 8)</p>
+<p>C. (5,11,0, 12,8,9)    D. (11,8,0,7,4,9)</p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200422/9i4xmF3cOmkT.png" alt="mark"></p>
+</blockquote>
+<h5 id="RIP协议的报文格式"><a href="#RIP协议的报文格式" class="headerlink" title="RIP协议的报文格式"></a>RIP协议的报文格式</h5><p><img src="http://qiniuyun.lzfangwen.cn/blog/20200422/53U8o82aoKYB.png" alt="mark"></p>
+<h3 id="分层次的路由选择协议"><a href="#分层次的路由选择协议" class="headerlink" title="分层次的路由选择协议"></a>分层次的路由选择协议</h3><p><strong>自治系统AS</strong>:在单一的技术管理下的一组路由器,而这些路由器使用一种AS内部的路电选择协议和共同的度量以确定分组在该AS内的路由,同时还使用一种AS之间的路由协议以确定在AS之间的路由。</p>
+<p>一个AS内的所有网络都属于一个行政单位来管辖,一个自治系统的所有路由器在本自治系统内都必须连通。</p>
+<h4 id="内部网关协议-IGP"><a href="#内部网关协议-IGP" class="headerlink" title="内部网关协议    IGP"></a>内部网关协议    IGP</h4><p>一个AS内使用的 <strong>RIP</strong>、<strong>OSPF</strong></p>
+<h4 id="外部网关协议-EGP"><a href="#外部网关协议-EGP" class="headerlink" title="外部网关协议    EGP"></a>外部网关协议    EGP</h4><p>AS之间使用的<strong>BGP</strong></p>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -655,7 +834,7 @@ A(建立连接 呼叫/电路建立) --&gt;B(通信)
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#网络层"><span class="nav-number">1.</span> <span class="nav-text">网络层</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据交换方式"><span class="nav-number">1.1.</span> <span class="nav-text">数据交换方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#电路交换"><span class="nav-number">1.1.1.</span> <span class="nav-text">电路交换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#报文交换"><span class="nav-number">1.1.2.</span> <span class="nav-text">报文交换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分组交换"><span class="nav-number">1.1.3.</span> <span class="nav-text">分组交换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据报方式"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">数据报方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#虚电路方式"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">虚电路方式</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#网络层"><span class="nav-number">1.</span> <span class="nav-text">网络层</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据交换方式"><span class="nav-number">1.1.</span> <span class="nav-text">数据交换方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#电路交换"><span class="nav-number">1.1.1.</span> <span class="nav-text">电路交换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#报文交换"><span class="nav-number">1.1.2.</span> <span class="nav-text">报文交换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分组交换"><span class="nav-number">1.1.3.</span> <span class="nav-text">分组交换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据报方式"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">数据报方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#虚电路方式"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">虚电路方式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由算法和路由协议概述"><span class="nav-number">1.2.</span> <span class="nav-text">路由算法和路由协议概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#静态路由算法（非自适应路由算法）"><span class="nav-number">1.2.1.</span> <span class="nav-text">静态路由算法（非自适应路由算法）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态路由算法（自适应路由算法）"><span class="nav-number">1.2.2.</span> <span class="nav-text">动态路由算法（自适应路由算法）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#全局性-链路状态路由算法-OSPF"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">全局性    链路状态路由算法 OSPF</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分散性-距离向量路由算法-RIP"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">分散性    距离向量路由算法    RIP</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#RIP协议交换数据"><span class="nav-number">1.2.2.2.1.</span> <span class="nav-text">RIP协议交换数据</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#距离向量算法"><span class="nav-number">1.2.2.2.2.</span> <span class="nav-text">距离向量算法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#RIP协议的报文格式"><span class="nav-number">1.2.2.2.3.</span> <span class="nav-text">RIP协议的报文格式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分层次的路由选择协议"><span class="nav-number">1.2.3.</span> <span class="nav-text">分层次的路由选择协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#内部网关协议-IGP"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">内部网关协议    IGP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#外部网关协议-EGP"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">外部网关协议    EGP</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>

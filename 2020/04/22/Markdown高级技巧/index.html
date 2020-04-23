@@ -97,7 +97,7 @@
 <meta property="og:site_name" content="方文の个人博客">
 <meta property="og:description" content="HTML&lt;font color&#x3D;&quot;red&quot;&gt;红色&lt;&#x2F;font&gt; 红色 使用 &lt;kbd&gt;Ctrl&lt;&#x2F;kbd&gt;+&lt;kbd&gt;Alt&lt;&#x2F;kbd&gt;+&lt;kbd&gt;Del&lt;&#x2F;kbd&gt; 重启电脑 使用 Ctrl+Alt+Del 重启电脑">
 <meta property="article:published_time" content="2020-04-22T06:33:52.000Z">
-<meta property="article:modified_time" content="2020-04-22T08:24:30.314Z">
+<meta property="article:modified_time" content="2020-04-22T10:21:31.617Z">
 <meta property="article:author" content="方文">
 <meta property="article:tag" content="markdown mermaid">
 <meta name="twitter:card" content="summary">
@@ -420,14 +420,16 @@ mermaid: ## mermaid url https://github.com/knsv/mermaid
 <li>修改位置 （next主题为例）<br><code>themes/next/layout/_partials/footer.swig</code></li>
 <li>根据footer的格式不同，添加的内容不同。<br>格式有<code>after_footer.pug</code> , <code>after-footer.ejs</code> ,<code>footer.swig</code>等。<br>以下在next的<code>footer.swig</code>添加的内容。其他格式参考<a href="https://github.com/webappdevelp/hexo-filter-mermaid-diagrams" target="_blank" rel="noopener">github: hexo-filter-mermaid-diagrams</a></li>
 </ol>
+<blockquote>
 <pre><code>{% if theme.mermaid.enable %}
-  <script src="https://unpkg.com/mermaid@{{ theme.mermaid.version }}/dist/mermaid.min.js"></script>
-  <script>
-    if (window.mermaid) {
-      mermaid.initialize({{ JSON.stringify(theme.mermaid.options) }});
-    }
-  </script>
-{% endif %}</code></pre><p>到此为止，设置的部分就结束了。</p>
+&gt;   <script src="https://unpkg.com/mermaid@{{ theme.mermaid.version }}/dist/mermaid.min.js"></script>
+&gt;   <script>
+>     if (window.mermaid) {
+>       mermaid.initialize({{ JSON.stringify(theme.mermaid.options) }});
+>     }
+>   </script>
+&gt; {% endif %}</code></pre></blockquote>
+<p>到此为止，设置的部分就结束了。</p>
 <h4 id="个性化背景颜色"><a href="#个性化背景颜色" class="headerlink" title="个性化背景颜色"></a>个性化背景颜色</h4><p>个人希望没有背景颜色，是透明的。<br>hexo有供用户设置的css文件。需要在这里添加需要的css内容。</p>
 <ul>
 <li>文件位置（next主题为例）<br><code>themes\next\source\css\_custom\custom.styl</code></li>
@@ -566,8 +568,8 @@ A[方形] --&gt; B(圆角)
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/lzfangwen.github.io/2020/04/22/Untitled/" rel="prev" title="Untitled">
-                Untitled <i class="fa fa-chevron-right"></i>
+              <a href="/lzfangwen.github.io/2020/04/23/%E6%B5%8B%E8%AF%95/" rel="prev" title="测试">
+                测试 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
