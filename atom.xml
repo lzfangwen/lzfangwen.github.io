@@ -6,7 +6,7 @@
   <link href="/lzfangwen.github.io/atom.xml" rel="self"/>
   
   <link href="https://lzfangwen.github.io/blog/"/>
-  <updated>2020-04-23T05:30:07.490Z</updated>
+  <updated>2020-04-27T10:13:03.161Z</updated>
   <id>https://lzfangwen.github.io/blog/</id>
   
   <author>
@@ -17,23 +17,31 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>测试</title>
-    <link href="https://lzfangwen.github.io/blog/2020/04/23/%E6%B5%8B%E8%AF%95/"/>
-    <id>https://lzfangwen.github.io/blog/2020/04/23/%E6%B5%8B%E8%AF%95/</id>
-    <published>2020-04-23T05:29:29.000Z</published>
-    <updated>2020-04-23T05:30:07.490Z</updated>
+    <title>计算机网络-学习笔记9</title>
+    <link href="https://lzfangwen.github.io/blog/2020/04/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B09/"/>
+    <id>https://lzfangwen.github.io/blog/2020/04/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B09/</id>
+    <published>2020-04-24T05:44:54.000Z</published>
+    <updated>2020-04-27T10:13:03.161Z</updated>
     
     <summary type="html">
     
-      Here&#39;s something encrypted, password is required to continue reading.
+      
+      
+        
+        
+          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+&lt;h2 id=&quot;IP数据报&quot;&gt;&lt;a href=&quot;#IP数据报&quot; class=&quot;headerlink&quot; title=&quot;IP数据报&quot;&gt;&lt;/a&gt;IP数据报&lt;/h2&gt;&lt;h3 id=&quot;TCP-IP协议栈&quot;&gt;&lt;a href=&quot;#TCP-IP协议栈&quot;
+        
+      
     
     </summary>
     
     
-      <category term="hexo" scheme="https://lzfangwen.github.io/blog/categories/hexo/"/>
+      <category term="计算机网络" scheme="https://lzfangwen.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
     
-      <category term="hexo" scheme="https://lzfangwen.github.io/blog/tags/hexo/"/>
+      <category term="计算机网络" scheme="https://lzfangwen.github.io/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
@@ -66,17 +74,21 @@
     <link href="https://lzfangwen.github.io/blog/2020/04/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B08/"/>
     <id>https://lzfangwen.github.io/blog/2020/04/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B08/</id>
     <published>2020-04-22T06:13:31.000Z</published>
-    <updated>2020-04-22T10:22:26.455Z</updated>
+    <updated>2020-04-27T10:05:46.189Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;网络层&quot;&gt;&lt;a href=&quot;#网络层&quot; class=&quot;headerlink&quot;
-        
-      
+      &lt;h1 id=&quot;网络层&quot;&gt;&lt;a href=&quot;#网络层&quot; class=&quot;headerlink&quot; title=&quot;网络层&quot;&gt;&lt;/a&gt;网络层&lt;/h1&gt;&lt;p&gt;主要任务是把分组从源端传到目标端，为分组交换网上的不同主机提供通信服务。&lt;/p&gt;
+&lt;p&gt;网络层的传输单位是&lt;strong&gt;数据报&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;功能一：路由选择与分组转发   &lt;strong&gt;最佳路径&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;功能二：异构网络互联&lt;/li&gt;
+&lt;li&gt;功能三：拥塞控制&lt;ul&gt;
+&lt;li&gt;开环控制&lt;/li&gt;
+&lt;li&gt;闭环控制&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     

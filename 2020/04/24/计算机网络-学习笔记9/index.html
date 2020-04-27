@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="计算机网络," />
 
 
 
@@ -90,14 +90,48 @@
 
 
 
-<meta name="description" content="即使慢，驰而不息，纵令落后，纵令失败，但一定可以达到他所向往的目标。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="方文の个人博客">
-<meta property="og:url" content="https://lzfangwen.github.io/blog/index.html">
+<meta name="description" content="IP数据报TCP&#x2F;IP协议栈 IP数据报格式   版本: IPV4 &#x2F; IPv6？  首部长度:单位是4B,最小为5。  区分服务:指示期望获得哪种类型的服务。  总长度:首部+数据,单位是1B  标识：同一数据报的分片使用同一标识  标准：只有2位有意义  x_ _  中间位DF（Dont‘t Fragment） ​    DF&#x3D;1，禁止分片 ​    DF&#x3D;0，允许分片 最低位MF（Mor">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络-学习笔记9">
+<meta property="og:url" content="https://lzfangwen.github.io/blog/2020/04/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B09/index.html">
 <meta property="og:site_name" content="方文の个人博客">
-<meta property="og:description" content="即使慢，驰而不息，纵令落后，纵令失败，但一定可以达到他所向往的目标。">
+<meta property="og:description" content="IP数据报TCP&#x2F;IP协议栈 IP数据报格式   版本: IPV4 &#x2F; IPv6？  首部长度:单位是4B,最小为5。  区分服务:指示期望获得哪种类型的服务。  总长度:首部+数据,单位是1B  标识：同一数据报的分片使用同一标识  标准：只有2位有意义  x_ _  中间位DF（Dont‘t Fragment） ​    DF&#x3D;1，禁止分片 ​    DF&#x3D;0，允许分片 最低位MF（Mor">
+<meta property="og:image" content="http://qiniuyun.lzfangwen.cn/blog/20200427/6E4QTjlcqhFw.png">
+<meta property="og:image" content="http://qiniuyun.lzfangwen.cn/blog/20200424/FVixb9u3eh9T.png">
+<meta property="og:image" content="http://qiniuyun.lzfangwen.cn/blog/20200427/3sGBWrTSzvd8.png">
+<meta property="og:image" content="http://qiniuyun.lzfangwen.cn/blog/20200424/nOgPatHj2FY1.png">
+<meta property="og:image" content="http://qiniuyun.lzfangwen.cn/blog/20200424/glP4MRMcmVNo.png">
+<meta property="og:image" content="http://qiniuyun.lzfangwen.cn/blog/20200424/piAGbSgxr32D.png">
+<meta property="og:image" content="http://qiniuyun.lzfangwen.cn/blog/20200424/Y8XJ6Tw1XGFg.png">
+<meta property="og:image" content="http://qiniuyun.lzfangwen.cn/blog/20200425/nXboLpPwJ3EH.png">
+<meta property="og:image" content="http://qiniuyun.lzfangwen.cn/blog/20200425/LbpE9kTgwBuf.png">
+<meta property="og:image" content="http://qiniuyun.lzfangwen.cn/blog/20200425/amhFkz0fcsnB.png">
+<meta property="og:image" content="http://qiniuyun.lzfangwen.cn/blog/20200425/osyzt9QmA3RH.png">
+<meta property="og:image" content="http://qiniuyun.lzfangwen.cn/blog/20200425/7FfVk9IYBFP8.png">
+<meta property="og:image" content="http://qiniuyun.lzfangwen.cn/blog/20200425/iPiXR95co2Jf.png">
+<meta property="og:image" content="http://qiniuyun.lzfangwen.cn/blog/20200425/q0S4ECkWlz2G.png">
+<meta property="og:image" content="http://qiniuyun.lzfangwen.cn/blog/20200425/LEljeyMUMJSu.png">
+<meta property="og:image" content="c:%5CUsers%5C%E9%83%9D%E6%97%8B%E6%96%8C%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200426084500561.png">
+<meta property="og:image" content="c:%5CUsers%5C%E9%83%9D%E6%97%8B%E6%96%8C%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200426084447188.png">
+<meta property="og:image" content="c:%5CUsers%5C%E9%83%9D%E6%97%8B%E6%96%8C%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200426090734622.png">
+<meta property="og:image" content="c:%5CUsers%5C%E9%83%9D%E6%97%8B%E6%96%8C%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200426091321943.png">
+<meta property="og:image" content="c:%5CUsers%5C%E9%83%9D%E6%97%8B%E6%96%8C%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200426093356278.png">
+<meta property="og:image" content="c:%5CUsers%5C%E9%83%9D%E6%97%8B%E6%96%8C%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200426093853355.png">
+<meta property="og:image" content="c:%5CUsers%5C%E9%83%9D%E6%97%8B%E6%96%8C%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200426093946420.png">
+<meta property="og:image" content="http://qiniuyun.lzfangwen.cn/blog/20200426/UBdQ53dEYRpP.png">
+<meta property="og:image" content="c:%5CUsers%5C%E9%83%9D%E6%97%8B%E6%96%8C%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200426101402200.png">
+<meta property="og:image" content="http://qiniuyun.lzfangwen.cn/blog/20200426/MWhj7eDDorAy.png">
+<meta property="og:image" content="http://qiniuyun.lzfangwen.cn/blog/20200427/MxpVzi8QE9vs.png">
+<meta property="og:image" content="http://qiniuyun.lzfangwen.cn/blog/20200427/j3yMg5EWEdVY.png">
+<meta property="og:image" content="http://qiniuyun.lzfangwen.cn/blog/20200427/3EBz9F9SilC5.png">
+<meta property="og:image" content="http://qiniuyun.lzfangwen.cn/blog/20200426/Q2KHqrhfCmTa.png">
+<meta property="og:image" content="http://qiniuyun.lzfangwen.cn/blog/20200426/VlPnyhY3CLny.png">
+<meta property="article:published_time" content="2020-04-24T05:44:54.000Z">
+<meta property="article:modified_time" content="2020-04-27T10:13:03.161Z">
 <meta property="article:author" content="方文">
+<meta property="article:tag" content="计算机网络">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://qiniuyun.lzfangwen.cn/blog/20200427/6E4QTjlcqhFw.png">
 
 
 
@@ -127,7 +161,7 @@
 
 
 
-  <link rel="canonical" href="https://lzfangwen.github.io/blog/"/>
+  <link rel="canonical" href="https://lzfangwen.github.io/blog/2020/04/24/计算机网络-学习笔记9/"/>
 
 
 
@@ -135,7 +169,7 @@
 
 
 
-  <title>方文の个人博客</title>
+  <title>计算机网络-学习笔记9 | 方文の个人博客</title>
   
 
 
@@ -164,8 +198,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -290,9 +323,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -322,9 +355,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/lzfangwen.github.io/2020/04/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B09/" itemprop="url">计算机网络-学习笔记9</a></h1>
+          <h1 class="post-title" itemprop="name headline">计算机网络-学习笔记9</h1>
         
 
         <div class="post-meta">
@@ -396,9 +427,7 @@
       
 
       
-        
-          
-            <a id="more"></a>
+        <a id="more"></a>
 
 <h2 id="IP数据报"><a href="#IP数据报" class="headerlink" title="IP数据报"></a>IP数据报</h2><h3 id="TCP-IP协议栈"><a href="#TCP-IP协议栈" class="headerlink" title="TCP/IP协议栈"></a>TCP/IP协议栈</h3><p><img src="http://qiniuyun.lzfangwen.cn/blog/20200427/6E4QTjlcqhFw.png" alt="mark"></p>
 <h3 id="IP数据报格式"><a href="#IP数据报格式" class="headerlink" title="IP数据报格式"></a>IP数据报格式</h3><p><img src="http://qiniuyun.lzfangwen.cn/blog/20200424/FVixb9u3eh9T.png" alt="mark"></p>
@@ -1000,8 +1029,6 @@ A(差错或异常报告/网络探询) --&gt;B(发送特定ICMP报文)</pre>
             document.body.appendChild(img);
           });
       </script>
-          
-        
       
     </div>
     
@@ -1016,470 +1043,36 @@ A(差错或异常报告/网络探询) --&gt;B(发送特定ICMP报文)</pre>
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lzfangwen.github.io/blog/lzfangwen.github.io/2020/04/22/Markdown%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="方文">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/lzfangwen.github.io/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="方文の个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/lzfangwen.github.io/2020/04/22/Markdown%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7/" itemprop="url">Markdown高级技巧</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-22T14:33:52+08:00">
-                2020-04-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/lzfangwen.github.io/categories/hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">hexo</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/lzfangwen.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag"><i class="fa fa-tag"></i> 计算机网络</a>
           
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><p><code>&lt;font color="red"&gt;红色&lt;/font&gt;</code></p>
-<p><font color="red">红色</font></p>
-<p><code>使用 &lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;Alt&lt;/kbd&gt;+&lt;kbd&gt;Del&lt;/kbd&gt; 重启电脑</code></p>
-<p>使用 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Del</kbd> 重启电脑</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/lzfangwen.github.io/2020/04/22/Markdown%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/lzfangwen.github.io/2020/04/22/Markdown%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7/" rel="next" title="Markdown高级技巧">
+                <i class="fa fa-chevron-left"></i> Markdown高级技巧
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lzfangwen.github.io/blog/lzfangwen.github.io/2020/04/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B08/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="方文">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/lzfangwen.github.io/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="方文の个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/lzfangwen.github.io/2020/04/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B08/" itemprop="url">计算机网络-学习笔记8</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-22T14:13:31+08:00">
-                2020-04-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/lzfangwen.github.io/categories/OS/" itemprop="url" rel="index">
-                    <span itemprop="name">OS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h1><p>主要任务是把分组从源端传到目标端，为分组交换网上的不同主机提供通信服务。</p>
-<p>网络层的传输单位是<strong>数据报</strong></p>
-<ul>
-<li>功能一：路由选择与分组转发   <strong>最佳路径</strong></li>
-<li>功能二：异构网络互联</li>
-<li>功能三：拥塞控制<ul>
-<li>开环控制</li>
-<li>闭环控制</li>
-</ul>
-</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/lzfangwen.github.io/2020/04/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B08/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lzfangwen.github.io/blog/lzfangwen.github.io/2020/04/19/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B08/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="方文">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/lzfangwen.github.io/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="方文の个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/lzfangwen.github.io/2020/04/19/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B08/" itemprop="url">操作系统-学习笔记8</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-19T08:06:03+08:00">
-                2020-04-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/lzfangwen.github.io/categories/OS/" itemprop="url" rel="index">
-                    <span itemprop="name">OS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <h1 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h1><h1 id="存储器管理"><a href="#存储器管理" class="headerlink" title="存储器管理"></a>存储器管理</h1><h2 id="内存的基础知识"><a href="#内存的基础知识" class="headerlink" title="内存的基础知识"></a>内存的基础知识</h2><p>内存是用于存放数据的硬件。程序执行前<strong>需要先放到内存中才能被CPU处理</strong></p>
-<ul>
-<li>内存地址从0开始,<strong>每个地址对应一个存储单元</strong></li>
-<li>如果计算机“<strong>按字节编址</strong>”则每个存储单元大小为1字节,即18,即8个二进制位</li>
-<li>如果字长为16位的计算机<strong>,按字编址</strong>” ,则每个存储单元大小为1个字;每个字的犬小为16个二进制位</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/lzfangwen.github.io/2020/04/19/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B08/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -1489,1200 +1082,11 @@ A(差错或异常报告/网络探询) --&gt;B(发送特定ICMP报文)</pre>
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lzfangwen.github.io/blog/lzfangwen.github.io/2020/04/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B07/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="方文">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/lzfangwen.github.io/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="方文の个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/lzfangwen.github.io/2020/04/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B07/" itemprop="url">计算机网络-学习笔记7</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-18T16:03:04+08:00">
-                2020-04-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/lzfangwen.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机网络</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="无线局域网"><a href="#无线局域网" class="headerlink" title="无线局域网"></a>无线局域网</h2>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/lzfangwen.github.io/2020/04/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B07/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lzfangwen.github.io/blog/lzfangwen.github.io/2020/04/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B06/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="方文">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/lzfangwen.github.io/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="方文の个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/lzfangwen.github.io/2020/04/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B06/" itemprop="url">计算机网络-学习笔记6</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-18T11:04:53+08:00">
-                2020-04-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/lzfangwen.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机网络</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="局域网基本概念和体系结构"><a href="#局域网基本概念和体系结构" class="headerlink" title="局域网基本概念和体系结构"></a>局域网基本概念和体系结构</h2><blockquote>
-<p>局域网(Local Area Network) :简称<strong>LAN</strong>,是指在某一区域内由多台计算机互联成的计算机组,使用<strong>广播信道</strong>。</p>
-<ul>
-<li>覆盖的地理范围较小,只在一个相对独立的局部范围内联,如一座或集中的建筑群内。</li>
-<li>使用专门铺设的传输介质(双绞线、同轴电缆)进行联网,数据传输高(10Mb/s~10Gb/s)</li>
-<li>通信延迟时间短,误码率低,可靠性较高。</li>
-<li>各站为平等关系,共享传输信道。</li>
-</ul>
-<p>决定局域网的主要要素为:<strong>网络拓扑</strong>,<strong>传输介质</strong>与<strong>介质访问控制方法</strong>。</p>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/lzfangwen.github.io/2020/04/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B06/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lzfangwen.github.io/blog/lzfangwen.github.io/2020/04/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B05/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="方文">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/lzfangwen.github.io/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="方文の个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/lzfangwen.github.io/2020/04/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B05/" itemprop="url">计算机网络-学习笔记5</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-14T16:17:19+08:00">
-                2020-04-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/lzfangwen.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机网络</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="信道划分介质访问控制"><a href="#信道划分介质访问控制" class="headerlink" title="信道划分介质访问控制"></a>信道划分介质访问控制</h2>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/lzfangwen.github.io/2020/04/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B05/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lzfangwen.github.io/blog/lzfangwen.github.io/2020/04/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="方文">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/lzfangwen.github.io/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="方文の个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/lzfangwen.github.io/2020/04/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/" itemprop="url">计算机网络-学习笔记4</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-14T09:38:41+08:00">
-                2020-04-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/lzfangwen.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机网络</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="流量控制与可靠传输机制"><a href="#流量控制与可靠传输机制" class="headerlink" title="流量控制与可靠传输机制"></a>流量控制与可靠传输机制</h2><h3 id="数据链路层的流量控制"><a href="#数据链路层的流量控制" class="headerlink" title="数据链路层的流量控制"></a>数据链路层的流量控制</h3><p>较高的发送速度和较低的接收能力的不匹配，会造成传输出错，因此流量控制也是数据链路层的一项重要工作。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/lzfangwen.github.io/2020/04/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lzfangwen.github.io/blog/lzfangwen.github.io/2020/04/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="方文">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/lzfangwen.github.io/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="方文の个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/lzfangwen.github.io/2020/04/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/" itemprop="url">计算机网络-学习笔记3</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-13T15:30:42+08:00">
-                2020-04-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/lzfangwen.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机网络</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h1><p><strong>结点</strong>:主机、路由器</p>
-<p><strong>链路</strong>:网络中两个结点之间的<strong>物理通道</strong>,链路的传输介质主要有双绞线、光纤和微波。分为有线链路、无线链路。</p>
-<p><strong>数据链路</strong>：网络中两个结点之间的逻辑通道，把实现控制数据传输协议的硬件和软件加到链路上就构成数据链路。</p>
-<p><strong>帧</strong>：链路层的协议数据单元，封装网络层数据报。</p>
-<blockquote>
-<p><strong>数据链路层</strong>负责通过一条链路从一个结点向另一个物理链路直接相连的相邻结点传送数据报。</p>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/lzfangwen.github.io/2020/04/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lzfangwen.github.io/blog/lzfangwen.github.io/2020/04/12/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="方文">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/lzfangwen.github.io/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="方文の个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/lzfangwen.github.io/2020/04/12/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/" itemprop="url">数据库原理及应用-学习笔记2</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-12T09:26:21+08:00">
-                2020-04-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lzfangwen.github.io/blog/lzfangwen.github.io/2020/04/09/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E4%B9%A0%E9%A2%981/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="方文">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/lzfangwen.github.io/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="方文の个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/lzfangwen.github.io/2020/04/09/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E4%B9%A0%E9%A2%981/" itemprop="url">操作系统-习题1</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-09T16:10:09+08:00">
-                2020-04-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/lzfangwen.github.io/categories/OS/" itemprop="url" rel="index">
-                    <span itemprop="name">OS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><strong>学习通 老师布置的第三章的题目 有关 安全序列 银行家算法</strong></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/lzfangwen.github.io/2020/04/09/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E4%B9%A0%E9%A2%981/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lzfangwen.github.io/blog/lzfangwen.github.io/2020/04/08/Latex%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E5%9F%BA%E7%A1%80/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="方文">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/lzfangwen.github.io/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="方文の个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/lzfangwen.github.io/2020/04/08/Latex%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E5%9F%BA%E7%A1%80/" itemprop="url">Latex数学公式基础</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-08T16:37:48+08:00">
-                2020-04-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/lzfangwen.github.io/categories/markdown/" itemprop="url" rel="index">
-                    <span itemprop="name">markdown</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>一些常用的Latex公式 转自Latex<a href="https://www.jianshu.com/p/e6d2368e451a" target="_blank" rel="noopener">数学公式基础</a>   <a href="https://www.jianshu.com/p/e6d2368e451a" target="_blank" rel="noopener">LaTeX写数学公式</a></p>
-<ul>
-<li><p>行内公式用<code>$...$</code>括起来，如<code>$ x^2 $</code>：$x^2$</p>
-</li>
-<li><p>独立公式 单独占一行，不和其他文字混编用<code>$$...$$</code>括起来，如<code>$$ f(x) = x^2 $$</code>：<br>$$<br>f(x) = x^2<br>$$</p>
-</li>
-<li><p>多行公式     在独立公式中使用\来换行</p>
-</li>
-</ul>
-<pre><code>$$   
-2x+3y=34\\   
-x+4y=25  
-$$         </code></pre><p>$$<br>2x+3y=34\<br>x+4y=25<br>$$</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/lzfangwen.github.io/2020/04/08/Latex%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E5%9F%BA%E7%A1%80/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/lzfangwen.github.io/page/2/">2</a><a class="page-number" href="/lzfangwen.github.io/page/3/">3</a><a class="extend next" rel="next" href="/lzfangwen.github.io/page/2/">&gt;</a>
-  </nav>
-
 
 
           </div>
@@ -2690,6 +1094,10 @@ $$         </code></pre><p>$$<br>2x+3y=34\<br>x+4y=25<br>$$</p>
 
 
           
+
+  
+
+
 
         </div>
         
@@ -2710,8 +1118,17 @@ $$         </code></pre><p>$$<br>2x+3y=34\<br>x+4y=25<br>$$</p>
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -2824,6 +1241,22 @@ $$         </code></pre><p>$$<br>2x+3y=34\<br>x+4y=25<br>$$</p>
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#IP数据报"><span class="nav-number">1.</span> <span class="nav-text">IP数据报</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP-IP协议栈"><span class="nav-number">1.1.</span> <span class="nav-text">TCP&#x2F;IP协议栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP数据报格式"><span class="nav-number">1.2.</span> <span class="nav-text">IP数据报格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#最大传送单元MTU"><span class="nav-number">1.2.1.</span> <span class="nav-text">最大传送单元MTU</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IP数据报分片例题"><span class="nav-number">1.2.2.</span> <span class="nav-text">IP数据报分片例题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IPv4地址"><span class="nav-number">2.</span> <span class="nav-text">IPv4地址</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分类的IP地址"><span class="nav-number">2.1.</span> <span class="nav-text">分类的IP地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特殊的IP地址"><span class="nav-number">2.2.</span> <span class="nav-text">特殊的IP地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#私有IP地址"><span class="nav-number">2.3.</span> <span class="nav-text">私有IP地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分类的IP地址-1"><span class="nav-number">2.4.</span> <span class="nav-text">分类的IP地址</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络地址转换NAT"><span class="nav-number">3.</span> <span class="nav-text">网络地址转换NAT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#子网划分和子网掩码"><span class="nav-number">4.</span> <span class="nav-text">子网划分和子网掩码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#子网划分"><span class="nav-number">4.1.</span> <span class="nav-text">子网划分</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#子网掩码"><span class="nav-number">5.</span> <span class="nav-text">子网掩码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用子网时分组的转发"><span class="nav-number">5.1.</span> <span class="nav-text">使用子网时分组的转发</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#无分类编址CIDR"><span class="nav-number">6.</span> <span class="nav-text">无分类编址CIDR</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#构成超网"><span class="nav-number">6.1.</span> <span class="nav-text">构成超网</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#最长前缀匹配"><span class="nav-number">6.1.1.</span> <span class="nav-text">最长前缀匹配</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ARP协议"><span class="nav-number">7.</span> <span class="nav-text">ARP协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DHCP协议"><span class="nav-number">8.</span> <span class="nav-text">DHCP协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ICMP协议"><span class="nav-number">9.</span> <span class="nav-text">ICMP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ICMP差错报告报文（5种）"><span class="nav-number">9.1.</span> <span class="nav-text">ICMP差错报告报文（5种）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ICMP差错报告报文数据字段"><span class="nav-number">9.2.</span> <span class="nav-text">ICMP差错报告报文数据字段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不发送ICMP差错报文的情况"><span class="nav-number">9.3.</span> <span class="nav-text">不发送ICMP差错报文的情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ICMP询问报文"><span class="nav-number">9.4.</span> <span class="nav-text">ICMP询问报文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ICMP的应用"><span class="nav-number">9.5.</span> <span class="nav-text">ICMP的应用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IPv6"><span class="nav-number">10.</span> <span class="nav-text">IPv6</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IPv6-数据报格式"><span class="nav-number">10.1.</span> <span class="nav-text">IPv6 数据报格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IPv6和IPv4"><span class="nav-number">10.2.</span> <span class="nav-text">IPv6和IPv4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IPv6地址标识形式"><span class="nav-number">10.3.</span> <span class="nav-text">IPv6地址标识形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IPv6基本地址类型"><span class="nav-number">10.4.</span> <span class="nav-text">IPv6基本地址类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IPv6向IPv4过渡的策略"><span class="nav-number">10.5.</span> <span class="nav-text">IPv6向IPv4过渡的策略</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IP组播"><span class="nav-number">11.</span> <span class="nav-text">IP组播</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IP数据报的三种传输方式"><span class="nav-number">11.1.</span> <span class="nav-text">IP数据报的三种传输方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP组播地址"><span class="nav-number">11.2.</span> <span class="nav-text">IP组播地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#硬件组播"><span class="nav-number">11.3.</span> <span class="nav-text">硬件组播</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网际组管理IGMP协议"><span class="nav-number">11.4.</span> <span class="nav-text">网际组管理IGMP协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组播路由选择协议"><span class="nav-number">11.5.</span> <span class="nav-text">组播路由选择协议</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移动IP"><span class="nav-number">12.</span> <span class="nav-text">移动IP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#移动IP-的相关术语"><span class="nav-number">12.1.</span> <span class="nav-text">移动IP 的相关术语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#移动IP通信过程"><span class="nav-number">12.2.</span> <span class="nav-text">移动IP通信过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络层设备"><span class="nav-number">13.</span> <span class="nav-text">网络层设备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#路由器"><span class="nav-number">13.1.</span> <span class="nav-text">路由器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入端口对线路上收到的分组的处理"><span class="nav-number">13.1.1.</span> <span class="nav-text">输入端口对线路上收到的分组的处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出端口将交换结构传送的分组发送到线路"><span class="nav-number">13.1.2.</span> <span class="nav-text">输出端口将交换结构传送的分组发送到线路</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三层设备的区别"><span class="nav-number">13.2.</span> <span class="nav-text">三层设备的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路由表与路由转发"><span class="nav-number">13.3.</span> <span class="nav-text">路由表与路由转发</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -2985,6 +1418,10 @@ $$         </code></pre><p>$$<br>2x+3y=34\<br>x+4y=25<br>$$</p>
 
 
   
+  <script type="text/javascript" src="/lzfangwen.github.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/lzfangwen.github.io/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
