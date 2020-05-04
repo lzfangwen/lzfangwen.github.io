@@ -96,20 +96,20 @@
 <meta property="og:url" content="https://lzfangwen.github.io/blog/2020/04/04/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B05/index.html">
 <meta property="og:site_name" content="方文の个人博客">
 <meta property="og:description" content="进程互斥的软件实现方法单标志法 算法思想：两个进程在 访问临界区后会把使用临界区的权限转交给另一个进程。也就是说每个进程进入临界区的权限只能被另一个进程赋予 可以实现同一时刻最多只允许一个进程访问临界区">
-<meta property="og:image" content="http://q8375k9tz.bkt.clouddn.com/blog/20200404/nKcso4kGwe3k.png">
-<meta property="og:image" content="http://q8375k9tz.bkt.clouddn.com/blog/20200404/4x9YuXGhPP0u.png">
-<meta property="og:image" content="http://q8375k9tz.bkt.clouddn.com/blog/20200404/MiE9vSwfBeyM.png">
-<meta property="og:image" content="http://q8375k9tz.bkt.clouddn.com/blog/20200404/4GA1JprzUCye.png">
-<meta property="og:image" content="http://q8375k9tz.bkt.clouddn.com/blog/20200404/rkM7I9IHo9os.png">
-<meta property="og:image" content="http://q8375k9tz.bkt.clouddn.com/blog/20200405/51PVmEsdA5RT.png">
-<meta property="og:image" content="http://q8375k9tz.bkt.clouddn.com/blog/20200405/sQ8lDEHKqj1q.png">
-<meta property="og:image" content="http://q8375k9tz.bkt.clouddn.com/blog/20200405/r8sga0kfPgEh.png">
+<meta property="og:image" content="http://qiniuyun.lzfangwen.cn/blog/20200404/nKcso4kGwe3k.png">
+<meta property="og:image" content="http://qiniuyun.lzfangwen.cn/blog/20200404/4x9YuXGhPP0u.png">
+<meta property="og:image" content="http://qiniuyun.lzfangwen.cn/blog/20200404/MiE9vSwfBeyM.png">
+<meta property="og:image" content="http://qiniuyun.lzfangwen.cn/blog/20200404/4GA1JprzUCye.png">
+<meta property="og:image" content="http://qiniuyun.lzfangwen.cn/blog/20200404/rkM7I9IHo9os.png">
+<meta property="og:image" content="http://qiniuyun.lzfangwen.cn/blog/20200405/51PVmEsdA5RT.png">
+<meta property="og:image" content="http://qiniuyun.lzfangwen.cn/blog/20200405/sQ8lDEHKqj1q.png">
+<meta property="og:image" content="http://qiniuyun.lzfangwen.cn/blog/20200405/r8sga0kfPgEh.png">
 <meta property="article:published_time" content="2020-04-04T09:24:41.000Z">
-<meta property="article:modified_time" content="2020-04-06T06:34:06.072Z">
+<meta property="article:modified_time" content="2020-05-01T06:18:20.584Z">
 <meta property="article:author" content="方文">
 <meta property="article:tag" content="OS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://q8375k9tz.bkt.clouddn.com/blog/20200404/nKcso4kGwe3k.png">
+<meta name="twitter:image" content="http://qiniuyun.lzfangwen.cn/blog/20200404/nKcso4kGwe3k.png">
 
 
 
@@ -409,26 +409,26 @@
 <p>可以实现<strong>同一时刻最多只允许一个进程访问临界区</strong></p>
 <a id="more"></a>
 
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200404/nKcso4kGwe3k.png" alt="mark"></p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200404/4x9YuXGhPP0u.png" alt="mark"></p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200404/nKcso4kGwe3k.png" alt="mark"></p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200404/4x9YuXGhPP0u.png" alt="mark"></p>
 <h3 id="双标志先检查法"><a href="#双标志先检查法" class="headerlink" title="双标志先检查法"></a>双标志先检查法</h3><p><strong>算法思想</strong>:设置一个布尔型数组flag[],数组中各个元素用来<strong>标记各进程想进入临界区的意愿</strong>,比如”flag[0] = ture”意味着0号进程P0现在想要进入临界区。每个进程在进入临界区之前先检查当前有没有别的进程想进入临界区,如果没有,则把自身对应的标志flag[i]设为true,之后开始访问临界区</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200404/MiE9vSwfBeyM.png" alt="mark"></p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200404/MiE9vSwfBeyM.png" alt="mark"></p>
 <h3 id="双标志后检查法"><a href="#双标志后检查法" class="headerlink" title="双标志后检查法"></a>双标志后检查法</h3><p><strong>算法思想</strong>:双标志先检查法的改版。前一个算法的问题是先“检查”后“上锁” ,但是这两个操作又无法一气呵成,因此导致了两个进程同时进入临界区的问题。因此,人们又想到先“上锁”后“检查”的方法,来避免上述问题。</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200404/4GA1JprzUCye.png" alt="mark"></p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200404/4GA1JprzUCye.png" alt="mark"></p>
 <h3 id="Peterson算法"><a href="#Peterson算法" class="headerlink" title="Peterson算法"></a>Peterson算法</h3><p><strong>算法思想</strong>:双标志后检查法中,两个进程都争着想进入临界区,但是谁也不让谁,最后谁都无法进入临界区。Gary L. Peterson想到了一种方法,如果双方都争着想进入临界区,那可以让进程尝试“孔融上梨”,主动让对方先使用临界区</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200404/rkM7I9IHo9os.png" alt="mark"></p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200404/rkM7I9IHo9os.png" alt="mark"></p>
 <h2 id="进程互斥的硬件实现方法"><a href="#进程互斥的硬件实现方法" class="headerlink" title="进程互斥的硬件实现方法"></a>进程互斥的硬件实现方法</h2><h3 id="中断屏蔽方法"><a href="#中断屏蔽方法" class="headerlink" title="中断屏蔽方法"></a>中断屏蔽方法</h3><p>利用“开/关中断指令”实现(与原语的实现思想相同,即在某进程开始访问临界区到结束访问为止都不允许被中断,也就不能发生进程切换,因此也不可能发生两个同时访问临界区的情况)</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200405/51PVmEsdA5RT.png" alt="mark"></p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200405/51PVmEsdA5RT.png" alt="mark"></p>
 <p>优点:简单、高效缺点:不适用于多处理机;只适用于操作系统内核进程,不适用于用户进程(因为开/关中断指令只能运行在内核态,这组指令如果能让用户随意使用会很危险)</p>
 <h3 id="TestAndSet指令"><a href="#TestAndSet指令" class="headerlink" title="TestAndSet指令"></a>TestAndSet指令</h3><p>简称TS指令,也有地方称为TestAndSetLock指令,或TSL指令</p>
 <p><strong>TSL指令是用硬件实现的,</strong>执行的过程不允许被中断,只能一气呵成。以下是用C语言描述的逻辑</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200405/sQ8lDEHKqj1q.png" alt="mark"></p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200405/sQ8lDEHKqj1q.png" alt="mark"></p>
 <p>若刚开始lock是false,则TSL返回的old值为false, while循环条件不满足,直接跳过循环,进入临界区。若刚开始lock是true,则执行TLS后old返回的值为true, while循环条件满足,会一直循环,直到当前访问临界区的进程在退出区进行“解锁”。</p>
 <p>相比软件实现方法, TSL指令把“上锁”和“检查”操作用硬件的方式变成了一气呵成的原子操作。</p>
 <p>优点:实现简单,无需像软件实现方法那样严格检查是否会有逻辑漏洞;适用于多处理机环境</p>
 <p>缺点:不满足“让权等待”原则,暂时无法进入临界区的进程会占用CPU并循环执行TSL指令,从而导致“忙等”</p>
 <h3 id="Swap指令"><a href="#Swap指令" class="headerlink" title="Swap指令"></a>Swap指令</h3><p>有的地方也叫Exchange指令,或简称XCHG指令。<strong>swap指令是用硬件实现的</strong>,执行的过程不允许被中断,只能一气呵成。以下是用C语言描述的逻辑</p>
-<p><img src="http://q8375k9tz.bkt.clouddn.com/blog/20200405/r8sga0kfPgEh.png" alt="mark"></p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200405/r8sga0kfPgEh.png" alt="mark"></p>
 <p>逻辑上来看Swap和TSL并无太大区别,都是先记录下此时临界区是否已经被上锁(记录在old变量上) ,再将上锁标记lock设置为true,最后检查old,如果old为false则说明之前没有别的进程,对临界区上锁,则可跳出循环,进入临界区。</p>
 <p>优点:实现简单,无需像软件实现方法那样严格检查是否会有逻辑漏洞;适用于多处理机环境</p>
 <p>缺点:不满足“让权等待”原则,暂时无法进入临界区的进程会占用CPU并循环执行TSL指令,从而导致“忙等”。</p>
@@ -573,7 +573,7 @@
               
                 <a href="/lzfangwen.github.io/archives">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

@@ -6,7 +6,7 @@
   <link href="/lzfangwen.github.io/atom.xml" rel="self"/>
   
   <link href="https://lzfangwen.github.io/blog/"/>
-  <updated>2020-04-27T10:39:20.061Z</updated>
+  <updated>2020-05-04T12:25:43.798Z</updated>
   <id>https://lzfangwen.github.io/blog/</id>
   
   <author>
@@ -17,11 +17,55 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>操作系统-学习笔记9</title>
+    <link href="https://lzfangwen.github.io/blog/2020/04/28/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B09/"/>
+    <id>https://lzfangwen.github.io/blog/2020/04/28/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B09/</id>
+    <published>2020-04-28T07:12:29.000Z</published>
+    <updated>2020-05-04T12:25:43.798Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;虚拟存储技术&quot;&gt;&lt;a href=&quot;#虚拟存储技术&quot; class=&quot;headerlink&quot; title=&quot;虚拟存储技术&quot;&gt;&lt;/a&gt;虚拟存储技术&lt;/h1&gt;
+    
+    </summary>
+    
+    
+      <category term="OS" scheme="https://lzfangwen.github.io/blog/categories/OS/"/>
+    
+    
+      <category term="OS" scheme="https://lzfangwen.github.io/blog/tags/OS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算机操作系统知识点</title>
+    <link href="https://lzfangwen.github.io/blog/2020/04/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
+    <id>https://lzfangwen.github.io/blog/2020/04/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9F%A5%E8%AF%86%E7%82%B9/</id>
+    <published>2020-04-28T06:51:16.000Z</published>
+    <updated>2020-04-28T07:11:56.202Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;a
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>计算机网络-学习笔记9</title>
     <link href="https://lzfangwen.github.io/blog/2020/04/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B09/"/>
     <id>https://lzfangwen.github.io/blog/2020/04/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B09/</id>
     <published>2020-04-24T05:44:54.000Z</published>
-    <updated>2020-04-27T10:39:20.061Z</updated>
+    <updated>2020-05-04T13:21:31.325Z</updated>
     
     <summary type="html">
     
@@ -97,7 +141,7 @@
     <link href="https://lzfangwen.github.io/blog/2020/04/19/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B08/"/>
     <id>https://lzfangwen.github.io/blog/2020/04/19/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B08/</id>
     <published>2020-04-19T00:06:03.000Z</published>
-    <updated>2020-04-22T08:26:25.857Z</updated>
+    <updated>2020-04-28T01:43:45.167Z</updated>
     
     <summary type="html">
     
@@ -174,7 +218,7 @@
     <link href="https://lzfangwen.github.io/blog/2020/04/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B05/"/>
     <id>https://lzfangwen.github.io/blog/2020/04/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B05/</id>
     <published>2020-04-14T08:17:19.000Z</published>
-    <updated>2020-04-18T08:04:25.572Z</updated>
+    <updated>2020-05-01T06:15:58.485Z</updated>
     
     <summary type="html">
     
@@ -195,7 +239,7 @@
     <link href="https://lzfangwen.github.io/blog/2020/04/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/"/>
     <id>https://lzfangwen.github.io/blog/2020/04/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/</id>
     <published>2020-04-14T01:38:41.000Z</published>
-    <updated>2020-04-14T07:10:11.512Z</updated>
+    <updated>2020-05-01T06:16:35.952Z</updated>
     
     <summary type="html">
     
@@ -216,7 +260,7 @@
     <link href="https://lzfangwen.github.io/blog/2020/04/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/"/>
     <id>https://lzfangwen.github.io/blog/2020/04/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/</id>
     <published>2020-04-13T07:30:42.000Z</published>
-    <updated>2020-04-14T01:37:46.113Z</updated>
+    <updated>2020-05-01T06:16:53.034Z</updated>
     
     <summary type="html">
     
@@ -270,7 +314,7 @@
     <link href="https://lzfangwen.github.io/blog/2020/04/09/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E4%B9%A0%E9%A2%981/"/>
     <id>https://lzfangwen.github.io/blog/2020/04/09/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E4%B9%A0%E9%A2%981/</id>
     <published>2020-04-09T08:10:09.000Z</published>
-    <updated>2020-04-09T09:13:34.729Z</updated>
+    <updated>2020-05-01T06:17:11.282Z</updated>
     
     <summary type="html">
     
@@ -324,11 +368,11 @@ $$         &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;$$&lt;br&gt;2x+3y=34\&lt;br&gt;x+4y
     <link href="https://lzfangwen.github.io/blog/2020/04/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/"/>
     <id>https://lzfangwen.github.io/blog/2020/04/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/</id>
     <published>2020-04-08T03:38:49.000Z</published>
-    <updated>2020-04-08T16:20:02.275Z</updated>
+    <updated>2020-05-01T06:17:26.342Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;数据通信基础知识&quot;&gt;&lt;a href=&quot;#数据通信基础知识&quot; class=&quot;headerlink&quot; title=&quot;数据通信基础知识&quot;&gt;&lt;/a&gt;数据通信基础知识&lt;/h2&gt;&lt;h3 id=&quot;典型的数据通信模型&quot;&gt;&lt;a href=&quot;#典型的数据通信模型&quot; class=&quot;headerlink&quot; title=&quot;典型的数据通信模型&quot;&gt;&lt;/a&gt;典型的数据通信模型&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;http://q8375k9tz.bkt.clouddn.com/blog/20200408/CPvLE6vyYds2.png&quot; alt=&quot;mark&quot;&gt;&lt;/p&gt;
+      &lt;h2 id=&quot;数据通信基础知识&quot;&gt;&lt;a href=&quot;#数据通信基础知识&quot; class=&quot;headerlink&quot; title=&quot;数据通信基础知识&quot;&gt;&lt;/a&gt;数据通信基础知识&lt;/h2&gt;&lt;h3 id=&quot;典型的数据通信模型&quot;&gt;&lt;a href=&quot;#典型的数据通信模型&quot; class=&quot;headerlink&quot; title=&quot;典型的数据通信模型&quot;&gt;&lt;/a&gt;典型的数据通信模型&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;http://qiniuyun.lzfangwen.cn/blog/20200408/CPvLE6vyYds2.png&quot; alt=&quot;mark&quot;&gt;&lt;/p&gt;
     
     </summary>
     
@@ -345,7 +389,7 @@ $$         &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;$$&lt;br&gt;2x+3y=34\&lt;br&gt;x+4y
     <link href="https://lzfangwen.github.io/blog/2020/04/05/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B07/"/>
     <id>https://lzfangwen.github.io/blog/2020/04/05/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B07/</id>
     <published>2020-04-05T06:53:46.000Z</published>
-    <updated>2020-04-06T06:34:33.029Z</updated>
+    <updated>2020-05-01T06:17:42.823Z</updated>
     
     <summary type="html">
     
@@ -369,7 +413,7 @@ $$         &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;$$&lt;br&gt;2x+3y=34\&lt;br&gt;x+4y
     <link href="https://lzfangwen.github.io/blog/2020/04/05/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B06/"/>
     <id>https://lzfangwen.github.io/blog/2020/04/05/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B06/</id>
     <published>2020-04-05T01:18:49.000Z</published>
-    <updated>2020-04-06T06:34:18.252Z</updated>
+    <updated>2020-05-01T06:18:01.553Z</updated>
     
     <summary type="html">
     
@@ -392,7 +436,7 @@ $$         &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;$$&lt;br&gt;2x+3y=34\&lt;br&gt;x+4y
     <link href="https://lzfangwen.github.io/blog/2020/04/04/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B05/"/>
     <id>https://lzfangwen.github.io/blog/2020/04/04/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B05/</id>
     <published>2020-04-04T09:24:41.000Z</published>
-    <updated>2020-04-06T06:34:06.072Z</updated>
+    <updated>2020-05-01T06:18:20.584Z</updated>
     
     <summary type="html">
     
@@ -441,7 +485,7 @@ $$         &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;$$&lt;br&gt;2x+3y=34\&lt;br&gt;x+4y
     <link href="https://lzfangwen.github.io/blog/2020/03/31/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/"/>
     <id>https://lzfangwen.github.io/blog/2020/03/31/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/</id>
     <published>2020-03-31T06:10:26.000Z</published>
-    <updated>2020-04-01T07:26:34.778Z</updated>
+    <updated>2020-05-01T06:13:45.832Z</updated>
     
     <summary type="html">
     
@@ -455,57 +499,6 @@ $$         &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;$$&lt;br&gt;2x+3y=34\&lt;br&gt;x+4y
     
     
       <category term="OS" scheme="https://lzfangwen.github.io/blog/tags/OS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo博客相关事项</title>
-    <link href="https://lzfangwen.github.io/blog/2020/03/31/hexo%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3%E4%BA%8B%E9%A1%B9/"/>
-    <id>https://lzfangwen.github.io/blog/2020/03/31/hexo%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3%E4%BA%8B%E9%A1%B9/</id>
-    <published>2020-03-31T05:14:41.000Z</published>
-    <updated>2020-04-03T03:35:57.413Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;hexo新建文章的默认值&quot;&gt;&lt;a href=&quot;#hexo新建文章的默认值&quot; class=&quot;headerlink&quot; title=&quot;hexo新建文章的默认值&quot;&gt;&lt;/a&gt;hexo新建文章的默认值&lt;/h2&gt;&lt;p&gt;博客文件夹下git
-        
-      
-    
-    </summary>
-    
-    
-      <category term="hexo" scheme="https://lzfangwen.github.io/blog/categories/hexo/"/>
-    
-    
-      <category term="hexo" scheme="https://lzfangwen.github.io/blog/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>计算机组成原理-汉明码</title>
-    <link href="https://lzfangwen.github.io/blog/2020/03/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86-%E6%B1%89%E6%98%8E%E7%A0%81/"/>
-    <id>https://lzfangwen.github.io/blog/2020/03/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86-%E6%B1%89%E6%98%8E%E7%A0%81/</id>
-    <published>2020-03-24T01:51:02.000Z</published>
-    <updated>2020-03-31T01:21:09.806Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;自己的理解 帮助自己复习用的 写的可能会有错误&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&quot;汉明码-Hamming-Code&quot;&gt;&lt;a href=&quot;#汉明码-Hamming-Code&quot; class=&quot;headerlink&quot; title=&quot;汉明码(Hamming Code )&quot;&gt;&lt;/a&gt;汉明码(Hamming Code )&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;汉明码（Hamming Code），是在电信领域的一种线性调试码，以发明者理查德·卫斯里·汉明的名字命名。汉明码在传输的消息流中插入验证码，当计算机存储或移动数据时，可能会产生数据位错误，以侦测并更正单一比特错误。由于汉明编码简单，它们被广泛应用于内存（RAM）。——百度百科&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="计算机组成原理" scheme="https://lzfangwen.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
-    
-    
-      <category term="Hamming Code" scheme="https://lzfangwen.github.io/blog/tags/Hamming-Code/"/>
     
   </entry>
   
