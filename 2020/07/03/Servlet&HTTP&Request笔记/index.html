@@ -1,0 +1,2201 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lzfangwen.github.io/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lzfangwen.github.io/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lzfangwen.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lzfangwen.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/lzfangwen.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/lzfangwen.github.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/lzfangwen.github.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/lzfangwen.github.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/lzfangwen.github.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="JAVA," />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/lzfangwen.github.io/atom.xml" title="方文の个人博客" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="web相关概念回顾 软件架构 C&#x2F;S：客户端&#x2F;服务器端 B&#x2F;S：浏览器&#x2F;服务器端     资源分类 静态资源：所有用户访问后，得到的结果都是一样的，称为静态资源.静态资源可以直接被浏览器解析如： html,css,JavaScript 动态资源:每个用户访问相同资源后，得到的结果可能不一样。称为动态资源。动态资源被访问后，需要先转换为静态资源，在返回给浏览器如：servlet&#x2F;jsp,php,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Servlet&amp;HTTP&amp;Request笔记">
+<meta property="og:url" content="https://lzfangwen.github.io/blog/2020/07/03/Servlet&HTTP&Request%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="方文の个人博客">
+<meta property="og:description" content="web相关概念回顾 软件架构 C&#x2F;S：客户端&#x2F;服务器端 B&#x2F;S：浏览器&#x2F;服务器端     资源分类 静态资源：所有用户访问后，得到的结果都是一样的，称为静态资源.静态资源可以直接被浏览器解析如： html,css,JavaScript 动态资源:每个用户访问相同资源后，得到的结果可能不一样。称为动态资源。动态资源被访问后，需要先转换为静态资源，在返回给浏览器如：servlet&#x2F;jsp,php,">
+<meta property="article:published_time" content="2020-07-03T08:03:06.000Z">
+<meta property="article:modified_time" content="2020-07-03T10:23:48.721Z">
+<meta property="article:author" content="方文">
+<meta property="article:tag" content="JAVA">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/lzfangwen.github.io/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://lzfangwen.github.io/blog/2020/07/03/Servlet&HTTP&Request笔记/"/>
+
+
+
+
+
+
+
+  <title>Servlet&HTTP&Request笔记 | 方文の个人博客</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?daefd7c3760fb40cadaa2dde4278b80d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/lzfangwen.github.io/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">方文の个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/lzfangwen.github.io/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/lzfangwen.github.io/about/" rel="section">
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/lzfangwen.github.io/tags/" rel="section">
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/lzfangwen.github.io/categories" rel="section">
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/lzfangwen.github.io/archives" rel="section">
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lzfangwen.github.io/blog/lzfangwen.github.io/2020/07/03/Servlet&HTTP&Request%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="方文">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/lzfangwen.github.io/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="方文の个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Servlet&HTTP&Request笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-03T16:03:06+08:00">
+                2020-07-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/lzfangwen.github.io/categories/JAVAE/" itemprop="url" rel="index">
+                    <span itemprop="name">JAVAE</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <a id="more"></a>
+
+<h2 id="web相关概念回顾"><a href="#web相关概念回顾" class="headerlink" title="web相关概念回顾"></a>web相关概念回顾</h2><ol>
+<li>软件架构<ol>
+<li>C/S：客户端/服务器端</li>
+<li>B/S：浏览器/服务器端</li>
+</ol>
+</li>
+</ol>
+<ol start="2">
+<li>资源分类<ol>
+<li>静态资源：所有用户访问后，得到的结果都是一样的，称为静态资源.静态资源可以直接被浏览器解析<br>如： html,css,JavaScript</li>
+<li>动态资源:每个用户访问相同资源后，得到的结果可能不一样。称为动态资源。动态资源被访问后，需要先转换为静态资源，在返回给浏览器<br>如：servlet/jsp,php,asp….</li>
+</ol>
+</li>
+</ol>
+<ol start="3">
+<li>网络通信三要素<ol>
+<li>IP：电子设备(计算机)在网络中的唯一标识。</li>
+<li>端口：应用程序在计算机中的唯一标识。 0~65536</li>
+<li>传输协议：规定了数据传输的规则<br>基础协议：<ol>
+<li>tcp:安全协议，三次握手。 速度稍慢</li>
+<li>udp：不安全协议。 速度快</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="web服务器软件："><a href="#web服务器软件：" class="headerlink" title="web服务器软件："></a>web服务器软件：</h2><ul>
+<li>服务器：安装了服务器软件的计算机</li>
+<li>服务器软件：接收用户的请求，处理请求，做出响应</li>
+<li>web服务器软件：接收用户的请求，处理请求，做出响应。<ul>
+<li>在web服务器软件中，可以部署web项目，让用户通过浏览器来访问这些项目</li>
+<li>web容器</li>
+<li>常见的java相关的web服务器软件：<ul>
+<li>webLogic：oracle公司，大型的JavaEE服务器，支持所有的JavaEE规范，收费的。</li>
+<li>webSphere：IBM公司，大型的JavaEE服务器，支持所有的JavaEE规范，收费的。</li>
+<li>JBOSS：JBOSS公司的，大型的JavaEE服务器，支持所有的JavaEE规范，收费的。</li>
+<li>Tomcat：Apache基金组织，中小型的JavaEE服务器，仅仅支持少量的JavaEE规范servlet/jsp。开源的，免费的。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>JavaEE：Java语言在企业级开发中使用的技术规范的总和，一共规定了13项大的规范</li>
+</ul>
+<ul>
+<li><p>Tomcat：web服务器软件</p>
+<ol>
+<li><p>下载：<a href="http://tomcat.apache.org/" target="_blank" rel="noopener">http://tomcat.apache.org/</a></p>
+</li>
+<li><p>安装：解压压缩包即可。</p>
+<ul>
+<li>注意：安装目录建议不要有中文和空格</li>
+</ul>
+</li>
+<li><p>卸载：删除目录就行了</p>
+</li>
+<li><p>启动：</p>
+<ul>
+<li>bin/startup.bat ,双击运行该文件即可</li>
+<li>访问：浏览器输入：<a href="http://localhost:8080" target="_blank" rel="noopener">http://localhost:8080</a> 回车访问自己<pre><code>           http://别人的ip:8080 回车访问别人</code></pre> 可能遇到的问题：<ol>
+<li>黑窗口一闪而过：</li>
+</ol>
+<ul>
+<li>原因： 没有正确配置JAVA_HOME环境变量</li>
+<li>解决方案：正确配置JAVA_HOME环境变量</li>
+</ul>
+<ol start="2">
+<li>启动报错：<ol>
+<li>暴力：找到占用的端口号，并且找到对应的进程，杀死该进程<ul>
+<li>netstat -ano</li>
+</ul>
+</li>
+<li>温柔：修改自身的端口号<ul>
+<li>conf/server.xml</li>
+<li>&lt;Connector port=”8888” protocol=”HTTP/1.1”<br>connectionTimeout=”20000”redirectPort=”8445” /&gt;</li>
+<li>一般会将tomcat的默认端口号修改为80。80端口号是http协议的默认端口号。</li>
+<li>好处：在访问时，就不用输入端口号</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<ol start="5">
+<li><p>关闭：</p>
+<ol start="6">
+<li><p>正常关闭：</p>
+<ul>
+<li>bin/shutdown.bat</li>
+<li>ctrl+c</li>
+</ul>
+</li>
+<li><p>强制关闭：</p>
+</li>
+</ol>
+</li>
+</ol>
+<ul>
+<li>点击启动窗口的×</li>
+</ul>
+<ol start="6">
+<li><p>配置:</p>
+<ul>
+<li><p>部署项目的方式：</p>
+<ol>
+<li><p>直接将项目放到webapps目录下即可。</p>
+<ul>
+<li><p>/hello：项目的访问路径–&gt;虚拟目录</p>
+</li>
+<li><p>简化部署：将项目打成一个war包，再将war包放置到webapps目录下。</p>
+</li>
+<li><p>war包会自动解压缩</p>
+</li>
+</ul>
+</li>
+<li><p>配置conf/server.xml文件</p>
+<ul>
+<li>在<host>标签体中配置<context docbase="D:\hello" path="/hehe"></context></host></li>
+<li>docBase:项目存放的路径</li>
+<li>path：虚拟目录</li>
+</ul>
+</li>
+<li><p>在conf\Catalina\localhost创建任意名称的xml文件。在文件中编写</p>
+  <context docbase="D:\hello">
+  - 虚拟目录：xml文件的名称
+
+
+
+
+
+
+</context></li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>静态项目和动态项目：<ul>
+<li>目录结构<ul>
+<li>java动态项目的目录结构：<ul>
+<li>项目的根目录<ul>
+<li>WEB-INF目录：<ul>
+<li>web.xml：web项目的核心配置文件</li>
+<li>classes目录：放置字节码文件的目录</li>
+<li>lib目录：放置依赖的jar包</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>将Tomcat集成到IDEA中，并且创建JavaEE的项目，部署项目。</li>
+</ul>
+<h2 id="Servlet：-server-applet"><a href="#Servlet：-server-applet" class="headerlink" title="Servlet：  server applet"></a>Servlet：  server applet</h2><ul>
+<li>概念：运行在服务器端的小程序<ul>
+<li>Servlet就是一个接口，定义了Java类被浏览器访问到(tomcat识别)的规则。</li>
+<li>将来我们自定义一个类，实现Servlet接口，复写方法。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>快速入门：</p>
+<ol>
+<li><p>创建JavaEE项目</p>
+</li>
+<li><p>定义一个类，实现Servlet接口</p>
+<ul>
+<li>public class ServletDemo1 implements Servlet</li>
+</ul>
+</li>
+<li><p>实现接口中的抽象方法</p>
+</li>
+<li><p>配置Servlet </p>
+<p>在web.xml中配置：</p>
+<blockquote>
+ <!--配置Servlet -->
+   <servlet>
+       <servlet-name>demo1</servlet-name>
+       <servlet-class>cn.itcast.web.servlet.ServletDemo1</servlet-class>
+   </servlet> <servlet-mapping>
+       <servlet-name>demo1</servlet-name>
+       <url-pattern>/demo1</url-pattern>
+   </servlet-mapping>
+</blockquote>
+</li>
+</ol>
+</li>
+<li><p>执行原理：</p>
+<ol>
+<li><p>当服务器接受到客户端浏览器的请求后，会解析请求URL路径，获取访问的Servlet的资源路径</p>
+</li>
+<li><p>查找web.xml文件，是否有对应的<url-pattern>标签体内容。</url-pattern></p>
+</li>
+<li><p>如果有，则在找到对应的<servlet-class>全类名</servlet-class></p>
+</li>
+<li><p>tomcat会将字节码文件加载进内存，并且创建其对象</p>
+</li>
+<li><p>调用其方法</p>
+</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>Servlet中的生命周期方法：</p>
+<ol>
+<li><p>被创建：执行init方法，只执行一次</p>
+<blockquote>
+<p>Servlet什么时候被创建？</p>
+<p>默认情况下，第一次被访问时，Servlet被创建</p>
+<p>可以配置执行Servlet的创建时机。</p>
+<p>在<servlet>标签下配置</servlet></p>
+<ol>
+<li><p>第一次被访问时，创建</p>
+<p><load-on-startup>的值为负数</load-on-startup></p>
+</li>
+<li><p>在服务器启动时，创建<br><load-on-startup>的值为0或正整数</load-on-startup></p>
+</li>
+</ol>
+</blockquote>
+<p>Servlet的init方法，只执行一次，说明一个Servlet在内存中只存在一个对象，Servlet是单例的</p>
+</li>
+</ol>
+<blockquote>
+<p>多个用户同时访问时，可能存在线程安全问题。</p>
+<p>解决：尽量不要在Servlet中定义成员变量。即使定义了成员变量，也不要对修改值</p>
+</blockquote>
+<ol start="2">
+<li><p>提供服务：执行service方法，执行多次</p>
+<ul>
+<li>每次访问Servlet时，Service方法都会被调用一次。</li>
+</ul>
+</li>
+<li><p>被销毁：执行destroy方法，只执行一次</p>
+<ul>
+<li>Servlet被销毁时执行。服务器关闭时，Servlet被销毁</li>
+<li>只有服务器正常关闭时，才会执行destroy方法。</li>
+<li>destroy方法在Servlet被销毁之前执行，一般用于释放资源</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>Servlet3.0：</p>
+<p>好处：</p>
+<ul>
+<li>支持注解配置。可以不需要web.xml了。</li>
+</ul>
+<p>步骤：</p>
+<ul>
+<li>创建JavaEE项目，选择Servlet的版本3.0以上，可以不创建web.xml</li>
+<li>定义一个类，实现Servlet接口</li>
+<li>复写方法<ul>
+<li>在类上使用@WebServlet注解，进行配置</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="java">* @WebServlet("资源路径")</code></pre>
+<pre><code class="java">@Target({ElementType.TYPE})
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface WebServlet {
+    String name() default "";//相当于&lt;Servlet-name&gt;
+
+    String[] value() default {};//代表urlPatterns()属性配置
+
+    String[] urlPatterns() default {};//相当于&lt;url-pattern&gt;
+
+    int loadOnStartup() default -1;//相当于&lt;load-on-startup&gt;
+
+    WebInitParam[] initParams() default {};
+
+    boolean asyncSupported() default false;
+
+    String smallIcon() default "";
+
+    String largeIcon() default "";
+
+    String description() default "";
+
+    String displayName() default "";
+}</code></pre>
+<h2 id="IDEA与tomcat的相关配置"><a href="#IDEA与tomcat的相关配置" class="headerlink" title="IDEA与tomcat的相关配置"></a>IDEA与tomcat的相关配置</h2><ol>
+<li>IDEA会为每一个tomcat部署的项目单独建立一份配置文件</li>
+</ol>
+<ul>
+<li><p>查看控制台的log：Using CATALINA_BASE:   “C:\Users\fqy.IntelliJIdea2018.1\system\tomcat_itcast”</p>
+<ol start="2">
+<li><p>工作空间项目    和     tomcat部署的web项目</p>
+<ul>
+<li>tomcat真正访问的是“tomcat部署的web项目”，”tomcat部署的web项目”对应着”工作空间项目” 的web目录下的所有资源</li>
+<li>WEB-INF目录下的资源不能被浏览器直接访问。</li>
+</ul>
+</li>
+<li><p>断点调试：使用”小虫子”启动 dubug 启动</p>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="Servlet的体系结构"><a href="#Servlet的体系结构" class="headerlink" title="Servlet的体系结构"></a>Servlet的体系结构</h2><p>Servlet – 接口<br>​      |<br>​GenericServlet – 抽象类<br>​      |<br>​HttpServlet  – 抽象类</p>
+<ul>
+<li><p>GenericServlet：将Servlet接口中其他的方法做了默认空实现，只将service()方法作为抽象</p>
+<ul>
+<li>将来定义Servlet类时，可以继承GenericServlet，实现service()方法即可</li>
+</ul>
+</li>
+<li><p>HttpServlet：对http协议的一种封装，简化操作</p>
+<ul>
+<li>定义类继承HttpServlet</li>
+<li>复写doGet/doPost方法</li>
+</ul>
+</li>
+</ul>
+<p><strong>Servlet相关配置</strong></p>
+<ol>
+<li>urlpartten:Servlet访问路径<ol>
+<li>一个Servlet可以定义多个访问路径 ： @WebServlet({“/d4”,”/dd4”,”/ddd4”})</li>
+<li>路径定义规则：<ol>
+<li>/xxx：路径匹配</li>
+<li>/xxx/xxx:多层路径，目录结构</li>
+<li>*.do：扩展名匹配</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="HTTP："><a href="#HTTP：" class="headerlink" title="HTTP："></a>HTTP：</h2><ul>
+<li><p>概念：Hyper Text Transfer Protocol 超文本传输协议</p>
+<ul>
+<li><p>传输协议：定义了 客户端和服务器端通信时，发送数据的格式</p>
+</li>
+<li><p>特点：</p>
+<ol>
+<li>基于TCP/IP的高级协议</li>
+<li>默认端口号:80</li>
+<li>基于请求/响应模型的:一次请求对应一次响应</li>
+<li>无状态的：每次请求之间相互独立，不能交互数据</li>
+</ol>
+</li>
+<li><p>历史版本：</p>
+<ul>
+<li>1.0：每一次请求响应都会建立新的连接</li>
+<li>1.1：复用连接</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="请求消息"><a href="#请求消息" class="headerlink" title="请求消息"></a>请求消息</h3><p>客户端发送给服务器的数据</p>
+<ul>
+<li><p>请求消息数据格式</p>
+<ol>
+<li>请求行<br>请求方式     请求url         请求协议/版本<br>GET             /login.html   HTTP/1.1</li>
+</ol>
+<ul>
+<li><p>请求方式：</p>
+<ul>
+<li><p>HTTP协议有7种请求方式，常用的有2种</p>
+<ul>
+<li><p>GET：</p>
+<ol>
+<li><p>请求参数在请求行中，在url后。</p>
+</li>
+<li><p>请求的url长度有限制的</p>
+</li>
+<li><p>不太安全</p>
+</li>
+</ol>
+</li>
+<li><p>POST：</p>
+<ol>
+<li>请求参数在请求体中</li>
+<li>请求的url长度没有限制的</li>
+<li>相对安全</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li><p>请求头：客户端浏览器告诉服务器一些信息<br>请求头名称: 请求头值</p>
+<ul>
+<li><p>常见的请求头：</p>
+<ol>
+<li><p>User-Agent：浏览器告诉服务器，我访问你使用的浏览器版本信息</p>
+<ul>
+<li>可以在服务器端获取该头的信息，解决浏览器的兼容性问题</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<ol start="2">
+<li>Referer：<a href="http://localhost/login.html" target="_blank" rel="noopener">http://localhost/login.html</a><br> 告诉服务器，我(当前请求)从哪里来？<br> 作用：<ul>
+<li>防盗链</li>
+<li>统计工作：</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>请求空行<br>空行，就是用于分割POST请求的请求头，和请求体的。</p>
+</li>
+<li><p>请求体(正文)：</p>
+</li>
+</ol>
+<ul>
+<li><p>封装POST请求消息的请求参数的</p>
+</li>
+<li><p>字符串格式：</p>
+<pre><code> POST /login.html HTTP/1.1
+ Host: localhost
+ User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0
+ Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+ Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+ Accept-Encoding: gzip, deflate
+ Referer: http://localhost/login.html
+ Connection: keep-alive
+ Upgrade-Insecure-Requests: 1
+
+ username=zhangsan </code></pre></li>
+</ul>
+</li>
+</ul>
+<h3 id="响应消息"><a href="#响应消息" class="headerlink" title="响应消息"></a>响应消息</h3><p>服务器发送给客户端的消息</p>
+<ul>
+<li><p>响应消息数据格式</p>
+<ol>
+<li><p>响应行</p>
+<ul>
+<li><p>组成：协议/版本 响应状态码   状态码描述</p>
+</li>
+<li><p>响应状态码：服务器告诉客户端浏览器本次请求和响应的一个状态</p>
+<ul>
+<li><p>状态码都是3位数字</p>
+</li>
+<li><p>分类</p>
+<ol>
+<li><p>1xx：服务器接收客户端消息，但没有接收完成，等待一段时间后，发送1xx状态码</p>
+</li>
+<li><p>2xx：成功。代表：200</p>
+</li>
+<li><p>3xx：302（重定向），304（访问缓存）</p>
+</li>
+<li><p>4xx：客户端错误。</p>
+<p>代表：</p>
+<ul>
+<li>404（请求路径没有对应的资源）</li>
+<li>405（请求方式没有对应的doXXX方法）</li>
+</ul>
+</li>
+<li><p>5xx：服务端错误。代表：500（服务器内部出现错误）</p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>响应头：传输的数据</p>
+<ol>
+<li>格式：头名称：值</li>
+<li>常见的响应头：<ol>
+<li>Conteent-Type：服务器告诉客户端本次响应体数据格式以及编码格式</li>
+<li>Content-disposition:服务器告诉客户端以什么格式打开响应体数据<ol>
+<li>in-line:默认值，在当前界面内打开</li>
+<li>attachment;filename=xxx：以附件形式打开响应体。文件下载</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>响应空行</p>
+</li>
+<li><p>响应体</p>
+</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>响应字符串格式</p>
+<pre><code>HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+Content-Type: text/html;charset=UTF-8
+Content-Length: 90
+Date: Tue, 05 May 2020 00:51:55 GMT
+
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;$Title$&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  WDNMD
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre></li>
+</ul>
+<h2 id="Requet"><a href="#Requet" class="headerlink" title="Requet"></a>Requet</h2><ol>
+<li><p>request对象和response对象的原理</p>
+<ul>
+<li><p>request和response对象是由服务器创建的。我们来使用它们</p>
+</li>
+<li><p>request对象是来获取请求消息，response对象是来设置响应消息</p>
+</li>
+</ul>
+</li>
+</ol>
+<ol start="2">
+<li><p>request对象继承体系结构： </p>
+<pre><code>ServletRequest  -- 接口
+       | 继承
+HttpServletRequest -- 接口
+       | 实现</code></pre><p>org.apache.catalina.connector.RequestFacade 类(tomcat)</p>
+</li>
+<li><p>request功能：</p>
+<ol>
+<li>获取请求消息数据</li>
+<li>获取请求行数据</li>
+</ol>
+</li>
+</ol>
+<pre><code class="java">* GET /day14/demo1?name=zhangsan HTTP/1.1
+* 方法：
+ 1. 获取请求方式 ：GET
+  * String getMethod()  
+ 2. (*)获取虚拟目录：/day14
+  * String getContextPath()
+ 3. 获取Servlet路径: /demo1
+  * String getServletPath()
+ 4. 获取get方式请求参数：name=zhangsan
+  * String getQueryString()
+ 5. (*)获取请求URI：/day14/demo1
+  * String getRequestURI():  /day14/demo1
+  * StringBuffer getRequestURL()  :http://localhost/day14/demo1
+
+  * URL:统一资源定位符 ： http://localhost/day14/demo1 中华人民共和国
+  * URI：统一资源标识符 : /day14/demo1     共和国
+
+ 6. 获取协议及版本：HTTP/1.1
+  * String getProtocol()
+
+ 7. 获取客户机的IP地址：
+  * String getRemoteAddr()</code></pre>
+<pre><code>3. 获取请求头数据
+* 方法：
+ * (*)String getHeader(String name):通过请求头的名称获取请求头的值
+ * Enumeration&lt;String&gt; getHeaderNames():获取所有的请求头名称
+
+4. 获取请求体数据:
+* 请求体：只有POST请求方式，才有请求体，在请求体中封装了POST请求的请求参数
+* 步骤：
+ 1. 获取流对象
+  *  BufferedReader getReader()：获取字符输入流，只能操作字符数据
+  *  ServletInputStream getInputStream()：获取字节输入流，可以操作所有类型数据
+   * 在文件上传知识点后讲解
+
+ 2. 再从流对象中拿数据</code></pre><ol start="2">
+<li>其他功能：</li>
+</ol>
+<ul>
+<li>获取请求参数通用方式：不论get还是post请求方式都可以使用下列方法来获取请求参数<br>​    1. String getParameter(String name):根据参数名称获取参数值    username=zs&amp;password=123<br>​    2. String[] getParameterValues(String name):根据参数名称获取参数值的数组  hobby=xx&amp;hobby=game<br>​    3. Enumeration<string> getParameterNames():获取所有请求的参数名称<br>​    4. Map&lt;String,String[]&gt; getParameterMap():获取所有参数的map集合</string></li>
+<li>中文乱码问题：<br>​get方式：tomcat 8 已经将get方式乱码问题解决了<br>​post方式：会乱码<br>​      * 解决：在获取参数前，设置request的编码request.setCharacterEncoding(“utf-8”);</li>
+</ul>
+<p>​     </p>
+<ul>
+<li><p>请求转发：一种在服务器内部的资源跳转方式<br>​    1. 步骤</p>
+<ul>
+<li><p>通过request对象获取请求转发器对象：RequestDispatcher getRequestDispatcher(String path)</p>
+</li>
+<li><p>使用RequestDispatcher对象来进行转发：forward(ServletRequest request, ServletResponse response) </p>
+</li>
+</ul>
+<p>​    2. 特点：<br>​       1. 浏览器地址栏路径不发生变化<br>​       2. 只能转发到当前服务器内部资源中。<br>​       3. 转发是一次请求</p>
+</li>
+</ul>
+<ol start="3">
+<li><p>共享数据：<br>域对象：一个有作用范围的对象，可以在范围内共享数据<br>request域：代表一次请求的范围，一般用于请求转发的多个资源中共享数据<br>方法：</p>
+</li>
+<li><p>void setAttribute(String name,Object obj):存储数据</p>
+</li>
+<li><p>Object getAttitude(String name):通过键获取值</p>
+</li>
+<li><p>void removeAttribute(String name):通过键移除键值对</p>
+</li>
+<li><p>获取ServletContext：</p>
+<ul>
+<li>ServletContext getServletContext()</li>
+</ul>
+</li>
+</ol>
+<h2 id="案例：用户登录"><a href="#案例：用户登录" class="headerlink" title="案例：用户登录"></a>案例：用户登录</h2><ul>
+<li>用户登录案例需求：<br> 1.编写login.html登录页面<br>username &amp; password 两个输入框<br> 2.使用Druid数据库连接池技术,操作mysql，day14数据库中user表<br> 3.使用JdbcTemplate技术封装JDBC<br> 4.登录成功跳转到SuccessServlet展示：登录成功！用户名,欢迎您<br> 5.登录失败跳转到FailServlet展示：登录失败，用户名或密码错误</li>
+</ul>
+<ul>
+<li><p>分析</p>
+</li>
+<li><p>开发步骤</p>
+<ol>
+<li><p>创建项目，导入html页面，配置文件，jar包</p>
+</li>
+<li><p>创建数据库环境<br>CREATE DATABASE day14;<br>USE day14;<br>CREATE TABLE USER(</p>
+<p>id INT PRIMARY KEY AUTO_INCREMENT,<br>username VARCHAR(32) UNIQUE NOT NULL,<br>PASSWORD VARCHAR(32) NOT NULL<br>);</p>
+</li>
+<li><p>创建包cn.itcast.domain,创建类User<br>package cn.itcast.domain;<br>/**</p>
+<ul>
+<li><p>用户的实体类</p>
+</li>
+<li><p>/<br>public class User {</p>
+<p>private int id;<br>private String username;<br>private String password;</p>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<p>​       public int getId() {<br>​           return id;<br>​       }<br>​<br>​       public void setId(int id) {<br>​           this.id = id;<br>​       }<br>​<br>​       public String getUsername() {<br>​           return username;<br>​       }<br>​<br>​       public void setUsername(String username) {<br>​           this.username = username;<br>​       }<br>​<br>​       public String getPassword() {<br>​           return password;<br>​       }</p>
+<pre><code>   public void setPassword(String password) {
+       this.password = password;
+   }
+
+   @Override
+   public String toString() {
+       return "User{" +
+               "id=" + id +
+               ", username='" + username + '\'' +
+               ", password='" + password + '\'' +
+               '}';
+   }</code></pre><p>   }<br>  4. 创建包cn.itcast.util,编写工具类JDBCUtils<br>      package cn.itcast.util;</p>
+<p>   import com.alibaba.druid.pool.DruidDataSourceFactory;</p>
+<p>   import javax.sql.DataSource;<br>   import javax.xml.crypto.Data;<br>   import java.io.IOException;<br>   import java.io.InputStream;<br>   import java.sql.Connection;<br>   import java.sql.SQLException;<br>   import java.util.Properties;</p>
+<p>   /**<br>    * JDBC工具类 使用Durid连接池<br>    */<br>   public class JDBCUtils {</p>
+<pre><code>   private static DataSource ds ;
+
+   static {
+
+       try {
+           //1.加载配置文件
+           Properties pro = new Properties();
+           //使用ClassLoader加载配置文件，获取字节输入流
+           InputStream is = JDBCUtils.class.getClassLoader().getResourceAsStream("druid.properties");
+           pro.load(is);
+
+           //2.初始化连接池对象
+           ds = DruidDataSourceFactory.createDataSource(pro);
+
+       } catch (IOException e) {
+           e.printStackTrace();
+       } catch (Exception e) {
+           e.printStackTrace();
+       }
+   }
+
+   /**
+    * 获取连接池对象
+    */
+   public static DataSource getDataSource(){
+       return ds;
+   }</code></pre><p>​       /**<br>​        * 获取连接Connection对象<br>​        <em>/<br>​       public static Connection getConnection() throws SQLException {<br>​           return  ds.getConnection();<br>​       }<br>​   }<br>​  5. 创建包cn.itcast.dao,创建类UserDao,提供login方法<br>​<br>​   package cn.itcast.dao;<br>​<br>​   import cn.itcast.domain.User;<br>​   import cn.itcast.util.JDBCUtils;<br>​   import org.springframework.dao.DataAccessException;<br>​   import org.springframework.jdbc.core.BeanPropertyRowMapper;<br>​   import org.springframework.jdbc.core.JdbcTemplate;<br>​<br>​   /*</em><br>​    * 操作数据库中User表的类<br>​    */<br>​   public class UserDao {<br>​<br>​       //声明JDBCTemplate对象共用<br>​       private JdbcTemplate template = new JdbcTemplate(JDBCUtils.getDataSource());</p>
+<pre><code>   /**
+    * 登录方法
+    * @param loginUser 只有用户名和密码
+    * @return user包含用户全部数据,没有查询到，返回null
+    */
+   public User login(User loginUser){
+       try {
+           //1.编写sql
+           String sql = "select * from user where username = ? and password = ?";
+           //2.调用query方法
+           User user = template.queryForObject(sql,
+                   new BeanPropertyRowMapper&lt;User&gt;(User.class),
+                   loginUser.getUsername(), loginUser.getPassword());</code></pre><p>​               return user;<br>​           } catch (DataAccessException e) {<br>​               e.printStackTrace();//记录日志<br>​               return null;<br>​           }<br>​       }<br>​   }<br>​<br>​  6. 编写cn.itcast.web.servlet.LoginServlet类<br>​   package cn.itcast.web.servlet;<br>​<br>​   import cn.itcast.dao.UserDao;<br>​   import cn.itcast.domain.User;<br>​<br>​   import javax.servlet.ServletException;<br>​   import javax.servlet.annotation.WebServlet;<br>​   import javax.servlet.http.HttpServlet;<br>​   import javax.servlet.http.HttpServletRequest;<br>​   import javax.servlet.http.HttpServletResponse;<br>​   import java.io.IOException;</p>
+<p>   @WebServlet(“/loginServlet”)<br>​   public class LoginServlet extends HttpServlet {</p>
+<p>​       @Override<br>​       protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {<br>​           //1.设置编码<br>​           req.setCharacterEncoding(“utf-8”);<br>​           //2.获取请求参数<br>​           String username = req.getParameter(“username”);<br>​           String password = req.getParameter(“password”);<br>​           //3.封装user对象<br>​           User loginUser = new User();<br>​           loginUser.setUsername(username);<br>​           loginUser.setPassword(password);<br>​<br>​           //4.调用UserDao的login方法<br>​           UserDao dao = new UserDao();<br>​           User user = dao.login(loginUser);<br>​<br>​           //5.判断user<br>​           if(user == null){<br>​               //登录失败<br>​               req.getRequestDispatcher(“/failServlet”).forward(req,resp);<br>​           }else{<br>​               //登录成功<br>​               //存储数据<br>​               req.setAttribute(“user”,user);<br>​               //转发<br>​               req.getRequestDispatcher(“/successServlet”).forward(req,resp);<br>​           }<br>​<br>​       }<br>​<br>​       @Override<br>​       protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {<br>​           this.doGet(req,resp);<br>​       }<br>   }</p>
+<ol start="7">
+<li><p>编写FailServlet和SuccessServlet类<br> @WebServlet(“/successServlet”)<br> public class SuccessServlet extends HttpServlet {<br>  protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {</p>
+<pre><code>  //获取request域中共享的user对象
+  User user = (User) request.getAttribute("user");
+
+  if(user != null){
+      //给页面写一句话
+
+      //设置编码
+      response.setContentType("text/html;charset=utf-8");
+      //输出
+      response.getWriter().write("登录成功！"+user.getUsername()+",欢迎您");
+  }</code></pre></li>
+</ol>
+<p>​       }  </p>
+<p>   @WebServlet(“/failServlet”)<br>   public class FailServlet extends HttpServlet {<br>       protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {<br>           //给页面写一句话</p>
+<pre><code>       //设置编码
+       response.setContentType("text/html;charset=utf-8");
+       //输出
+       response.getWriter().write("登录失败，用户名或密码错误");
+
+   }
+
+   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+       this.doPost(request,response);
+   }</code></pre><p>   }</p>
+<ol start="8">
+<li><p>login.html中form表单的action路径的写法</p>
+<ul>
+<li>虚拟目录+Servlet的资源路径</li>
+</ul>
+</li>
+<li><p>BeanUtils工具类，简化数据封装</p>
+<ul>
+<li>用于封装JavaBean的</li>
+</ul>
+<ol>
+<li>JavaBean：标准的Java类<ol>
+<li>要求：<ol>
+<li>类必须被public修饰</li>
+<li>必须提供空参的构造器</li>
+<li>成员变量必须使用private修饰</li>
+<li>提供公共setter和getter方法</li>
+</ol>
+</li>
+<li>功能：封装数据</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<ol start="2">
+<li><p>概念：</p>
+<p>成员变量：<br>属性：setter和getter方法截取后的产物<br>例如：getUsername() –&gt; Username–&gt; username</p>
+</li>
+</ol>
+<ol start="3">
+<li>方法：<ol>
+<li>setProperty()</li>
+<li>getProperty()</li>
+<li>populate(Object obj , Map map):将map集合的键值对信息，封装到对应的JavaBean对象中</li>
+</ol>
+</li>
+</ol>
+<h2 id="Response"><a href="#Response" class="headerlink" title="Response"></a>Response</h2><ul>
+<li><p>功能：设置响应消息</p>
+<ol>
+<li><p>设置响应行</p>
+<ol>
+<li><p>格式：HTTP/1.1 200 ok</p>
+</li>
+<li><p>设置状态码： setStatus（int sc）</p>
+</li>
+<li><p>设置响应头：setHeader（String name,String value）</p>
+</li>
+<li><p>设置响应体</p>
+<ol>
+<li><p>获取输出流：</p>
+<ol>
+<li>字符输出流：PrintWriter getWriter（）</li>
+<li>字节输出流：ServletOutputStream（）</li>
+</ol>
+</li>
+<li><p>使用输出流，将数据输出到客户端浏览器</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>案例</p>
+<ol>
+<li><p><strong>完成重定向</strong></p>
+<p>重定向：资源跳转的方式</p>
+<pre><code class="java">//访问/responseDemo1,会自动自动跳转到/responseDemo2资源
+            //1.设置状态码为302
+             response.setStatus(302);
+             //2.设置响应头location
+             response.setHeader("location","/day15/responseDemo2");
+
+       //简单的重定向方法
+        response.sendRedirect("/day15/responseDemo2");</code></pre>
+<ul>
+<li>重定向的特点：</li>
+</ul>
+<ol>
+<li>地址栏发生变化</li>
+<li>重定向可以访问其他站点（服务器）的资源</li>
+<li>重定向是两次请求，不能使用request对象来共享数据 </li>
+</ol>
+<ul>
+<li>转发的特点：</li>
+</ul>
+<ol>
+<li>转发地址栏路径不变</li>
+<li>转发只能访问当前服务器下的资源</li>
+<li>转发是一次请求，意味着request对象来共享数据<ul>
+<li>forward 和redirect的区别</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>路径写法</p>
+<ul>
+<li><p>路径分类</p>
+<ol>
+<li><p>相对路径：通过相对路径不能确定唯一资源</p>
+<p>如：./index.html</p>
+<p>不以/开头，以.开头路径</p>
+<ul>
+<li>规则：找到当前资源和目标资源之间的相对路径<ul>
+<li>./ : 当前路径</li>
+<li>../: 后退一级目录</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>绝对路径：通过绝对路径可以确定唯一资源</p>
+<ul>
+<li>如：<a href="http://localhost/day15/responseDemo2" target="_blank" rel="noopener">http://localhost/day15/responseDemo2</a></li>
+<li>以/开头的路径</li>
+<li>规则：判断定义的路径是给谁用的？判断请求是从哪儿发出<ul>
+<li>给客户端浏览器使用：需要加虚拟目录 ( 项目的访问路径 ) <ul>
+<li>建议虚拟目录动态获取：request.getContextPath()</li>
+<li><code>&lt;a&gt;</code> <code>&lt;form&gt;</code>  <code>重定向</code></li>
+</ul>
+</li>
+<li>给服务器使用，不需要加虚拟目录<ul>
+<li>转发路径</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>服务器输出字符数据到浏览器</strong></p>
+<ul>
+<li><p>步骤</p>
+<ol>
+<li><p>获取字符输入流</p>
+<p><code>PrintWriter pw =response.getWriter();</code></p>
+</li>
+<li><p>输出数据</p>
+<p><code>pw.write("你好 response");</code></p>
+</li>
+</ol>
+</li>
+<li><p>注意：乱码问题</p>
+<ul>
+<li><code>PrintWriter pw =response.getWriter();</code>获取的流默认编码为 ISO-8859-1</li>
+<li>设置该流的默认编码</li>
+<li>告诉浏览器响应体使用的编码</li>
+<li>简单的形式<code>response.setContentType("text/html;charset=utf-8");</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<ol start="3">
+<li><p><strong>服务器输出字节数据到浏览器</strong></p>
+<ul>
+<li><p>步骤</p>
+<ol>
+<li><p>获取字节输入流</p>
+<p><code>ServletOutputStream sos=response.getOutputStream();</code></p>
+</li>
+<li><p>输出数据</p>
+<p><code>sos.write("你好".getBytes("utf-8"));</code></p>
+</li>
+</ol>
+</li>
+<li><p>注意：乱码问题</p>
+<p><code>response.setContentType("text/html;charset=utf-8");</code></p>
+</li>
+</ul>
+</li>
+<li><p><strong>验证码</strong></p>
+<ol>
+<li>本质：图片</li>
+<li>目的：防止恶意表单注册</li>
+</ol>
+<pre><code class="java">        int width=100;
+        int height=50;
+        //1.创建一对象，在内存中图片（验证码对象）
+        BufferedImage image= new BufferedImage(width,height,BufferedImage.TYPE_INT_RGB);
+
+        //2.美化图片
+        //2.1填充背景色
+        Graphics g=image.getGraphics();//画笔对象
+        g.setColor(Color.PINK);//设置画笔颜色
+        g.fillRect(0,0,width,height);//填充
+        //g.draw 画
+        //2.2画边框
+        g.setColor(Color.BLUE);
+        g.drawRect(0,0,width-1,height-1);
+
+        String str="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        //生成随机角标
+        Random ran=new Random();
+
+        for (int i = 0; i &lt;=4 ; i++) {
+            int index=ran.nextInt(str.length());
+            //获取字符
+            char ch=str.charAt(index);//随机字符
+            //2.3写验证码
+            g.drawString(ch+"",width/5*i,height/2);//因为要写字符串 所以ch+""拼制成字符串
+        }
+        //2.4画干扰线
+        g.setColor(Color.GREEN);
+        //随机生成坐标点
+        for (int i = 0; i &lt; 10; i++) {
+            int x1=ran.nextInt(width);
+            int x2=ran.nextInt(width);
+            int y1=ran.nextInt(height);
+            int y2=ran.nextInt(height);
+            g.drawLine(x1,y1,x2,y2);
+        }
+        //3.将图片输出到页面展示
+        ImageIO.write(image,"jpg",response.getOutputStream());</code></pre>
+</li>
+</ol>
+<h2 id="ServletContext对象"><a href="#ServletContext对象" class="headerlink" title="ServletContext对象"></a>ServletContext对象</h2><ol>
+<li><p>概念：代表整个web应用，可以和程序的容器（服务器）来通信</p>
+</li>
+<li><p>获取：</p>
+<ol>
+<li><p>通过request对象获取</p>
+<p><code>request.getServletContext();</code></p>
+</li>
+<li><p>通过HttpServlet获取</p>
+<p><code>this.getServletContext();</code></p>
+</li>
+</ol>
+</li>
+<li><p>功能：</p>
+<ol>
+<li><p>获取MIME类型</p>
+<blockquote>
+<p>MIME类型: 在互联网通信过程中定义的一种文件数据类型</p>
+<p>格式： 大类型/小类型      text/html        image/jpeg</p>
+</blockquote>
+<ul>
+<li>获取：<code>String getMimeType(String file)</code></li>
+</ul>
+</li>
+<li><p>域对象：共享数据</p>
+<ol>
+<li><code>setAttribute(String name,Object value)</code></li>
+<li><code>getAttribute(String name)</code></li>
+<li><code>removeAttribute(String name)</code></li>
+</ol>
+<ul>
+<li>ServletContext对象范围：所有用户所有请求的数据</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<ol start="3">
+<li><p>获取文件的真实（服务器）路径</p>
+<ol>
+<li>方法：<code>String getRealPath(String path)</code></li>
+</ol>
+<blockquote>
+<p>在 /web文件夹下   直接<code>getRealPath("/b.txt");</code></p>
+<p>在 /web/WEB-INF文件夹下 <code>getRealPath("/WEB-INF/c.txt");</code></p>
+<p>在 /src文件夹下 <code>getRealPath("/WEN-INf/classes/a.txt")</code></p>
+</blockquote>
+</li>
+</ol>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/lzfangwen.github.io/tags/JAVA/" rel="tag"><i class="fa fa-tag"></i> JAVA</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/lzfangwen.github.io/2020/07/03/JDBC/" rel="next" title="JDBC">
+                <i class="fa fa-chevron-left"></i> JDBC
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/lzfangwen.github.io/uploads/avatar.jpg"
+                alt="方文" />
+            
+              <p class="site-author-name" itemprop="name">方文</p>
+              <p class="site-description motion-element" itemprop="description"> 即使慢，驰而不息，纵令落后，纵令失败，但一定可以达到他所向往的目标。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/lzfangwen.github.io/archives">
+              
+                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/lzfangwen.github.io/categories/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/lzfangwen.github.io/tags/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/lzfangwen.github.io/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lzfangwen" target="_blank" title="GitHub">
+                      GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://wpa.qq.com/msgrd?v=3&uin=3355054955&site=qq&menu=yes" target="_blank" title="QQ">
+                      QQ</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/lz_fangwen" target="_blank" title="CSDN">
+                      CSDN</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/hao-xuan-bin-69" target="_blank" title="知乎">
+                      知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://wxnsoul.github.io/" title="♥宝のblog" target="_blank">♥宝のblog</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.j0k3r.cn/" title="阿浩のblog" target="_blank">阿浩のblog</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#web相关概念回顾"><span class="nav-number">1.</span> <span class="nav-text">web相关概念回顾</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#web服务器软件："><span class="nav-number">2.</span> <span class="nav-text">web服务器软件：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Servlet：-server-applet"><span class="nav-number">3.</span> <span class="nav-text">Servlet：  server applet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IDEA与tomcat的相关配置"><span class="nav-number">4.</span> <span class="nav-text">IDEA与tomcat的相关配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Servlet的体系结构"><span class="nav-number">5.</span> <span class="nav-text">Servlet的体系结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP："><span class="nav-number">6.</span> <span class="nav-text">HTTP：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#请求消息"><span class="nav-number">6.1.</span> <span class="nav-text">请求消息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#响应消息"><span class="nav-number">6.2.</span> <span class="nav-text">响应消息</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Requet"><span class="nav-number">7.</span> <span class="nav-text">Requet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例：用户登录"><span class="nav-number">8.</span> <span class="nav-text">案例：用户登录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Response"><span class="nav-number">9.</span> <span class="nav-text">Response</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ServletContext对象"><span class="nav-number">10.</span> <span class="nav-text">ServletContext对象</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">方文</span>
+
+  
+</div>
+
+
+  
+<!--
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+-->
+
+
+
+
+
+
+  <script src='https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js'></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize("");
+    }
+  </script>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lzfangwen.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lzfangwen.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lzfangwen.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lzfangwen.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lzfangwen.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lzfangwen.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lzfangwen.github.io/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/lzfangwen.github.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/lzfangwen.github.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/lzfangwen.github.io/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/lzfangwen.github.io/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/lzfangwen.github.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/lzfangwen.github.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/lzfangwen.github.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/lzfangwen.github.io/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

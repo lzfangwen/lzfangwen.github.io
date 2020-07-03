@@ -1,0 +1,2106 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lzfangwen.github.io/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lzfangwen.github.io/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lzfangwen.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lzfangwen.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/lzfangwen.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/lzfangwen.github.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/lzfangwen.github.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/lzfangwen.github.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/lzfangwen.github.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="JAVA," />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/lzfangwen.github.io/atom.xml" title="方文の个人博客" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="JDBC概念：Java DateBase Connectivity   Java数据库连接 本质：其实是官方（sun公司）定义的一套操作所有关系型数据库的规则，即接口。各个数据库厂商去实现这套接口，提供数据库驱动jar包。我们可以使用这套接口（JDBC）编程，真正执行的代码是驱动jar包中的实现类。 快速入门 导入驱动jar包 复制mysql-connector-java-5.1.37-bin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JDBC">
+<meta property="og:url" content="https://lzfangwen.github.io/blog/2020/07/03/JDBC/index.html">
+<meta property="og:site_name" content="方文の个人博客">
+<meta property="og:description" content="JDBC概念：Java DateBase Connectivity   Java数据库连接 本质：其实是官方（sun公司）定义的一套操作所有关系型数据库的规则，即接口。各个数据库厂商去实现这套接口，提供数据库驱动jar包。我们可以使用这套接口（JDBC）编程，真正执行的代码是驱动jar包中的实现类。 快速入门 导入驱动jar包 复制mysql-connector-java-5.1.37-bin">
+<meta property="article:published_time" content="2020-07-03T08:03:05.000Z">
+<meta property="article:modified_time" content="2020-07-03T10:23:02.903Z">
+<meta property="article:author" content="方文">
+<meta property="article:tag" content="JAVA">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/lzfangwen.github.io/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://lzfangwen.github.io/blog/2020/07/03/JDBC/"/>
+
+
+
+
+
+
+
+  <title>JDBC | 方文の个人博客</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?daefd7c3760fb40cadaa2dde4278b80d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/lzfangwen.github.io/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">方文の个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/lzfangwen.github.io/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/lzfangwen.github.io/about/" rel="section">
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/lzfangwen.github.io/tags/" rel="section">
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/lzfangwen.github.io/categories" rel="section">
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/lzfangwen.github.io/archives" rel="section">
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lzfangwen.github.io/blog/lzfangwen.github.io/2020/07/03/JDBC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="方文">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/lzfangwen.github.io/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="方文の个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JDBC</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-03T16:03:05+08:00">
+                2020-07-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/lzfangwen.github.io/categories/JAVAEE/" itemprop="url" rel="index">
+                    <span itemprop="name">JAVAEE</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <a id="more"></a>
+
+<h1 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h1><p>概念：Java DateBase Connectivity   Java数据库连接</p>
+<p><strong>本质</strong>：其实是官方（sun公司）定义的一套操作所有关系型数据库的规则，即接口。各个数据库厂商去实现这套接口，提供数据库驱动jar包。我们可以使用这套接口（JDBC）编程，真正执行的代码是驱动jar包中的实现类。</p>
+<h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><ol>
+<li>导入驱动jar包<ol>
+<li>复制mysql-connector-java-5.1.37-bin.jar到项目的libs目录下</li>
+<li>右键–&gt;Add As Library</li>
+</ol>
+</li>
+<li>注册驱动</li>
+<li>获取数据库连接对象 Connection</li>
+<li>定义sql</li>
+<li>获取执行sql语句的对象 Statement</li>
+<li>执行sql，接受返回结果</li>
+<li>处理结果</li>
+<li>释放资源</li>
+</ol>
+<pre><code class="java">//代码实现：
+          //1. 导入驱动jar包
+        //2.注册驱动
+        Class.forName("com.mysql.jdbc.Driver");
+        //3.获取数据库连接对象
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db3", "root", "root");
+        //4.定义sql语句
+        String sql = "update account set balance = 500 where id = 1";
+        //5.获取执行sql的对象 Statement
+        Statement stmt = conn.createStatement();
+        //6.执行sql
+        int count = stmt.executeUpdate(sql);
+        //7.处理结果
+        System.out.println(count);
+        //8.释放资源
+        stmt.close();
+        conn.close();</code></pre>
+<h2 id="详解各个对象"><a href="#详解各个对象" class="headerlink" title="详解各个对象"></a>详解各个对象</h2><h3 id="DriverManager：驱动管理对象"><a href="#DriverManager：驱动管理对象" class="headerlink" title="DriverManager：驱动管理对象"></a><strong>DriverManager：驱动管理对象</strong></h3><ul>
+<li><p>功能：</p>
+<ol>
+<li><p>注册驱动：告诉程序该使用哪一个数据库驱动jar<br> <code>static void registerDriver(Driver driver)</code> :注册与给定的驱动程序 DriverManager 。<br> 写代码使用：  <code>Class.forName("com.mysql.jdbc.Driver");</code><br> 通过查看源码发现：在com.mysql.jdbc.Driver类中存在静态代码块</p>
+<pre><code class="java">  static {
+         try {
+             java.sql.DriverManager.registerDriver(new Driver());
+         } catch (SQLException E) {
+             throw new RuntimeException("Can't register driver!");
+ }
+     }</code></pre>
+<p> 注意：mysql5之后的驱动jar包可以省略注册驱动的步骤。</p>
+</li>
+<li><p>获取数据库连接：</p>
+<ul>
+<li>方法：<code>static Connection getConnection(String url, String user, String password)</code> </li>
+<li>参数：<ul>
+<li>url：指定连接的路径<ul>
+<li>语法：jdbc:mysql://ip地址(域名):端口号/数据库名称</li>
+<li>例子：jdbc:mysql://localhost:3306/db3</li>
+<li>细节：如果连接的是本机mysql服务器，并且mysql服务默认端口是3306，则url可以简写为：jdbc:mysql:///数据库名称</li>
+</ul>
+</li>
+<li>user：用户名</li>
+<li>password：密码 </li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="Connection：数据库连接对象"><a href="#Connection：数据库连接对象" class="headerlink" title="Connection：数据库连接对象"></a><strong>Connection：数据库连接对象</strong></h3><ol>
+<li>功能：<pre><code> 1. 获取执行sql 的对象
+     * `Statement createStatement()`
+ * `PreparedStatement prepareStatement(String sql)`  </code></pre><ol start="2">
+<li>管理事务：<ul>
+<li>开启事务：<code>setAutoCommit(boolean autoCommit)</code> ：调用该方法设置参数为false，即开启事务</li>
+<li>提交事务：<code>commit()</code> </li>
+<li>回滚事务：<code>rollback()</code> </li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="Statement：执行sql的对象"><a href="#Statement：执行sql的对象" class="headerlink" title="Statement：执行sql的对象"></a><strong>Statement：执行sql的对象</strong></h3><ol>
+<li><p>执行sql</p>
+<pre><code> 1. `boolean execute(String sql)` ：可以执行任意的sql 了解 
+
+ 2. `int executeUpdate(String sql)` ：执行DML（insert、update、delete）语句、DDL(create，alter、drop)语句
+     * 返回值：影响的行数，可以通过这个影响的行数判断DML语句是否执行成功 返回值&gt;0的则执行成功，反之，则失败。
+ 3. `ResultSet executeQuery(String sql)`  ：执行DQL（select)语句</code></pre><ol start="2">
+<li><p>练习：</p>
+<ol>
+<li>account表 添加一条记录</li>
+</ol>
+</li>
+<li><p>account表 修改记录</p>
+<ol start="3">
+<li><p>account表 删除一条记录</p>
+<p>代码：</p>
+</li>
+</ol>
+<pre><code class="java">Statement stmt = null;
+Connection conn = null;
+try {
+    //1. 注册驱动
+    Class.forName("com.mysql.jdbc.Driver");
+    //2. 定义sql
+    String sql = "insert into account values(null,'王五',3000)";
+    //3.获取Connection对象
+    conn = DriverManager.getConnection("jdbc:mysql:///db3", "root", "root");
+    //4.获取执行sql的对象 Statement
+    stmt = conn.createStatement();
+    //5.执行sql
+    int count = stmt.executeUpdate(sql);//影响的行数
+    //6.处理结果
+    System.out.println(count);
+    if(count &gt; 0){
+        System.out.println("添加成功！");
+    }else{
+     System.out.println("添加失败！");
+    }
+
+} catch (ClassNotFoundException e) {
+    e.printStackTrace();
+} catch (SQLException e) {
+    e.printStackTrace();
+}finally {
+    //stmt.close();
+    //7. 释放资源
+    //避免空指针异常
+    if(stmt != null){
+        try {
+            stmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+     }
+    }
+
+    if(conn != null){
+        try {
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+<p>标准写法：便于关闭</p>
+<pre><code class="java">package cn.itcast.jdbc;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+/**
+* account表 添加一条记录 insert 语句
+*/
+public class JDBCDemo2 {
+ public static void main(String[] args) {
+     Statement stmt = null;
+     Connection conn = null;
+     try {
+         //1. 注册驱动
+         Class.forName("com.mysql.jdbc.Driver");
+         //2. 定义sql
+         String sql = "insert into account values(null,'王五',3000)";
+         //3.获取Connection对象
+         conn = DriverManager.getConnection("jdbc:mysql:///db3", "root", "root");
+         //4.获取执行sql的对象 Statement
+         stmt = conn.createStatement();
+         //5.执行sql
+         int count = stmt.executeUpdate(sql);//影响的行数
+         //6.处理结果
+         System.out.println(count);
+         if(count &gt; 0){
+             System.out.println("添加成功！");
+         }else{
+             System.out.println("添加失败！");
+         }
+
+     } catch (ClassNotFoundException e) {
+         e.printStackTrace();
+     } catch (SQLException e) {
+         e.printStackTrace();
+     }finally {
+         //stmt.close();
+         //7. 释放资源
+         //避免空指针异常
+         if(stmt != null){
+             try {
+                 stmt.close();
+             } catch (SQLException e) {
+                 e.printStackTrace();
+             }
+         }
+
+         if(conn != null){
+             try {
+                 conn.close();
+             } catch (SQLException e) {
+                 e.printStackTrace();
+             }
+         }
+     }
+ }
+}</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="ResultSet：结果集对象-封装查询结果"><a href="#ResultSet：结果集对象-封装查询结果" class="headerlink" title="ResultSet：结果集对象,封装查询结果"></a>ResultSet：结果集对象,封装查询结果</h3><ul>
+<li><p><code>boolean next():</code> 游标向下移动一行，判断当前行是否是最后一行末尾(是否有数据)，如果是，则返回false，如果不是则返回true</p>
+<ul>
+<li><p>getXxx(参数):获取数据</p>
+<ul>
+<li>Xxx：代表数据类型   如： int getInt() ,    String getString()</li>
+<li>参数：<ol>
+<li>int：代表列的编号,从1开始   如： getString(1)</li>
+<li>String：代表列名称。 如： getDouble(“balance”)</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>注意：</p>
+<ul>
+<li>使用步骤：<ol>
+<li>游标向下移动一行</li>
+<li>判断是否有数据</li>
+</ol>
+</li>
+</ul>
+<ol start="3">
+<li><p>获取数据</p>
+<pre><code class="java">//循环判断游标是否是最后一行末尾。
+while(rs.next()){
+//获取数据
+int id = rs.getInt(1);
+String name = rs.getString("name");
+double balance = rs.getDouble(3);
+System.out.println(id + "---" + name + "---" + balance);
+}</code></pre>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>* 练习：
+    * 定义一个方法，查询emp表的数据将其封装为对象，然后装载集合，返回。
+        1. 定义Emp类
+        2. 定义方法 public List&lt;Emp&gt; findAll(){}
+        3. 实现方法 select * from emp;</code></pre><h2 id="JDBC工具类"><a href="#JDBC工具类" class="headerlink" title="JDBC工具类"></a>JDBC工具类</h2><ul>
+<li><p>目的：简化书写</p>
+</li>
+<li><p>分析：</p>
+<ol>
+<li><p>注册驱动也抽取</p>
+</li>
+<li><p>抽取一个方法获取连接对象</p>
+<ul>
+<li>需求：不想传递参数（麻烦），还得保证工具类的通用性。</li>
+<li>解决：配置文件<br>jdbc.properties<pre><code>url=
+user=
+password=</code></pre></li>
+</ul>
+<ol start="3">
+<li>抽取一个方法释放资源</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>代码实现：</p>
+</li>
+</ul>
+<pre><code class="java">package cn.itcast.util;
+
+import java.io.FileReader;
+import java.io.IOException;
+import java.net.URL;
+import java.sql.*;
+import java.util.Properties;
+
+/**
+ * JDBC工具类
+ */
+public class JDBCUtils {
+    private static String url;
+    private static String user;
+    private static String password;
+    private static String driver;
+    /**
+     * 文件的读取，只需要读取一次即可拿到这些值。使用静态代码块
+     */
+    static{
+        //读取资源文件，获取值。
+
+        try {
+            //1. 创建Properties集合类。
+            Properties pro = new Properties();
+
+            //获取src路径下的文件的方式---&gt;ClassLoader 类加载器
+            ClassLoader classLoader = JDBCUtils.class.getClassLoader();
+            URL res  = classLoader.getResource("jdbc.properties");
+            String path = res.getPath();
+           // System.out.println(path);///D:/IdeaProjects/itcast/out/production/day04_jdbc/jdbc.properties
+            //2. 加载文件
+           // pro.load(new FileReader("D:\\IdeaProjects\\itcast\\day04_jdbc\\src\\jdbc.properties"));
+            pro.load(new FileReader(path));
+
+            //3. 获取数据，赋值
+            url = pro.getProperty("url");
+            user = pro.getProperty("user");
+            password = pro.getProperty("password");
+            driver = pro.getProperty("driver");
+            //4. 注册驱动
+            Class.forName(driver);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    /**
+     * 获取连接
+     * @return 连接对象
+     */
+    public static Connection getConnection() throws SQLException {
+
+        return DriverManager.getConnection(url, user, password);
+    }
+
+    /**
+     * 释放资源
+     * @param stmt
+     * @param conn
+     */
+    public static void close(Statement stmt,Connection conn){
+        if( stmt != null){
+            try {
+                stmt.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if( conn != null){
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+    /**
+     * 释放资源
+     * @param stmt
+     * @param conn
+     */
+    public static void close(ResultSet rs,Statement stmt, Connection conn){
+        if( rs != null){
+            try {
+                rs.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if( stmt != null){
+            try {
+                stmt.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if( conn != null){
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+}
+</code></pre>
+<h2 id="JDBC事务管理"><a href="#JDBC事务管理" class="headerlink" title="JDBC事务管理"></a>JDBC事务管理</h2><ol>
+<li>事务：一个包含多个步骤的业务操作。如果这个业务操作被事务管理，则这多个步骤要么同时成功，要么同时失败。</li>
+<li>操作：<ol>
+<li>开启事务</li>
+<li>提交事务</li>
+<li>回滚事务</li>
+</ol>
+</li>
+<li>使用Connection对象来管理事务<ul>
+<li>开启事务：setAutoCommit(boolean autoCommit) ：调用该方法设置参数为false，即开启事务<ul>
+<li>在执行sql之前开启事务</li>
+</ul>
+</li>
+<li>提交事务：commit() <ul>
+<li>当所有sql都执行完提交事务</li>
+</ul>
+</li>
+<li>回滚事务：rollback() <ul>
+<li>在catch中回滚事务</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>代码实现</p>
+<pre><code class="java">package cn.itcast.jdbc;
+
+import cn.itcast.util.JDBCUtils;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+/**
+ * 事务操作
+ */
+public class JDBCDemo10 {
+
+
+    public static void main(String[] args) {
+        Connection conn = null;
+        PreparedStatement pstmt1 = null;
+        PreparedStatement pstmt2 = null;
+
+        try {
+            //1.获取连接
+            conn = JDBCUtils.getConnection();
+            //开启事务
+            conn.setAutoCommit(false);
+
+            //2.定义sql
+            //2.1 张三 - 500
+            String sql1 = "update account set balance = balance - ? where id = ?";
+            //2.2 李四 + 500
+            String sql2 = "update account set balance = balance + ? where id = ?";
+            //3.获取执行sql对象
+            pstmt1 = conn.prepareStatement(sql1);
+            pstmt2 = conn.prepareStatement(sql2);
+            //4. 设置参数
+            pstmt1.setDouble(1,500);
+            pstmt1.setInt(2,1);
+
+            pstmt2.setDouble(1,500);
+            pstmt2.setInt(2,2);
+            //5.执行sql
+            pstmt1.executeUpdate();
+            // 手动制造异常
+            int i = 3/0;
+
+            pstmt2.executeUpdate();
+            //提交事务
+            conn.commit();
+        } catch (Exception e) {
+            //事务回滚
+            try {
+                if(conn != null) {
+                    conn.rollback();
+                }
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            }
+            e.printStackTrace();
+        }finally {
+            JDBCUtils.close(pstmt1,conn);
+            JDBCUtils.close(pstmt2,null);
+        }
+
+
+    }
+
+}
+</code></pre>
+<h2 id="连接池"><a href="#连接池" class="headerlink" title="连接池"></a>连接池</h2><ol>
+<li><p>概念：其实就是一个容器(集合)，存放数据库连接的容器。</p>
+<pre><code> 当系统初始化好后，容器被创建，容器中会申请一些连接对象，当用户来访问数据库时，从容器中获取连接对象，用户访问完之后，会将连接对象归还给容器。</code></pre></li>
+<li><p>好处：</p>
+<ol>
+<li>节约资源</li>
+<li>用户访问高效</li>
+</ol>
+</li>
+<li><p>实现：</p>
+<ol>
+<li><p>标准接口：DataSource   javax.sql包下的</p>
+<ol>
+<li>方法：<ul>
+<li>获取连接：getConnection()</li>
+<li>归还连接：Connection.close()。如果连接对象Connection是从连接池中获取的，那么调用Connection.close()方法，则不会再关闭连接了。而是归还连接</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>一般我们不去实现它，有数据库厂商来实现</p>
+<ol>
+<li>C3P0：数据库连接池技术</li>
+<li>Druid：数据库连接池实现技术，由阿里巴巴提供的</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>C3P0：数据库连接池技术</p>
+<ul>
+<li><p>步骤：</p>
+<ol>
+<li><p>导入jar包 (两个) c3p0-0.9.5.2.jar mchange-commons-java-0.2.12.jar ，</p>
+<ul>
+<li>不要忘记导入数据库驱动jar包</li>
+</ul>
+</li>
+<li><p>定义配置文件：</p>
+<ul>
+<li>名称： c3p0.properties 或者 c3p0-config.xml</li>
+<li>路径：直接将文件放在src目录下即可。</li>
+</ul>
+</li>
+<li><p>创建核心对象 数据库连接池对象 ComboPooledDataSource</p>
+</li>
+<li><p>获取连接： getConnection</p>
+</li>
+</ol>
+</li>
+<li><p>代码：<br>   //1.创建数据库连接池对象<br>  DataSource ds  = new ComboPooledDataSource();<br>  //2. 获取连接对象<br>  Connection conn = ds.getConnection();</p>
+</li>
+</ul>
+</li>
+</ol>
+<pre><code class="java">public class C3P0Demo1 {
+    public static void main(String[] args) throws SQLException {
+        //1.创建数据库连接池对象
+        DataSource ds  = new ComboPooledDataSource();
+        //2. 获取连接对象
+        Connection conn = ds.getConnection();
+
+        //3. 打印
+        System.out.println(conn);
+
+    }
+}</code></pre>
+<ol start="5">
+<li>Druid：数据库连接池实现技术，由阿里巴巴提供的<ol>
+<li>步骤：<ol>
+<li>导入jar包 druid-1.0.9.jar</li>
+<li>定义配置文件：<ul>
+<li>是properties形式的</li>
+<li>可以叫任意名称，可以放在任意目录下</li>
+</ul>
+</li>
+<li>加载配置文件。Properties</li>
+<li>获取数据库连接池对象：通过工厂类来获取  DruidDataSourceFactory</li>
+<li>获取连接：getConnection</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<pre><code class="java">public class druidDemo1 {
+    public static void main(String[] args) throws Exception {
+        //1.导入jar包
+        //2.定义配置文件
+        //3.加载配置文件
+        Properties pro = new Properties();
+        InputStream is=druidDemo1.class.getClassLoader().getResourceAsStream("druid.properties");
+        //通过当前类的名称.class获得字节码文件.etClassLoader().getResourceAsStream()获取资源路径 返回字节流
+        pro.load(is);
+
+        //4.获取连接池对象：通过工厂类来获取 DuridDataSourceFactory
+        DataSource ds=DruidDataSourceFactory.createDataSource(pro);
+        //5.获取连接
+        Connection conn=ds.getConnection();
+        System.out.println(conn);
+    }
+}</code></pre>
+<ol start="2">
+<li>定义工具类<pre><code> 1. 定义一个类 JDBCUtils
+ 2. 提供静态代码块加载配置文件，初始化连接池对象
+ 3. 提供方法
+     1. 获取连接方法：通过数据库连接池获取连接
+     2. 释放资源
+     3. 获取连接池的方法</code></pre></li>
+</ol>
+<pre><code class="java">package cn.itcast.utils;
+
+import com.alibaba.druid.pool.DruidDataSourceFactory;
+
+import javax.sql.DataSource;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Properties;
+
+/**
+ * Druid连接池的工具类
+ */
+public class JDBCUtils {
+
+    //1.定义成员变量 DataSource
+    private static DataSource ds ;
+
+    static{
+        try {
+            //1.加载配置文件
+            Properties pro = new Properties();
+            pro.load(JDBCUtils.class.getClassLoader().getResourceAsStream("druid.properties"));
+            //2.获取DataSource
+            ds = DruidDataSourceFactory.createDataSource(pro);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 获取连接
+     */
+    public static Connection getConnection() throws SQLException {
+        return ds.getConnection();
+    }
+
+    /**
+     * 释放资源
+     */
+    public static void close(Statement stmt,Connection conn){
+       /* if(stmt != null){
+            try {
+                stmt.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if(conn != null){
+            try {
+                conn.close();//归还连接
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }*/
+
+       close(null,stmt,conn);
+    }
+
+
+    public static void close(ResultSet rs , Statement stmt, Connection conn){
+
+
+        if(rs != null){
+            try {
+                rs.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+        if(stmt != null){
+            try {
+                stmt.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if(conn != null){
+            try {
+                conn.close();//归还连接
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /**
+     * 获取连接池方法
+     */
+
+    public static DataSource getDataSource(){
+        return  ds;
+    }
+
+}
+</code></pre>
+<h2 id="Spring-JDBC"><a href="#Spring-JDBC" class="headerlink" title="Spring JDBC"></a>Spring JDBC</h2><p>Spring框架对JDBC的简单封装。提供了一个JDBCTemplate对象简化JDBC的开发</p>
+<p>步骤：</p>
+<ol>
+<li><p>导入jar包</p>
+</li>
+<li><p>创建JdbcTemplate对象。依赖于数据源DataSource</p>
+<ul>
+<li>JdbcTemplate template = new JdbcTemplate(ds);</li>
+</ul>
+</li>
+<li><p>调用JdbcTemplate的方法来完成CRUD的操作</p>
+<ul>
+<li>update():执行DML语句。增、删、改语句</li>
+<li>queryForMap():查询结果将结果集封装为map集合，将列名作为key，将值作为value 将这条记录封装为一个map集合<ul>
+<li>注意：这个方法查询的结果集长度只能是1</li>
+</ul>
+</li>
+<li>queryForList():查询结果将结果集封装为list集合<ul>
+<li>注意：将每一条记录封装为一个Map集合，再将Map集合装载到List集合中</li>
+</ul>
+</li>
+<li>query():查询结果，将结果封装为JavaBean对象<ul>
+<li>query的参数：RowMapper<ul>
+<li>一般我们使用BeanPropertyRowMapper实现类。可以完成数据到JavaBean的自动封装</li>
+<li>new BeanPropertyRowMapper&lt;类型&gt;(类型.class)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>queryForObject：查询结果，将结果封装为对象<ul>
+<li>一般用于聚合函数的查询</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>练习：</p>
+<ul>
+<li>需求：<ol>
+<li>修改1号数据的 salary 为 10000</li>
+<li>添加一条记录</li>
+<li>删除刚才添加的记录</li>
+<li>查询id为1的记录，将其封装为Map集合</li>
+<li>查询所有记录，将其封装为List</li>
+<li>查询所有记录，将其封装为Emp对象的List集合</li>
+<li>查询总记录数</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<pre><code class="java">package cn.itcast.jdbctemplate;
+
+import cn.itcast.domain.Emp;
+import cn.itcast.utils.JDBCUtils;
+import org.junit.Test;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+
+import java.sql.Date;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
+
+public class JdbcTemplateDemo2 {
+
+    //Junit单元测试，可以让方法独立执行
+
+
+    //1. 获取JDBCTemplate对象
+    private JdbcTemplate template = new JdbcTemplate(JDBCUtils.getDataSource());
+    /**
+     * 1. 修改1号数据的 salary 为 10000
+     */
+    @Test
+    public void test1(){
+
+        //2. 定义sql
+        String sql = "update emp set salary = 10000 where id = 1001";
+        //3. 执行sql
+        int count = template.update(sql);
+        System.out.println(count);
+    }
+
+    /**
+     * 2. 添加一条记录
+     */
+    @Test
+    public void test2(){
+        String sql = "insert into emp(id,ename,dept_id) values(?,?,?)";
+        int count = template.update(sql, 1015, "郭靖", 10);
+        System.out.println(count);
+
+    }
+
+    /**
+     * 3.删除刚才添加的记录
+     */
+    @Test
+    public void test3(){
+        String sql = "delete from emp where id = ?";
+        int count = template.update(sql, 1015);
+        System.out.println(count);
+    }
+
+    /**
+     * 4.查询id为1001的记录，将其封装为Map集合
+     * 注意：这个方法查询的结果集长度只能是1
+     */
+    @Test
+    public void test4(){
+        String sql = "select * from emp where id = ? or id = ?";
+        Map&lt;String, Object&gt; map = template.queryForMap(sql, 1001,1002);
+        System.out.println(map);
+        //{id=1001, ename=孙悟空, job_id=4, mgr=1004, joindate=2000-12-17, salary=10000.00, bonus=null, dept_id=20}
+
+    }
+
+    /**
+     * 5. 查询所有记录，将其封装为List
+     */
+    @Test
+    public void test5(){
+        String sql = "select * from emp";
+        List&lt;Map&lt;String, Object&gt;&gt; list = template.queryForList(sql);
+
+        for (Map&lt;String, Object&gt; stringObjectMap : list) {
+            System.out.println(stringObjectMap);
+        }
+    }
+
+    /**
+     * 6. 查询所有记录，将其封装为Emp对象的List集合
+     */
+
+    @Test
+    public void test6(){
+        String sql = "select * from emp";
+        List&lt;Emp&gt; list = template.query(sql, new RowMapper&lt;Emp&gt;() {
+
+            @Override
+            public Emp mapRow(ResultSet rs, int i) throws SQLException {
+                Emp emp = new Emp();
+                int id = rs.getInt("id");
+                String ename = rs.getString("ename");
+                int job_id = rs.getInt("job_id");
+                int mgr = rs.getInt("mgr");
+                Date joindate = rs.getDate("joindate");
+                double salary = rs.getDouble("salary");
+                double bonus = rs.getDouble("bonus");
+                int dept_id = rs.getInt("dept_id");
+
+                emp.setId(id);
+                emp.setEname(ename);
+                emp.setJob_id(job_id);
+                emp.setMgr(mgr);
+                emp.setJoindate(joindate);
+                emp.setSalary(salary);
+                emp.setBonus(bonus);
+                emp.setDept_id(dept_id);
+
+                return emp;
+            }
+        });
+
+
+        for (Emp emp : list) {
+            System.out.println(emp);
+        }
+    }
+
+    /**
+     * 6. 查询所有记录，将其封装为Emp对象的List集合
+     */
+
+    @Test
+    public void test6_2(){
+        String sql = "select * from emp";
+        List&lt;Emp&gt; list = template.query(sql, new BeanPropertyRowMapper&lt;Emp&gt;(Emp.class));
+        for (Emp emp : list) {
+            System.out.println(emp);
+        }
+    }
+
+    /**
+     * 7. 查询总记录数
+     */
+
+    @Test
+    public void test7(){
+        String sql = "select count(id) from emp";
+        Long total = template.queryForObject(sql, Long.class);
+        System.out.println(total);
+    }
+
+}
+</code></pre>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/lzfangwen.github.io/tags/JAVA/" rel="tag"><i class="fa fa-tag"></i> JAVA</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/lzfangwen.github.io/2020/05/17/idea%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/" rel="next" title="idea常用快捷键">
+                <i class="fa fa-chevron-left"></i> idea常用快捷键
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/lzfangwen.github.io/2020/07/03/Servlet&HTTP&Request%E7%AC%94%E8%AE%B0/" rel="prev" title="Servlet&HTTP&Request笔记">
+                Servlet&HTTP&Request笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/lzfangwen.github.io/uploads/avatar.jpg"
+                alt="方文" />
+            
+              <p class="site-author-name" itemprop="name">方文</p>
+              <p class="site-description motion-element" itemprop="description"> 即使慢，驰而不息，纵令落后，纵令失败，但一定可以达到他所向往的目标。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/lzfangwen.github.io/archives">
+              
+                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/lzfangwen.github.io/categories/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/lzfangwen.github.io/tags/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/lzfangwen.github.io/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lzfangwen" target="_blank" title="GitHub">
+                      GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://wpa.qq.com/msgrd?v=3&uin=3355054955&site=qq&menu=yes" target="_blank" title="QQ">
+                      QQ</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/lz_fangwen" target="_blank" title="CSDN">
+                      CSDN</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/hao-xuan-bin-69" target="_blank" title="知乎">
+                      知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://wxnsoul.github.io/" title="♥宝のblog" target="_blank">♥宝のblog</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.j0k3r.cn/" title="阿浩のblog" target="_blank">阿浩のblog</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JDBC"><span class="nav-number">1.</span> <span class="nav-text">JDBC</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#快速入门"><span class="nav-number">1.1.</span> <span class="nav-text">快速入门</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#详解各个对象"><span class="nav-number">1.2.</span> <span class="nav-text">详解各个对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DriverManager：驱动管理对象"><span class="nav-number">1.2.1.</span> <span class="nav-text">DriverManager：驱动管理对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Connection：数据库连接对象"><span class="nav-number">1.2.2.</span> <span class="nav-text">Connection：数据库连接对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Statement：执行sql的对象"><span class="nav-number">1.2.3.</span> <span class="nav-text">Statement：执行sql的对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ResultSet：结果集对象-封装查询结果"><span class="nav-number">1.2.4.</span> <span class="nav-text">ResultSet：结果集对象,封装查询结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JDBC工具类"><span class="nav-number">1.3.</span> <span class="nav-text">JDBC工具类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JDBC事务管理"><span class="nav-number">1.4.</span> <span class="nav-text">JDBC事务管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连接池"><span class="nav-number">1.5.</span> <span class="nav-text">连接池</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-JDBC"><span class="nav-number">1.6.</span> <span class="nav-text">Spring JDBC</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">方文</span>
+
+  
+</div>
+
+
+  
+<!--
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+-->
+
+
+
+
+
+
+  <script src='https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js'></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize("");
+    }
+  </script>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lzfangwen.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lzfangwen.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lzfangwen.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lzfangwen.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lzfangwen.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lzfangwen.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lzfangwen.github.io/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/lzfangwen.github.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/lzfangwen.github.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/lzfangwen.github.io/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/lzfangwen.github.io/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/lzfangwen.github.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/lzfangwen.github.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/lzfangwen.github.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/lzfangwen.github.io/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

@@ -6,7 +6,7 @@
   <link href="/lzfangwen.github.io/atom.xml" rel="self"/>
   
   <link href="https://lzfangwen.github.io/blog/"/>
-  <updated>2020-05-04T12:25:43.798Z</updated>
+  <updated>2020-07-03T10:23:48.721Z</updated>
   <id>https://lzfangwen.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,93 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Servlet&amp;HTTP&amp;Request笔记</title>
+    <link href="https://lzfangwen.github.io/blog/2020/07/03/Servlet&amp;HTTP&amp;Request%E7%AC%94%E8%AE%B0/"/>
+    <id>https://lzfangwen.github.io/blog/2020/07/03/Servlet&amp;HTTP&amp;Request%E7%AC%94%E8%AE%B0/</id>
+    <published>2020-07-03T08:03:06.000Z</published>
+    <updated>2020-07-03T10:23:48.721Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+&lt;h2 id=&quot;web相关概念回顾&quot;&gt;&lt;a href=&quot;#web相关概念回顾&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="JAVAE" scheme="https://lzfangwen.github.io/blog/categories/JAVAE/"/>
+    
+    
+      <category term="JAVA" scheme="https://lzfangwen.github.io/blog/tags/JAVA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JDBC</title>
+    <link href="https://lzfangwen.github.io/blog/2020/07/03/JDBC/"/>
+    <id>https://lzfangwen.github.io/blog/2020/07/03/JDBC/</id>
+    <published>2020-07-03T08:03:05.000Z</published>
+    <updated>2020-07-03T10:23:02.903Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+&lt;h1 id=&quot;JDBC&quot;&gt;&lt;a href=&quot;#JDBC&quot; class=&quot;headerlink&quot; title=&quot;JDBC&quot;&gt;&lt;/a&gt;JDBC&lt;/h1&gt;&lt;p&gt;概念：Java DateBase Connectivity  
+        
+      
+    
+    </summary>
+    
+    
+      <category term="JAVAEE" scheme="https://lzfangwen.github.io/blog/categories/JAVAEE/"/>
+    
+    
+      <category term="JAVA" scheme="https://lzfangwen.github.io/blog/tags/JAVA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>idea常用快捷键</title>
+    <link href="https://lzfangwen.github.io/blog/2020/05/17/idea%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+    <id>https://lzfangwen.github.io/blog/2020/05/17/idea%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</id>
+    <published>2020-05-17T05:39:51.000Z</published>
+    <updated>2020-05-17T09:29:14.907Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/yanggb/p/10838388.html&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="https://lzfangwen.github.io/blog/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="https://lzfangwen.github.io/blog/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>操作系统-学习笔记9</title>
@@ -283,33 +370,6 @@
   </entry>
   
   <entry>
-    <title>数据库原理及应用-学习笔记2</title>
-    <link href="https://lzfangwen.github.io/blog/2020/04/12/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/"/>
-    <id>https://lzfangwen.github.io/blog/2020/04/12/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/</id>
-    <published>2020-04-12T01:26:21.000Z</published>
-    <updated>2020-04-12T01:26:21.216Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;script&gt;
-        document.querySelectorAll(&#39;.github-emoji&#39;)
-          .forEach(el =&gt; {
-            if (!el.dataset.src) { return; }
-       
-        
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>操作系统-习题1</title>
     <link href="https://lzfangwen.github.io/blog/2020/04/09/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E4%B9%A0%E9%A2%981/"/>
     <id>https://lzfangwen.github.io/blog/2020/04/09/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E4%B9%A0%E9%A2%981/</id>
@@ -442,55 +502,6 @@ $$         &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;$$&lt;br&gt;2x+3y=34\&lt;br&gt;x+4y
     
       &lt;h2 id=&quot;进程互斥的软件实现方法&quot;&gt;&lt;a href=&quot;#进程互斥的软件实现方法&quot; class=&quot;headerlink&quot; title=&quot;进程互斥的软件实现方法&quot;&gt;&lt;/a&gt;进程互斥的软件实现方法&lt;/h2&gt;&lt;h3 id=&quot;单标志法&quot;&gt;&lt;a href=&quot;#单标志法&quot; class=&quot;headerlink&quot; title=&quot;单标志法&quot;&gt;&lt;/a&gt;单标志法&lt;/h3&gt;&lt;p&gt; &lt;strong&gt;算法思想&lt;/strong&gt;：两个进程在 &lt;strong&gt;访问临界区&lt;/strong&gt;后会把使用临界区的权限转交给另一个进程。也就是说&lt;strong&gt;每个进程进入临界区的权限只能被另一个进程赋予&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;可以实现&lt;strong&gt;同一时刻最多只允许一个进程访问临界区&lt;/strong&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="OS" scheme="https://lzfangwen.github.io/blog/categories/OS/"/>
-    
-    
-      <category term="OS" scheme="https://lzfangwen.github.io/blog/tags/OS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaEE-学习笔记1</title>
-    <link href="https://lzfangwen.github.io/blog/2020/04/01/JavaEE-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/"/>
-    <id>https://lzfangwen.github.io/blog/2020/04/01/JavaEE-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</id>
-    <published>2020-04-01T15:34:22.000Z</published>
-    <updated>2020-04-01T15:34:22.239Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;script&gt;
-        document.querySelectorAll(&#39;.github-emoji&#39;)
-          .forEach(el =&gt; {
-            if (!el.dataset.src) { return; }
-       
-        
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>操作系统-学习笔记4</title>
-    <link href="https://lzfangwen.github.io/blog/2020/03/31/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/"/>
-    <id>https://lzfangwen.github.io/blog/2020/03/31/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/</id>
-    <published>2020-03-31T06:10:26.000Z</published>
-    <updated>2020-05-01T06:13:45.832Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;https://www.bilibili.com/video/BV1YE411D7nH?p=31&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;b站王道考研 OS&lt;/a&gt; p28~p31学习笔记 仅方便自己复习用 侵删&lt;/p&gt;
-&lt;h2 id=&quot;死锁&quot;&gt;&lt;a href=&quot;#死锁&quot; class=&quot;headerlink&quot; title=&quot;死锁&quot;&gt;&lt;/a&gt;死锁&lt;/h2&gt;&lt;h3 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h3&gt;&lt;p&gt; 死锁是指两个或两个以上的进程在执行过程中,因争夺资源而造成的一种互相等待的现象,若无外力作用,它们都将无法推进下去.此时称系统处于死锁状态或系统产生了死锁,这些永远在互相等待的进程称为死锁进程.&lt;/p&gt;
     
     </summary>
     

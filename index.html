@@ -305,6 +305,2494 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lzfangwen.github.io/blog/lzfangwen.github.io/2020/07/03/Servlet&HTTP&Request%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="方文">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/lzfangwen.github.io/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="方文の个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/lzfangwen.github.io/2020/07/03/Servlet&HTTP&Request%E7%AC%94%E8%AE%B0/" itemprop="url">Servlet&HTTP&Request笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-03T16:03:06+08:00">
+                2020-07-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/lzfangwen.github.io/categories/JAVAE/" itemprop="url" rel="index">
+                    <span itemprop="name">JAVAE</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <a id="more"></a>
+
+<h2 id="web相关概念回顾"><a href="#web相关概念回顾" class="headerlink" title="web相关概念回顾"></a>web相关概念回顾</h2><ol>
+<li>软件架构<ol>
+<li>C/S：客户端/服务器端</li>
+<li>B/S：浏览器/服务器端</li>
+</ol>
+</li>
+</ol>
+<ol start="2">
+<li>资源分类<ol>
+<li>静态资源：所有用户访问后，得到的结果都是一样的，称为静态资源.静态资源可以直接被浏览器解析<br>如： html,css,JavaScript</li>
+<li>动态资源:每个用户访问相同资源后，得到的结果可能不一样。称为动态资源。动态资源被访问后，需要先转换为静态资源，在返回给浏览器<br>如：servlet/jsp,php,asp….</li>
+</ol>
+</li>
+</ol>
+<ol start="3">
+<li>网络通信三要素<ol>
+<li>IP：电子设备(计算机)在网络中的唯一标识。</li>
+<li>端口：应用程序在计算机中的唯一标识。 0~65536</li>
+<li>传输协议：规定了数据传输的规则<br>基础协议：<ol>
+<li>tcp:安全协议，三次握手。 速度稍慢</li>
+<li>udp：不安全协议。 速度快</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="web服务器软件："><a href="#web服务器软件：" class="headerlink" title="web服务器软件："></a>web服务器软件：</h2><ul>
+<li>服务器：安装了服务器软件的计算机</li>
+<li>服务器软件：接收用户的请求，处理请求，做出响应</li>
+<li>web服务器软件：接收用户的请求，处理请求，做出响应。<ul>
+<li>在web服务器软件中，可以部署web项目，让用户通过浏览器来访问这些项目</li>
+<li>web容器</li>
+<li>常见的java相关的web服务器软件：<ul>
+<li>webLogic：oracle公司，大型的JavaEE服务器，支持所有的JavaEE规范，收费的。</li>
+<li>webSphere：IBM公司，大型的JavaEE服务器，支持所有的JavaEE规范，收费的。</li>
+<li>JBOSS：JBOSS公司的，大型的JavaEE服务器，支持所有的JavaEE规范，收费的。</li>
+<li>Tomcat：Apache基金组织，中小型的JavaEE服务器，仅仅支持少量的JavaEE规范servlet/jsp。开源的，免费的。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>JavaEE：Java语言在企业级开发中使用的技术规范的总和，一共规定了13项大的规范</li>
+</ul>
+<ul>
+<li><p>Tomcat：web服务器软件</p>
+<ol>
+<li><p>下载：<a href="http://tomcat.apache.org/" target="_blank" rel="noopener">http://tomcat.apache.org/</a></p>
+</li>
+<li><p>安装：解压压缩包即可。</p>
+<ul>
+<li>注意：安装目录建议不要有中文和空格</li>
+</ul>
+</li>
+<li><p>卸载：删除目录就行了</p>
+</li>
+<li><p>启动：</p>
+<ul>
+<li>bin/startup.bat ,双击运行该文件即可</li>
+<li>访问：浏览器输入：<a href="http://localhost:8080" target="_blank" rel="noopener">http://localhost:8080</a> 回车访问自己<pre><code>           http://别人的ip:8080 回车访问别人</code></pre> 可能遇到的问题：<ol>
+<li>黑窗口一闪而过：</li>
+</ol>
+<ul>
+<li>原因： 没有正确配置JAVA_HOME环境变量</li>
+<li>解决方案：正确配置JAVA_HOME环境变量</li>
+</ul>
+<ol start="2">
+<li>启动报错：<ol>
+<li>暴力：找到占用的端口号，并且找到对应的进程，杀死该进程<ul>
+<li>netstat -ano</li>
+</ul>
+</li>
+<li>温柔：修改自身的端口号<ul>
+<li>conf/server.xml</li>
+<li>&lt;Connector port=”8888” protocol=”HTTP/1.1”<br>connectionTimeout=”20000”redirectPort=”8445” /&gt;</li>
+<li>一般会将tomcat的默认端口号修改为80。80端口号是http协议的默认端口号。</li>
+<li>好处：在访问时，就不用输入端口号</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<ol start="5">
+<li><p>关闭：</p>
+<ol start="6">
+<li><p>正常关闭：</p>
+<ul>
+<li>bin/shutdown.bat</li>
+<li>ctrl+c</li>
+</ul>
+</li>
+<li><p>强制关闭：</p>
+</li>
+</ol>
+</li>
+</ol>
+<ul>
+<li>点击启动窗口的×</li>
+</ul>
+<ol start="6">
+<li><p>配置:</p>
+<ul>
+<li><p>部署项目的方式：</p>
+<ol>
+<li><p>直接将项目放到webapps目录下即可。</p>
+<ul>
+<li><p>/hello：项目的访问路径–&gt;虚拟目录</p>
+</li>
+<li><p>简化部署：将项目打成一个war包，再将war包放置到webapps目录下。</p>
+</li>
+<li><p>war包会自动解压缩</p>
+</li>
+</ul>
+</li>
+<li><p>配置conf/server.xml文件</p>
+<ul>
+<li>在<host>标签体中配置<context docbase="D:\hello" path="/hehe"></context></host></li>
+<li>docBase:项目存放的路径</li>
+<li>path：虚拟目录</li>
+</ul>
+</li>
+<li><p>在conf\Catalina\localhost创建任意名称的xml文件。在文件中编写</p>
+  <context docbase="D:\hello">
+  - 虚拟目录：xml文件的名称
+
+
+
+
+
+
+</context></li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>静态项目和动态项目：<ul>
+<li>目录结构<ul>
+<li>java动态项目的目录结构：<ul>
+<li>项目的根目录<ul>
+<li>WEB-INF目录：<ul>
+<li>web.xml：web项目的核心配置文件</li>
+<li>classes目录：放置字节码文件的目录</li>
+<li>lib目录：放置依赖的jar包</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>将Tomcat集成到IDEA中，并且创建JavaEE的项目，部署项目。</li>
+</ul>
+<h2 id="Servlet：-server-applet"><a href="#Servlet：-server-applet" class="headerlink" title="Servlet：  server applet"></a>Servlet：  server applet</h2><ul>
+<li>概念：运行在服务器端的小程序<ul>
+<li>Servlet就是一个接口，定义了Java类被浏览器访问到(tomcat识别)的规则。</li>
+<li>将来我们自定义一个类，实现Servlet接口，复写方法。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>快速入门：</p>
+<ol>
+<li><p>创建JavaEE项目</p>
+</li>
+<li><p>定义一个类，实现Servlet接口</p>
+<ul>
+<li>public class ServletDemo1 implements Servlet</li>
+</ul>
+</li>
+<li><p>实现接口中的抽象方法</p>
+</li>
+<li><p>配置Servlet </p>
+<p>在web.xml中配置：</p>
+<blockquote>
+ <!--配置Servlet -->
+   <servlet>
+       <servlet-name>demo1</servlet-name>
+       <servlet-class>cn.itcast.web.servlet.ServletDemo1</servlet-class>
+   </servlet> <servlet-mapping>
+       <servlet-name>demo1</servlet-name>
+       <url-pattern>/demo1</url-pattern>
+   </servlet-mapping>
+</blockquote>
+</li>
+</ol>
+</li>
+<li><p>执行原理：</p>
+<ol>
+<li><p>当服务器接受到客户端浏览器的请求后，会解析请求URL路径，获取访问的Servlet的资源路径</p>
+</li>
+<li><p>查找web.xml文件，是否有对应的<url-pattern>标签体内容。</url-pattern></p>
+</li>
+<li><p>如果有，则在找到对应的<servlet-class>全类名</servlet-class></p>
+</li>
+<li><p>tomcat会将字节码文件加载进内存，并且创建其对象</p>
+</li>
+<li><p>调用其方法</p>
+</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>Servlet中的生命周期方法：</p>
+<ol>
+<li><p>被创建：执行init方法，只执行一次</p>
+<blockquote>
+<p>Servlet什么时候被创建？</p>
+<p>默认情况下，第一次被访问时，Servlet被创建</p>
+<p>可以配置执行Servlet的创建时机。</p>
+<p>在<servlet>标签下配置</servlet></p>
+<ol>
+<li><p>第一次被访问时，创建</p>
+<p><load-on-startup>的值为负数</load-on-startup></p>
+</li>
+<li><p>在服务器启动时，创建<br><load-on-startup>的值为0或正整数</load-on-startup></p>
+</li>
+</ol>
+</blockquote>
+<p>Servlet的init方法，只执行一次，说明一个Servlet在内存中只存在一个对象，Servlet是单例的</p>
+</li>
+</ol>
+<blockquote>
+<p>多个用户同时访问时，可能存在线程安全问题。</p>
+<p>解决：尽量不要在Servlet中定义成员变量。即使定义了成员变量，也不要对修改值</p>
+</blockquote>
+<ol start="2">
+<li><p>提供服务：执行service方法，执行多次</p>
+<ul>
+<li>每次访问Servlet时，Service方法都会被调用一次。</li>
+</ul>
+</li>
+<li><p>被销毁：执行destroy方法，只执行一次</p>
+<ul>
+<li>Servlet被销毁时执行。服务器关闭时，Servlet被销毁</li>
+<li>只有服务器正常关闭时，才会执行destroy方法。</li>
+<li>destroy方法在Servlet被销毁之前执行，一般用于释放资源</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>Servlet3.0：</p>
+<p>好处：</p>
+<ul>
+<li>支持注解配置。可以不需要web.xml了。</li>
+</ul>
+<p>步骤：</p>
+<ul>
+<li>创建JavaEE项目，选择Servlet的版本3.0以上，可以不创建web.xml</li>
+<li>定义一个类，实现Servlet接口</li>
+<li>复写方法<ul>
+<li>在类上使用@WebServlet注解，进行配置</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="java">* @WebServlet("资源路径")</code></pre>
+<pre><code class="java">@Target({ElementType.TYPE})
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface WebServlet {
+    String name() default "";//相当于&lt;Servlet-name&gt;
+
+    String[] value() default {};//代表urlPatterns()属性配置
+
+    String[] urlPatterns() default {};//相当于&lt;url-pattern&gt;
+
+    int loadOnStartup() default -1;//相当于&lt;load-on-startup&gt;
+
+    WebInitParam[] initParams() default {};
+
+    boolean asyncSupported() default false;
+
+    String smallIcon() default "";
+
+    String largeIcon() default "";
+
+    String description() default "";
+
+    String displayName() default "";
+}</code></pre>
+<h2 id="IDEA与tomcat的相关配置"><a href="#IDEA与tomcat的相关配置" class="headerlink" title="IDEA与tomcat的相关配置"></a>IDEA与tomcat的相关配置</h2><ol>
+<li>IDEA会为每一个tomcat部署的项目单独建立一份配置文件</li>
+</ol>
+<ul>
+<li><p>查看控制台的log：Using CATALINA_BASE:   “C:\Users\fqy.IntelliJIdea2018.1\system\tomcat_itcast”</p>
+<ol start="2">
+<li><p>工作空间项目    和     tomcat部署的web项目</p>
+<ul>
+<li>tomcat真正访问的是“tomcat部署的web项目”，”tomcat部署的web项目”对应着”工作空间项目” 的web目录下的所有资源</li>
+<li>WEB-INF目录下的资源不能被浏览器直接访问。</li>
+</ul>
+</li>
+<li><p>断点调试：使用”小虫子”启动 dubug 启动</p>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="Servlet的体系结构"><a href="#Servlet的体系结构" class="headerlink" title="Servlet的体系结构"></a>Servlet的体系结构</h2><p>Servlet – 接口<br>​      |<br>​GenericServlet – 抽象类<br>​      |<br>​HttpServlet  – 抽象类</p>
+<ul>
+<li><p>GenericServlet：将Servlet接口中其他的方法做了默认空实现，只将service()方法作为抽象</p>
+<ul>
+<li>将来定义Servlet类时，可以继承GenericServlet，实现service()方法即可</li>
+</ul>
+</li>
+<li><p>HttpServlet：对http协议的一种封装，简化操作</p>
+<ul>
+<li>定义类继承HttpServlet</li>
+<li>复写doGet/doPost方法</li>
+</ul>
+</li>
+</ul>
+<p><strong>Servlet相关配置</strong></p>
+<ol>
+<li>urlpartten:Servlet访问路径<ol>
+<li>一个Servlet可以定义多个访问路径 ： @WebServlet({“/d4”,”/dd4”,”/ddd4”})</li>
+<li>路径定义规则：<ol>
+<li>/xxx：路径匹配</li>
+<li>/xxx/xxx:多层路径，目录结构</li>
+<li>*.do：扩展名匹配</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="HTTP："><a href="#HTTP：" class="headerlink" title="HTTP："></a>HTTP：</h2><ul>
+<li><p>概念：Hyper Text Transfer Protocol 超文本传输协议</p>
+<ul>
+<li><p>传输协议：定义了 客户端和服务器端通信时，发送数据的格式</p>
+</li>
+<li><p>特点：</p>
+<ol>
+<li>基于TCP/IP的高级协议</li>
+<li>默认端口号:80</li>
+<li>基于请求/响应模型的:一次请求对应一次响应</li>
+<li>无状态的：每次请求之间相互独立，不能交互数据</li>
+</ol>
+</li>
+<li><p>历史版本：</p>
+<ul>
+<li>1.0：每一次请求响应都会建立新的连接</li>
+<li>1.1：复用连接</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="请求消息"><a href="#请求消息" class="headerlink" title="请求消息"></a>请求消息</h3><p>客户端发送给服务器的数据</p>
+<ul>
+<li><p>请求消息数据格式</p>
+<ol>
+<li>请求行<br>请求方式     请求url         请求协议/版本<br>GET             /login.html   HTTP/1.1</li>
+</ol>
+<ul>
+<li><p>请求方式：</p>
+<ul>
+<li><p>HTTP协议有7种请求方式，常用的有2种</p>
+<ul>
+<li><p>GET：</p>
+<ol>
+<li><p>请求参数在请求行中，在url后。</p>
+</li>
+<li><p>请求的url长度有限制的</p>
+</li>
+<li><p>不太安全</p>
+</li>
+</ol>
+</li>
+<li><p>POST：</p>
+<ol>
+<li>请求参数在请求体中</li>
+<li>请求的url长度没有限制的</li>
+<li>相对安全</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li><p>请求头：客户端浏览器告诉服务器一些信息<br>请求头名称: 请求头值</p>
+<ul>
+<li><p>常见的请求头：</p>
+<ol>
+<li><p>User-Agent：浏览器告诉服务器，我访问你使用的浏览器版本信息</p>
+<ul>
+<li>可以在服务器端获取该头的信息，解决浏览器的兼容性问题</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<ol start="2">
+<li>Referer：<a href="http://localhost/login.html" target="_blank" rel="noopener">http://localhost/login.html</a><br> 告诉服务器，我(当前请求)从哪里来？<br> 作用：<ul>
+<li>防盗链</li>
+<li>统计工作：</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>请求空行<br>空行，就是用于分割POST请求的请求头，和请求体的。</p>
+</li>
+<li><p>请求体(正文)：</p>
+</li>
+</ol>
+<ul>
+<li><p>封装POST请求消息的请求参数的</p>
+</li>
+<li><p>字符串格式：</p>
+<pre><code> POST /login.html HTTP/1.1
+ Host: localhost
+ User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0
+ Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+ Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+ Accept-Encoding: gzip, deflate
+ Referer: http://localhost/login.html
+ Connection: keep-alive
+ Upgrade-Insecure-Requests: 1
+
+ username=zhangsan </code></pre></li>
+</ul>
+</li>
+</ul>
+<h3 id="响应消息"><a href="#响应消息" class="headerlink" title="响应消息"></a>响应消息</h3><p>服务器发送给客户端的消息</p>
+<ul>
+<li><p>响应消息数据格式</p>
+<ol>
+<li><p>响应行</p>
+<ul>
+<li><p>组成：协议/版本 响应状态码   状态码描述</p>
+</li>
+<li><p>响应状态码：服务器告诉客户端浏览器本次请求和响应的一个状态</p>
+<ul>
+<li><p>状态码都是3位数字</p>
+</li>
+<li><p>分类</p>
+<ol>
+<li><p>1xx：服务器接收客户端消息，但没有接收完成，等待一段时间后，发送1xx状态码</p>
+</li>
+<li><p>2xx：成功。代表：200</p>
+</li>
+<li><p>3xx：302（重定向），304（访问缓存）</p>
+</li>
+<li><p>4xx：客户端错误。</p>
+<p>代表：</p>
+<ul>
+<li>404（请求路径没有对应的资源）</li>
+<li>405（请求方式没有对应的doXXX方法）</li>
+</ul>
+</li>
+<li><p>5xx：服务端错误。代表：500（服务器内部出现错误）</p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>响应头：传输的数据</p>
+<ol>
+<li>格式：头名称：值</li>
+<li>常见的响应头：<ol>
+<li>Conteent-Type：服务器告诉客户端本次响应体数据格式以及编码格式</li>
+<li>Content-disposition:服务器告诉客户端以什么格式打开响应体数据<ol>
+<li>in-line:默认值，在当前界面内打开</li>
+<li>attachment;filename=xxx：以附件形式打开响应体。文件下载</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>响应空行</p>
+</li>
+<li><p>响应体</p>
+</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>响应字符串格式</p>
+<pre><code>HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+Content-Type: text/html;charset=UTF-8
+Content-Length: 90
+Date: Tue, 05 May 2020 00:51:55 GMT
+
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;$Title$&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  WDNMD
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre></li>
+</ul>
+<h2 id="Requet"><a href="#Requet" class="headerlink" title="Requet"></a>Requet</h2><ol>
+<li><p>request对象和response对象的原理</p>
+<ul>
+<li><p>request和response对象是由服务器创建的。我们来使用它们</p>
+</li>
+<li><p>request对象是来获取请求消息，response对象是来设置响应消息</p>
+</li>
+</ul>
+</li>
+</ol>
+<ol start="2">
+<li><p>request对象继承体系结构： </p>
+<pre><code>ServletRequest  -- 接口
+       | 继承
+HttpServletRequest -- 接口
+       | 实现</code></pre><p>org.apache.catalina.connector.RequestFacade 类(tomcat)</p>
+</li>
+<li><p>request功能：</p>
+<ol>
+<li>获取请求消息数据</li>
+<li>获取请求行数据</li>
+</ol>
+</li>
+</ol>
+<pre><code class="java">* GET /day14/demo1?name=zhangsan HTTP/1.1
+* 方法：
+ 1. 获取请求方式 ：GET
+  * String getMethod()  
+ 2. (*)获取虚拟目录：/day14
+  * String getContextPath()
+ 3. 获取Servlet路径: /demo1
+  * String getServletPath()
+ 4. 获取get方式请求参数：name=zhangsan
+  * String getQueryString()
+ 5. (*)获取请求URI：/day14/demo1
+  * String getRequestURI():  /day14/demo1
+  * StringBuffer getRequestURL()  :http://localhost/day14/demo1
+
+  * URL:统一资源定位符 ： http://localhost/day14/demo1 中华人民共和国
+  * URI：统一资源标识符 : /day14/demo1     共和国
+
+ 6. 获取协议及版本：HTTP/1.1
+  * String getProtocol()
+
+ 7. 获取客户机的IP地址：
+  * String getRemoteAddr()</code></pre>
+<pre><code>3. 获取请求头数据
+* 方法：
+ * (*)String getHeader(String name):通过请求头的名称获取请求头的值
+ * Enumeration&lt;String&gt; getHeaderNames():获取所有的请求头名称
+
+4. 获取请求体数据:
+* 请求体：只有POST请求方式，才有请求体，在请求体中封装了POST请求的请求参数
+* 步骤：
+ 1. 获取流对象
+  *  BufferedReader getReader()：获取字符输入流，只能操作字符数据
+  *  ServletInputStream getInputStream()：获取字节输入流，可以操作所有类型数据
+   * 在文件上传知识点后讲解
+
+ 2. 再从流对象中拿数据</code></pre><ol start="2">
+<li>其他功能：</li>
+</ol>
+<ul>
+<li>获取请求参数通用方式：不论get还是post请求方式都可以使用下列方法来获取请求参数<br>​    1. String getParameter(String name):根据参数名称获取参数值    username=zs&amp;password=123<br>​    2. String[] getParameterValues(String name):根据参数名称获取参数值的数组  hobby=xx&amp;hobby=game<br>​    3. Enumeration<string> getParameterNames():获取所有请求的参数名称<br>​    4. Map&lt;String,String[]&gt; getParameterMap():获取所有参数的map集合</string></li>
+<li>中文乱码问题：<br>​get方式：tomcat 8 已经将get方式乱码问题解决了<br>​post方式：会乱码<br>​      * 解决：在获取参数前，设置request的编码request.setCharacterEncoding(“utf-8”);</li>
+</ul>
+<p>​     </p>
+<ul>
+<li><p>请求转发：一种在服务器内部的资源跳转方式<br>​    1. 步骤</p>
+<ul>
+<li><p>通过request对象获取请求转发器对象：RequestDispatcher getRequestDispatcher(String path)</p>
+</li>
+<li><p>使用RequestDispatcher对象来进行转发：forward(ServletRequest request, ServletResponse response) </p>
+</li>
+</ul>
+<p>​    2. 特点：<br>​       1. 浏览器地址栏路径不发生变化<br>​       2. 只能转发到当前服务器内部资源中。<br>​       3. 转发是一次请求</p>
+</li>
+</ul>
+<ol start="3">
+<li><p>共享数据：<br>域对象：一个有作用范围的对象，可以在范围内共享数据<br>request域：代表一次请求的范围，一般用于请求转发的多个资源中共享数据<br>方法：</p>
+</li>
+<li><p>void setAttribute(String name,Object obj):存储数据</p>
+</li>
+<li><p>Object getAttitude(String name):通过键获取值</p>
+</li>
+<li><p>void removeAttribute(String name):通过键移除键值对</p>
+</li>
+<li><p>获取ServletContext：</p>
+<ul>
+<li>ServletContext getServletContext()</li>
+</ul>
+</li>
+</ol>
+<h2 id="案例：用户登录"><a href="#案例：用户登录" class="headerlink" title="案例：用户登录"></a>案例：用户登录</h2><ul>
+<li>用户登录案例需求：<br> 1.编写login.html登录页面<br>username &amp; password 两个输入框<br> 2.使用Druid数据库连接池技术,操作mysql，day14数据库中user表<br> 3.使用JdbcTemplate技术封装JDBC<br> 4.登录成功跳转到SuccessServlet展示：登录成功！用户名,欢迎您<br> 5.登录失败跳转到FailServlet展示：登录失败，用户名或密码错误</li>
+</ul>
+<ul>
+<li><p>分析</p>
+</li>
+<li><p>开发步骤</p>
+<ol>
+<li><p>创建项目，导入html页面，配置文件，jar包</p>
+</li>
+<li><p>创建数据库环境<br>CREATE DATABASE day14;<br>USE day14;<br>CREATE TABLE USER(</p>
+<p>id INT PRIMARY KEY AUTO_INCREMENT,<br>username VARCHAR(32) UNIQUE NOT NULL,<br>PASSWORD VARCHAR(32) NOT NULL<br>);</p>
+</li>
+<li><p>创建包cn.itcast.domain,创建类User<br>package cn.itcast.domain;<br>/**</p>
+<ul>
+<li><p>用户的实体类</p>
+</li>
+<li><p>/<br>public class User {</p>
+<p>private int id;<br>private String username;<br>private String password;</p>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<p>​       public int getId() {<br>​           return id;<br>​       }<br>​<br>​       public void setId(int id) {<br>​           this.id = id;<br>​       }<br>​<br>​       public String getUsername() {<br>​           return username;<br>​       }<br>​<br>​       public void setUsername(String username) {<br>​           this.username = username;<br>​       }<br>​<br>​       public String getPassword() {<br>​           return password;<br>​       }</p>
+<pre><code>   public void setPassword(String password) {
+       this.password = password;
+   }
+
+   @Override
+   public String toString() {
+       return "User{" +
+               "id=" + id +
+               ", username='" + username + '\'' +
+               ", password='" + password + '\'' +
+               '}';
+   }</code></pre><p>   }<br>  4. 创建包cn.itcast.util,编写工具类JDBCUtils<br>      package cn.itcast.util;</p>
+<p>   import com.alibaba.druid.pool.DruidDataSourceFactory;</p>
+<p>   import javax.sql.DataSource;<br>   import javax.xml.crypto.Data;<br>   import java.io.IOException;<br>   import java.io.InputStream;<br>   import java.sql.Connection;<br>   import java.sql.SQLException;<br>   import java.util.Properties;</p>
+<p>   /**<br>    * JDBC工具类 使用Durid连接池<br>    */<br>   public class JDBCUtils {</p>
+<pre><code>   private static DataSource ds ;
+
+   static {
+
+       try {
+           //1.加载配置文件
+           Properties pro = new Properties();
+           //使用ClassLoader加载配置文件，获取字节输入流
+           InputStream is = JDBCUtils.class.getClassLoader().getResourceAsStream("druid.properties");
+           pro.load(is);
+
+           //2.初始化连接池对象
+           ds = DruidDataSourceFactory.createDataSource(pro);
+
+       } catch (IOException e) {
+           e.printStackTrace();
+       } catch (Exception e) {
+           e.printStackTrace();
+       }
+   }
+
+   /**
+    * 获取连接池对象
+    */
+   public static DataSource getDataSource(){
+       return ds;
+   }</code></pre><p>​       /**<br>​        * 获取连接Connection对象<br>​        <em>/<br>​       public static Connection getConnection() throws SQLException {<br>​           return  ds.getConnection();<br>​       }<br>​   }<br>​  5. 创建包cn.itcast.dao,创建类UserDao,提供login方法<br>​<br>​   package cn.itcast.dao;<br>​<br>​   import cn.itcast.domain.User;<br>​   import cn.itcast.util.JDBCUtils;<br>​   import org.springframework.dao.DataAccessException;<br>​   import org.springframework.jdbc.core.BeanPropertyRowMapper;<br>​   import org.springframework.jdbc.core.JdbcTemplate;<br>​<br>​   /*</em><br>​    * 操作数据库中User表的类<br>​    */<br>​   public class UserDao {<br>​<br>​       //声明JDBCTemplate对象共用<br>​       private JdbcTemplate template = new JdbcTemplate(JDBCUtils.getDataSource());</p>
+<pre><code>   /**
+    * 登录方法
+    * @param loginUser 只有用户名和密码
+    * @return user包含用户全部数据,没有查询到，返回null
+    */
+   public User login(User loginUser){
+       try {
+           //1.编写sql
+           String sql = "select * from user where username = ? and password = ?";
+           //2.调用query方法
+           User user = template.queryForObject(sql,
+                   new BeanPropertyRowMapper&lt;User&gt;(User.class),
+                   loginUser.getUsername(), loginUser.getPassword());</code></pre><p>​               return user;<br>​           } catch (DataAccessException e) {<br>​               e.printStackTrace();//记录日志<br>​               return null;<br>​           }<br>​       }<br>​   }<br>​<br>​  6. 编写cn.itcast.web.servlet.LoginServlet类<br>​   package cn.itcast.web.servlet;<br>​<br>​   import cn.itcast.dao.UserDao;<br>​   import cn.itcast.domain.User;<br>​<br>​   import javax.servlet.ServletException;<br>​   import javax.servlet.annotation.WebServlet;<br>​   import javax.servlet.http.HttpServlet;<br>​   import javax.servlet.http.HttpServletRequest;<br>​   import javax.servlet.http.HttpServletResponse;<br>​   import java.io.IOException;</p>
+<p>   @WebServlet(“/loginServlet”)<br>​   public class LoginServlet extends HttpServlet {</p>
+<p>​       @Override<br>​       protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {<br>​           //1.设置编码<br>​           req.setCharacterEncoding(“utf-8”);<br>​           //2.获取请求参数<br>​           String username = req.getParameter(“username”);<br>​           String password = req.getParameter(“password”);<br>​           //3.封装user对象<br>​           User loginUser = new User();<br>​           loginUser.setUsername(username);<br>​           loginUser.setPassword(password);<br>​<br>​           //4.调用UserDao的login方法<br>​           UserDao dao = new UserDao();<br>​           User user = dao.login(loginUser);<br>​<br>​           //5.判断user<br>​           if(user == null){<br>​               //登录失败<br>​               req.getRequestDispatcher(“/failServlet”).forward(req,resp);<br>​           }else{<br>​               //登录成功<br>​               //存储数据<br>​               req.setAttribute(“user”,user);<br>​               //转发<br>​               req.getRequestDispatcher(“/successServlet”).forward(req,resp);<br>​           }<br>​<br>​       }<br>​<br>​       @Override<br>​       protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {<br>​           this.doGet(req,resp);<br>​       }<br>   }</p>
+<ol start="7">
+<li><p>编写FailServlet和SuccessServlet类<br> @WebServlet(“/successServlet”)<br> public class SuccessServlet extends HttpServlet {<br>  protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {</p>
+<pre><code>  //获取request域中共享的user对象
+  User user = (User) request.getAttribute("user");
+
+  if(user != null){
+      //给页面写一句话
+
+      //设置编码
+      response.setContentType("text/html;charset=utf-8");
+      //输出
+      response.getWriter().write("登录成功！"+user.getUsername()+",欢迎您");
+  }</code></pre></li>
+</ol>
+<p>​       }  </p>
+<p>   @WebServlet(“/failServlet”)<br>   public class FailServlet extends HttpServlet {<br>       protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {<br>           //给页面写一句话</p>
+<pre><code>       //设置编码
+       response.setContentType("text/html;charset=utf-8");
+       //输出
+       response.getWriter().write("登录失败，用户名或密码错误");
+
+   }
+
+   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+       this.doPost(request,response);
+   }</code></pre><p>   }</p>
+<ol start="8">
+<li><p>login.html中form表单的action路径的写法</p>
+<ul>
+<li>虚拟目录+Servlet的资源路径</li>
+</ul>
+</li>
+<li><p>BeanUtils工具类，简化数据封装</p>
+<ul>
+<li>用于封装JavaBean的</li>
+</ul>
+<ol>
+<li>JavaBean：标准的Java类<ol>
+<li>要求：<ol>
+<li>类必须被public修饰</li>
+<li>必须提供空参的构造器</li>
+<li>成员变量必须使用private修饰</li>
+<li>提供公共setter和getter方法</li>
+</ol>
+</li>
+<li>功能：封装数据</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<ol start="2">
+<li><p>概念：</p>
+<p>成员变量：<br>属性：setter和getter方法截取后的产物<br>例如：getUsername() –&gt; Username–&gt; username</p>
+</li>
+</ol>
+<ol start="3">
+<li>方法：<ol>
+<li>setProperty()</li>
+<li>getProperty()</li>
+<li>populate(Object obj , Map map):将map集合的键值对信息，封装到对应的JavaBean对象中</li>
+</ol>
+</li>
+</ol>
+<h2 id="Response"><a href="#Response" class="headerlink" title="Response"></a>Response</h2><ul>
+<li><p>功能：设置响应消息</p>
+<ol>
+<li><p>设置响应行</p>
+<ol>
+<li><p>格式：HTTP/1.1 200 ok</p>
+</li>
+<li><p>设置状态码： setStatus（int sc）</p>
+</li>
+<li><p>设置响应头：setHeader（String name,String value）</p>
+</li>
+<li><p>设置响应体</p>
+<ol>
+<li><p>获取输出流：</p>
+<ol>
+<li>字符输出流：PrintWriter getWriter（）</li>
+<li>字节输出流：ServletOutputStream（）</li>
+</ol>
+</li>
+<li><p>使用输出流，将数据输出到客户端浏览器</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>案例</p>
+<ol>
+<li><p><strong>完成重定向</strong></p>
+<p>重定向：资源跳转的方式</p>
+<pre><code class="java">//访问/responseDemo1,会自动自动跳转到/responseDemo2资源
+            //1.设置状态码为302
+             response.setStatus(302);
+             //2.设置响应头location
+             response.setHeader("location","/day15/responseDemo2");
+
+       //简单的重定向方法
+        response.sendRedirect("/day15/responseDemo2");</code></pre>
+<ul>
+<li>重定向的特点：</li>
+</ul>
+<ol>
+<li>地址栏发生变化</li>
+<li>重定向可以访问其他站点（服务器）的资源</li>
+<li>重定向是两次请求，不能使用request对象来共享数据 </li>
+</ol>
+<ul>
+<li>转发的特点：</li>
+</ul>
+<ol>
+<li>转发地址栏路径不变</li>
+<li>转发只能访问当前服务器下的资源</li>
+<li>转发是一次请求，意味着request对象来共享数据<ul>
+<li>forward 和redirect的区别</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>路径写法</p>
+<ul>
+<li><p>路径分类</p>
+<ol>
+<li><p>相对路径：通过相对路径不能确定唯一资源</p>
+<p>如：./index.html</p>
+<p>不以/开头，以.开头路径</p>
+<ul>
+<li>规则：找到当前资源和目标资源之间的相对路径<ul>
+<li>./ : 当前路径</li>
+<li>../: 后退一级目录</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>绝对路径：通过绝对路径可以确定唯一资源</p>
+<ul>
+<li>如：<a href="http://localhost/day15/responseDemo2" target="_blank" rel="noopener">http://localhost/day15/responseDemo2</a></li>
+<li>以/开头的路径</li>
+<li>规则：判断定义的路径是给谁用的？判断请求是从哪儿发出<ul>
+<li>给客户端浏览器使用：需要加虚拟目录 ( 项目的访问路径 ) <ul>
+<li>建议虚拟目录动态获取：request.getContextPath()</li>
+<li><code>&lt;a&gt;</code> <code>&lt;form&gt;</code>  <code>重定向</code></li>
+</ul>
+</li>
+<li>给服务器使用，不需要加虚拟目录<ul>
+<li>转发路径</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>服务器输出字符数据到浏览器</strong></p>
+<ul>
+<li><p>步骤</p>
+<ol>
+<li><p>获取字符输入流</p>
+<p><code>PrintWriter pw =response.getWriter();</code></p>
+</li>
+<li><p>输出数据</p>
+<p><code>pw.write("你好 response");</code></p>
+</li>
+</ol>
+</li>
+<li><p>注意：乱码问题</p>
+<ul>
+<li><code>PrintWriter pw =response.getWriter();</code>获取的流默认编码为 ISO-8859-1</li>
+<li>设置该流的默认编码</li>
+<li>告诉浏览器响应体使用的编码</li>
+<li>简单的形式<code>response.setContentType("text/html;charset=utf-8");</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<ol start="3">
+<li><p><strong>服务器输出字节数据到浏览器</strong></p>
+<ul>
+<li><p>步骤</p>
+<ol>
+<li><p>获取字节输入流</p>
+<p><code>ServletOutputStream sos=response.getOutputStream();</code></p>
+</li>
+<li><p>输出数据</p>
+<p><code>sos.write("你好".getBytes("utf-8"));</code></p>
+</li>
+</ol>
+</li>
+<li><p>注意：乱码问题</p>
+<p><code>response.setContentType("text/html;charset=utf-8");</code></p>
+</li>
+</ul>
+</li>
+<li><p><strong>验证码</strong></p>
+<ol>
+<li>本质：图片</li>
+<li>目的：防止恶意表单注册</li>
+</ol>
+<pre><code class="java">        int width=100;
+        int height=50;
+        //1.创建一对象，在内存中图片（验证码对象）
+        BufferedImage image= new BufferedImage(width,height,BufferedImage.TYPE_INT_RGB);
+
+        //2.美化图片
+        //2.1填充背景色
+        Graphics g=image.getGraphics();//画笔对象
+        g.setColor(Color.PINK);//设置画笔颜色
+        g.fillRect(0,0,width,height);//填充
+        //g.draw 画
+        //2.2画边框
+        g.setColor(Color.BLUE);
+        g.drawRect(0,0,width-1,height-1);
+
+        String str="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        //生成随机角标
+        Random ran=new Random();
+
+        for (int i = 0; i &lt;=4 ; i++) {
+            int index=ran.nextInt(str.length());
+            //获取字符
+            char ch=str.charAt(index);//随机字符
+            //2.3写验证码
+            g.drawString(ch+"",width/5*i,height/2);//因为要写字符串 所以ch+""拼制成字符串
+        }
+        //2.4画干扰线
+        g.setColor(Color.GREEN);
+        //随机生成坐标点
+        for (int i = 0; i &lt; 10; i++) {
+            int x1=ran.nextInt(width);
+            int x2=ran.nextInt(width);
+            int y1=ran.nextInt(height);
+            int y2=ran.nextInt(height);
+            g.drawLine(x1,y1,x2,y2);
+        }
+        //3.将图片输出到页面展示
+        ImageIO.write(image,"jpg",response.getOutputStream());</code></pre>
+</li>
+</ol>
+<h2 id="ServletContext对象"><a href="#ServletContext对象" class="headerlink" title="ServletContext对象"></a>ServletContext对象</h2><ol>
+<li><p>概念：代表整个web应用，可以和程序的容器（服务器）来通信</p>
+</li>
+<li><p>获取：</p>
+<ol>
+<li><p>通过request对象获取</p>
+<p><code>request.getServletContext();</code></p>
+</li>
+<li><p>通过HttpServlet获取</p>
+<p><code>this.getServletContext();</code></p>
+</li>
+</ol>
+</li>
+<li><p>功能：</p>
+<ol>
+<li><p>获取MIME类型</p>
+<blockquote>
+<p>MIME类型: 在互联网通信过程中定义的一种文件数据类型</p>
+<p>格式： 大类型/小类型      text/html        image/jpeg</p>
+</blockquote>
+<ul>
+<li>获取：<code>String getMimeType(String file)</code></li>
+</ul>
+</li>
+<li><p>域对象：共享数据</p>
+<ol>
+<li><code>setAttribute(String name,Object value)</code></li>
+<li><code>getAttribute(String name)</code></li>
+<li><code>removeAttribute(String name)</code></li>
+</ol>
+<ul>
+<li>ServletContext对象范围：所有用户所有请求的数据</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<ol start="3">
+<li><p>获取文件的真实（服务器）路径</p>
+<ol>
+<li>方法：<code>String getRealPath(String path)</code></li>
+</ol>
+<blockquote>
+<p>在 /web文件夹下   直接<code>getRealPath("/b.txt");</code></p>
+<p>在 /web/WEB-INF文件夹下 <code>getRealPath("/WEB-INF/c.txt");</code></p>
+<p>在 /src文件夹下 <code>getRealPath("/WEN-INf/classes/a.txt")</code></p>
+</blockquote>
+</li>
+</ol>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lzfangwen.github.io/blog/lzfangwen.github.io/2020/07/03/JDBC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="方文">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/lzfangwen.github.io/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="方文の个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/lzfangwen.github.io/2020/07/03/JDBC/" itemprop="url">JDBC</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-03T16:03:05+08:00">
+                2020-07-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/lzfangwen.github.io/categories/JAVAEE/" itemprop="url" rel="index">
+                    <span itemprop="name">JAVAEE</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <a id="more"></a>
+
+<h1 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h1><p>概念：Java DateBase Connectivity   Java数据库连接</p>
+<p><strong>本质</strong>：其实是官方（sun公司）定义的一套操作所有关系型数据库的规则，即接口。各个数据库厂商去实现这套接口，提供数据库驱动jar包。我们可以使用这套接口（JDBC）编程，真正执行的代码是驱动jar包中的实现类。</p>
+<h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><ol>
+<li>导入驱动jar包<ol>
+<li>复制mysql-connector-java-5.1.37-bin.jar到项目的libs目录下</li>
+<li>右键–&gt;Add As Library</li>
+</ol>
+</li>
+<li>注册驱动</li>
+<li>获取数据库连接对象 Connection</li>
+<li>定义sql</li>
+<li>获取执行sql语句的对象 Statement</li>
+<li>执行sql，接受返回结果</li>
+<li>处理结果</li>
+<li>释放资源</li>
+</ol>
+<pre><code class="java">//代码实现：
+          //1. 导入驱动jar包
+        //2.注册驱动
+        Class.forName("com.mysql.jdbc.Driver");
+        //3.获取数据库连接对象
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db3", "root", "root");
+        //4.定义sql语句
+        String sql = "update account set balance = 500 where id = 1";
+        //5.获取执行sql的对象 Statement
+        Statement stmt = conn.createStatement();
+        //6.执行sql
+        int count = stmt.executeUpdate(sql);
+        //7.处理结果
+        System.out.println(count);
+        //8.释放资源
+        stmt.close();
+        conn.close();</code></pre>
+<h2 id="详解各个对象"><a href="#详解各个对象" class="headerlink" title="详解各个对象"></a>详解各个对象</h2><h3 id="DriverManager：驱动管理对象"><a href="#DriverManager：驱动管理对象" class="headerlink" title="DriverManager：驱动管理对象"></a><strong>DriverManager：驱动管理对象</strong></h3><ul>
+<li><p>功能：</p>
+<ol>
+<li><p>注册驱动：告诉程序该使用哪一个数据库驱动jar<br> <code>static void registerDriver(Driver driver)</code> :注册与给定的驱动程序 DriverManager 。<br> 写代码使用：  <code>Class.forName("com.mysql.jdbc.Driver");</code><br> 通过查看源码发现：在com.mysql.jdbc.Driver类中存在静态代码块</p>
+<pre><code class="java">  static {
+         try {
+             java.sql.DriverManager.registerDriver(new Driver());
+         } catch (SQLException E) {
+             throw new RuntimeException("Can't register driver!");
+ }
+     }</code></pre>
+<p> 注意：mysql5之后的驱动jar包可以省略注册驱动的步骤。</p>
+</li>
+<li><p>获取数据库连接：</p>
+<ul>
+<li>方法：<code>static Connection getConnection(String url, String user, String password)</code> </li>
+<li>参数：<ul>
+<li>url：指定连接的路径<ul>
+<li>语法：jdbc:mysql://ip地址(域名):端口号/数据库名称</li>
+<li>例子：jdbc:mysql://localhost:3306/db3</li>
+<li>细节：如果连接的是本机mysql服务器，并且mysql服务默认端口是3306，则url可以简写为：jdbc:mysql:///数据库名称</li>
+</ul>
+</li>
+<li>user：用户名</li>
+<li>password：密码 </li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="Connection：数据库连接对象"><a href="#Connection：数据库连接对象" class="headerlink" title="Connection：数据库连接对象"></a><strong>Connection：数据库连接对象</strong></h3><ol>
+<li>功能：<pre><code> 1. 获取执行sql 的对象
+     * `Statement createStatement()`
+ * `PreparedStatement prepareStatement(String sql)`  </code></pre><ol start="2">
+<li>管理事务：<ul>
+<li>开启事务：<code>setAutoCommit(boolean autoCommit)</code> ：调用该方法设置参数为false，即开启事务</li>
+<li>提交事务：<code>commit()</code> </li>
+<li>回滚事务：<code>rollback()</code> </li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="Statement：执行sql的对象"><a href="#Statement：执行sql的对象" class="headerlink" title="Statement：执行sql的对象"></a><strong>Statement：执行sql的对象</strong></h3><ol>
+<li><p>执行sql</p>
+<pre><code> 1. `boolean execute(String sql)` ：可以执行任意的sql 了解 
+
+ 2. `int executeUpdate(String sql)` ：执行DML（insert、update、delete）语句、DDL(create，alter、drop)语句
+     * 返回值：影响的行数，可以通过这个影响的行数判断DML语句是否执行成功 返回值&gt;0的则执行成功，反之，则失败。
+ 3. `ResultSet executeQuery(String sql)`  ：执行DQL（select)语句</code></pre><ol start="2">
+<li><p>练习：</p>
+<ol>
+<li>account表 添加一条记录</li>
+</ol>
+</li>
+<li><p>account表 修改记录</p>
+<ol start="3">
+<li><p>account表 删除一条记录</p>
+<p>代码：</p>
+</li>
+</ol>
+<pre><code class="java">Statement stmt = null;
+Connection conn = null;
+try {
+    //1. 注册驱动
+    Class.forName("com.mysql.jdbc.Driver");
+    //2. 定义sql
+    String sql = "insert into account values(null,'王五',3000)";
+    //3.获取Connection对象
+    conn = DriverManager.getConnection("jdbc:mysql:///db3", "root", "root");
+    //4.获取执行sql的对象 Statement
+    stmt = conn.createStatement();
+    //5.执行sql
+    int count = stmt.executeUpdate(sql);//影响的行数
+    //6.处理结果
+    System.out.println(count);
+    if(count &gt; 0){
+        System.out.println("添加成功！");
+    }else{
+     System.out.println("添加失败！");
+    }
+
+} catch (ClassNotFoundException e) {
+    e.printStackTrace();
+} catch (SQLException e) {
+    e.printStackTrace();
+}finally {
+    //stmt.close();
+    //7. 释放资源
+    //避免空指针异常
+    if(stmt != null){
+        try {
+            stmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+     }
+    }
+
+    if(conn != null){
+        try {
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+<p>标准写法：便于关闭</p>
+<pre><code class="java">package cn.itcast.jdbc;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+/**
+* account表 添加一条记录 insert 语句
+*/
+public class JDBCDemo2 {
+ public static void main(String[] args) {
+     Statement stmt = null;
+     Connection conn = null;
+     try {
+         //1. 注册驱动
+         Class.forName("com.mysql.jdbc.Driver");
+         //2. 定义sql
+         String sql = "insert into account values(null,'王五',3000)";
+         //3.获取Connection对象
+         conn = DriverManager.getConnection("jdbc:mysql:///db3", "root", "root");
+         //4.获取执行sql的对象 Statement
+         stmt = conn.createStatement();
+         //5.执行sql
+         int count = stmt.executeUpdate(sql);//影响的行数
+         //6.处理结果
+         System.out.println(count);
+         if(count &gt; 0){
+             System.out.println("添加成功！");
+         }else{
+             System.out.println("添加失败！");
+         }
+
+     } catch (ClassNotFoundException e) {
+         e.printStackTrace();
+     } catch (SQLException e) {
+         e.printStackTrace();
+     }finally {
+         //stmt.close();
+         //7. 释放资源
+         //避免空指针异常
+         if(stmt != null){
+             try {
+                 stmt.close();
+             } catch (SQLException e) {
+                 e.printStackTrace();
+             }
+         }
+
+         if(conn != null){
+             try {
+                 conn.close();
+             } catch (SQLException e) {
+                 e.printStackTrace();
+             }
+         }
+     }
+ }
+}</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="ResultSet：结果集对象-封装查询结果"><a href="#ResultSet：结果集对象-封装查询结果" class="headerlink" title="ResultSet：结果集对象,封装查询结果"></a>ResultSet：结果集对象,封装查询结果</h3><ul>
+<li><p><code>boolean next():</code> 游标向下移动一行，判断当前行是否是最后一行末尾(是否有数据)，如果是，则返回false，如果不是则返回true</p>
+<ul>
+<li><p>getXxx(参数):获取数据</p>
+<ul>
+<li>Xxx：代表数据类型   如： int getInt() ,    String getString()</li>
+<li>参数：<ol>
+<li>int：代表列的编号,从1开始   如： getString(1)</li>
+<li>String：代表列名称。 如： getDouble(“balance”)</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>注意：</p>
+<ul>
+<li>使用步骤：<ol>
+<li>游标向下移动一行</li>
+<li>判断是否有数据</li>
+</ol>
+</li>
+</ul>
+<ol start="3">
+<li><p>获取数据</p>
+<pre><code class="java">//循环判断游标是否是最后一行末尾。
+while(rs.next()){
+//获取数据
+int id = rs.getInt(1);
+String name = rs.getString("name");
+double balance = rs.getDouble(3);
+System.out.println(id + "---" + name + "---" + balance);
+}</code></pre>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>* 练习：
+    * 定义一个方法，查询emp表的数据将其封装为对象，然后装载集合，返回。
+        1. 定义Emp类
+        2. 定义方法 public List&lt;Emp&gt; findAll(){}
+        3. 实现方法 select * from emp;</code></pre><h2 id="JDBC工具类"><a href="#JDBC工具类" class="headerlink" title="JDBC工具类"></a>JDBC工具类</h2><ul>
+<li><p>目的：简化书写</p>
+</li>
+<li><p>分析：</p>
+<ol>
+<li><p>注册驱动也抽取</p>
+</li>
+<li><p>抽取一个方法获取连接对象</p>
+<ul>
+<li>需求：不想传递参数（麻烦），还得保证工具类的通用性。</li>
+<li>解决：配置文件<br>jdbc.properties<pre><code>url=
+user=
+password=</code></pre></li>
+</ul>
+<ol start="3">
+<li>抽取一个方法释放资源</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>代码实现：</p>
+</li>
+</ul>
+<pre><code class="java">package cn.itcast.util;
+
+import java.io.FileReader;
+import java.io.IOException;
+import java.net.URL;
+import java.sql.*;
+import java.util.Properties;
+
+/**
+ * JDBC工具类
+ */
+public class JDBCUtils {
+    private static String url;
+    private static String user;
+    private static String password;
+    private static String driver;
+    /**
+     * 文件的读取，只需要读取一次即可拿到这些值。使用静态代码块
+     */
+    static{
+        //读取资源文件，获取值。
+
+        try {
+            //1. 创建Properties集合类。
+            Properties pro = new Properties();
+
+            //获取src路径下的文件的方式---&gt;ClassLoader 类加载器
+            ClassLoader classLoader = JDBCUtils.class.getClassLoader();
+            URL res  = classLoader.getResource("jdbc.properties");
+            String path = res.getPath();
+           // System.out.println(path);///D:/IdeaProjects/itcast/out/production/day04_jdbc/jdbc.properties
+            //2. 加载文件
+           // pro.load(new FileReader("D:\\IdeaProjects\\itcast\\day04_jdbc\\src\\jdbc.properties"));
+            pro.load(new FileReader(path));
+
+            //3. 获取数据，赋值
+            url = pro.getProperty("url");
+            user = pro.getProperty("user");
+            password = pro.getProperty("password");
+            driver = pro.getProperty("driver");
+            //4. 注册驱动
+            Class.forName(driver);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    /**
+     * 获取连接
+     * @return 连接对象
+     */
+    public static Connection getConnection() throws SQLException {
+
+        return DriverManager.getConnection(url, user, password);
+    }
+
+    /**
+     * 释放资源
+     * @param stmt
+     * @param conn
+     */
+    public static void close(Statement stmt,Connection conn){
+        if( stmt != null){
+            try {
+                stmt.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if( conn != null){
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+    /**
+     * 释放资源
+     * @param stmt
+     * @param conn
+     */
+    public static void close(ResultSet rs,Statement stmt, Connection conn){
+        if( rs != null){
+            try {
+                rs.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if( stmt != null){
+            try {
+                stmt.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if( conn != null){
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+}
+</code></pre>
+<h2 id="JDBC事务管理"><a href="#JDBC事务管理" class="headerlink" title="JDBC事务管理"></a>JDBC事务管理</h2><ol>
+<li>事务：一个包含多个步骤的业务操作。如果这个业务操作被事务管理，则这多个步骤要么同时成功，要么同时失败。</li>
+<li>操作：<ol>
+<li>开启事务</li>
+<li>提交事务</li>
+<li>回滚事务</li>
+</ol>
+</li>
+<li>使用Connection对象来管理事务<ul>
+<li>开启事务：setAutoCommit(boolean autoCommit) ：调用该方法设置参数为false，即开启事务<ul>
+<li>在执行sql之前开启事务</li>
+</ul>
+</li>
+<li>提交事务：commit() <ul>
+<li>当所有sql都执行完提交事务</li>
+</ul>
+</li>
+<li>回滚事务：rollback() <ul>
+<li>在catch中回滚事务</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>代码实现</p>
+<pre><code class="java">package cn.itcast.jdbc;
+
+import cn.itcast.util.JDBCUtils;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+/**
+ * 事务操作
+ */
+public class JDBCDemo10 {
+
+
+    public static void main(String[] args) {
+        Connection conn = null;
+        PreparedStatement pstmt1 = null;
+        PreparedStatement pstmt2 = null;
+
+        try {
+            //1.获取连接
+            conn = JDBCUtils.getConnection();
+            //开启事务
+            conn.setAutoCommit(false);
+
+            //2.定义sql
+            //2.1 张三 - 500
+            String sql1 = "update account set balance = balance - ? where id = ?";
+            //2.2 李四 + 500
+            String sql2 = "update account set balance = balance + ? where id = ?";
+            //3.获取执行sql对象
+            pstmt1 = conn.prepareStatement(sql1);
+            pstmt2 = conn.prepareStatement(sql2);
+            //4. 设置参数
+            pstmt1.setDouble(1,500);
+            pstmt1.setInt(2,1);
+
+            pstmt2.setDouble(1,500);
+            pstmt2.setInt(2,2);
+            //5.执行sql
+            pstmt1.executeUpdate();
+            // 手动制造异常
+            int i = 3/0;
+
+            pstmt2.executeUpdate();
+            //提交事务
+            conn.commit();
+        } catch (Exception e) {
+            //事务回滚
+            try {
+                if(conn != null) {
+                    conn.rollback();
+                }
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            }
+            e.printStackTrace();
+        }finally {
+            JDBCUtils.close(pstmt1,conn);
+            JDBCUtils.close(pstmt2,null);
+        }
+
+
+    }
+
+}
+</code></pre>
+<h2 id="连接池"><a href="#连接池" class="headerlink" title="连接池"></a>连接池</h2><ol>
+<li><p>概念：其实就是一个容器(集合)，存放数据库连接的容器。</p>
+<pre><code> 当系统初始化好后，容器被创建，容器中会申请一些连接对象，当用户来访问数据库时，从容器中获取连接对象，用户访问完之后，会将连接对象归还给容器。</code></pre></li>
+<li><p>好处：</p>
+<ol>
+<li>节约资源</li>
+<li>用户访问高效</li>
+</ol>
+</li>
+<li><p>实现：</p>
+<ol>
+<li><p>标准接口：DataSource   javax.sql包下的</p>
+<ol>
+<li>方法：<ul>
+<li>获取连接：getConnection()</li>
+<li>归还连接：Connection.close()。如果连接对象Connection是从连接池中获取的，那么调用Connection.close()方法，则不会再关闭连接了。而是归还连接</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>一般我们不去实现它，有数据库厂商来实现</p>
+<ol>
+<li>C3P0：数据库连接池技术</li>
+<li>Druid：数据库连接池实现技术，由阿里巴巴提供的</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>C3P0：数据库连接池技术</p>
+<ul>
+<li><p>步骤：</p>
+<ol>
+<li><p>导入jar包 (两个) c3p0-0.9.5.2.jar mchange-commons-java-0.2.12.jar ，</p>
+<ul>
+<li>不要忘记导入数据库驱动jar包</li>
+</ul>
+</li>
+<li><p>定义配置文件：</p>
+<ul>
+<li>名称： c3p0.properties 或者 c3p0-config.xml</li>
+<li>路径：直接将文件放在src目录下即可。</li>
+</ul>
+</li>
+<li><p>创建核心对象 数据库连接池对象 ComboPooledDataSource</p>
+</li>
+<li><p>获取连接： getConnection</p>
+</li>
+</ol>
+</li>
+<li><p>代码：<br>   //1.创建数据库连接池对象<br>  DataSource ds  = new ComboPooledDataSource();<br>  //2. 获取连接对象<br>  Connection conn = ds.getConnection();</p>
+</li>
+</ul>
+</li>
+</ol>
+<pre><code class="java">public class C3P0Demo1 {
+    public static void main(String[] args) throws SQLException {
+        //1.创建数据库连接池对象
+        DataSource ds  = new ComboPooledDataSource();
+        //2. 获取连接对象
+        Connection conn = ds.getConnection();
+
+        //3. 打印
+        System.out.println(conn);
+
+    }
+}</code></pre>
+<ol start="5">
+<li>Druid：数据库连接池实现技术，由阿里巴巴提供的<ol>
+<li>步骤：<ol>
+<li>导入jar包 druid-1.0.9.jar</li>
+<li>定义配置文件：<ul>
+<li>是properties形式的</li>
+<li>可以叫任意名称，可以放在任意目录下</li>
+</ul>
+</li>
+<li>加载配置文件。Properties</li>
+<li>获取数据库连接池对象：通过工厂类来获取  DruidDataSourceFactory</li>
+<li>获取连接：getConnection</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<pre><code class="java">public class druidDemo1 {
+    public static void main(String[] args) throws Exception {
+        //1.导入jar包
+        //2.定义配置文件
+        //3.加载配置文件
+        Properties pro = new Properties();
+        InputStream is=druidDemo1.class.getClassLoader().getResourceAsStream("druid.properties");
+        //通过当前类的名称.class获得字节码文件.etClassLoader().getResourceAsStream()获取资源路径 返回字节流
+        pro.load(is);
+
+        //4.获取连接池对象：通过工厂类来获取 DuridDataSourceFactory
+        DataSource ds=DruidDataSourceFactory.createDataSource(pro);
+        //5.获取连接
+        Connection conn=ds.getConnection();
+        System.out.println(conn);
+    }
+}</code></pre>
+<ol start="2">
+<li>定义工具类<pre><code> 1. 定义一个类 JDBCUtils
+ 2. 提供静态代码块加载配置文件，初始化连接池对象
+ 3. 提供方法
+     1. 获取连接方法：通过数据库连接池获取连接
+     2. 释放资源
+     3. 获取连接池的方法</code></pre></li>
+</ol>
+<pre><code class="java">package cn.itcast.utils;
+
+import com.alibaba.druid.pool.DruidDataSourceFactory;
+
+import javax.sql.DataSource;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Properties;
+
+/**
+ * Druid连接池的工具类
+ */
+public class JDBCUtils {
+
+    //1.定义成员变量 DataSource
+    private static DataSource ds ;
+
+    static{
+        try {
+            //1.加载配置文件
+            Properties pro = new Properties();
+            pro.load(JDBCUtils.class.getClassLoader().getResourceAsStream("druid.properties"));
+            //2.获取DataSource
+            ds = DruidDataSourceFactory.createDataSource(pro);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 获取连接
+     */
+    public static Connection getConnection() throws SQLException {
+        return ds.getConnection();
+    }
+
+    /**
+     * 释放资源
+     */
+    public static void close(Statement stmt,Connection conn){
+       /* if(stmt != null){
+            try {
+                stmt.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if(conn != null){
+            try {
+                conn.close();//归还连接
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }*/
+
+       close(null,stmt,conn);
+    }
+
+
+    public static void close(ResultSet rs , Statement stmt, Connection conn){
+
+
+        if(rs != null){
+            try {
+                rs.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+        if(stmt != null){
+            try {
+                stmt.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if(conn != null){
+            try {
+                conn.close();//归还连接
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /**
+     * 获取连接池方法
+     */
+
+    public static DataSource getDataSource(){
+        return  ds;
+    }
+
+}
+</code></pre>
+<h2 id="Spring-JDBC"><a href="#Spring-JDBC" class="headerlink" title="Spring JDBC"></a>Spring JDBC</h2><p>Spring框架对JDBC的简单封装。提供了一个JDBCTemplate对象简化JDBC的开发</p>
+<p>步骤：</p>
+<ol>
+<li><p>导入jar包</p>
+</li>
+<li><p>创建JdbcTemplate对象。依赖于数据源DataSource</p>
+<ul>
+<li>JdbcTemplate template = new JdbcTemplate(ds);</li>
+</ul>
+</li>
+<li><p>调用JdbcTemplate的方法来完成CRUD的操作</p>
+<ul>
+<li>update():执行DML语句。增、删、改语句</li>
+<li>queryForMap():查询结果将结果集封装为map集合，将列名作为key，将值作为value 将这条记录封装为一个map集合<ul>
+<li>注意：这个方法查询的结果集长度只能是1</li>
+</ul>
+</li>
+<li>queryForList():查询结果将结果集封装为list集合<ul>
+<li>注意：将每一条记录封装为一个Map集合，再将Map集合装载到List集合中</li>
+</ul>
+</li>
+<li>query():查询结果，将结果封装为JavaBean对象<ul>
+<li>query的参数：RowMapper<ul>
+<li>一般我们使用BeanPropertyRowMapper实现类。可以完成数据到JavaBean的自动封装</li>
+<li>new BeanPropertyRowMapper&lt;类型&gt;(类型.class)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>queryForObject：查询结果，将结果封装为对象<ul>
+<li>一般用于聚合函数的查询</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>练习：</p>
+<ul>
+<li>需求：<ol>
+<li>修改1号数据的 salary 为 10000</li>
+<li>添加一条记录</li>
+<li>删除刚才添加的记录</li>
+<li>查询id为1的记录，将其封装为Map集合</li>
+<li>查询所有记录，将其封装为List</li>
+<li>查询所有记录，将其封装为Emp对象的List集合</li>
+<li>查询总记录数</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<pre><code class="java">package cn.itcast.jdbctemplate;
+
+import cn.itcast.domain.Emp;
+import cn.itcast.utils.JDBCUtils;
+import org.junit.Test;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+
+import java.sql.Date;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
+
+public class JdbcTemplateDemo2 {
+
+    //Junit单元测试，可以让方法独立执行
+
+
+    //1. 获取JDBCTemplate对象
+    private JdbcTemplate template = new JdbcTemplate(JDBCUtils.getDataSource());
+    /**
+     * 1. 修改1号数据的 salary 为 10000
+     */
+    @Test
+    public void test1(){
+
+        //2. 定义sql
+        String sql = "update emp set salary = 10000 where id = 1001";
+        //3. 执行sql
+        int count = template.update(sql);
+        System.out.println(count);
+    }
+
+    /**
+     * 2. 添加一条记录
+     */
+    @Test
+    public void test2(){
+        String sql = "insert into emp(id,ename,dept_id) values(?,?,?)";
+        int count = template.update(sql, 1015, "郭靖", 10);
+        System.out.println(count);
+
+    }
+
+    /**
+     * 3.删除刚才添加的记录
+     */
+    @Test
+    public void test3(){
+        String sql = "delete from emp where id = ?";
+        int count = template.update(sql, 1015);
+        System.out.println(count);
+    }
+
+    /**
+     * 4.查询id为1001的记录，将其封装为Map集合
+     * 注意：这个方法查询的结果集长度只能是1
+     */
+    @Test
+    public void test4(){
+        String sql = "select * from emp where id = ? or id = ?";
+        Map&lt;String, Object&gt; map = template.queryForMap(sql, 1001,1002);
+        System.out.println(map);
+        //{id=1001, ename=孙悟空, job_id=4, mgr=1004, joindate=2000-12-17, salary=10000.00, bonus=null, dept_id=20}
+
+    }
+
+    /**
+     * 5. 查询所有记录，将其封装为List
+     */
+    @Test
+    public void test5(){
+        String sql = "select * from emp";
+        List&lt;Map&lt;String, Object&gt;&gt; list = template.queryForList(sql);
+
+        for (Map&lt;String, Object&gt; stringObjectMap : list) {
+            System.out.println(stringObjectMap);
+        }
+    }
+
+    /**
+     * 6. 查询所有记录，将其封装为Emp对象的List集合
+     */
+
+    @Test
+    public void test6(){
+        String sql = "select * from emp";
+        List&lt;Emp&gt; list = template.query(sql, new RowMapper&lt;Emp&gt;() {
+
+            @Override
+            public Emp mapRow(ResultSet rs, int i) throws SQLException {
+                Emp emp = new Emp();
+                int id = rs.getInt("id");
+                String ename = rs.getString("ename");
+                int job_id = rs.getInt("job_id");
+                int mgr = rs.getInt("mgr");
+                Date joindate = rs.getDate("joindate");
+                double salary = rs.getDouble("salary");
+                double bonus = rs.getDouble("bonus");
+                int dept_id = rs.getInt("dept_id");
+
+                emp.setId(id);
+                emp.setEname(ename);
+                emp.setJob_id(job_id);
+                emp.setMgr(mgr);
+                emp.setJoindate(joindate);
+                emp.setSalary(salary);
+                emp.setBonus(bonus);
+                emp.setDept_id(dept_id);
+
+                return emp;
+            }
+        });
+
+
+        for (Emp emp : list) {
+            System.out.println(emp);
+        }
+    }
+
+    /**
+     * 6. 查询所有记录，将其封装为Emp对象的List集合
+     */
+
+    @Test
+    public void test6_2(){
+        String sql = "select * from emp";
+        List&lt;Emp&gt; list = template.query(sql, new BeanPropertyRowMapper&lt;Emp&gt;(Emp.class));
+        for (Emp emp : list) {
+            System.out.println(emp);
+        }
+    }
+
+    /**
+     * 7. 查询总记录数
+     */
+
+    @Test
+    public void test7(){
+        String sql = "select count(id) from emp";
+        Long total = template.queryForObject(sql, Long.class);
+        System.out.println(total);
+    }
+
+}
+</code></pre>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lzfangwen.github.io/blog/lzfangwen.github.io/2020/05/17/idea%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="方文">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/lzfangwen.github.io/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="方文の个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/lzfangwen.github.io/2020/05/17/idea%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/" itemprop="url">idea常用快捷键</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-17T13:39:51+08:00">
+                2020-05-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/lzfangwen.github.io/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <a id="more"></a>
+
+<p><a href="https://www.cnblogs.com/yanggb/p/10838388.html" target="_blank" rel="noopener">转自idea常用快捷键大全</a></p>
+<p>Idea常用快捷键大全，拿小本本记下来，忘记了可以方便查找。</p>
+<h4 id="编写代码"><a href="#编写代码" class="headerlink" title="编写代码"></a>编写代码</h4><p><kbd>Ctrl</kbd>+<kbd>Shift</kbd> + <kbd>Enter</kbd>，语句完成。</p>
+<p><kbd>！</kbd>，否定完成，输入表达式时按 “！”键。</p>
+<p><kbd>Ctrl</kbd>+<kbd>E</kbd>，最近的文件。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>E</kbd>，最近zh更改的文件。</p>
+<p><kbd>Shift</kbd>+<kbd>Click</kbd>，可以关闭文件。</p>
+<p><kbd>Ctrl</kbd>+<kbd>[ </kbd>OR <kbd>]</kbd>，可以跑到大括号的开头与结尾。</p>
+<p><kbd>Ctrl</kbd>+<kbd>F12</kbd>，可以显示当前文件的结构。</p>
+<p><kbd>Ctrl</kbd>+<kbd>F7</kbd>，可以查询当前元素在当前文件中的引用，然后按 F3 可以选择。</p>
+<p><kbd>Ctrl</kbd>+<kbd>N</kbd>，可以快速打开类。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>N</kbd>，可以快速打开文件。</p>
+<p><kbd>Alt</kbd>+<kbd>Q</kbd>，可以看到当前方法的声明。</p>
+<p><kbd>Ctrl</kbd>+<kbd>P</kbd>，可以显示参数信息。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Insert</kbd>，可以选择剪贴板内容并插入。</p>
+<p><kbd>Alt</kbd>+<kbd>Insert</kbd>，可以生成构造器/Getter/Setter等。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>V</kbd>，可以引入变量。例如：new String(); 自动导入变量定义。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd>，可以把代码包在一个块内，例如：try/catch。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Enter</kbd>，导入包，自动修正。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>L</kbd>，格式化代码。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>I</kbd>，将选中的代码进行自动缩进编排，这个功能在编辑 JSP 文件时也可以工作。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>O</kbd>，优化导入的类和包。</p>
+<p><kbd>Ctrl</kbd>+<kbd>R</kbd>，替换文本。</p>
+<p><kbd>Ctrl</kbd>+<kbd>F</kbd>，查找文本。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Space</kbd>，自动补全代码。</p>
+<p><kbd>Ctrl</kbd>+<kbd>空格</kbd>，代码提示（与系统输入法快捷键冲突）。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>N</kbd>，查找类中的方法或变量。</p>
+<p><kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd>，最近的更改。</p>
+<p><kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>Up</kbd>/<kbd>Down</kbd>，上/下移一行。</p>
+<p><kbd>Shift</kbd>+<kbd>F6</kbd>，重构 – 重命名。</p>
+<p><kbd>Ctrl</kbd>+<kbd>X</kbd>，删除行。</p>
+<p><kbd>Ctrl</kbd>+<kbd>D</kbd>，复制行。</p>
+<p><kbd>Ctrl</kbd>+<kbd>/</kbd>或<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>/</kbd>，注释（//或者/**/）。</p>
+<p><kbd>Ctrl</kbd>+<kbd>J</kbd>，自动代码（例如：serr）。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>J</kbd>，用动态模板环绕。</p>
+<p><kbd>Ctrl</kbd>+<kbd>H</kbd>，显示类结构图（类的继承层次）。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Q</kbd>，显示注释文档。</p>
+<p><kbd>Alt</kbd>+<kbd>F1</kbd>，查找代码所在位置。</p>
+<p><kbd>Alt</kbd>+<kbd>1</kbd>，快速打开或隐藏工程面板。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>left</kbd>/<kbd>right</kbd>，返回至上次浏览的位置。</p>
+<p><kbd>Alt</kbd>+<kbd>left</kbd>/<kbd>right</kbd>，切换代码视图。</p>
+<p><kbd>Alt</kbd>+<kbd>Up</kbd>/<kbd>Down</kbd>，在方法间快速移动定位。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Up</kbd>/<kbd>Down</kbd>，向上/下移动语句。</p>
+<p><kbd>F2</kbd> 或 <kbd>Shift</kbd>+<kbd>F2</kbd>，高亮错误或警告快速定位。</p>
+<p><kbd>Tab</kbd>，代码标签输入完成后，按 Tab，生成代码。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F7</kbd>，高亮显示所有该文本，按 Esc 高亮消失。</p>
+<p><kbd>Alt</kbd>+F3，逐个往下查找相同文本，并高亮显示。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Up</kbd>/<kbd>Down</kbd>，光标中转到第一行或最后一行下。</p>
+<p><kbd>Ctrl</kbd>+<kbd>B</kbd>/<kbd>Ctrl</kbd>+<kbd>Click</kbd>，快速打开光标处的类或方法（跳转到定义处）。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>B</kbd>，跳转到方法实现处。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Backspace</kbd>，跳转到上次编辑的地方。</p>
+<p><kbd>Ctrl</kbd>+<kbd>O</kbd>，重写方法。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Space</kbd>，类名自动完成。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Up</kbd>/<kbd>Down</kbd>，快速跳转搜索结果。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>J</kbd>，整合两行。</p>
+<p><kbd>Alt</kbd>+<kbd>F8</kbd>，计算变量值。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>，可以将最近使用的剪贴板内容选择插入到文本。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>，简单粘贴。</p>
+<p><kbd>Shift</kbd>+<kbd>Esc</kbd>，不仅可以把焦点移到编辑器上，而且还可以隐藏当前（或最后活动的）工具窗口。</p>
+<p><kbd>F12</kbd>，把焦点从编辑器移到最近使用的工具窗口。</p>
+<p><kbd>Shift</kbd>+<kbd>F1</kbd>，要打开编辑器光标字符处使用的类或者方法 Java 文档的浏览器。</p>
+<p><kbd>Ctrl</kbd>+<kbd>W</kbd>，可以选择单词继而语句继而行继而函数。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>W</kbd>，取消选择光标所在词。</p>
+<p><kbd>Alt</kbd>+<kbd>F7</kbd>，查找整个工程中使用地某一个类、方法或者变量的位置。</p>
+<p><kbd>Ctrl</kbd>+<kbd>I</kbd>，实现方法。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>U</kbd>，大小写转化。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Y</kbd>，删除当前行。</p>
+<p><kbd>Shift</kbd>+<kbd>Enter</kbd>，向下插入新行。</p>
+<p>psvm/sout，main/System.out.println(); <kbd>Ctrl</kbd>+<kbd>J</kbd>，查看更多。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd>，全局查找。</p>
+<p><kbd>Ctrl</kbd>+<kbd>F</kbd>，查找/<kbd>Shift</kbd>+F3，向上查找/F3，向下查找。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd>，高级搜索。</p>
+<p><kbd>Ctrl</kbd>+<kbd>U</kbd>，转到父类。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd>，打开设置对话框。</p>
+<p><kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>Inert</kbd>，开启/关闭列选择模式。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd>，打开当前项目/模块属性。</p>
+<p><kbd>Ctrl</kbd>+<kbd>G</kbd>，定位行。</p>
+<p><kbd>Alt</kbd>+<kbd>Home</kbd>，跳转到导航栏。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Enter</kbd>，上插一行。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Backspace</kbd>，按单词删除。</p>
+<p><kbd>Ctrl</kbd>+<kbd>”+/-”</kbd>，当前方法展开、折叠。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>”+/-”</kbd>，全部展开、折叠。</p>
+<h4 id="调试部分、编译"><a href="#调试部分、编译" class="headerlink" title="调试部分、编译"></a>调试部分、编译</h4><p><kbd>Ctrl</kbd>+<kbd>F2</kbd>，停止。</p>
+<p><kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>F9</kbd>，选择 Debug。</p>
+<p><kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>F10</kbd>，选择 Run。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F9</kbd>，编译。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F10</kbd>，运行。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F8</kbd>，查看断点。</p>
+<p><kbd>F8</kbd>，步过。</p>
+<p><kbd>F7</kbd>，步入。</p>
+<p><kbd>Shift</kbd>+<kbd>F7</kbd>，智能步入。</p>
+<p><kbd>Shift</kbd>+<kbd>F8</kbd>，步出。</p>
+<p><kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>F8</kbd>，强制步过。</p>
+<p><kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>F7</kbd>，强制步入。</p>
+<p><kbd>Alt</kbd>+<kbd>F9</kbd>，运行至光标处。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>F9</kbd>，强制运行至光标处。</p>
+<p><kbd>F9</kbd>，恢复程序。</p>
+<p><kbd>Alt</kbd>+<kbd>F10</kbd>，定位到断点。</p>
+<p><kbd>Ctrl</kbd>+<kbd>F8</kbd>，切换行断点。</p>
+<p><kbd>Ctrl</kbd>+<kbd>F9</kbd>，生成项目。</p>
+<p><kbd>Alt</kbd>+<kbd>1</kbd>，项目。</p>
+<p><kbd>Alt</kbd>+<kbd>2</kbd>，收藏。</p>
+<p><kbd>Alt</kbd>+<kbd>6</kbd>，TODO。</p>
+<p><kbd>Alt</kbd>+<kbd>7</kbd>，结构。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd>，复制路径。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd>，复制引用，必须选择类名。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Y</kbd>，同步。</p>
+<p><kbd>Ctrl</kbd>+<kbd>~</kbd>，快速切换方案（界面外观、代码风格、快捷键映射等菜单）。</p>
+<p><kbd>Shift</kbd>+<kbd>F12</kbd>，还原默认布局。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F12</kbd>，隐藏/恢复所有窗口。</p>
+<p><kbd>Ctrl</kbd>+<kbd>F4</kbd>，关闭。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F4</kbd>，关闭活动选项卡。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Tab</kbd>，转到下一个拆分器。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Tab</kbd>，转到上一个拆分器。</p>
+<h4 id="重构"><a href="#重构" class="headerlink" title="重构"></a>重构</h4><p><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd>，弹出重构菜单。</p>
+<p><kbd>Shift</kbd>+<kbd>F6</kbd>，重命名。</p>
+<p><kbd>F6</kbd>，移动。</p>
+<p><kbd>F5</kbd>，复制。</p>
+<p><kbd>Alt</kbd>+<kbd>Delete</kbd>，安全删除。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>N</kbd>，内联。</p>
+<h4 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h4><p><kbd>Ctrl</kbd>+<kbd>F</kbd>，查找。</p>
+<p><kbd>Ctrl</kbd>+<kbd>R</kbd>，替换。</p>
+<p><kbd>F3</kbd>，查找下一个。</p>
+<p><kbd>Shift</kbd>+<kbd>F3</kbd>，查找上一个。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd>，在路径中查找。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd>，在路径中替换。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd>，搜索结构。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd>，替换结构。</p>
+<p><kbd>Alt</kbd>+<kbd>F7</kbd>，查找用法。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>F7</kbd>，显示用法。</p>
+<p><kbd>Ctrl</kbd>+<kbd>F7</kbd>，在文件中查找用法。</p>
+<p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F7</kbd>，在文件中高亮显示用法。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://lzfangwen.github.io/blog/lzfangwen.github.io/2020/04/28/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B09/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1642,441 +4130,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lzfangwen.github.io/blog/lzfangwen.github.io/2020/04/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="方文">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/lzfangwen.github.io/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="方文の个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/lzfangwen.github.io/2020/04/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/" itemprop="url">计算机网络-学习笔记4</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-14T09:38:41+08:00">
-                2020-04-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/lzfangwen.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机网络</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="流量控制与可靠传输机制"><a href="#流量控制与可靠传输机制" class="headerlink" title="流量控制与可靠传输机制"></a>流量控制与可靠传输机制</h2><h3 id="数据链路层的流量控制"><a href="#数据链路层的流量控制" class="headerlink" title="数据链路层的流量控制"></a>数据链路层的流量控制</h3><p>较高的发送速度和较低的接收能力的不匹配，会造成传输出错，因此流量控制也是数据链路层的一项重要工作。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/lzfangwen.github.io/2020/04/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lzfangwen.github.io/blog/lzfangwen.github.io/2020/04/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="方文">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/lzfangwen.github.io/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="方文の个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/lzfangwen.github.io/2020/04/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/" itemprop="url">计算机网络-学习笔记3</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-13T15:30:42+08:00">
-                2020-04-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/lzfangwen.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机网络</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h1><p><strong>结点</strong>:主机、路由器</p>
-<p><strong>链路</strong>:网络中两个结点之间的<strong>物理通道</strong>,链路的传输介质主要有双绞线、光纤和微波。分为有线链路、无线链路。</p>
-<p><strong>数据链路</strong>：网络中两个结点之间的逻辑通道，把实现控制数据传输协议的硬件和软件加到链路上就构成数据链路。</p>
-<p><strong>帧</strong>：链路层的协议数据单元，封装网络层数据报。</p>
-<blockquote>
-<p><strong>数据链路层</strong>负责通过一条链路从一个结点向另一个物理链路直接相连的相邻结点传送数据报。</p>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/lzfangwen.github.io/2020/04/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lzfangwen.github.io/blog/lzfangwen.github.io/2020/04/12/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="方文">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/lzfangwen.github.io/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="方文の个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/lzfangwen.github.io/2020/04/12/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/" itemprop="url">数据库原理及应用-学习笔记2</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-12T09:26:21+08:00">
-                2020-04-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2131,7 +4184,7 @@
               
                 <a href="/lzfangwen.github.io/archives">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2142,7 +4195,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/lzfangwen.github.io/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2153,7 +4206,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/lzfangwen.github.io/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
