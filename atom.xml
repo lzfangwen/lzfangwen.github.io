@@ -6,7 +6,7 @@
   <link href="/lzfangwen.github.io/atom.xml" rel="self"/>
   
   <link href="https://lzfangwen.github.io/blog/"/>
-  <updated>2020-07-09T06:55:34.555Z</updated>
+  <updated>2020-07-09T07:21:15.580Z</updated>
   <id>https://lzfangwen.github.io/blog/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://lzfangwen.github.io/blog/2020/07/09/java%E5%9F%BA%E7%A1%80/"/>
     <id>https://lzfangwen.github.io/blog/2020/07/09/java%E5%9F%BA%E7%A1%80/</id>
     <published>2020-07-09T01:46:53.000Z</published>
-    <updated>2020-07-09T06:55:34.555Z</updated>
+    <updated>2020-07-09T07:21:15.580Z</updated>
     
     <summary type="html">
     
@@ -48,19 +48,17 @@
     <link href="https://lzfangwen.github.io/blog/2020/07/03/Servlet&amp;HTTP&amp;Request%E7%AC%94%E8%AE%B0/"/>
     <id>https://lzfangwen.github.io/blog/2020/07/03/Servlet&amp;HTTP&amp;Request%E7%AC%94%E8%AE%B0/</id>
     <published>2020-07-03T08:03:06.000Z</published>
-    <updated>2020-07-03T10:23:48.721Z</updated>
+    <updated>2020-07-09T07:21:06.118Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-
-&lt;h2 id=&quot;web相关概念回顾&quot;&gt;&lt;a href=&quot;#web相关概念回顾&quot; class=&quot;headerlink&quot;
-        
-      
+      &lt;h2 id=&quot;web相关概念回顾&quot;&gt;&lt;a href=&quot;#web相关概念回顾&quot; class=&quot;headerlink&quot; title=&quot;web相关概念回顾&quot;&gt;&lt;/a&gt;web相关概念回顾&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;软件架构&lt;ol&gt;
+&lt;li&gt;C/S：客户端/服务器端&lt;/li&gt;
+&lt;li&gt;B/S：浏览器/服务器端&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
     
     </summary>
     
@@ -77,19 +75,12 @@
     <link href="https://lzfangwen.github.io/blog/2020/07/03/JDBC%E7%AC%94%E8%AE%B0/"/>
     <id>https://lzfangwen.github.io/blog/2020/07/03/JDBC%E7%AC%94%E8%AE%B0/</id>
     <published>2020-07-03T08:03:05.000Z</published>
-    <updated>2020-07-09T06:54:48.196Z</updated>
+    <updated>2020-07-09T07:20:49.275Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-
-&lt;h1 id=&quot;JDBC&quot;&gt;&lt;a href=&quot;#JDBC&quot; class=&quot;headerlink&quot; title=&quot;JDBC&quot;&gt;&lt;/a&gt;JDBC&lt;/h1&gt;&lt;p&gt;概念：Java DateBase Connectivity  
-        
-      
+      &lt;h1 id=&quot;JDBC&quot;&gt;&lt;a href=&quot;#JDBC&quot; class=&quot;headerlink&quot; title=&quot;JDBC&quot;&gt;&lt;/a&gt;JDBC&lt;/h1&gt;&lt;p&gt;概念：Java DateBase Connectivity   Java数据库连接&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;本质&lt;/strong&gt;：其实是官方（sun公司）定义的一套操作所有关系型数据库的规则，即接口。各个数据库厂商去实现这套接口，提供数据库驱动jar包。我们可以使用这套接口（JDBC）编程，真正执行的代码是驱动jar包中的实现类。&lt;/p&gt;
     
     </summary>
     

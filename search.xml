@@ -1,6 +1,924 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>JDBC笔记</title>
+    <url>/lzfangwen.github.io/2020/07/03/JDBC%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h1><p>概念：Java DateBase Connectivity   Java数据库连接</p>
+<p><strong>本质</strong>：其实是官方（sun公司）定义的一套操作所有关系型数据库的规则，即接口。各个数据库厂商去实现这套接口，提供数据库驱动jar包。我们可以使用这套接口（JDBC）编程，真正执行的代码是驱动jar包中的实现类。</p>
+<a id="more"></a>
+
+<h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><ol>
+<li>导入驱动jar包<ol>
+<li>复制mysql-connector-java-5.1.37-bin.jar到项目的libs目录下</li>
+<li>右键–&gt;Add As Library</li>
+</ol>
+</li>
+<li>注册驱动</li>
+<li>获取数据库连接对象 Connection</li>
+<li>定义sql</li>
+<li>获取执行sql语句的对象 Statement</li>
+<li>执行sql，接受返回结果</li>
+<li>处理结果</li>
+<li>释放资源</li>
+</ol>
+<pre><code class="java">//代码实现：
+          //1. 导入驱动jar包
+        //2.注册驱动
+        Class.forName("com.mysql.jdbc.Driver");
+        //3.获取数据库连接对象
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db3", "root", "root");
+        //4.定义sql语句
+        String sql = "update account set balance = 500 where id = 1";
+        //5.获取执行sql的对象 Statement
+        Statement stmt = conn.createStatement();
+        //6.执行sql
+        int count = stmt.executeUpdate(sql);
+        //7.处理结果
+        System.out.println(count);
+        //8.释放资源
+        stmt.close();
+        conn.close();</code></pre>
+<h2 id="详解各个对象"><a href="#详解各个对象" class="headerlink" title="详解各个对象"></a>详解各个对象</h2><h3 id="DriverManager：驱动管理对象"><a href="#DriverManager：驱动管理对象" class="headerlink" title="DriverManager：驱动管理对象"></a><strong>DriverManager：驱动管理对象</strong></h3><ul>
+<li><p>功能：</p>
+<ol>
+<li><p>注册驱动：告诉程序该使用哪一个数据库驱动jar<br> <code>static void registerDriver(Driver driver)</code> :注册与给定的驱动程序 DriverManager 。<br> 写代码使用：  <code>Class.forName("com.mysql.jdbc.Driver");</code><br> 通过查看源码发现：在com.mysql.jdbc.Driver类中存在静态代码块</p>
+<pre><code class="java">  static {
+         try {
+             java.sql.DriverManager.registerDriver(new Driver());
+         } catch (SQLException E) {
+             throw new RuntimeException("Can't register driver!");
+ }
+     }</code></pre>
+<p> 注意：mysql5之后的驱动jar包可以省略注册驱动的步骤。</p>
+</li>
+<li><p>获取数据库连接：</p>
+<ul>
+<li>方法：<code>static Connection getConnection(String url, String user, String password)</code> </li>
+<li>参数：<ul>
+<li>url：指定连接的路径<ul>
+<li>语法：jdbc:mysql://ip地址(域名):端口号/数据库名称</li>
+<li>例子：jdbc:mysql://localhost:3306/db3</li>
+<li>细节：如果连接的是本机mysql服务器，并且mysql服务默认端口是3306，则url可以简写为：jdbc:mysql:///数据库名称</li>
+</ul>
+</li>
+<li>user：用户名</li>
+<li>password：密码 </li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="Connection：数据库连接对象"><a href="#Connection：数据库连接对象" class="headerlink" title="Connection：数据库连接对象"></a><strong>Connection：数据库连接对象</strong></h3><ol>
+<li>功能：<pre><code> 1. 获取执行sql 的对象
+     * `Statement createStatement()`
+ * `PreparedStatement prepareStatement(String sql)`  </code></pre><ol start="2">
+<li>管理事务：<ul>
+<li>开启事务：<code>setAutoCommit(boolean autoCommit)</code> ：调用该方法设置参数为false，即开启事务</li>
+<li>提交事务：<code>commit()</code> </li>
+<li>回滚事务：<code>rollback()</code> </li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="Statement：执行sql的对象"><a href="#Statement：执行sql的对象" class="headerlink" title="Statement：执行sql的对象"></a><strong>Statement：执行sql的对象</strong></h3><ol>
+<li><p>执行sql</p>
+<pre><code> 1. `boolean execute(String sql)` ：可以执行任意的sql 了解 
+
+ 2. `int executeUpdate(String sql)` ：执行DML（insert、update、delete）语句、DDL(create，alter、drop)语句
+     * 返回值：影响的行数，可以通过这个影响的行数判断DML语句是否执行成功 返回值&gt;0的则执行成功，反之，则失败。
+ 3. `ResultSet executeQuery(String sql)`  ：执行DQL（select)语句</code></pre><ol start="2">
+<li><p>练习：</p>
+<ol>
+<li>account表 添加一条记录</li>
+</ol>
+</li>
+<li><p>account表 修改记录</p>
+<ol start="3">
+<li><p>account表 删除一条记录</p>
+<p>代码：</p>
+</li>
+</ol>
+<pre><code class="java">Statement stmt = null;
+Connection conn = null;
+try {
+    //1. 注册驱动
+    Class.forName("com.mysql.jdbc.Driver");
+    //2. 定义sql
+    String sql = "insert into account values(null,'王五',3000)";
+    //3.获取Connection对象
+    conn = DriverManager.getConnection("jdbc:mysql:///db3", "root", "root");
+    //4.获取执行sql的对象 Statement
+    stmt = conn.createStatement();
+    //5.执行sql
+    int count = stmt.executeUpdate(sql);//影响的行数
+    //6.处理结果
+    System.out.println(count);
+    if(count &gt; 0){
+        System.out.println("添加成功！");
+    }else{
+     System.out.println("添加失败！");
+    }
+
+} catch (ClassNotFoundException e) {
+    e.printStackTrace();
+} catch (SQLException e) {
+    e.printStackTrace();
+}finally {
+    //stmt.close();
+    //7. 释放资源
+    //避免空指针异常
+    if(stmt != null){
+        try {
+            stmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+     }
+    }
+
+    if(conn != null){
+        try {
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+<p>标准写法：便于关闭</p>
+<pre><code class="java">package cn.itcast.jdbc;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+/**
+* account表 添加一条记录 insert 语句
+*/
+public class JDBCDemo2 {
+ public static void main(String[] args) {
+     Statement stmt = null;
+     Connection conn = null;
+     try {
+         //1. 注册驱动
+         Class.forName("com.mysql.jdbc.Driver");
+         //2. 定义sql
+         String sql = "insert into account values(null,'王五',3000)";
+         //3.获取Connection对象
+         conn = DriverManager.getConnection("jdbc:mysql:///db3", "root", "root");
+         //4.获取执行sql的对象 Statement
+         stmt = conn.createStatement();
+         //5.执行sql
+         int count = stmt.executeUpdate(sql);//影响的行数
+         //6.处理结果
+         System.out.println(count);
+         if(count &gt; 0){
+             System.out.println("添加成功！");
+         }else{
+             System.out.println("添加失败！");
+         }
+
+     } catch (ClassNotFoundException e) {
+         e.printStackTrace();
+     } catch (SQLException e) {
+         e.printStackTrace();
+     }finally {
+         //stmt.close();
+         //7. 释放资源
+         //避免空指针异常
+         if(stmt != null){
+             try {
+                 stmt.close();
+             } catch (SQLException e) {
+                 e.printStackTrace();
+             }
+         }
+
+         if(conn != null){
+             try {
+                 conn.close();
+             } catch (SQLException e) {
+                 e.printStackTrace();
+             }
+         }
+     }
+ }
+}</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="ResultSet：结果集对象-封装查询结果"><a href="#ResultSet：结果集对象-封装查询结果" class="headerlink" title="ResultSet：结果集对象,封装查询结果"></a>ResultSet：结果集对象,封装查询结果</h3><ul>
+<li><p><code>boolean next():</code> 游标向下移动一行，判断当前行是否是最后一行末尾(是否有数据)，如果是，则返回false，如果不是则返回true</p>
+<ul>
+<li><p>getXxx(参数):获取数据</p>
+<ul>
+<li>Xxx：代表数据类型   如： int getInt() ,    String getString()</li>
+<li>参数：<ol>
+<li>int：代表列的编号,从1开始   如： getString(1)</li>
+<li>String：代表列名称。 如： getDouble(“balance”)</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>注意：</p>
+<ul>
+<li>使用步骤：<ol>
+<li>游标向下移动一行</li>
+<li>判断是否有数据</li>
+</ol>
+</li>
+</ul>
+<ol start="3">
+<li><p>获取数据</p>
+<pre><code class="java">//循环判断游标是否是最后一行末尾。
+while(rs.next()){
+//获取数据
+int id = rs.getInt(1);
+String name = rs.getString("name");
+double balance = rs.getDouble(3);
+System.out.println(id + "---" + name + "---" + balance);
+}</code></pre>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>* 练习：
+    * 定义一个方法，查询emp表的数据将其封装为对象，然后装载集合，返回。
+        1. 定义Emp类
+        2. 定义方法 public List&lt;Emp&gt; findAll(){}
+        3. 实现方法 select * from emp;</code></pre><h2 id="JDBC工具类"><a href="#JDBC工具类" class="headerlink" title="JDBC工具类"></a>JDBC工具类</h2><ul>
+<li><p>目的：简化书写</p>
+</li>
+<li><p>分析：</p>
+<ol>
+<li><p>注册驱动也抽取</p>
+</li>
+<li><p>抽取一个方法获取连接对象</p>
+<ul>
+<li>需求：不想传递参数（麻烦），还得保证工具类的通用性。</li>
+<li>解决：配置文件<br>jdbc.properties<pre><code>url=
+user=
+password=</code></pre></li>
+</ul>
+<ol start="3">
+<li>抽取一个方法释放资源</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>代码实现：</p>
+</li>
+</ul>
+<pre><code class="java">package cn.itcast.util;
+
+import java.io.FileReader;
+import java.io.IOException;
+import java.net.URL;
+import java.sql.*;
+import java.util.Properties;
+
+/**
+ * JDBC工具类
+ */
+public class JDBCUtils {
+    private static String url;
+    private static String user;
+    private static String password;
+    private static String driver;
+    /**
+     * 文件的读取，只需要读取一次即可拿到这些值。使用静态代码块
+     */
+    static{
+        //读取资源文件，获取值。
+
+        try {
+            //1. 创建Properties集合类。
+            Properties pro = new Properties();
+
+            //获取src路径下的文件的方式---&gt;ClassLoader 类加载器
+            ClassLoader classLoader = JDBCUtils.class.getClassLoader();
+            URL res  = classLoader.getResource("jdbc.properties");
+            String path = res.getPath();
+           // System.out.println(path);///D:/IdeaProjects/itcast/out/production/day04_jdbc/jdbc.properties
+            //2. 加载文件
+           // pro.load(new FileReader("D:\\IdeaProjects\\itcast\\day04_jdbc\\src\\jdbc.properties"));
+            pro.load(new FileReader(path));
+
+            //3. 获取数据，赋值
+            url = pro.getProperty("url");
+            user = pro.getProperty("user");
+            password = pro.getProperty("password");
+            driver = pro.getProperty("driver");
+            //4. 注册驱动
+            Class.forName(driver);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    /**
+     * 获取连接
+     * @return 连接对象
+     */
+    public static Connection getConnection() throws SQLException {
+
+        return DriverManager.getConnection(url, user, password);
+    }
+
+    /**
+     * 释放资源
+     * @param stmt
+     * @param conn
+     */
+    public static void close(Statement stmt,Connection conn){
+        if( stmt != null){
+            try {
+                stmt.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if( conn != null){
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+    /**
+     * 释放资源
+     * @param stmt
+     * @param conn
+     */
+    public static void close(ResultSet rs,Statement stmt, Connection conn){
+        if( rs != null){
+            try {
+                rs.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if( stmt != null){
+            try {
+                stmt.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if( conn != null){
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+}
+</code></pre>
+<h2 id="JDBC事务管理"><a href="#JDBC事务管理" class="headerlink" title="JDBC事务管理"></a>JDBC事务管理</h2><ol>
+<li>事务：一个包含多个步骤的业务操作。如果这个业务操作被事务管理，则这多个步骤要么同时成功，要么同时失败。</li>
+<li>操作：<ol>
+<li>开启事务</li>
+<li>提交事务</li>
+<li>回滚事务</li>
+</ol>
+</li>
+<li>使用Connection对象来管理事务<ul>
+<li>开启事务：setAutoCommit(boolean autoCommit) ：调用该方法设置参数为false，即开启事务<ul>
+<li>在执行sql之前开启事务</li>
+</ul>
+</li>
+<li>提交事务：commit() <ul>
+<li>当所有sql都执行完提交事务</li>
+</ul>
+</li>
+<li>回滚事务：rollback() <ul>
+<li>在catch中回滚事务</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>代码实现</p>
+<pre><code class="java">package cn.itcast.jdbc;
+
+import cn.itcast.util.JDBCUtils;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+/**
+ * 事务操作
+ */
+public class JDBCDemo10 {
+
+
+    public static void main(String[] args) {
+        Connection conn = null;
+        PreparedStatement pstmt1 = null;
+        PreparedStatement pstmt2 = null;
+
+        try {
+            //1.获取连接
+            conn = JDBCUtils.getConnection();
+            //开启事务
+            conn.setAutoCommit(false);
+
+            //2.定义sql
+            //2.1 张三 - 500
+            String sql1 = "update account set balance = balance - ? where id = ?";
+            //2.2 李四 + 500
+            String sql2 = "update account set balance = balance + ? where id = ?";
+            //3.获取执行sql对象
+            pstmt1 = conn.prepareStatement(sql1);
+            pstmt2 = conn.prepareStatement(sql2);
+            //4. 设置参数
+            pstmt1.setDouble(1,500);
+            pstmt1.setInt(2,1);
+
+            pstmt2.setDouble(1,500);
+            pstmt2.setInt(2,2);
+            //5.执行sql
+            pstmt1.executeUpdate();
+            // 手动制造异常
+            int i = 3/0;
+
+            pstmt2.executeUpdate();
+            //提交事务
+            conn.commit();
+        } catch (Exception e) {
+            //事务回滚
+            try {
+                if(conn != null) {
+                    conn.rollback();
+                }
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            }
+            e.printStackTrace();
+        }finally {
+            JDBCUtils.close(pstmt1,conn);
+            JDBCUtils.close(pstmt2,null);
+        }
+
+
+    }
+
+}
+</code></pre>
+<h2 id="连接池"><a href="#连接池" class="headerlink" title="连接池"></a>连接池</h2><ol>
+<li><p>概念：其实就是一个容器(集合)，存放数据库连接的容器。</p>
+<pre><code> 当系统初始化好后，容器被创建，容器中会申请一些连接对象，当用户来访问数据库时，从容器中获取连接对象，用户访问完之后，会将连接对象归还给容器。</code></pre></li>
+<li><p>好处：</p>
+<ol>
+<li>节约资源</li>
+<li>用户访问高效</li>
+</ol>
+</li>
+<li><p>实现：</p>
+<ol>
+<li><p>标准接口：DataSource   javax.sql包下的</p>
+<ol>
+<li>方法：<ul>
+<li>获取连接：getConnection()</li>
+<li>归还连接：Connection.close()。如果连接对象Connection是从连接池中获取的，那么调用Connection.close()方法，则不会再关闭连接了。而是归还连接</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>一般我们不去实现它，有数据库厂商来实现</p>
+<ol>
+<li>C3P0：数据库连接池技术</li>
+<li>Druid：数据库连接池实现技术，由阿里巴巴提供的</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>C3P0：数据库连接池技术</p>
+<ul>
+<li><p>步骤：</p>
+<ol>
+<li><p>导入jar包 (两个) c3p0-0.9.5.2.jar mchange-commons-java-0.2.12.jar ，</p>
+<ul>
+<li>不要忘记导入数据库驱动jar包</li>
+</ul>
+</li>
+<li><p>定义配置文件：</p>
+<ul>
+<li>名称： c3p0.properties 或者 c3p0-config.xml</li>
+<li>路径：直接将文件放在src目录下即可。</li>
+</ul>
+</li>
+<li><p>创建核心对象 数据库连接池对象 ComboPooledDataSource</p>
+</li>
+<li><p>获取连接： getConnection</p>
+</li>
+</ol>
+</li>
+<li><p>代码：<br>   //1.创建数据库连接池对象<br>  DataSource ds  = new ComboPooledDataSource();<br>  //2. 获取连接对象<br>  Connection conn = ds.getConnection();</p>
+</li>
+</ul>
+</li>
+</ol>
+<pre><code class="java">public class C3P0Demo1 {
+    public static void main(String[] args) throws SQLException {
+        //1.创建数据库连接池对象
+        DataSource ds  = new ComboPooledDataSource();
+        //2. 获取连接对象
+        Connection conn = ds.getConnection();
+
+        //3. 打印
+        System.out.println(conn);
+
+    }
+}</code></pre>
+<ol start="5">
+<li>Druid：数据库连接池实现技术，由阿里巴巴提供的<ol>
+<li>步骤：<ol>
+<li>导入jar包 druid-1.0.9.jar</li>
+<li>定义配置文件：<ul>
+<li>是properties形式的</li>
+<li>可以叫任意名称，可以放在任意目录下</li>
+</ul>
+</li>
+<li>加载配置文件。Properties</li>
+<li>获取数据库连接池对象：通过工厂类来获取  DruidDataSourceFactory</li>
+<li>获取连接：getConnection</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<pre><code class="java">public class druidDemo1 {
+    public static void main(String[] args) throws Exception {
+        //1.导入jar包
+        //2.定义配置文件
+        //3.加载配置文件
+        Properties pro = new Properties();
+        InputStream is=druidDemo1.class.getClassLoader().getResourceAsStream("druid.properties");
+        //通过当前类的名称.class获得字节码文件.etClassLoader().getResourceAsStream()获取资源路径 返回字节流
+        pro.load(is);
+
+        //4.获取连接池对象：通过工厂类来获取 DuridDataSourceFactory
+        DataSource ds=DruidDataSourceFactory.createDataSource(pro);
+        //5.获取连接
+        Connection conn=ds.getConnection();
+        System.out.println(conn);
+    }
+}</code></pre>
+<ol start="2">
+<li>定义工具类<pre><code> 1. 定义一个类 JDBCUtils
+ 2. 提供静态代码块加载配置文件，初始化连接池对象
+ 3. 提供方法
+     1. 获取连接方法：通过数据库连接池获取连接
+     2. 释放资源
+     3. 获取连接池的方法</code></pre></li>
+</ol>
+<pre><code class="java">package cn.itcast.utils;
+
+import com.alibaba.druid.pool.DruidDataSourceFactory;
+
+import javax.sql.DataSource;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Properties;
+
+/**
+ * Druid连接池的工具类
+ */
+public class JDBCUtils {
+
+    //1.定义成员变量 DataSource
+    private static DataSource ds ;
+
+    static{
+        try {
+            //1.加载配置文件
+            Properties pro = new Properties();
+            pro.load(JDBCUtils.class.getClassLoader().getResourceAsStream("druid.properties"));
+            //2.获取DataSource
+            ds = DruidDataSourceFactory.createDataSource(pro);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 获取连接
+     */
+    public static Connection getConnection() throws SQLException {
+        return ds.getConnection();
+    }
+
+    /**
+     * 释放资源
+     */
+    public static void close(Statement stmt,Connection conn){
+       /* if(stmt != null){
+            try {
+                stmt.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if(conn != null){
+            try {
+                conn.close();//归还连接
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }*/
+
+       close(null,stmt,conn);
+    }
+
+
+    public static void close(ResultSet rs , Statement stmt, Connection conn){
+
+
+        if(rs != null){
+            try {
+                rs.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+        if(stmt != null){
+            try {
+                stmt.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if(conn != null){
+            try {
+                conn.close();//归还连接
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /**
+     * 获取连接池方法
+     */
+
+    public static DataSource getDataSource(){
+        return  ds;
+    }
+
+}
+</code></pre>
+<h2 id="Spring-JDBC"><a href="#Spring-JDBC" class="headerlink" title="Spring JDBC"></a>Spring JDBC</h2><p>Spring框架对JDBC的简单封装。提供了一个JDBCTemplate对象简化JDBC的开发</p>
+<p>步骤：</p>
+<ol>
+<li><p>导入jar包</p>
+</li>
+<li><p>创建JdbcTemplate对象。依赖于数据源DataSource</p>
+<ul>
+<li>JdbcTemplate template = new JdbcTemplate(ds);</li>
+</ul>
+</li>
+<li><p>调用JdbcTemplate的方法来完成CRUD的操作</p>
+<ul>
+<li>update():执行DML语句。增、删、改语句</li>
+<li>queryForMap():查询结果将结果集封装为map集合，将列名作为key，将值作为value 将这条记录封装为一个map集合<ul>
+<li>注意：这个方法查询的结果集长度只能是1</li>
+</ul>
+</li>
+<li>queryForList():查询结果将结果集封装为list集合<ul>
+<li>注意：将每一条记录封装为一个Map集合，再将Map集合装载到List集合中</li>
+</ul>
+</li>
+<li>query():查询结果，将结果封装为JavaBean对象<ul>
+<li>query的参数：RowMapper<ul>
+<li>一般我们使用BeanPropertyRowMapper实现类。可以完成数据到JavaBean的自动封装</li>
+<li>new BeanPropertyRowMapper&lt;类型&gt;(类型.class)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>queryForObject：查询结果，将结果封装为对象<ul>
+<li>一般用于聚合函数的查询</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>练习：</p>
+<ul>
+<li>需求：<ol>
+<li>修改1号数据的 salary 为 10000</li>
+<li>添加一条记录</li>
+<li>删除刚才添加的记录</li>
+<li>查询id为1的记录，将其封装为Map集合</li>
+<li>查询所有记录，将其封装为List</li>
+<li>查询所有记录，将其封装为Emp对象的List集合</li>
+<li>查询总记录数</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<pre><code class="java">package cn.itcast.jdbctemplate;
+
+import cn.itcast.domain.Emp;
+import cn.itcast.utils.JDBCUtils;
+import org.junit.Test;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+
+import java.sql.Date;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
+
+public class JdbcTemplateDemo2 {
+
+    //Junit单元测试，可以让方法独立执行
+
+
+    //1. 获取JDBCTemplate对象
+    private JdbcTemplate template = new JdbcTemplate(JDBCUtils.getDataSource());
+    /**
+     * 1. 修改1号数据的 salary 为 10000
+     */
+    @Test
+    public void test1(){
+
+        //2. 定义sql
+        String sql = "update emp set salary = 10000 where id = 1001";
+        //3. 执行sql
+        int count = template.update(sql);
+        System.out.println(count);
+    }
+
+    /**
+     * 2. 添加一条记录
+     */
+    @Test
+    public void test2(){
+        String sql = "insert into emp(id,ename,dept_id) values(?,?,?)";
+        int count = template.update(sql, 1015, "郭靖", 10);
+        System.out.println(count);
+
+    }
+
+    /**
+     * 3.删除刚才添加的记录
+     */
+    @Test
+    public void test3(){
+        String sql = "delete from emp where id = ?";
+        int count = template.update(sql, 1015);
+        System.out.println(count);
+    }
+
+    /**
+     * 4.查询id为1001的记录，将其封装为Map集合
+     * 注意：这个方法查询的结果集长度只能是1
+     */
+    @Test
+    public void test4(){
+        String sql = "select * from emp where id = ? or id = ?";
+        Map&lt;String, Object&gt; map = template.queryForMap(sql, 1001,1002);
+        System.out.println(map);
+        //{id=1001, ename=孙悟空, job_id=4, mgr=1004, joindate=2000-12-17, salary=10000.00, bonus=null, dept_id=20}
+
+    }
+
+    /**
+     * 5. 查询所有记录，将其封装为List
+     */
+    @Test
+    public void test5(){
+        String sql = "select * from emp";
+        List&lt;Map&lt;String, Object&gt;&gt; list = template.queryForList(sql);
+
+        for (Map&lt;String, Object&gt; stringObjectMap : list) {
+            System.out.println(stringObjectMap);
+        }
+    }
+
+    /**
+     * 6. 查询所有记录，将其封装为Emp对象的List集合
+     */
+
+    @Test
+    public void test6(){
+        String sql = "select * from emp";
+        List&lt;Emp&gt; list = template.query(sql, new RowMapper&lt;Emp&gt;() {
+
+            @Override
+            public Emp mapRow(ResultSet rs, int i) throws SQLException {
+                Emp emp = new Emp();
+                int id = rs.getInt("id");
+                String ename = rs.getString("ename");
+                int job_id = rs.getInt("job_id");
+                int mgr = rs.getInt("mgr");
+                Date joindate = rs.getDate("joindate");
+                double salary = rs.getDouble("salary");
+                double bonus = rs.getDouble("bonus");
+                int dept_id = rs.getInt("dept_id");
+
+                emp.setId(id);
+                emp.setEname(ename);
+                emp.setJob_id(job_id);
+                emp.setMgr(mgr);
+                emp.setJoindate(joindate);
+                emp.setSalary(salary);
+                emp.setBonus(bonus);
+                emp.setDept_id(dept_id);
+
+                return emp;
+            }
+        });
+
+
+        for (Emp emp : list) {
+            System.out.println(emp);
+        }
+    }
+
+    /**
+     * 6. 查询所有记录，将其封装为Emp对象的List集合
+     */
+
+    @Test
+    public void test6_2(){
+        String sql = "select * from emp";
+        List&lt;Emp&gt; list = template.query(sql, new BeanPropertyRowMapper&lt;Emp&gt;(Emp.class));
+        for (Emp emp : list) {
+            System.out.println(emp);
+        }
+    }
+
+    /**
+     * 7. 查询总记录数
+     */
+
+    @Test
+    public void test7(){
+        String sql = "select count(id) from emp";
+        Long total = template.queryForObject(sql, Long.class);
+        System.out.println(total);
+    }
+
+}
+</code></pre>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>JAVAEE</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C++ string字符比较函数compare</title>
     <url>/lzfangwen.github.io/2020/03/10/C++%20string%E5%AD%97%E7%AC%A6%E6%AF%94%E8%BE%83%E5%87%BD%E6%95%B0compare%20/</url>
     <content><![CDATA[<p>﻿# compare()函数</p>
@@ -755,136 +1673,18 @@ A[方形] --&gt; B(圆角)
       </tags>
   </entry>
   <entry>
-    <title>常用的命令行指令</title>
-    <url>/lzfangwen.github.io/2020/07/09/java%E5%9F%BA%E7%A1%80/</url>
-    <content><![CDATA[<a id="more"></a>
-
-<p><code>dir</code>     列出当前目录下的文件以及文件夹</p>
-<p><code>cd 文件夹名</code>    进入指定目录</p>
-<p><code>md 文件夹名</code>    创建目录</p>
-<p><code>cd..</code>    返回上层文件夹</p>
-<p><code>cd/</code>    退回到根目录</p>
-<p><code>del 文件名</code>    删除指定文件</p>
-<p><code>rd 文件夹名</code>    删除目录</p>
-<p><code>ipconfig</code>    查看本机ip地址</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
-  </entry>
-  <entry>
-    <title>hexo博客相关事项</title>
-    <url>/lzfangwen.github.io/2020/03/31/hexo%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3%E4%BA%8B%E9%A1%B9/</url>
-    <content><![CDATA[<h2 id="hexo新建文章的默认值"><a href="#hexo新建文章的默认值" class="headerlink" title="hexo新建文章的默认值"></a>hexo新建文章的默认值</h2><p>博客文件夹下git bash</p>
-<p><code>hexo new 文章名</code></p>
-<p>会在blog\source_posts下新建一个文章 文章默认值为</p>
-<p><code>title: hexo博客相关事项 ##文章标题
-date: 1585631681000##文章日期
-tags:           ##标签可多个 ``
-categories:     ##分类最好一个``  
-mathjax: flase  ##是否开启数学公式</code>  </p>
-<p>默认值可以在blog\scaffolds\post.md中修改</p>
-<p>文章写好后依然是博客文件夹下git bash</p>
-<p><code>hexo clean</code></p>
-<p><code>hexo g</code>##生成静态文件</p>
-<p><code>hexo s</code>##启动服务器用于本地预览</p>
-<p>输入<a href="http://localhost:4000就可以预览博客了确认没有问题再">http://localhost:4000就可以预览博客了确认没有问题再</a></p>
-<p><code>hexo d</code>将本地文件发送github仓库中就可以了</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>操作系统-学习笔记1</title>
-    <url>/lzfangwen.github.io/2020/03/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</url>
-    <content><![CDATA[<h2 id="操作系统概述"><a href="#操作系统概述" class="headerlink" title="操作系统概述"></a>操作系统概述</h2><a id="more"></a>
-
-<p><img src="https://img-blog.csdnimg.cn/20200319155327527.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>四个特性</strong></p>
-<ul>
-<li><strong>并发</strong><img src="https://img-blog.csdnimg.cn/20200319160437281.png" alt="在这里插入图片描述"></li>
-<li><strong>共享</strong>即资源共享<img src="https://img-blog.csdnimg.cn/20200319160605652.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li><strong>虚拟</strong><br><img src="https://img-blog.csdnimg.cn/20200319160708112.png" alt="在这里插入图片描述"></li>
-<li><strong>异步</strong><br><img src="https://img-blog.csdnimg.cn/20200319160751700.png" alt="在这里插入图片描述"><br><strong>并发和共享互为存在条件<br>没有并发和共享，就谈不上虚拟和异步，因此并发和共享是操作系统的两个最基本的特征</strong><h2 id="OS"><a href="#OS" class="headerlink" title="OS"></a>OS</h2><img src="https://img-blog.csdnimg.cn/20200319192903977.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h2 id="OS的运行机制和体系结构"><a href="#OS的运行机制和体系结构" class="headerlink" title="OS的运行机制和体系结构"></a>OS的运行机制和体系结构</h2><img src="https://img-blog.csdnimg.cn/20200319215155378.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>※特权指令只能在核心态下执行</strong><br><strong>※内核程序只能在核心态下执行</strong><br><strong>※用户态-&gt;核心态 的切换通过 中断  来实现且是唯一途径</strong><h3 id="内核"><a href="#内核" class="headerlink" title="内核"></a>内核</h3><img src="https://img-blog.csdnimg.cn/20200319215623593.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-</ul>
-<h4 id="操作系统的体系结构"><a href="#操作系统的体系结构" class="headerlink" title="操作系统的体系结构"></a>操作系统的体系结构</h4><p><img src="https://img-blog.csdnimg.cn/2020031921574972.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200319215823214.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="中断和异常"><a href="#中断和异常" class="headerlink" title="中断和异常"></a>中断和异常</h2><p><img src="https://img-blog.csdnimg.cn/20200319231430227.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h2><p><img src="https://img-blog.csdnimg.cn/20200320092825115.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200320093028554.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p><a href="https://www.bilibili.com/video/av70156862?t=15&amp;p=6" target="_blank" rel="noopener">来源 王道考研 操作系统</a></p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
-      <categories>
-        <category>OS</category>
-      </categories>
-      <tags>
-        <tag>OS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Servlet&amp;HTTP&amp;Request笔记</title>
     <url>/lzfangwen.github.io/2020/07/03/Servlet&amp;HTTP&amp;Request%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<a id="more"></a>
-
-<h2 id="web相关概念回顾"><a href="#web相关概念回顾" class="headerlink" title="web相关概念回顾"></a>web相关概念回顾</h2><ol>
+    <content><![CDATA[<h2 id="web相关概念回顾"><a href="#web相关概念回顾" class="headerlink" title="web相关概念回顾"></a>web相关概念回顾</h2><ol>
 <li>软件架构<ol>
 <li>C/S：客户端/服务器端</li>
 <li>B/S：浏览器/服务器端</li>
 </ol>
 </li>
 </ol>
+<a id="more"></a>
+
+
 <ol start="2">
 <li>资源分类<ol>
 <li>静态资源：所有用户访问后，得到的结果都是一样的，称为静态资源.静态资源可以直接被浏览器解析<br>如： html,css,JavaScript</li>
@@ -1891,6 +2691,50 @@ HttpServletRequest -- 接口
       </tags>
   </entry>
   <entry>
+    <title>hexo博客相关事项</title>
+    <url>/lzfangwen.github.io/2020/03/31/hexo%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3%E4%BA%8B%E9%A1%B9/</url>
+    <content><![CDATA[<h2 id="hexo新建文章的默认值"><a href="#hexo新建文章的默认值" class="headerlink" title="hexo新建文章的默认值"></a>hexo新建文章的默认值</h2><p>博客文件夹下git bash</p>
+<p><code>hexo new 文章名</code></p>
+<p>会在blog\source_posts下新建一个文章 文章默认值为</p>
+<p><code>title: hexo博客相关事项 ##文章标题
+date: 1585631681000##文章日期
+tags:           ##标签可多个 ``
+categories:     ##分类最好一个``  
+mathjax: flase  ##是否开启数学公式</code>  </p>
+<p>默认值可以在blog\scaffolds\post.md中修改</p>
+<p>文章写好后依然是博客文件夹下git bash</p>
+<p><code>hexo clean</code></p>
+<p><code>hexo g</code>##生成静态文件</p>
+<p><code>hexo s</code>##启动服务器用于本地预览</p>
+<p>输入<a href="http://localhost:4000就可以预览博客了确认没有问题再">http://localhost:4000就可以预览博客了确认没有问题再</a></p>
+<p><code>hexo d</code>将本地文件发送github仓库中就可以了</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>idea常用快捷键</title>
     <url>/lzfangwen.github.io/2020/05/17/idea%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
     <content><![CDATA[<a id="more"></a>
@@ -2051,6 +2895,81 @@ HttpServletRequest -- 接口
       </categories>
       <tags>
         <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>常用的命令行指令</title>
+    <url>/lzfangwen.github.io/2020/07/09/java%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<a id="more"></a>
+
+<p><code>dir</code>     列出当前目录下的文件以及文件夹</p>
+<p><code>cd 文件夹名</code>    进入指定目录</p>
+<p><code>md 文件夹名</code>    创建目录</p>
+<p><code>cd..</code>    返回上层文件夹</p>
+<p><code>cd/</code>    退回到根目录</p>
+<p><code>del 文件名</code>    删除指定文件</p>
+<p><code>rd 文件夹名</code>    删除目录</p>
+<p><code>ipconfig</code>    查看本机ip地址</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+  </entry>
+  <entry>
+    <title>操作系统-学习笔记1</title>
+    <url>/lzfangwen.github.io/2020/03/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</url>
+    <content><![CDATA[<h2 id="操作系统概述"><a href="#操作系统概述" class="headerlink" title="操作系统概述"></a>操作系统概述</h2><a id="more"></a>
+
+<p><img src="https://img-blog.csdnimg.cn/20200319155327527.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>四个特性</strong></p>
+<ul>
+<li><strong>并发</strong><img src="https://img-blog.csdnimg.cn/20200319160437281.png" alt="在这里插入图片描述"></li>
+<li><strong>共享</strong>即资源共享<img src="https://img-blog.csdnimg.cn/20200319160605652.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li><strong>虚拟</strong><br><img src="https://img-blog.csdnimg.cn/20200319160708112.png" alt="在这里插入图片描述"></li>
+<li><strong>异步</strong><br><img src="https://img-blog.csdnimg.cn/20200319160751700.png" alt="在这里插入图片描述"><br><strong>并发和共享互为存在条件<br>没有并发和共享，就谈不上虚拟和异步，因此并发和共享是操作系统的两个最基本的特征</strong><h2 id="OS"><a href="#OS" class="headerlink" title="OS"></a>OS</h2><img src="https://img-blog.csdnimg.cn/20200319192903977.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h2 id="OS的运行机制和体系结构"><a href="#OS的运行机制和体系结构" class="headerlink" title="OS的运行机制和体系结构"></a>OS的运行机制和体系结构</h2><img src="https://img-blog.csdnimg.cn/20200319215155378.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>※特权指令只能在核心态下执行</strong><br><strong>※内核程序只能在核心态下执行</strong><br><strong>※用户态-&gt;核心态 的切换通过 中断  来实现且是唯一途径</strong><h3 id="内核"><a href="#内核" class="headerlink" title="内核"></a>内核</h3><img src="https://img-blog.csdnimg.cn/20200319215623593.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ul>
+<h4 id="操作系统的体系结构"><a href="#操作系统的体系结构" class="headerlink" title="操作系统的体系结构"></a>操作系统的体系结构</h4><p><img src="https://img-blog.csdnimg.cn/2020031921574972.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200319215823214.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="中断和异常"><a href="#中断和异常" class="headerlink" title="中断和异常"></a>中断和异常</h2><p><img src="https://img-blog.csdnimg.cn/20200319231430227.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h2><p><img src="https://img-blog.csdnimg.cn/20200320092825115.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200320093028554.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><a href="https://www.bilibili.com/video/av70156862?t=15&amp;p=6" target="_blank" rel="noopener">来源 王道考研 操作系统</a></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>OS</category>
+      </categories>
+      <tags>
+        <tag>OS</tag>
       </tags>
   </entry>
   <entry>
@@ -2476,47 +3395,6 @@ HttpServletRequest -- 接口
       </tags>
   </entry>
   <entry>
-    <title>计算机操作系统知识点</title>
-    <url>/lzfangwen.github.io/2020/04/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
-    <content><![CDATA[<a id="more"></a>
-
-<p>段页式存储管理方式</p>
-<ul>
-<li><p>优点</p>
-<ul>
-<li>很方便按照逻辑模块实现信息的共享和保护</li>
-<li>方便用户编程</li>
-<li>有利于信息的动态增长和动态连接</li>
-<li>内部空间利用率高，不会产生外部碎片，只会有少量的页内碎片</li>
-</ul>
-</li>
-<li><p>缺点</p>
-<ul>
-<li>需要3次访问内存，复杂性和开销增加，需要的硬件以及占用的内存也有所增加，使得执行速度下降。</li>
-</ul>
-</li>
-</ul>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
-  </entry>
-  <entry>
     <title>操作系统-学习笔记6</title>
     <url>/lzfangwen.github.io/2020/04/05/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B06/</url>
     <content><![CDATA[<h2 id="信号量机制"><a href="#信号量机制" class="headerlink" title="信号量机制"></a>信号量机制</h2><p>用户进程可以通过使用操作系统提供的一对原语来对信号量进行操作,从而很方便的实现了进程互斥、进程同步。</p>
@@ -2666,52 +3544,6 @@ HttpServletRequest -- 接口
       </categories>
       <tags>
         <tag>OS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数据库原理及应用-学习笔记1</title>
-    <url>/lzfangwen.github.io/2020/03/13/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</url>
-    <content><![CDATA[<p>﻿## DBMS（数据库系统）</p>
-<h4 id="DBMS的主要功能"><a href="#DBMS的主要功能" class="headerlink" title="DBMS的主要功能"></a>DBMS的主要功能</h4><p>1.数据定义功能<br>2.数据操作功能<br>3.数据库运行管理功能<br>4.数据库的建立和维护功能</p>
-<a id="more"></a>
-
-<h4 id="DBMS的组成"><a href="#DBMS的组成" class="headerlink" title="DBMS的组成"></a>DBMS的组成</h4><p>1.语言编译处理程序<br>2.系统运行控制程序<br>3.系统建立，维护程序<br>4.数字字典</p>
-<h2 id="数据模型"><a href="#数据模型" class="headerlink" title="数据模型"></a>数据模型</h2><p>数据模型 是一种表示数据及其联系的模型,是对现实世界数据特征与联系的抽象反映。<br><img src="https://img-blog.csdnimg.cn/20200313150028827.png" alt="在这里插入图片描述"><br>根据数据模型应用的不同目的，可以划分为两类，它们分别属于不同的层次。<br>第一类是概念模型，第二类是逻辑模型和物理模型</p>
-<ul>
-<li><strong>概念模型</strong>(或称信息模型) :它是按用户的观点来对数据和信息建模,即用于信息世界的建模,所建立的是属于信息世界的模型。主要用于数据库的设计。</li>
-<li><strong>逻辑模型</strong>(或称结构数据模型) :主要包括网状模型、层次模型、关系模型等,是按计算机系统的观点对数据建模”,所建立的是属于机器世界的模型,主要用于DBMS的实现。后面主要讨论这类数据模型。</li>
-<li><strong>物理模型</strong>:是对数据最低层的抽象,是面向计算机物理表示的模型,它描述数据在系统内部的表示方式和存取方法,它不但与具体的DBMS有而且还与操作系统和硬件有关。每一种逻辑模型在实现时都有相对应的物理数据模型。<br><img src="https://img-blog.csdnimg.cn/20200313150529190.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h3 id="概念模型"><a href="#概念模型" class="headerlink" title="概念模型"></a>概念模型</h3><strong>实体间的联系</strong><br> 1：1<br> 1：n<br> n：m<br><strong>实体-联系表示法（E-R方法）</strong><br>在E-R图中实体用方框表示;联系用菱形表示,并且用边将其与有关的实体连接起来,并在边上标上联系的类型;属性用椭圆表示,并且用边将其与相应的实体连接起来。对于有些联系,其自身也会有某些属性,同实体与属性的连接类似,将联系与其属性连接起来。<br>eg：<img src="https://img-blog.csdnimg.cn/20200313151618781.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-</ul>
-<h2 id="DMBS支持的数据模型"><a href="#DMBS支持的数据模型" class="headerlink" title="DMBS支持的数据模型"></a>DMBS支持的数据模型</h2><p><strong>数据模型组成的要素</strong></p>
-<ul>
-<li><strong>数据结构</strong><br>数据结构是刻画一个数据模型性质最重要的方面,通常按数据组织结构的类型来命名数据模型,如层次结构、网状图结构和关系结构的数据模型分别命名为层次模型、网状模型和关系模型。<br>数据结构是对系统静态特性的描述,其描述的内容有两类:数据的描述和数据之间联系的描述。</li>
-<li><strong>数据操作</strong><br>数据操作是对系统动态特性的描述,是数据库中的各种对象的实例(值)允许执行的操作的集合。<br>主要有检索和更新(插入、删除、修改)两类操作。数据模型必须定义这些操作的确切含义、操作符号、操作规则、实现操作的语言。</li>
-<li><strong>数据约束</strong><br>数据的完整性约束条件是一组完整性规则的集合,给出数据及其联系所具有的制约、依赖和存储规则,用于限定数据库的状态和状态变化,保证数据库中的数据的正确、有效、完全和相容。</li>
-</ul>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
-      <categories>
-        <category>数据库原理及应用</category>
-      </categories>
-      <tags>
-        <tag>SQLserver</tag>
       </tags>
   </entry>
   <entry>
@@ -3122,38 +3954,6 @@ HttpServletRequest -- 接口
       </tags>
   </entry>
   <entry>
-    <title>计算机组成原理-学习笔记1</title>
-    <url>/lzfangwen.github.io/2020/03/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</url>
-    <content><![CDATA[<p><strong>B站 王道考研视频 学习笔记 纯粹自己整理方便复习使用 侵删</strong></p>
-<p>﻿# 第一章 计算机系统简介</p>
-<h2 id="软硬件"><a href="#软硬件" class="headerlink" title="软硬件"></a>软硬件<a id="more"></a><img src="https://img-blog.csdnimg.cn/20200313110251157.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt=""></h2><p><img src="https://img-blog.csdnimg.cn/20200313110314482.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt=""><br><img src="https://img-blog.csdnimg.cn/20200313110725516.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200313110746978.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><a href="https://www.icourse163.org/spoc/learn/HHIT-1451455173?tid=1451908450#/learn/content?type=detail&amp;id=1220058249&amp;cid=1228881649" target="_blank" rel="noopener">慕课链接</a></p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
-      <categories>
-        <category>计算机组成原理</category>
-      </categories>
-      <tags>
-        <tag>计算机组成原理</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>操作系统-学习笔记9</title>
     <url>/lzfangwen.github.io/2020/04/28/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B09/</url>
     <content><![CDATA[<h1 id="虚拟存储技术"><a href="#虚拟存储技术" class="headerlink" title="虚拟存储技术"></a>虚拟存储技术</h1><a id="more"></a>
@@ -3413,6 +4213,125 @@ HttpServletRequest -- 接口
       </categories>
       <tags>
         <tag>OS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据库原理及应用-学习笔记1</title>
+    <url>/lzfangwen.github.io/2020/03/13/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</url>
+    <content><![CDATA[<p>﻿## DBMS（数据库系统）</p>
+<h4 id="DBMS的主要功能"><a href="#DBMS的主要功能" class="headerlink" title="DBMS的主要功能"></a>DBMS的主要功能</h4><p>1.数据定义功能<br>2.数据操作功能<br>3.数据库运行管理功能<br>4.数据库的建立和维护功能</p>
+<a id="more"></a>
+
+<h4 id="DBMS的组成"><a href="#DBMS的组成" class="headerlink" title="DBMS的组成"></a>DBMS的组成</h4><p>1.语言编译处理程序<br>2.系统运行控制程序<br>3.系统建立，维护程序<br>4.数字字典</p>
+<h2 id="数据模型"><a href="#数据模型" class="headerlink" title="数据模型"></a>数据模型</h2><p>数据模型 是一种表示数据及其联系的模型,是对现实世界数据特征与联系的抽象反映。<br><img src="https://img-blog.csdnimg.cn/20200313150028827.png" alt="在这里插入图片描述"><br>根据数据模型应用的不同目的，可以划分为两类，它们分别属于不同的层次。<br>第一类是概念模型，第二类是逻辑模型和物理模型</p>
+<ul>
+<li><strong>概念模型</strong>(或称信息模型) :它是按用户的观点来对数据和信息建模,即用于信息世界的建模,所建立的是属于信息世界的模型。主要用于数据库的设计。</li>
+<li><strong>逻辑模型</strong>(或称结构数据模型) :主要包括网状模型、层次模型、关系模型等,是按计算机系统的观点对数据建模”,所建立的是属于机器世界的模型,主要用于DBMS的实现。后面主要讨论这类数据模型。</li>
+<li><strong>物理模型</strong>:是对数据最低层的抽象,是面向计算机物理表示的模型,它描述数据在系统内部的表示方式和存取方法,它不但与具体的DBMS有而且还与操作系统和硬件有关。每一种逻辑模型在实现时都有相对应的物理数据模型。<br><img src="https://img-blog.csdnimg.cn/20200313150529190.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h3 id="概念模型"><a href="#概念模型" class="headerlink" title="概念模型"></a>概念模型</h3><strong>实体间的联系</strong><br> 1：1<br> 1：n<br> n：m<br><strong>实体-联系表示法（E-R方法）</strong><br>在E-R图中实体用方框表示;联系用菱形表示,并且用边将其与有关的实体连接起来,并在边上标上联系的类型;属性用椭圆表示,并且用边将其与相应的实体连接起来。对于有些联系,其自身也会有某些属性,同实体与属性的连接类似,将联系与其属性连接起来。<br>eg：<img src="https://img-blog.csdnimg.cn/20200313151618781.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ul>
+<h2 id="DMBS支持的数据模型"><a href="#DMBS支持的数据模型" class="headerlink" title="DMBS支持的数据模型"></a>DMBS支持的数据模型</h2><p><strong>数据模型组成的要素</strong></p>
+<ul>
+<li><strong>数据结构</strong><br>数据结构是刻画一个数据模型性质最重要的方面,通常按数据组织结构的类型来命名数据模型,如层次结构、网状图结构和关系结构的数据模型分别命名为层次模型、网状模型和关系模型。<br>数据结构是对系统静态特性的描述,其描述的内容有两类:数据的描述和数据之间联系的描述。</li>
+<li><strong>数据操作</strong><br>数据操作是对系统动态特性的描述,是数据库中的各种对象的实例(值)允许执行的操作的集合。<br>主要有检索和更新(插入、删除、修改)两类操作。数据模型必须定义这些操作的确切含义、操作符号、操作规则、实现操作的语言。</li>
+<li><strong>数据约束</strong><br>数据的完整性约束条件是一组完整性规则的集合,给出数据及其联系所具有的制约、依赖和存储规则,用于限定数据库的状态和状态变化,保证数据库中的数据的正确、有效、完全和相容。</li>
+</ul>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>数据库原理及应用</category>
+      </categories>
+      <tags>
+        <tag>SQLserver</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机操作系统知识点</title>
+    <url>/lzfangwen.github.io/2020/04/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
+    <content><![CDATA[<a id="more"></a>
+
+<p>段页式存储管理方式</p>
+<ul>
+<li><p>优点</p>
+<ul>
+<li>很方便按照逻辑模块实现信息的共享和保护</li>
+<li>方便用户编程</li>
+<li>有利于信息的动态增长和动态连接</li>
+<li>内部空间利用率高，不会产生外部碎片，只会有少量的页内碎片</li>
+</ul>
+</li>
+<li><p>缺点</p>
+<ul>
+<li>需要3次访问内存，复杂性和开销增加，需要的硬件以及占用的内存也有所增加，使得执行速度下降。</li>
+</ul>
+</li>
+</ul>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+  </entry>
+  <entry>
+    <title>计算机组成原理-学习笔记1</title>
+    <url>/lzfangwen.github.io/2020/03/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</url>
+    <content><![CDATA[<p><strong>B站 王道考研视频 学习笔记 纯粹自己整理方便复习使用 侵删</strong></p>
+<p>﻿# 第一章 计算机系统简介</p>
+<h2 id="软硬件"><a href="#软硬件" class="headerlink" title="软硬件"></a>软硬件<a id="more"></a><img src="https://img-blog.csdnimg.cn/20200313110251157.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt=""></h2><p><img src="https://img-blog.csdnimg.cn/20200313110314482.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt=""><br><img src="https://img-blog.csdnimg.cn/20200313110725516.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200313110746978.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6X2Zhbmd3ZW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><a href="https://www.icourse163.org/spoc/learn/HHIT-1451455173?tid=1451908450#/learn/content?type=detail&amp;id=1220058249&amp;cid=1228881649" target="_blank" rel="noopener">慕课链接</a></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>计算机组成原理</category>
+      </categories>
+      <tags>
+        <tag>计算机组成原理</tag>
       </tags>
   </entry>
   <entry>
@@ -3810,6 +4729,211 @@ HttpServletRequest -- 接口
       </tags>
   </entry>
   <entry>
+    <title>计算机网络-学习笔记2</title>
+    <url>/lzfangwen.github.io/2020/04/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/</url>
+    <content><![CDATA[<h2 id="数据通信基础知识"><a href="#数据通信基础知识" class="headerlink" title="数据通信基础知识"></a>数据通信基础知识</h2><h3 id="典型的数据通信模型"><a href="#典型的数据通信模型" class="headerlink" title="典型的数据通信模型"></a>典型的数据通信模型</h3><p><img src="http://qiniuyun.lzfangwen.cn/blog/20200408/CPvLE6vyYds2.png" alt="mark"></p>
+<a id="more"></a>
+
+<h3 id="相关术语"><a href="#相关术语" class="headerlink" title="相关术语"></a>相关术语</h3><p>通信的目的是传送消息</p>
+<p><strong>数据</strong>:传送信息的实体,通常是有意义的符号序列。</p>
+<p><strong>信号</strong>:数据的电气/电磁的表现,是数据在传输过程中的存在形式。</p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200408/N1nHo1I7kInr.png" alt="mark"></p>
+<p><strong>信源</strong>:产生和发送数据的源头。</p>
+<p><strong>信宿</strong>:接收数据的终点。</p>
+<p><strong>信道</strong>:信号的传输媒介。一般用来表示向某一个方向传送信息的介质,因此一条通信线路往往包含一条发送信道和一条接收信道。</p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200408/lJeU3FYMQMf8.png" alt="mark"></p>
+<h3 id="三种通信方式"><a href="#三种通信方式" class="headerlink" title="三种通信方式"></a>三种通信方式</h3><p>从通信双方信息的交换方式看，可以有三种基本方式：</p>
+<ol>
+<li><strong>单工通信</strong>：只有一个方向的通信而没有反方向的交互,仅需要<strong>一条</strong>信道。</li>
+<li><strong>半双工通信</strong>：通信的双方都可以发送或接收信息,但任何一方都不能同时发送和接收,需要<strong>两条</strong>信道。</li>
+<li><strong>全双工通信</strong>：通信双方可以同时发送和接受信息,也需要<strong>两条</strong>信道。</li>
+</ol>
+<h3 id="两种数据传输方式"><a href="#两种数据传输方式" class="headerlink" title="两种数据传输方式"></a>两种数据传输方式</h3><ol>
+<li><p><strong>串行传输</strong>：速度<strong>慢</strong>，费用<strong>低</strong>，适合<strong>远</strong>距离</p>
+</li>
+<li><p><strong>并行传输</strong>：速度<strong>快</strong>，费用<strong>高</strong>，适合<strong>近</strong>距离</p>
+<p>​                    用于计算机内部数据传输（电脑上的井口 就为并行传输）</p>
+</li>
+</ol>
+<h3 id="码元"><a href="#码元" class="headerlink" title="码元"></a>码元</h3><p><strong>码元</strong>是指用一个固定时长的信号波形(数字脉冲) ,代表不同离散数值的基本波形,是数字通信中数字信号的计量单位,这个时长内的信号称为k进制码元,而该时长称为码元宽度。当码元的离散状态有M个时(M大于2) ,此时码元为M进制码元。</p>
+<p>1码元可以携带多个比特的信息量。例如,在使用二进制编码时,只有两种不同的码元,一种代表0状态,另一种代表1状态</p>
+<h3 id="速率、波特、带宽"><a href="#速率、波特、带宽" class="headerlink" title="速率、波特、带宽"></a>速率、波特、带宽</h3><p><strong>速率</strong>也叫数据率,是指数据的<strong>传输速率</strong>,表示单位时间内传输的数据量。可以用<strong>码元传输速</strong>率和<strong>信息传输速率</strong>表示</p>
+<ul>
+<li><strong>码元传输速率</strong>:别名码元速率、波形速率、调制速率、符号速率等,它表示单位时间内数字通信系统所传输的码元个数(也可称为脉冲个数或信号变化的次数) ,单位是<strong>波特(Baud)</strong> 。 1波特表示数字通信系统每秒传输一个码元。这里的码元可以是多进制的,也可以是二进制的,但码元速率与进制数无关。====</li>
+<li><strong>信息传输速率</strong>:别名信息速率、比特率等,表示单位时间内数字通信系统传输的二进制码元个数(即比特数)·单位是比特/秒(b/s) 。</li>
+</ul>
+<p>关系:若一个码元携带n bit的信息量,则MBaud的码元传输速率所对应的信息传输速率为MXn bit/s。</p>
+<p>带宽:表示在单位时间内从网络中的某一点到另一点所能通过的“<strong>最高数据率</strong>” ,常用来表示网络的通信线路所能输数据的能力。单位是b/s </p>
+<h4 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h4><p>某一数字通信系统传输的是四进制码元,4s传输了8000个码元,求系统的码元传输速率是多·少?信息传输速率是多少?若另一通信系统传输的是十六进制码元,6s传输了7200个码元,求他的码元传输速率是多少?信息传输速率是多少?并指出哪个系统传输速率快?</p>
+<blockquote>
+<p>2000波特    4000b/s    1200波特    4800b/s    十六进制最快</p>
+<p>四进制码元系统</p>
+<p>码元传输速率就是8000/4-2000Baud,信息传输速率就是20001log24=4000b/s</p>
+<p>十六进制码元系统</p>
+<p>码元传输速率就是7200/6-1200Baud,信息传输速率就是1200*10g216-4800b/s</p>
+<p>系统传输的是<strong>比特流</strong>,通常比较的是信息传输速率,所以传输十六进制码元的通信系统传输速率较快,如果用该系统去传输四进制码元会有更高的码元传输速率。</p>
+</blockquote>
+<h2 id="奈式准则-amp-香农定理"><a href="#奈式准则-amp-香农定理" class="headerlink" title="奈式准则&amp;香农定理"></a>奈式准则&amp;香农定理</h2><h3 id="失真"><a href="#失真" class="headerlink" title="失真"></a>失真</h3><p><img src="http://qiniuyun.lzfangwen.cn/blog/20200408/l7i9Y8YJXplH.png" alt="mark"></p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200408/Npx9FIGhDJRS.png" alt="mark"></p>
+<h3 id="奈式准则（奈奎斯特定理）"><a href="#奈式准则（奈奎斯特定理）" class="headerlink" title="奈式准则（奈奎斯特定理）"></a>奈式准则（奈奎斯特定理）</h3><p><strong>奈氏准则</strong>:在理想低通(无噪声,带宽受限)条件下,为了避免码间串扰,极限码元传输速率为2W Baud, w是信道带宽，单位是Hz。</p>
+<p><strong>只有这两个公式 带宽才用Hz</strong></p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200408/TOqH4IK30nC0.png" alt="mark"></p>
+<ol>
+<li>在任何信道中,<strong>码元传输的速率是有上限的</strong>。若传输速率超过此上限,就会出现严重的码间串扰问题,使接收端对码元的完全正确识别成为不可能。</li>
+<li>信道的频带越宽(即能通过的信号高频分量越多) ,就可以用更高的速率进行码元的有效传输。</li>
+<li><strong>奈氏准则给出了码元传输速率的限制,但并没有对信息传输速率给出限制。</strong></li>
+<li>由于码元的传输速率受奈氏准则的制约,所以要提高数据的传输速率,就必须设法使每个码元能携带更多个比特的信息量,这就需要采用多元制的调制方法</li>
+</ol>
+<p>eg.</p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200408/WW0KKr5lKwp1.png" alt="mark"></p>
+<h3 id="香农定理"><a href="#香农定理" class="headerlink" title="香农定理"></a>香农定理</h3><p>噪声存在于所有的电子设备和通信信道中。由于噪声随机产生,它的瞬时值有时会很大,因此噪声会使接收端对码元的判决产生错误。但是噪声的影响是相对的,若信号较强,那么噪声影响相对较小。因此,信噪比就很重要。<strong>信噪比=信号的平均功率/噪声的平均功率,常记为S/N,并用分贝(dB)作为度量单位</strong>,</p>
+<p><strong>即:信噪比（dB）$$=10\log_{10}（S/N）$$ 数值等价</strong></p>
+<p><strong>香农定理</strong>:在带宽受限且有噪声的信道中,为了不产生误差,信息的数据传输速率有上限值</p>
+<p><strong>信道的极限数据传输速率=$Wlog_2(1+S/N) (b/s)$ ，其中W指带宽（Hz）</strong></p>
+<ol>
+<li>信道的带宽或信道中的信噪比越大,则信息的极限传输速率就越高。</li>
+<li>对一定的传输带宽和一定的信噪比,信息传输速率的上限就确定了。</li>
+<li>只要信息的传输速率低于信道的极限传输速率,就一定能找到某种方法来实现无差错的传输。</li>
+<li>香农定理得出的为极限信息传输速率,实际信道能达到的传输速率要比它低不少。</li>
+<li>从香农定理可以看出,若信道带宽W或信噪比S/N没有上限(不可能) ,那么信道的极限信息传输速率也就没有上限。</li>
+</ol>
+<p>eg.</p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200408/mq9HLO75vfiL.png" alt="mark"></p>
+<h3 id="“nice”和“香浓”"><a href="#“nice”和“香浓”" class="headerlink" title="“nice”和“香浓”"></a>“nice”和“香浓”</h3><p><img src="http://qiniuyun.lzfangwen.cn/blog/20200408/7GoI2OdlQyxj.png" alt="mark"></p>
+<h2 id="编码与调制"><a href="#编码与调制" class="headerlink" title="编码与调制"></a>编码与调制</h2><h3 id="基带信号与宽带信号"><a href="#基带信号与宽带信号" class="headerlink" title="基带信号与宽带信号"></a>基带信号与宽带信号</h3><p><strong>信道</strong>:信号的传输媒介。一般用来表示向某一个方向传送信息的介质,因此一条通信线路往往包含条发送信道和一条接收信道。</p>
+<ul>
+<li>传输信号：<ul>
+<li>模拟信道(传送模拟信号)</li>
+<li>数字信道(传送数字信号)</li>
+</ul>
+</li>
+<li>传输介质：<ul>
+<li>无线信道 </li>
+<li>有线信道</li>
+</ul>
+</li>
+</ul>
+<p>信道上传送的信号</p>
+<ul>
+<li><p><strong>基带信号</strong></p>
+<p>将数字信号1和0直接用两种不同的电压表示,再送到<strong>数字信道</strong>上去传输(<strong>基带传输</strong>)。来自信源的信号,像计算机输出的代表各种文字或图像文件的数据信号都属于基带信号。基带信号就是发出的直接表达了要传输的信息的信号,比如我们说话的声波就是基带信号</p>
+</li>
+<li><p><strong>宽带信号</strong></p>
+<p>将基带信号进行调制后形成的频分复用模拟信号,再传送到<strong>模拟信道</strong>上去传输(<strong>宽带传输</strong>).,把基带信号经过载波调制后,把信号的频率范围搬移到较高的频段以便在信道中传输(即仅频率范围内能够通过信道)</p>
+</li>
+</ul>
+<p>在传输距离较<strong>近</strong>时,计算机网络采用<strong>基带传输</strong>方式(近距离衰减小,从而信号内容不易发生变化)</p>
+<p>在传输距离较<strong>远</strong>时,计算机网络采用<strong>宽带传输</strong>方式(远距离衰减大,即使信号变化大也能最后过滤出来基带信号)</p>
+<h3 id="编码与调制-1"><a href="#编码与调制-1" class="headerlink" title="编码与调制"></a>编码与调制</h3><p><img src="http://qiniuyun.lzfangwen.cn/blog/20200408/EB69RsCbxxVX.png" alt="mark"></p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200408/jMO7XCoQ8wVv.png" alt="mark"></p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200408/UEnmhshwNlcK.png" alt="mark"></p>
+<h3 id="数字数据编码为数字信号"><a href="#数字数据编码为数字信号" class="headerlink" title="数字数据编码为数字信号"></a>数字数据编码为数字信号</h3><ul>
+<li><strong>非归零编码【NRZ】</strong><ul>
+<li><strong>高1低0</strong>    编码容易实现,但没有检错功能且无法判断一个码元的开始和结束,”以至于<strong>收发双方难以保持同步</strong>。</li>
+</ul>
+</li>
+<li>归零编码【RZ】<ul>
+<li>信号电平在一个码元之内都要恢夏到零的这种编码成编码方式。</li>
+</ul>
+</li>
+<li>反向不归零编码【NRZI】<ul>
+<li>信号电平翻转表示0,信号电平不变表示1.</li>
+</ul>
+</li>
+<li><strong>曼切斯特编码</strong><ul>
+<li>将一个码元分成两个相等的间隔,前一个间隔为低电平后一个间隔为高电平表示码元1;码元0则正好相反。也可以采用相反的规定。该编码的特点是在每一个码元的中间出现电平跳变,位中间的跳变既作时钟信号(可用于同步)又作数据信号,但它所占的频带宽度是原始的基带宽度的两倍。每一个码元都被调成两个电平,所以数据传输速率只有调制速率的$1/2$</li>
+</ul>
+</li>
+<li><strong>差分曼切斯特编码</strong><ul>
+<li><strong>同1异0</strong>    常用于局域网传输,其规则是:若码元为1,则前半个码元的电平与上一个码元的后半个码元的电,平相同,若为0,则相反。该编码的特点是,在每个码元的中间,都有一次电平的跳转,可以实现自同步,且抗干扰性强于曼彻斯特编码</li>
+</ul>
+</li>
+<li>4B/5B编码<ul>
+<li>比特流中插入额外的比特以打破-连串的0或1,就是用5个比特来编码4个比特的数据,之后再传给接收方,因此称为4B/5B,编码效率为80%</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200408/BTyfKLsdSerN.png" alt="mark"></p>
+<h3 id="数字数据调制为模拟信号"><a href="#数字数据调制为模拟信号" class="headerlink" title="数字数据调制为模拟信号"></a>数字数据调制为模拟信号</h3><p>数字数据调制技术在发送端将数字信号转换为模拟信号,而在接收端将模拟信号还原为数字信号,分别对应于调制解调器的调制和解调过程。</p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200408/3dNDqruxdEjR.png" alt="mark"></p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200408/iOr7w6xHyQuX.png" alt="mark"></p>
+<p>​                    1200*4=4800b/s</p>
+<h3 id="模拟数据编码为数字信号"><a href="#模拟数据编码为数字信号" class="headerlink" title="模拟数据编码为数字信号"></a>模拟数据编码为数字信号</h3><p>计算机内部处理的是二进制数据,处理的都是数字音频,所以需要将模拟音频通过采样、量化转换成有限个数字表示的离散序列(即实现<strong>音频数字化</strong>)</p>
+<p>最典型的例子就是对音频信号进行编码的脉码调制(<strong>PCM</strong>) ,在计算机应用中,能够达到<strong>最高保真水平</strong>的就是PCM编码,被广泛用于素材保存及音乐欣赏, CD,DVD以及我们常见的WAV文件中均有应用。它主要包括三步:抽样、量化、编码。</p>
+<ol>
+<li><p><strong>抽样</strong>:对模拟信号周期性扫描,把时间上连续的信号变成时间上离散的信号。为了使所得的离散信号能无失真地代表被抽样的模拟数据,要使用采样定理进行采样: </p>
+<p>​                            $$f_{采样频率} \geq f{信号最高频率}$$</p>
+</li>
+<li><p><strong>量化</strong>:把抽样取得的电平幅值按照一定的分级标度转化为对应的数字值,并取整数,这就把连续的电平幅值转换为离散的数字量。</p>
+</li>
+<li><p><strong>编码</strong>:把量化的结果转换为与之对应的二进制编码。</p>
+</li>
+</ol>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200408/SAmVCiJaaMat.png" alt="mark"></p>
+<h3 id="模拟数据调制为模拟信号"><a href="#模拟数据调制为模拟信号" class="headerlink" title="模拟数据调制为模拟信号"></a>模拟数据调制为模拟信号</h3><p>为了实现传输的有效性,可能需要较高的频率。这种调制方式还可以使用<strong>频分复用技术</strong>,充分利用带宽资源。在电话机和本地交换机所传输的信号是采用模拟信号传输模拟数据的方式;模拟的声音数据是加载到模拟的载波信号中传输的。</p>
+<h2 id="物理层传输介质"><a href="#物理层传输介质" class="headerlink" title="物理层传输介质"></a>物理层传输介质</h2><p>传输介质也称传输媒体/传输媒介,它就是数据传输系统中在发送设备和接收设备之间的<strong>物理通路</strong>。</p>
+<p><strong>传输媒体并不是物理层</strong>。传输媒体在物理层的下面,因为物理层是体系结构的第一层,因此有时称传输媒体为0层。在传输媒体中传输的是信号,但传输媒体并不知道所传输的信号代表什么意思。但物理层规定了<strong>电气特性</strong>,因此能够识别所传送的比特流。</p>
+<p>传输介质</p>
+<ul>
+<li>导向性传输介质：电磁波被导向沿着固体媒介(铜线/光纤)传播。</li>
+<li>非导向性传输介质：自由空间,介质可以是空气、真空、海水等。</li>
+</ul>
+<h3 id="双绞线"><a href="#双绞线" class="headerlink" title="双绞线"></a>双绞线</h3><p><img src="http://qiniuyun.lzfangwen.cn/blog/20200408/pz2JCTyqoQ07.png" alt="mark"></p>
+<h3 id="同轴电缆"><a href="#同轴电缆" class="headerlink" title="同轴电缆"></a>同轴电缆</h3><p>同轴电缆由<strong>导体铜质芯线</strong>、<strong>绝缘层</strong>、<strong>网状编织屏蔽层</strong>和<strong>塑料外层</strong>构成。按特性阻抗数值的不同,通常将同轴电缆分,为两类: 502同轴电缆和750同轴电缆。其中, 502同轴电缆主要用于传送基带数字信号,又称为<strong>基带同轴电缆</strong>,它在局域网中得到广泛应用; 752同轴电缆主要用于传送宽带信号,又称为<strong>宽带同轴电缆</strong>,它主要用于有线电视系统。</p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200408/53J7HgEVjXB1.png" alt="mark"></p>
+<h3 id="光纤"><a href="#光纤" class="headerlink" title="光纤"></a>光纤</h3><p>光纤通信就是利用光导纤维(简称光纤)传递<strong>光脉冲</strong>来进行通信。有光脉冲表示1,无光脉冲表示0。而可见光的频率大约是$10^8$MHz,因此光纤通信系统的<strong>带宽远远大于</strong>目前其他各种传输媒体的带宽。</p>
+<p>光纤在发送端有光源,可以采用发光二极管或半导体激光器,它们在电脉冲作用下能产生出光脉冲;在接收端用光电二极管做成光检测器,在检测到光脉冲时可还原出电脉冲。</p>
+<p>光纤主要由<strong>纤芯(实心的</strong>! )和包层构成,光波通过纤芯进行传导,包层较纤芯有较低的折射率。当光线从高折射率的介质射向低折射率的介质时,其折射角将大于入射角。因此,如果入射角足够大,就会出现全反射,即光线碰到包层时候就会折射回纤芯、这个过程不断重复,光也就沿着光纤传输下去。</p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200408/pzDmg5D4j8C4.png" alt="mark"></p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200408/Gw2xKokbrzAj.png" alt="mark">光纤的特点：</p>
+<ol>
+<li>传输损耗小,中继距离长,对远距离传输特别经济。</li>
+<li>抗雷电和电磁干扰性能好。</li>
+<li>无串音干扰,保密性好,也不易被窃听或截取数据。</li>
+<li>体积小,重量轻。</li>
+</ol>
+<h3 id="非导向性传输介质"><a href="#非导向性传输介质" class="headerlink" title="非导向性传输介质"></a>非导向性传输介质</h3><p><img src="http://qiniuyun.lzfangwen.cn/blog/20200408/pjRfo1QlRkMJ.png" alt="mark"></p>
+<h2 id="物理层设备"><a href="#物理层设备" class="headerlink" title="物理层设备"></a>物理层设备</h2><h3 id="中继器"><a href="#中继器" class="headerlink" title="中继器"></a>中继器</h3><p><strong>诞生原因</strong>:由于存在损耗,在线路上传输的信号功率会逐渐衰减,衰减到一定程度时将造成信号失真,因此会导致接收错误。</p>
+<p><strong>中继器的功能</strong>:对信号进行<strong>再生和还原</strong>,对衰减的信号进行放大,保持与原数据相同,以增加信号传输的距离,延长网络的长度。</p>
+<p>​                                        <strong>再生数字信号</strong></p>
+<p><strong>中继器的两端</strong>:</p>
+<ul>
+<li>两端的网络部分是网段,而不是子网,适用于完全相同的<strong>两类</strong>网络的互连,且两个网段速率要相同。</li>
+<li>中继器只将任何电缆段上的数据发送到另一段电缆上,它仅作用于信号的电气部分,并不管数据中是否有错误数据或不适于网段的数据。</li>
+<li>两端可连相同媒体,也可连不同媒体。</li>
+<li>中继器两端的网段一定要是同一个协议。(中继器不会存储转发,傻)</li>
+</ul>
+<p><strong>5-4-3规则</strong>:网络标准中都对信号的延迟范围作了具体的规定,因而中继器只能在规定的范围内进行,否则会网络故障</p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200408/AhOklmr7g2ph.png" alt="mark"></p>
+<h3 id="集线器（多口中继器）"><a href="#集线器（多口中继器）" class="headerlink" title="集线器（多口中继器）"></a>集线器（多口中继器）</h3><p><strong>集线器的功能</strong>:对信号进行再生<strong>放大转发</strong>,对衰减的信号进行放大,接着转发到其他所有(除输入端口外)处于工作状态的端口上,以增加信号传输的距离,延长网络的长度。不具备信号的定向传送能力,是一个共享式设备。</p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200409/BkEofHpp8S9K.png" alt="mark"></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>计算机网络</category>
+      </categories>
+      <tags>
+        <tag>计算机网络</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>计算机网络-学习笔记3</title>
     <url>/lzfangwen.github.io/2020/04/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/</url>
     <content><![CDATA[<h1 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h1><p><strong>结点</strong>:主机、路由器</p>
@@ -4151,6 +5275,162 @@ HttpServletRequest -- 接口
       </tags>
   </entry>
   <entry>
+    <title>计算机网络-学习笔记6</title>
+    <url>/lzfangwen.github.io/2020/04/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B06/</url>
+    <content><![CDATA[<h2 id="局域网基本概念和体系结构"><a href="#局域网基本概念和体系结构" class="headerlink" title="局域网基本概念和体系结构"></a>局域网基本概念和体系结构</h2><blockquote>
+<p>局域网(Local Area Network) :简称<strong>LAN</strong>,是指在某一区域内由多台计算机互联成的计算机组,使用<strong>广播信道</strong>。</p>
+<ul>
+<li>覆盖的地理范围较小,只在一个相对独立的局部范围内联,如一座或集中的建筑群内。</li>
+<li>使用专门铺设的传输介质(双绞线、同轴电缆)进行联网,数据传输高(10Mb/s~10Gb/s)</li>
+<li>通信延迟时间短,误码率低,可靠性较高。</li>
+<li>各站为平等关系,共享传输信道。</li>
+</ul>
+<p>决定局域网的主要要素为:<strong>网络拓扑</strong>,<strong>传输介质</strong>与<strong>介质访问控制方法</strong>。</p>
+</blockquote>
+<a id="more"></a>
+
+<h3 id="局域网拓扑结构"><a href="#局域网拓扑结构" class="headerlink" title="局域网拓扑结构"></a>局域网拓扑结构</h3><p><img src="http://qiniuyun.lzfangwen.cn/blog/20200418/NE8p3jpibvgR.png" alt="mark"></p>
+<h3 id="局域网传输介质"><a href="#局域网传输介质" class="headerlink" title="局域网传输介质"></a>局域网传输介质</h3><blockquote>
+<ul>
+<li>有线局域网<ul>
+<li>常用介质：双绞线、同轴电缆、光纤</li>
+</ul>
+</li>
+<li>无限局域网<ul>
+<li>常用介质：电磁波</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h3 id="局域网介质访问控制方法"><a href="#局域网介质访问控制方法" class="headerlink" title="局域网介质访问控制方法"></a>局域网介质访问控制方法</h3><blockquote>
+<ol>
+<li><p>CSMA/CD     常用于<strong>总线型局域网</strong>，也用于树型网络</p>
+</li>
+<li><p>令牌总线       常用于<strong>总线型局域网</strong>,也用于树型网络</p>
+<p>​                       它是把总线型或树型网络中的各个工作站按一定顺序如按接口地址大小排列形成一个逻辑环。只有令牌持有者才能控制总线,才有发送信息的权力。</p>
+</li>
+<li><p>令牌环           用于<strong>环形局域网</strong>，如令牌环网</p>
+</li>
+</ol>
+</blockquote>
+<h3 id="局域网的分类"><a href="#局域网的分类" class="headerlink" title="局域网的分类"></a>局域网的分类</h3><blockquote>
+<ol>
+<li><strong>以太网</strong>    以太网是应用最为广泛的局域网,包括标准以太网(10Mbps)、快速以太网(100Mbps)千兆以太网(1000 Mbps)和10G以太网,它们都符合<strong>IEEE802.3</strong>系列标准规范。逻辑拓扑总线型,物理拓扑是星型或拓展星型。使用CSMA/CD.2</li>
+<li><strong>令牌环网</strong>   物理上采用了星形拓扑结构,逻辑上是环形拓扑结构。已是“明日黄花”。</li>
+<li><strong>FDDI网(Flber Distriburted Data Interface)</strong>      物理上采用了双环拓扑结构,逻辑上是环形拓扑结构。</li>
+<li><strong>ATM网(Asynchronous Transfer Mode)</strong>       较新型的单元交换技术,使用53字节固定长度的单元进行交换。</li>
+<li><strong>无线局域网(Wireless Local Area Network; WLAN)</strong>     采用<strong>IEEE 802.11标准</strong>。</li>
+</ol>
+</blockquote>
+<h3 id="IEEE-802标准"><a href="#IEEE-802标准" class="headerlink" title="IEEE 802标准"></a>IEEE 802标准</h3><blockquote>
+<p>EEE 802系列标准是IEEE 802 LAN/MAN标准委员会制定的局域网、城域网技术标准(1980年2月成立)。其中最广泛使用的有以太网、令牌环、无线局域网等。这一系列标准中的每一个子标准都由委员会中的一个,专门工作组负责。</p>
+</blockquote>
+<blockquote>
+<p>IEEE 802.3:以太网介质访问控制协议(CSMA/CD)及物理层技术规范</p>
+<p>IEEE 802.5 :令牌环网(Token-Ring)的介质访问控制协议及物理层技术规范。</p>
+<p>LEEE 802.8:光纤技术咨询组,提供有关光纤联网的技术咨询。</p>
+<p>IEEE 802.11:无线局城网(WLAN)的介质访问控制协议及物理层技术规范</p>
+</blockquote>
+<h3 id="MAC子层和LLC子层"><a href="#MAC子层和LLC子层" class="headerlink" title="MAC子层和LLC子层"></a>MAC子层和LLC子层</h3><blockquote>
+<p><strong>链路层的两个控制子层</strong></p>
+<p>IEEE 802标准所描述的局域网参考模型只对应OSI参考模型的<strong>数据链路层与物理层</strong>,它将数据链路层划分为逻辑链路层LLC子层和介质访问控制MAC子层。</p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200418/ihbhtJk2W8Of.png" alt="mark"></p>
+</blockquote>
+<h2 id="以太网"><a href="#以太网" class="headerlink" title="以太网"></a>以太网</h2><blockquote>
+<p>以太网(Ethernet)指的是由xerox公司创建并由Xerox, Intel和DEC公司联合开发的基带总线局域网规范,是当今域网采用的最通用的通信协议标准。以太网络使用CSMA/CD (载波监听多检测)技术。</p>
+</blockquote>
+<h3 id="以太网在局域网各种技术中占统治性地位"><a href="#以太网在局域网各种技术中占统治性地位" class="headerlink" title="以太网在局域网各种技术中占统治性地位:"></a><strong>以太网在局域网各种技术中占统治性地位:</strong></h3><blockquote>
+<ol>
+<li>造价低廉(以太网网卡不到10                                               块) ;</li>
+<li>是应用最广泛的局域网技术;</li>
+<li>比令牌环网、ATM网便宜,简单;</li>
+<li><strong>满足网络速率要求: 10Mb/s~10Gb/s.</strong></li>
+</ol>
+</blockquote>
+<h3 id="以太网两个标准"><a href="#以太网两个标准" class="headerlink" title="以太网两个标准"></a><strong>以太网两个标准</strong></h3><blockquote>
+<p>DIX Ethernet V2:第一个局域网产品(以太网)规约。</p>
+<p>IEE 802.3: IEE 802委员会802.3工作组制定的第一个IEE的以太网标准。(帧格式有一丢丢改动)</p>
+</blockquote>
+<p><strong>802.3局域网 AKA</strong> <strong>以太网</strong>[^1]</p>
+<p>[^1]: Also Known As”的缩写，意思是又名、亦称、也被称为</p>
+<h3 id="以太网提供无连接、不可靠的服务"><a href="#以太网提供无连接、不可靠的服务" class="headerlink" title="以太网提供无连接、不可靠的服务"></a><strong>以太网提供无连接、不可靠的服务</strong></h3><ul>
+<li><strong>无连接</strong>:发送方和接收方之间无“握手过程”。</li>
+<li><strong>不可靠</strong>:不对发送方的数据帧编号,接收方不向发送方进行确认,差错帧直接丢弃,差错纠正由高层负责。</li>
+<li>以太网只实现无差错接收,不实现可靠传输。</li>
+</ul>
+<h3 id="以太网传输介质与拓扑结构的发展"><a href="#以太网传输介质与拓扑结构的发展" class="headerlink" title="以太网传输介质与拓扑结构的发展"></a><strong>以太网传输介质与拓扑结构的发展</strong></h3><blockquote>
+<p>​                    粗同轴电缆—-&gt;细同轴电缆—–&gt;双绞线+集线器</p>
+<p>物理拓扑         总线型——————————&gt;星型</p>
+<blockquote>
+<p>使用集线器的以太网在逻辑上仍是一个总线网,</p>
+<p>各站共享逻辑上的总线,使用的还是CSMA/CD协议</p>
+<p>以太网拓扑:<strong>逻辑上总线型,物理上星型。</strong></p>
+</blockquote>
+</blockquote>
+<h3 id="10BASE-T以太网"><a href="#10BASE-T以太网" class="headerlink" title="10BASE-T以太网"></a><strong>10BASE-T以太网</strong></h3><blockquote>
+<p>10BASE-T是传送基带信号的双绞线以太网, T表示采用双绞线,现10BASE-T采用的是无屏蔽双绞线(UTP) ,传输速率是<strong>10Mb/s</strong></p>
+<p>物理上采用星型拓扑,逻辑上总线型,每段双绞线最长为100m。</p>
+<p>采用<strong>曼特斯特编码</strong></p>
+<p>采用CSMA/CA介质访问控制</p>
+</blockquote>
+<h3 id="适配器与MAC地址"><a href="#适配器与MAC地址" class="headerlink" title="适配器与MAC地址"></a><strong>适配器与MAC地址</strong></h3><blockquote>
+<p>计算机与外界有局域网的连接是通过<strong>通信适配器</strong>的。</p>
+<p>网络接口板</p>
+<p>网络接口卡NIC (network interface card)</p>
+<p>Now,不再使用单独网卡。</p>
+<p>适配器上装有处理器和存储器(包括RAM和ROM)</p>
+<p>ROM上有计算机硬件地址<strong>MAC地址</strong></p>
+<p>在局域网中,硬件地址又称为物理地址,或MAC地址。【实际上是标识符】</p>
+<p>MAC地址:每个适配器有一个全球唯一的48位二进制地址,前24位代表厂家(由IEEE规定),后24位厂家自己指定。常用6个十六进制数表示,如02-60-8c-e4-b1-21</p>
+</blockquote>
+<h3 id="以太网MAC帧"><a href="#以太网MAC帧" class="headerlink" title="以太网MAC帧"></a><strong>以太网MAC帧</strong></h3><blockquote>
+<p>最常用的MAC帧是以太网V2的格式</p>
+<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200418/KMROh3tLvfiA.png" alt="mark"></p>
+<p>与IEE 802.3的区别: 1.第三个字段是长度/类型2.当长度/类型字段值小于0x0600时,数据字段必须装入LLC子层。</p>
+</blockquote>
+<h3 id="高速以太网"><a href="#高速以太网" class="headerlink" title="高速以太网"></a><strong>高速以太网</strong></h3><blockquote>
+<p>速率2100Mb/s的以太网称为高速以太网。</p>
+<ol>
+<li><p><strong>100BASE-T以太网</strong></p>
+<p>在双绞线上传送100Mb/s基带信号的星型拓扑以太网,仍使用IEEE802.3的CSMA/CD协议。支持全双工和半双工，可在全双工方式下工作而无冲突。</p>
+</li>
+<li><p><strong>吉比特以太网</strong></p>
+<p>在光纤或双绞线上传送1Gb/s信号</p>
+<p>支持全双工和半双工，可在全双工方式下工作而无冲突。</p>
+</li>
+<li><p><strong>10吉比特</strong></p>
+<p>10吉比特以太网在光纤上传送10Gb/s信号。</p>
+<p>只支持全双工，无争用问题。</p>
+</li>
+</ol>
+</blockquote>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>计算机网络</category>
+      </categories>
+      <tags>
+        <tag>计算机网络</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>计算机网络-学习笔记5</title>
     <url>/lzfangwen.github.io/2020/04/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B05/</url>
     <content><![CDATA[<h2 id="信道划分介质访问控制"><a href="#信道划分介质访问控制" class="headerlink" title="信道划分介质访问控制"></a>信道划分介质访问控制</h2><a id="more"></a>
@@ -4402,367 +5682,6 @@ HttpServletRequest -- 接口
 <p>应用于令牌环网（物理星型拓扑，逻辑环形拓扑）。</p>
 <p>采用令牌传送方式的网络常用于<strong>负载较重、通信量较大</strong>的网络中。</p>
 <p><img src="http://qiniuyun.lzfangwen.cn/blog/20200418/pMVfBycSrE7i.png" alt="mark"></p>
-</blockquote>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
-      <categories>
-        <category>计算机网络</category>
-      </categories>
-      <tags>
-        <tag>计算机网络</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>计算机网络-学习笔记2</title>
-    <url>/lzfangwen.github.io/2020/04/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/</url>
-    <content><![CDATA[<h2 id="数据通信基础知识"><a href="#数据通信基础知识" class="headerlink" title="数据通信基础知识"></a>数据通信基础知识</h2><h3 id="典型的数据通信模型"><a href="#典型的数据通信模型" class="headerlink" title="典型的数据通信模型"></a>典型的数据通信模型</h3><p><img src="http://qiniuyun.lzfangwen.cn/blog/20200408/CPvLE6vyYds2.png" alt="mark"></p>
-<a id="more"></a>
-
-<h3 id="相关术语"><a href="#相关术语" class="headerlink" title="相关术语"></a>相关术语</h3><p>通信的目的是传送消息</p>
-<p><strong>数据</strong>:传送信息的实体,通常是有意义的符号序列。</p>
-<p><strong>信号</strong>:数据的电气/电磁的表现,是数据在传输过程中的存在形式。</p>
-<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200408/N1nHo1I7kInr.png" alt="mark"></p>
-<p><strong>信源</strong>:产生和发送数据的源头。</p>
-<p><strong>信宿</strong>:接收数据的终点。</p>
-<p><strong>信道</strong>:信号的传输媒介。一般用来表示向某一个方向传送信息的介质,因此一条通信线路往往包含一条发送信道和一条接收信道。</p>
-<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200408/lJeU3FYMQMf8.png" alt="mark"></p>
-<h3 id="三种通信方式"><a href="#三种通信方式" class="headerlink" title="三种通信方式"></a>三种通信方式</h3><p>从通信双方信息的交换方式看，可以有三种基本方式：</p>
-<ol>
-<li><strong>单工通信</strong>：只有一个方向的通信而没有反方向的交互,仅需要<strong>一条</strong>信道。</li>
-<li><strong>半双工通信</strong>：通信的双方都可以发送或接收信息,但任何一方都不能同时发送和接收,需要<strong>两条</strong>信道。</li>
-<li><strong>全双工通信</strong>：通信双方可以同时发送和接受信息,也需要<strong>两条</strong>信道。</li>
-</ol>
-<h3 id="两种数据传输方式"><a href="#两种数据传输方式" class="headerlink" title="两种数据传输方式"></a>两种数据传输方式</h3><ol>
-<li><p><strong>串行传输</strong>：速度<strong>慢</strong>，费用<strong>低</strong>，适合<strong>远</strong>距离</p>
-</li>
-<li><p><strong>并行传输</strong>：速度<strong>快</strong>，费用<strong>高</strong>，适合<strong>近</strong>距离</p>
-<p>​                    用于计算机内部数据传输（电脑上的井口 就为并行传输）</p>
-</li>
-</ol>
-<h3 id="码元"><a href="#码元" class="headerlink" title="码元"></a>码元</h3><p><strong>码元</strong>是指用一个固定时长的信号波形(数字脉冲) ,代表不同离散数值的基本波形,是数字通信中数字信号的计量单位,这个时长内的信号称为k进制码元,而该时长称为码元宽度。当码元的离散状态有M个时(M大于2) ,此时码元为M进制码元。</p>
-<p>1码元可以携带多个比特的信息量。例如,在使用二进制编码时,只有两种不同的码元,一种代表0状态,另一种代表1状态</p>
-<h3 id="速率、波特、带宽"><a href="#速率、波特、带宽" class="headerlink" title="速率、波特、带宽"></a>速率、波特、带宽</h3><p><strong>速率</strong>也叫数据率,是指数据的<strong>传输速率</strong>,表示单位时间内传输的数据量。可以用<strong>码元传输速</strong>率和<strong>信息传输速率</strong>表示</p>
-<ul>
-<li><strong>码元传输速率</strong>:别名码元速率、波形速率、调制速率、符号速率等,它表示单位时间内数字通信系统所传输的码元个数(也可称为脉冲个数或信号变化的次数) ,单位是<strong>波特(Baud)</strong> 。 1波特表示数字通信系统每秒传输一个码元。这里的码元可以是多进制的,也可以是二进制的,但码元速率与进制数无关。====</li>
-<li><strong>信息传输速率</strong>:别名信息速率、比特率等,表示单位时间内数字通信系统传输的二进制码元个数(即比特数)·单位是比特/秒(b/s) 。</li>
-</ul>
-<p>关系:若一个码元携带n bit的信息量,则MBaud的码元传输速率所对应的信息传输速率为MXn bit/s。</p>
-<p>带宽:表示在单位时间内从网络中的某一点到另一点所能通过的“<strong>最高数据率</strong>” ,常用来表示网络的通信线路所能输数据的能力。单位是b/s </p>
-<h4 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h4><p>某一数字通信系统传输的是四进制码元,4s传输了8000个码元,求系统的码元传输速率是多·少?信息传输速率是多少?若另一通信系统传输的是十六进制码元,6s传输了7200个码元,求他的码元传输速率是多少?信息传输速率是多少?并指出哪个系统传输速率快?</p>
-<blockquote>
-<p>2000波特    4000b/s    1200波特    4800b/s    十六进制最快</p>
-<p>四进制码元系统</p>
-<p>码元传输速率就是8000/4-2000Baud,信息传输速率就是20001log24=4000b/s</p>
-<p>十六进制码元系统</p>
-<p>码元传输速率就是7200/6-1200Baud,信息传输速率就是1200*10g216-4800b/s</p>
-<p>系统传输的是<strong>比特流</strong>,通常比较的是信息传输速率,所以传输十六进制码元的通信系统传输速率较快,如果用该系统去传输四进制码元会有更高的码元传输速率。</p>
-</blockquote>
-<h2 id="奈式准则-amp-香农定理"><a href="#奈式准则-amp-香农定理" class="headerlink" title="奈式准则&amp;香农定理"></a>奈式准则&amp;香农定理</h2><h3 id="失真"><a href="#失真" class="headerlink" title="失真"></a>失真</h3><p><img src="http://qiniuyun.lzfangwen.cn/blog/20200408/l7i9Y8YJXplH.png" alt="mark"></p>
-<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200408/Npx9FIGhDJRS.png" alt="mark"></p>
-<h3 id="奈式准则（奈奎斯特定理）"><a href="#奈式准则（奈奎斯特定理）" class="headerlink" title="奈式准则（奈奎斯特定理）"></a>奈式准则（奈奎斯特定理）</h3><p><strong>奈氏准则</strong>:在理想低通(无噪声,带宽受限)条件下,为了避免码间串扰,极限码元传输速率为2W Baud, w是信道带宽，单位是Hz。</p>
-<p><strong>只有这两个公式 带宽才用Hz</strong></p>
-<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200408/TOqH4IK30nC0.png" alt="mark"></p>
-<ol>
-<li>在任何信道中,<strong>码元传输的速率是有上限的</strong>。若传输速率超过此上限,就会出现严重的码间串扰问题,使接收端对码元的完全正确识别成为不可能。</li>
-<li>信道的频带越宽(即能通过的信号高频分量越多) ,就可以用更高的速率进行码元的有效传输。</li>
-<li><strong>奈氏准则给出了码元传输速率的限制,但并没有对信息传输速率给出限制。</strong></li>
-<li>由于码元的传输速率受奈氏准则的制约,所以要提高数据的传输速率,就必须设法使每个码元能携带更多个比特的信息量,这就需要采用多元制的调制方法</li>
-</ol>
-<p>eg.</p>
-<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200408/WW0KKr5lKwp1.png" alt="mark"></p>
-<h3 id="香农定理"><a href="#香农定理" class="headerlink" title="香农定理"></a>香农定理</h3><p>噪声存在于所有的电子设备和通信信道中。由于噪声随机产生,它的瞬时值有时会很大,因此噪声会使接收端对码元的判决产生错误。但是噪声的影响是相对的,若信号较强,那么噪声影响相对较小。因此,信噪比就很重要。<strong>信噪比=信号的平均功率/噪声的平均功率,常记为S/N,并用分贝(dB)作为度量单位</strong>,</p>
-<p><strong>即:信噪比（dB）$$=10\log_{10}（S/N）$$ 数值等价</strong></p>
-<p><strong>香农定理</strong>:在带宽受限且有噪声的信道中,为了不产生误差,信息的数据传输速率有上限值</p>
-<p><strong>信道的极限数据传输速率=$Wlog_2(1+S/N) (b/s)$ ，其中W指带宽（Hz）</strong></p>
-<ol>
-<li>信道的带宽或信道中的信噪比越大,则信息的极限传输速率就越高。</li>
-<li>对一定的传输带宽和一定的信噪比,信息传输速率的上限就确定了。</li>
-<li>只要信息的传输速率低于信道的极限传输速率,就一定能找到某种方法来实现无差错的传输。</li>
-<li>香农定理得出的为极限信息传输速率,实际信道能达到的传输速率要比它低不少。</li>
-<li>从香农定理可以看出,若信道带宽W或信噪比S/N没有上限(不可能) ,那么信道的极限信息传输速率也就没有上限。</li>
-</ol>
-<p>eg.</p>
-<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200408/mq9HLO75vfiL.png" alt="mark"></p>
-<h3 id="“nice”和“香浓”"><a href="#“nice”和“香浓”" class="headerlink" title="“nice”和“香浓”"></a>“nice”和“香浓”</h3><p><img src="http://qiniuyun.lzfangwen.cn/blog/20200408/7GoI2OdlQyxj.png" alt="mark"></p>
-<h2 id="编码与调制"><a href="#编码与调制" class="headerlink" title="编码与调制"></a>编码与调制</h2><h3 id="基带信号与宽带信号"><a href="#基带信号与宽带信号" class="headerlink" title="基带信号与宽带信号"></a>基带信号与宽带信号</h3><p><strong>信道</strong>:信号的传输媒介。一般用来表示向某一个方向传送信息的介质,因此一条通信线路往往包含条发送信道和一条接收信道。</p>
-<ul>
-<li>传输信号：<ul>
-<li>模拟信道(传送模拟信号)</li>
-<li>数字信道(传送数字信号)</li>
-</ul>
-</li>
-<li>传输介质：<ul>
-<li>无线信道 </li>
-<li>有线信道</li>
-</ul>
-</li>
-</ul>
-<p>信道上传送的信号</p>
-<ul>
-<li><p><strong>基带信号</strong></p>
-<p>将数字信号1和0直接用两种不同的电压表示,再送到<strong>数字信道</strong>上去传输(<strong>基带传输</strong>)。来自信源的信号,像计算机输出的代表各种文字或图像文件的数据信号都属于基带信号。基带信号就是发出的直接表达了要传输的信息的信号,比如我们说话的声波就是基带信号</p>
-</li>
-<li><p><strong>宽带信号</strong></p>
-<p>将基带信号进行调制后形成的频分复用模拟信号,再传送到<strong>模拟信道</strong>上去传输(<strong>宽带传输</strong>).,把基带信号经过载波调制后,把信号的频率范围搬移到较高的频段以便在信道中传输(即仅频率范围内能够通过信道)</p>
-</li>
-</ul>
-<p>在传输距离较<strong>近</strong>时,计算机网络采用<strong>基带传输</strong>方式(近距离衰减小,从而信号内容不易发生变化)</p>
-<p>在传输距离较<strong>远</strong>时,计算机网络采用<strong>宽带传输</strong>方式(远距离衰减大,即使信号变化大也能最后过滤出来基带信号)</p>
-<h3 id="编码与调制-1"><a href="#编码与调制-1" class="headerlink" title="编码与调制"></a>编码与调制</h3><p><img src="http://qiniuyun.lzfangwen.cn/blog/20200408/EB69RsCbxxVX.png" alt="mark"></p>
-<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200408/jMO7XCoQ8wVv.png" alt="mark"></p>
-<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200408/UEnmhshwNlcK.png" alt="mark"></p>
-<h3 id="数字数据编码为数字信号"><a href="#数字数据编码为数字信号" class="headerlink" title="数字数据编码为数字信号"></a>数字数据编码为数字信号</h3><ul>
-<li><strong>非归零编码【NRZ】</strong><ul>
-<li><strong>高1低0</strong>    编码容易实现,但没有检错功能且无法判断一个码元的开始和结束,”以至于<strong>收发双方难以保持同步</strong>。</li>
-</ul>
-</li>
-<li>归零编码【RZ】<ul>
-<li>信号电平在一个码元之内都要恢夏到零的这种编码成编码方式。</li>
-</ul>
-</li>
-<li>反向不归零编码【NRZI】<ul>
-<li>信号电平翻转表示0,信号电平不变表示1.</li>
-</ul>
-</li>
-<li><strong>曼切斯特编码</strong><ul>
-<li>将一个码元分成两个相等的间隔,前一个间隔为低电平后一个间隔为高电平表示码元1;码元0则正好相反。也可以采用相反的规定。该编码的特点是在每一个码元的中间出现电平跳变,位中间的跳变既作时钟信号(可用于同步)又作数据信号,但它所占的频带宽度是原始的基带宽度的两倍。每一个码元都被调成两个电平,所以数据传输速率只有调制速率的$1/2$</li>
-</ul>
-</li>
-<li><strong>差分曼切斯特编码</strong><ul>
-<li><strong>同1异0</strong>    常用于局域网传输,其规则是:若码元为1,则前半个码元的电平与上一个码元的后半个码元的电,平相同,若为0,则相反。该编码的特点是,在每个码元的中间,都有一次电平的跳转,可以实现自同步,且抗干扰性强于曼彻斯特编码</li>
-</ul>
-</li>
-<li>4B/5B编码<ul>
-<li>比特流中插入额外的比特以打破-连串的0或1,就是用5个比特来编码4个比特的数据,之后再传给接收方,因此称为4B/5B,编码效率为80%</li>
-</ul>
-</li>
-</ul>
-<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200408/BTyfKLsdSerN.png" alt="mark"></p>
-<h3 id="数字数据调制为模拟信号"><a href="#数字数据调制为模拟信号" class="headerlink" title="数字数据调制为模拟信号"></a>数字数据调制为模拟信号</h3><p>数字数据调制技术在发送端将数字信号转换为模拟信号,而在接收端将模拟信号还原为数字信号,分别对应于调制解调器的调制和解调过程。</p>
-<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200408/3dNDqruxdEjR.png" alt="mark"></p>
-<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200408/iOr7w6xHyQuX.png" alt="mark"></p>
-<p>​                    1200*4=4800b/s</p>
-<h3 id="模拟数据编码为数字信号"><a href="#模拟数据编码为数字信号" class="headerlink" title="模拟数据编码为数字信号"></a>模拟数据编码为数字信号</h3><p>计算机内部处理的是二进制数据,处理的都是数字音频,所以需要将模拟音频通过采样、量化转换成有限个数字表示的离散序列(即实现<strong>音频数字化</strong>)</p>
-<p>最典型的例子就是对音频信号进行编码的脉码调制(<strong>PCM</strong>) ,在计算机应用中,能够达到<strong>最高保真水平</strong>的就是PCM编码,被广泛用于素材保存及音乐欣赏, CD,DVD以及我们常见的WAV文件中均有应用。它主要包括三步:抽样、量化、编码。</p>
-<ol>
-<li><p><strong>抽样</strong>:对模拟信号周期性扫描,把时间上连续的信号变成时间上离散的信号。为了使所得的离散信号能无失真地代表被抽样的模拟数据,要使用采样定理进行采样: </p>
-<p>​                            $$f_{采样频率} \geq f{信号最高频率}$$</p>
-</li>
-<li><p><strong>量化</strong>:把抽样取得的电平幅值按照一定的分级标度转化为对应的数字值,并取整数,这就把连续的电平幅值转换为离散的数字量。</p>
-</li>
-<li><p><strong>编码</strong>:把量化的结果转换为与之对应的二进制编码。</p>
-</li>
-</ol>
-<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200408/SAmVCiJaaMat.png" alt="mark"></p>
-<h3 id="模拟数据调制为模拟信号"><a href="#模拟数据调制为模拟信号" class="headerlink" title="模拟数据调制为模拟信号"></a>模拟数据调制为模拟信号</h3><p>为了实现传输的有效性,可能需要较高的频率。这种调制方式还可以使用<strong>频分复用技术</strong>,充分利用带宽资源。在电话机和本地交换机所传输的信号是采用模拟信号传输模拟数据的方式;模拟的声音数据是加载到模拟的载波信号中传输的。</p>
-<h2 id="物理层传输介质"><a href="#物理层传输介质" class="headerlink" title="物理层传输介质"></a>物理层传输介质</h2><p>传输介质也称传输媒体/传输媒介,它就是数据传输系统中在发送设备和接收设备之间的<strong>物理通路</strong>。</p>
-<p><strong>传输媒体并不是物理层</strong>。传输媒体在物理层的下面,因为物理层是体系结构的第一层,因此有时称传输媒体为0层。在传输媒体中传输的是信号,但传输媒体并不知道所传输的信号代表什么意思。但物理层规定了<strong>电气特性</strong>,因此能够识别所传送的比特流。</p>
-<p>传输介质</p>
-<ul>
-<li>导向性传输介质：电磁波被导向沿着固体媒介(铜线/光纤)传播。</li>
-<li>非导向性传输介质：自由空间,介质可以是空气、真空、海水等。</li>
-</ul>
-<h3 id="双绞线"><a href="#双绞线" class="headerlink" title="双绞线"></a>双绞线</h3><p><img src="http://qiniuyun.lzfangwen.cn/blog/20200408/pz2JCTyqoQ07.png" alt="mark"></p>
-<h3 id="同轴电缆"><a href="#同轴电缆" class="headerlink" title="同轴电缆"></a>同轴电缆</h3><p>同轴电缆由<strong>导体铜质芯线</strong>、<strong>绝缘层</strong>、<strong>网状编织屏蔽层</strong>和<strong>塑料外层</strong>构成。按特性阻抗数值的不同,通常将同轴电缆分,为两类: 502同轴电缆和750同轴电缆。其中, 502同轴电缆主要用于传送基带数字信号,又称为<strong>基带同轴电缆</strong>,它在局域网中得到广泛应用; 752同轴电缆主要用于传送宽带信号,又称为<strong>宽带同轴电缆</strong>,它主要用于有线电视系统。</p>
-<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200408/53J7HgEVjXB1.png" alt="mark"></p>
-<h3 id="光纤"><a href="#光纤" class="headerlink" title="光纤"></a>光纤</h3><p>光纤通信就是利用光导纤维(简称光纤)传递<strong>光脉冲</strong>来进行通信。有光脉冲表示1,无光脉冲表示0。而可见光的频率大约是$10^8$MHz,因此光纤通信系统的<strong>带宽远远大于</strong>目前其他各种传输媒体的带宽。</p>
-<p>光纤在发送端有光源,可以采用发光二极管或半导体激光器,它们在电脉冲作用下能产生出光脉冲;在接收端用光电二极管做成光检测器,在检测到光脉冲时可还原出电脉冲。</p>
-<p>光纤主要由<strong>纤芯(实心的</strong>! )和包层构成,光波通过纤芯进行传导,包层较纤芯有较低的折射率。当光线从高折射率的介质射向低折射率的介质时,其折射角将大于入射角。因此,如果入射角足够大,就会出现全反射,即光线碰到包层时候就会折射回纤芯、这个过程不断重复,光也就沿着光纤传输下去。</p>
-<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200408/pzDmg5D4j8C4.png" alt="mark"></p>
-<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200408/Gw2xKokbrzAj.png" alt="mark">光纤的特点：</p>
-<ol>
-<li>传输损耗小,中继距离长,对远距离传输特别经济。</li>
-<li>抗雷电和电磁干扰性能好。</li>
-<li>无串音干扰,保密性好,也不易被窃听或截取数据。</li>
-<li>体积小,重量轻。</li>
-</ol>
-<h3 id="非导向性传输介质"><a href="#非导向性传输介质" class="headerlink" title="非导向性传输介质"></a>非导向性传输介质</h3><p><img src="http://qiniuyun.lzfangwen.cn/blog/20200408/pjRfo1QlRkMJ.png" alt="mark"></p>
-<h2 id="物理层设备"><a href="#物理层设备" class="headerlink" title="物理层设备"></a>物理层设备</h2><h3 id="中继器"><a href="#中继器" class="headerlink" title="中继器"></a>中继器</h3><p><strong>诞生原因</strong>:由于存在损耗,在线路上传输的信号功率会逐渐衰减,衰减到一定程度时将造成信号失真,因此会导致接收错误。</p>
-<p><strong>中继器的功能</strong>:对信号进行<strong>再生和还原</strong>,对衰减的信号进行放大,保持与原数据相同,以增加信号传输的距离,延长网络的长度。</p>
-<p>​                                        <strong>再生数字信号</strong></p>
-<p><strong>中继器的两端</strong>:</p>
-<ul>
-<li>两端的网络部分是网段,而不是子网,适用于完全相同的<strong>两类</strong>网络的互连,且两个网段速率要相同。</li>
-<li>中继器只将任何电缆段上的数据发送到另一段电缆上,它仅作用于信号的电气部分,并不管数据中是否有错误数据或不适于网段的数据。</li>
-<li>两端可连相同媒体,也可连不同媒体。</li>
-<li>中继器两端的网段一定要是同一个协议。(中继器不会存储转发,傻)</li>
-</ul>
-<p><strong>5-4-3规则</strong>:网络标准中都对信号的延迟范围作了具体的规定,因而中继器只能在规定的范围内进行,否则会网络故障</p>
-<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200408/AhOklmr7g2ph.png" alt="mark"></p>
-<h3 id="集线器（多口中继器）"><a href="#集线器（多口中继器）" class="headerlink" title="集线器（多口中继器）"></a>集线器（多口中继器）</h3><p><strong>集线器的功能</strong>:对信号进行再生<strong>放大转发</strong>,对衰减的信号进行放大,接着转发到其他所有(除输入端口外)处于工作状态的端口上,以增加信号传输的距离,延长网络的长度。不具备信号的定向传送能力,是一个共享式设备。</p>
-<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200409/BkEofHpp8S9K.png" alt="mark"></p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
-      <categories>
-        <category>计算机网络</category>
-      </categories>
-      <tags>
-        <tag>计算机网络</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>计算机网络-学习笔记6</title>
-    <url>/lzfangwen.github.io/2020/04/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B06/</url>
-    <content><![CDATA[<h2 id="局域网基本概念和体系结构"><a href="#局域网基本概念和体系结构" class="headerlink" title="局域网基本概念和体系结构"></a>局域网基本概念和体系结构</h2><blockquote>
-<p>局域网(Local Area Network) :简称<strong>LAN</strong>,是指在某一区域内由多台计算机互联成的计算机组,使用<strong>广播信道</strong>。</p>
-<ul>
-<li>覆盖的地理范围较小,只在一个相对独立的局部范围内联,如一座或集中的建筑群内。</li>
-<li>使用专门铺设的传输介质(双绞线、同轴电缆)进行联网,数据传输高(10Mb/s~10Gb/s)</li>
-<li>通信延迟时间短,误码率低,可靠性较高。</li>
-<li>各站为平等关系,共享传输信道。</li>
-</ul>
-<p>决定局域网的主要要素为:<strong>网络拓扑</strong>,<strong>传输介质</strong>与<strong>介质访问控制方法</strong>。</p>
-</blockquote>
-<a id="more"></a>
-
-<h3 id="局域网拓扑结构"><a href="#局域网拓扑结构" class="headerlink" title="局域网拓扑结构"></a>局域网拓扑结构</h3><p><img src="http://qiniuyun.lzfangwen.cn/blog/20200418/NE8p3jpibvgR.png" alt="mark"></p>
-<h3 id="局域网传输介质"><a href="#局域网传输介质" class="headerlink" title="局域网传输介质"></a>局域网传输介质</h3><blockquote>
-<ul>
-<li>有线局域网<ul>
-<li>常用介质：双绞线、同轴电缆、光纤</li>
-</ul>
-</li>
-<li>无限局域网<ul>
-<li>常用介质：电磁波</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<h3 id="局域网介质访问控制方法"><a href="#局域网介质访问控制方法" class="headerlink" title="局域网介质访问控制方法"></a>局域网介质访问控制方法</h3><blockquote>
-<ol>
-<li><p>CSMA/CD     常用于<strong>总线型局域网</strong>，也用于树型网络</p>
-</li>
-<li><p>令牌总线       常用于<strong>总线型局域网</strong>,也用于树型网络</p>
-<p>​                       它是把总线型或树型网络中的各个工作站按一定顺序如按接口地址大小排列形成一个逻辑环。只有令牌持有者才能控制总线,才有发送信息的权力。</p>
-</li>
-<li><p>令牌环           用于<strong>环形局域网</strong>，如令牌环网</p>
-</li>
-</ol>
-</blockquote>
-<h3 id="局域网的分类"><a href="#局域网的分类" class="headerlink" title="局域网的分类"></a>局域网的分类</h3><blockquote>
-<ol>
-<li><strong>以太网</strong>    以太网是应用最为广泛的局域网,包括标准以太网(10Mbps)、快速以太网(100Mbps)千兆以太网(1000 Mbps)和10G以太网,它们都符合<strong>IEEE802.3</strong>系列标准规范。逻辑拓扑总线型,物理拓扑是星型或拓展星型。使用CSMA/CD.2</li>
-<li><strong>令牌环网</strong>   物理上采用了星形拓扑结构,逻辑上是环形拓扑结构。已是“明日黄花”。</li>
-<li><strong>FDDI网(Flber Distriburted Data Interface)</strong>      物理上采用了双环拓扑结构,逻辑上是环形拓扑结构。</li>
-<li><strong>ATM网(Asynchronous Transfer Mode)</strong>       较新型的单元交换技术,使用53字节固定长度的单元进行交换。</li>
-<li><strong>无线局域网(Wireless Local Area Network; WLAN)</strong>     采用<strong>IEEE 802.11标准</strong>。</li>
-</ol>
-</blockquote>
-<h3 id="IEEE-802标准"><a href="#IEEE-802标准" class="headerlink" title="IEEE 802标准"></a>IEEE 802标准</h3><blockquote>
-<p>EEE 802系列标准是IEEE 802 LAN/MAN标准委员会制定的局域网、城域网技术标准(1980年2月成立)。其中最广泛使用的有以太网、令牌环、无线局域网等。这一系列标准中的每一个子标准都由委员会中的一个,专门工作组负责。</p>
-</blockquote>
-<blockquote>
-<p>IEEE 802.3:以太网介质访问控制协议(CSMA/CD)及物理层技术规范</p>
-<p>IEEE 802.5 :令牌环网(Token-Ring)的介质访问控制协议及物理层技术规范。</p>
-<p>LEEE 802.8:光纤技术咨询组,提供有关光纤联网的技术咨询。</p>
-<p>IEEE 802.11:无线局城网(WLAN)的介质访问控制协议及物理层技术规范</p>
-</blockquote>
-<h3 id="MAC子层和LLC子层"><a href="#MAC子层和LLC子层" class="headerlink" title="MAC子层和LLC子层"></a>MAC子层和LLC子层</h3><blockquote>
-<p><strong>链路层的两个控制子层</strong></p>
-<p>IEEE 802标准所描述的局域网参考模型只对应OSI参考模型的<strong>数据链路层与物理层</strong>,它将数据链路层划分为逻辑链路层LLC子层和介质访问控制MAC子层。</p>
-<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200418/ihbhtJk2W8Of.png" alt="mark"></p>
-</blockquote>
-<h2 id="以太网"><a href="#以太网" class="headerlink" title="以太网"></a>以太网</h2><blockquote>
-<p>以太网(Ethernet)指的是由xerox公司创建并由Xerox, Intel和DEC公司联合开发的基带总线局域网规范,是当今域网采用的最通用的通信协议标准。以太网络使用CSMA/CD (载波监听多检测)技术。</p>
-</blockquote>
-<h3 id="以太网在局域网各种技术中占统治性地位"><a href="#以太网在局域网各种技术中占统治性地位" class="headerlink" title="以太网在局域网各种技术中占统治性地位:"></a><strong>以太网在局域网各种技术中占统治性地位:</strong></h3><blockquote>
-<ol>
-<li>造价低廉(以太网网卡不到10                                               块) ;</li>
-<li>是应用最广泛的局域网技术;</li>
-<li>比令牌环网、ATM网便宜,简单;</li>
-<li><strong>满足网络速率要求: 10Mb/s~10Gb/s.</strong></li>
-</ol>
-</blockquote>
-<h3 id="以太网两个标准"><a href="#以太网两个标准" class="headerlink" title="以太网两个标准"></a><strong>以太网两个标准</strong></h3><blockquote>
-<p>DIX Ethernet V2:第一个局域网产品(以太网)规约。</p>
-<p>IEE 802.3: IEE 802委员会802.3工作组制定的第一个IEE的以太网标准。(帧格式有一丢丢改动)</p>
-</blockquote>
-<p><strong>802.3局域网 AKA</strong> <strong>以太网</strong>[^1]</p>
-<p>[^1]: Also Known As”的缩写，意思是又名、亦称、也被称为</p>
-<h3 id="以太网提供无连接、不可靠的服务"><a href="#以太网提供无连接、不可靠的服务" class="headerlink" title="以太网提供无连接、不可靠的服务"></a><strong>以太网提供无连接、不可靠的服务</strong></h3><ul>
-<li><strong>无连接</strong>:发送方和接收方之间无“握手过程”。</li>
-<li><strong>不可靠</strong>:不对发送方的数据帧编号,接收方不向发送方进行确认,差错帧直接丢弃,差错纠正由高层负责。</li>
-<li>以太网只实现无差错接收,不实现可靠传输。</li>
-</ul>
-<h3 id="以太网传输介质与拓扑结构的发展"><a href="#以太网传输介质与拓扑结构的发展" class="headerlink" title="以太网传输介质与拓扑结构的发展"></a><strong>以太网传输介质与拓扑结构的发展</strong></h3><blockquote>
-<p>​                    粗同轴电缆—-&gt;细同轴电缆—–&gt;双绞线+集线器</p>
-<p>物理拓扑         总线型——————————&gt;星型</p>
-<blockquote>
-<p>使用集线器的以太网在逻辑上仍是一个总线网,</p>
-<p>各站共享逻辑上的总线,使用的还是CSMA/CD协议</p>
-<p>以太网拓扑:<strong>逻辑上总线型,物理上星型。</strong></p>
-</blockquote>
-</blockquote>
-<h3 id="10BASE-T以太网"><a href="#10BASE-T以太网" class="headerlink" title="10BASE-T以太网"></a><strong>10BASE-T以太网</strong></h3><blockquote>
-<p>10BASE-T是传送基带信号的双绞线以太网, T表示采用双绞线,现10BASE-T采用的是无屏蔽双绞线(UTP) ,传输速率是<strong>10Mb/s</strong></p>
-<p>物理上采用星型拓扑,逻辑上总线型,每段双绞线最长为100m。</p>
-<p>采用<strong>曼特斯特编码</strong></p>
-<p>采用CSMA/CA介质访问控制</p>
-</blockquote>
-<h3 id="适配器与MAC地址"><a href="#适配器与MAC地址" class="headerlink" title="适配器与MAC地址"></a><strong>适配器与MAC地址</strong></h3><blockquote>
-<p>计算机与外界有局域网的连接是通过<strong>通信适配器</strong>的。</p>
-<p>网络接口板</p>
-<p>网络接口卡NIC (network interface card)</p>
-<p>Now,不再使用单独网卡。</p>
-<p>适配器上装有处理器和存储器(包括RAM和ROM)</p>
-<p>ROM上有计算机硬件地址<strong>MAC地址</strong></p>
-<p>在局域网中,硬件地址又称为物理地址,或MAC地址。【实际上是标识符】</p>
-<p>MAC地址:每个适配器有一个全球唯一的48位二进制地址,前24位代表厂家(由IEEE规定),后24位厂家自己指定。常用6个十六进制数表示,如02-60-8c-e4-b1-21</p>
-</blockquote>
-<h3 id="以太网MAC帧"><a href="#以太网MAC帧" class="headerlink" title="以太网MAC帧"></a><strong>以太网MAC帧</strong></h3><blockquote>
-<p>最常用的MAC帧是以太网V2的格式</p>
-<p><img src="http://qiniuyun.lzfangwen.cn/blog/20200418/KMROh3tLvfiA.png" alt="mark"></p>
-<p>与IEE 802.3的区别: 1.第三个字段是长度/类型2.当长度/类型字段值小于0x0600时,数据字段必须装入LLC子层。</p>
-</blockquote>
-<h3 id="高速以太网"><a href="#高速以太网" class="headerlink" title="高速以太网"></a><strong>高速以太网</strong></h3><blockquote>
-<p>速率2100Mb/s的以太网称为高速以太网。</p>
-<ol>
-<li><p><strong>100BASE-T以太网</strong></p>
-<p>在双绞线上传送100Mb/s基带信号的星型拓扑以太网,仍使用IEEE802.3的CSMA/CD协议。支持全双工和半双工，可在全双工方式下工作而无冲突。</p>
-</li>
-<li><p><strong>吉比特以太网</strong></p>
-<p>在光纤或双绞线上传送1Gb/s信号</p>
-<p>支持全双工和半双工，可在全双工方式下工作而无冲突。</p>
-</li>
-<li><p><strong>10吉比特</strong></p>
-<p>10吉比特以太网在光纤上传送10Gb/s信号。</p>
-<p>只支持全双工，无争用问题。</p>
-</li>
-</ol>
 </blockquote>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -5932,924 +6851,6 @@ A(差错或异常报告/网络探询) --&gt;B(发送特定ICMP报文)</pre>
       </categories>
       <tags>
         <tag>计算机网络</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JDBC笔记</title>
-    <url>/lzfangwen.github.io/2020/07/03/JDBC%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<a id="more"></a>
-
-<h1 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h1><p>概念：Java DateBase Connectivity   Java数据库连接</p>
-<p><strong>本质</strong>：其实是官方（sun公司）定义的一套操作所有关系型数据库的规则，即接口。各个数据库厂商去实现这套接口，提供数据库驱动jar包。我们可以使用这套接口（JDBC）编程，真正执行的代码是驱动jar包中的实现类。</p>
-<h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><ol>
-<li>导入驱动jar包<ol>
-<li>复制mysql-connector-java-5.1.37-bin.jar到项目的libs目录下</li>
-<li>右键–&gt;Add As Library</li>
-</ol>
-</li>
-<li>注册驱动</li>
-<li>获取数据库连接对象 Connection</li>
-<li>定义sql</li>
-<li>获取执行sql语句的对象 Statement</li>
-<li>执行sql，接受返回结果</li>
-<li>处理结果</li>
-<li>释放资源</li>
-</ol>
-<pre><code class="java">//代码实现：
-          //1. 导入驱动jar包
-        //2.注册驱动
-        Class.forName("com.mysql.jdbc.Driver");
-        //3.获取数据库连接对象
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db3", "root", "root");
-        //4.定义sql语句
-        String sql = "update account set balance = 500 where id = 1";
-        //5.获取执行sql的对象 Statement
-        Statement stmt = conn.createStatement();
-        //6.执行sql
-        int count = stmt.executeUpdate(sql);
-        //7.处理结果
-        System.out.println(count);
-        //8.释放资源
-        stmt.close();
-        conn.close();</code></pre>
-<h2 id="详解各个对象"><a href="#详解各个对象" class="headerlink" title="详解各个对象"></a>详解各个对象</h2><h3 id="DriverManager：驱动管理对象"><a href="#DriverManager：驱动管理对象" class="headerlink" title="DriverManager：驱动管理对象"></a><strong>DriverManager：驱动管理对象</strong></h3><ul>
-<li><p>功能：</p>
-<ol>
-<li><p>注册驱动：告诉程序该使用哪一个数据库驱动jar<br> <code>static void registerDriver(Driver driver)</code> :注册与给定的驱动程序 DriverManager 。<br> 写代码使用：  <code>Class.forName("com.mysql.jdbc.Driver");</code><br> 通过查看源码发现：在com.mysql.jdbc.Driver类中存在静态代码块</p>
-<pre><code class="java">  static {
-         try {
-             java.sql.DriverManager.registerDriver(new Driver());
-         } catch (SQLException E) {
-             throw new RuntimeException("Can't register driver!");
- }
-     }</code></pre>
-<p> 注意：mysql5之后的驱动jar包可以省略注册驱动的步骤。</p>
-</li>
-<li><p>获取数据库连接：</p>
-<ul>
-<li>方法：<code>static Connection getConnection(String url, String user, String password)</code> </li>
-<li>参数：<ul>
-<li>url：指定连接的路径<ul>
-<li>语法：jdbc:mysql://ip地址(域名):端口号/数据库名称</li>
-<li>例子：jdbc:mysql://localhost:3306/db3</li>
-<li>细节：如果连接的是本机mysql服务器，并且mysql服务默认端口是3306，则url可以简写为：jdbc:mysql:///数据库名称</li>
-</ul>
-</li>
-<li>user：用户名</li>
-<li>password：密码 </li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-</li>
-</ul>
-<h3 id="Connection：数据库连接对象"><a href="#Connection：数据库连接对象" class="headerlink" title="Connection：数据库连接对象"></a><strong>Connection：数据库连接对象</strong></h3><ol>
-<li>功能：<pre><code> 1. 获取执行sql 的对象
-     * `Statement createStatement()`
- * `PreparedStatement prepareStatement(String sql)`  </code></pre><ol start="2">
-<li>管理事务：<ul>
-<li>开启事务：<code>setAutoCommit(boolean autoCommit)</code> ：调用该方法设置参数为false，即开启事务</li>
-<li>提交事务：<code>commit()</code> </li>
-<li>回滚事务：<code>rollback()</code> </li>
-</ul>
-</li>
-</ol>
-</li>
-</ol>
-<h3 id="Statement：执行sql的对象"><a href="#Statement：执行sql的对象" class="headerlink" title="Statement：执行sql的对象"></a><strong>Statement：执行sql的对象</strong></h3><ol>
-<li><p>执行sql</p>
-<pre><code> 1. `boolean execute(String sql)` ：可以执行任意的sql 了解 
-
- 2. `int executeUpdate(String sql)` ：执行DML（insert、update、delete）语句、DDL(create，alter、drop)语句
-     * 返回值：影响的行数，可以通过这个影响的行数判断DML语句是否执行成功 返回值&gt;0的则执行成功，反之，则失败。
- 3. `ResultSet executeQuery(String sql)`  ：执行DQL（select)语句</code></pre><ol start="2">
-<li><p>练习：</p>
-<ol>
-<li>account表 添加一条记录</li>
-</ol>
-</li>
-<li><p>account表 修改记录</p>
-<ol start="3">
-<li><p>account表 删除一条记录</p>
-<p>代码：</p>
-</li>
-</ol>
-<pre><code class="java">Statement stmt = null;
-Connection conn = null;
-try {
-    //1. 注册驱动
-    Class.forName("com.mysql.jdbc.Driver");
-    //2. 定义sql
-    String sql = "insert into account values(null,'王五',3000)";
-    //3.获取Connection对象
-    conn = DriverManager.getConnection("jdbc:mysql:///db3", "root", "root");
-    //4.获取执行sql的对象 Statement
-    stmt = conn.createStatement();
-    //5.执行sql
-    int count = stmt.executeUpdate(sql);//影响的行数
-    //6.处理结果
-    System.out.println(count);
-    if(count &gt; 0){
-        System.out.println("添加成功！");
-    }else{
-     System.out.println("添加失败！");
-    }
-
-} catch (ClassNotFoundException e) {
-    e.printStackTrace();
-} catch (SQLException e) {
-    e.printStackTrace();
-}finally {
-    //stmt.close();
-    //7. 释放资源
-    //避免空指针异常
-    if(stmt != null){
-        try {
-            stmt.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-     }
-    }
-
-    if(conn != null){
-        try {
-            conn.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-<p>标准写法：便于关闭</p>
-<pre><code class="java">package cn.itcast.jdbc;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
-
-/**
-* account表 添加一条记录 insert 语句
-*/
-public class JDBCDemo2 {
- public static void main(String[] args) {
-     Statement stmt = null;
-     Connection conn = null;
-     try {
-         //1. 注册驱动
-         Class.forName("com.mysql.jdbc.Driver");
-         //2. 定义sql
-         String sql = "insert into account values(null,'王五',3000)";
-         //3.获取Connection对象
-         conn = DriverManager.getConnection("jdbc:mysql:///db3", "root", "root");
-         //4.获取执行sql的对象 Statement
-         stmt = conn.createStatement();
-         //5.执行sql
-         int count = stmt.executeUpdate(sql);//影响的行数
-         //6.处理结果
-         System.out.println(count);
-         if(count &gt; 0){
-             System.out.println("添加成功！");
-         }else{
-             System.out.println("添加失败！");
-         }
-
-     } catch (ClassNotFoundException e) {
-         e.printStackTrace();
-     } catch (SQLException e) {
-         e.printStackTrace();
-     }finally {
-         //stmt.close();
-         //7. 释放资源
-         //避免空指针异常
-         if(stmt != null){
-             try {
-                 stmt.close();
-             } catch (SQLException e) {
-                 e.printStackTrace();
-             }
-         }
-
-         if(conn != null){
-             try {
-                 conn.close();
-             } catch (SQLException e) {
-                 e.printStackTrace();
-             }
-         }
-     }
- }
-}</code></pre>
-</li>
-</ol>
-</li>
-</ol>
-<h3 id="ResultSet：结果集对象-封装查询结果"><a href="#ResultSet：结果集对象-封装查询结果" class="headerlink" title="ResultSet：结果集对象,封装查询结果"></a>ResultSet：结果集对象,封装查询结果</h3><ul>
-<li><p><code>boolean next():</code> 游标向下移动一行，判断当前行是否是最后一行末尾(是否有数据)，如果是，则返回false，如果不是则返回true</p>
-<ul>
-<li><p>getXxx(参数):获取数据</p>
-<ul>
-<li>Xxx：代表数据类型   如： int getInt() ,    String getString()</li>
-<li>参数：<ol>
-<li>int：代表列的编号,从1开始   如： getString(1)</li>
-<li>String：代表列名称。 如： getDouble(“balance”)</li>
-</ol>
-</li>
-</ul>
-</li>
-<li><p>注意：</p>
-<ul>
-<li>使用步骤：<ol>
-<li>游标向下移动一行</li>
-<li>判断是否有数据</li>
-</ol>
-</li>
-</ul>
-<ol start="3">
-<li><p>获取数据</p>
-<pre><code class="java">//循环判断游标是否是最后一行末尾。
-while(rs.next()){
-//获取数据
-int id = rs.getInt(1);
-String name = rs.getString("name");
-double balance = rs.getDouble(3);
-System.out.println(id + "---" + name + "---" + balance);
-}</code></pre>
-</li>
-</ol>
-</li>
-</ul>
-</li>
-</ul>
-<pre><code>* 练习：
-    * 定义一个方法，查询emp表的数据将其封装为对象，然后装载集合，返回。
-        1. 定义Emp类
-        2. 定义方法 public List&lt;Emp&gt; findAll(){}
-        3. 实现方法 select * from emp;</code></pre><h2 id="JDBC工具类"><a href="#JDBC工具类" class="headerlink" title="JDBC工具类"></a>JDBC工具类</h2><ul>
-<li><p>目的：简化书写</p>
-</li>
-<li><p>分析：</p>
-<ol>
-<li><p>注册驱动也抽取</p>
-</li>
-<li><p>抽取一个方法获取连接对象</p>
-<ul>
-<li>需求：不想传递参数（麻烦），还得保证工具类的通用性。</li>
-<li>解决：配置文件<br>jdbc.properties<pre><code>url=
-user=
-password=</code></pre></li>
-</ul>
-<ol start="3">
-<li>抽取一个方法释放资源</li>
-</ol>
-</li>
-</ol>
-</li>
-<li><p>代码实现：</p>
-</li>
-</ul>
-<pre><code class="java">package cn.itcast.util;
-
-import java.io.FileReader;
-import java.io.IOException;
-import java.net.URL;
-import java.sql.*;
-import java.util.Properties;
-
-/**
- * JDBC工具类
- */
-public class JDBCUtils {
-    private static String url;
-    private static String user;
-    private static String password;
-    private static String driver;
-    /**
-     * 文件的读取，只需要读取一次即可拿到这些值。使用静态代码块
-     */
-    static{
-        //读取资源文件，获取值。
-
-        try {
-            //1. 创建Properties集合类。
-            Properties pro = new Properties();
-
-            //获取src路径下的文件的方式---&gt;ClassLoader 类加载器
-            ClassLoader classLoader = JDBCUtils.class.getClassLoader();
-            URL res  = classLoader.getResource("jdbc.properties");
-            String path = res.getPath();
-           // System.out.println(path);///D:/IdeaProjects/itcast/out/production/day04_jdbc/jdbc.properties
-            //2. 加载文件
-           // pro.load(new FileReader("D:\\IdeaProjects\\itcast\\day04_jdbc\\src\\jdbc.properties"));
-            pro.load(new FileReader(path));
-
-            //3. 获取数据，赋值
-            url = pro.getProperty("url");
-            user = pro.getProperty("user");
-            password = pro.getProperty("password");
-            driver = pro.getProperty("driver");
-            //4. 注册驱动
-            Class.forName(driver);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
-
-    /**
-     * 获取连接
-     * @return 连接对象
-     */
-    public static Connection getConnection() throws SQLException {
-
-        return DriverManager.getConnection(url, user, password);
-    }
-
-    /**
-     * 释放资源
-     * @param stmt
-     * @param conn
-     */
-    public static void close(Statement stmt,Connection conn){
-        if( stmt != null){
-            try {
-                stmt.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-
-        if( conn != null){
-            try {
-                conn.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-
-    /**
-     * 释放资源
-     * @param stmt
-     * @param conn
-     */
-    public static void close(ResultSet rs,Statement stmt, Connection conn){
-        if( rs != null){
-            try {
-                rs.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-
-        if( stmt != null){
-            try {
-                stmt.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-
-        if( conn != null){
-            try {
-                conn.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-}
-</code></pre>
-<h2 id="JDBC事务管理"><a href="#JDBC事务管理" class="headerlink" title="JDBC事务管理"></a>JDBC事务管理</h2><ol>
-<li>事务：一个包含多个步骤的业务操作。如果这个业务操作被事务管理，则这多个步骤要么同时成功，要么同时失败。</li>
-<li>操作：<ol>
-<li>开启事务</li>
-<li>提交事务</li>
-<li>回滚事务</li>
-</ol>
-</li>
-<li>使用Connection对象来管理事务<ul>
-<li>开启事务：setAutoCommit(boolean autoCommit) ：调用该方法设置参数为false，即开启事务<ul>
-<li>在执行sql之前开启事务</li>
-</ul>
-</li>
-<li>提交事务：commit() <ul>
-<li>当所有sql都执行完提交事务</li>
-</ul>
-</li>
-<li>回滚事务：rollback() <ul>
-<li>在catch中回滚事务</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<p>代码实现</p>
-<pre><code class="java">package cn.itcast.jdbc;
-
-import cn.itcast.util.JDBCUtils;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-
-/**
- * 事务操作
- */
-public class JDBCDemo10 {
-
-
-    public static void main(String[] args) {
-        Connection conn = null;
-        PreparedStatement pstmt1 = null;
-        PreparedStatement pstmt2 = null;
-
-        try {
-            //1.获取连接
-            conn = JDBCUtils.getConnection();
-            //开启事务
-            conn.setAutoCommit(false);
-
-            //2.定义sql
-            //2.1 张三 - 500
-            String sql1 = "update account set balance = balance - ? where id = ?";
-            //2.2 李四 + 500
-            String sql2 = "update account set balance = balance + ? where id = ?";
-            //3.获取执行sql对象
-            pstmt1 = conn.prepareStatement(sql1);
-            pstmt2 = conn.prepareStatement(sql2);
-            //4. 设置参数
-            pstmt1.setDouble(1,500);
-            pstmt1.setInt(2,1);
-
-            pstmt2.setDouble(1,500);
-            pstmt2.setInt(2,2);
-            //5.执行sql
-            pstmt1.executeUpdate();
-            // 手动制造异常
-            int i = 3/0;
-
-            pstmt2.executeUpdate();
-            //提交事务
-            conn.commit();
-        } catch (Exception e) {
-            //事务回滚
-            try {
-                if(conn != null) {
-                    conn.rollback();
-                }
-            } catch (SQLException e1) {
-                e1.printStackTrace();
-            }
-            e.printStackTrace();
-        }finally {
-            JDBCUtils.close(pstmt1,conn);
-            JDBCUtils.close(pstmt2,null);
-        }
-
-
-    }
-
-}
-</code></pre>
-<h2 id="连接池"><a href="#连接池" class="headerlink" title="连接池"></a>连接池</h2><ol>
-<li><p>概念：其实就是一个容器(集合)，存放数据库连接的容器。</p>
-<pre><code> 当系统初始化好后，容器被创建，容器中会申请一些连接对象，当用户来访问数据库时，从容器中获取连接对象，用户访问完之后，会将连接对象归还给容器。</code></pre></li>
-<li><p>好处：</p>
-<ol>
-<li>节约资源</li>
-<li>用户访问高效</li>
-</ol>
-</li>
-<li><p>实现：</p>
-<ol>
-<li><p>标准接口：DataSource   javax.sql包下的</p>
-<ol>
-<li>方法：<ul>
-<li>获取连接：getConnection()</li>
-<li>归还连接：Connection.close()。如果连接对象Connection是从连接池中获取的，那么调用Connection.close()方法，则不会再关闭连接了。而是归还连接</li>
-</ul>
-</li>
-</ol>
-</li>
-<li><p>一般我们不去实现它，有数据库厂商来实现</p>
-<ol>
-<li>C3P0：数据库连接池技术</li>
-<li>Druid：数据库连接池实现技术，由阿里巴巴提供的</li>
-</ol>
-</li>
-</ol>
-</li>
-<li><p>C3P0：数据库连接池技术</p>
-<ul>
-<li><p>步骤：</p>
-<ol>
-<li><p>导入jar包 (两个) c3p0-0.9.5.2.jar mchange-commons-java-0.2.12.jar ，</p>
-<ul>
-<li>不要忘记导入数据库驱动jar包</li>
-</ul>
-</li>
-<li><p>定义配置文件：</p>
-<ul>
-<li>名称： c3p0.properties 或者 c3p0-config.xml</li>
-<li>路径：直接将文件放在src目录下即可。</li>
-</ul>
-</li>
-<li><p>创建核心对象 数据库连接池对象 ComboPooledDataSource</p>
-</li>
-<li><p>获取连接： getConnection</p>
-</li>
-</ol>
-</li>
-<li><p>代码：<br>   //1.创建数据库连接池对象<br>  DataSource ds  = new ComboPooledDataSource();<br>  //2. 获取连接对象<br>  Connection conn = ds.getConnection();</p>
-</li>
-</ul>
-</li>
-</ol>
-<pre><code class="java">public class C3P0Demo1 {
-    public static void main(String[] args) throws SQLException {
-        //1.创建数据库连接池对象
-        DataSource ds  = new ComboPooledDataSource();
-        //2. 获取连接对象
-        Connection conn = ds.getConnection();
-
-        //3. 打印
-        System.out.println(conn);
-
-    }
-}</code></pre>
-<ol start="5">
-<li>Druid：数据库连接池实现技术，由阿里巴巴提供的<ol>
-<li>步骤：<ol>
-<li>导入jar包 druid-1.0.9.jar</li>
-<li>定义配置文件：<ul>
-<li>是properties形式的</li>
-<li>可以叫任意名称，可以放在任意目录下</li>
-</ul>
-</li>
-<li>加载配置文件。Properties</li>
-<li>获取数据库连接池对象：通过工厂类来获取  DruidDataSourceFactory</li>
-<li>获取连接：getConnection</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-<pre><code class="java">public class druidDemo1 {
-    public static void main(String[] args) throws Exception {
-        //1.导入jar包
-        //2.定义配置文件
-        //3.加载配置文件
-        Properties pro = new Properties();
-        InputStream is=druidDemo1.class.getClassLoader().getResourceAsStream("druid.properties");
-        //通过当前类的名称.class获得字节码文件.etClassLoader().getResourceAsStream()获取资源路径 返回字节流
-        pro.load(is);
-
-        //4.获取连接池对象：通过工厂类来获取 DuridDataSourceFactory
-        DataSource ds=DruidDataSourceFactory.createDataSource(pro);
-        //5.获取连接
-        Connection conn=ds.getConnection();
-        System.out.println(conn);
-    }
-}</code></pre>
-<ol start="2">
-<li>定义工具类<pre><code> 1. 定义一个类 JDBCUtils
- 2. 提供静态代码块加载配置文件，初始化连接池对象
- 3. 提供方法
-     1. 获取连接方法：通过数据库连接池获取连接
-     2. 释放资源
-     3. 获取连接池的方法</code></pre></li>
-</ol>
-<pre><code class="java">package cn.itcast.utils;
-
-import com.alibaba.druid.pool.DruidDataSourceFactory;
-
-import javax.sql.DataSource;
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.Properties;
-
-/**
- * Druid连接池的工具类
- */
-public class JDBCUtils {
-
-    //1.定义成员变量 DataSource
-    private static DataSource ds ;
-
-    static{
-        try {
-            //1.加载配置文件
-            Properties pro = new Properties();
-            pro.load(JDBCUtils.class.getClassLoader().getResourceAsStream("druid.properties"));
-            //2.获取DataSource
-            ds = DruidDataSourceFactory.createDataSource(pro);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * 获取连接
-     */
-    public static Connection getConnection() throws SQLException {
-        return ds.getConnection();
-    }
-
-    /**
-     * 释放资源
-     */
-    public static void close(Statement stmt,Connection conn){
-       /* if(stmt != null){
-            try {
-                stmt.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-
-        if(conn != null){
-            try {
-                conn.close();//归还连接
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }*/
-
-       close(null,stmt,conn);
-    }
-
-
-    public static void close(ResultSet rs , Statement stmt, Connection conn){
-
-
-        if(rs != null){
-            try {
-                rs.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-
-
-        if(stmt != null){
-            try {
-                stmt.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-
-        if(conn != null){
-            try {
-                conn.close();//归还连接
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    /**
-     * 获取连接池方法
-     */
-
-    public static DataSource getDataSource(){
-        return  ds;
-    }
-
-}
-</code></pre>
-<h2 id="Spring-JDBC"><a href="#Spring-JDBC" class="headerlink" title="Spring JDBC"></a>Spring JDBC</h2><p>Spring框架对JDBC的简单封装。提供了一个JDBCTemplate对象简化JDBC的开发</p>
-<p>步骤：</p>
-<ol>
-<li><p>导入jar包</p>
-</li>
-<li><p>创建JdbcTemplate对象。依赖于数据源DataSource</p>
-<ul>
-<li>JdbcTemplate template = new JdbcTemplate(ds);</li>
-</ul>
-</li>
-<li><p>调用JdbcTemplate的方法来完成CRUD的操作</p>
-<ul>
-<li>update():执行DML语句。增、删、改语句</li>
-<li>queryForMap():查询结果将结果集封装为map集合，将列名作为key，将值作为value 将这条记录封装为一个map集合<ul>
-<li>注意：这个方法查询的结果集长度只能是1</li>
-</ul>
-</li>
-<li>queryForList():查询结果将结果集封装为list集合<ul>
-<li>注意：将每一条记录封装为一个Map集合，再将Map集合装载到List集合中</li>
-</ul>
-</li>
-<li>query():查询结果，将结果封装为JavaBean对象<ul>
-<li>query的参数：RowMapper<ul>
-<li>一般我们使用BeanPropertyRowMapper实现类。可以完成数据到JavaBean的自动封装</li>
-<li>new BeanPropertyRowMapper&lt;类型&gt;(类型.class)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>queryForObject：查询结果，将结果封装为对象<ul>
-<li>一般用于聚合函数的查询</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>练习：</p>
-<ul>
-<li>需求：<ol>
-<li>修改1号数据的 salary 为 10000</li>
-<li>添加一条记录</li>
-<li>删除刚才添加的记录</li>
-<li>查询id为1的记录，将其封装为Map集合</li>
-<li>查询所有记录，将其封装为List</li>
-<li>查询所有记录，将其封装为Emp对象的List集合</li>
-<li>查询总记录数</li>
-</ol>
-</li>
-</ul>
-</li>
-</ol>
-<pre><code class="java">package cn.itcast.jdbctemplate;
-
-import cn.itcast.domain.Emp;
-import cn.itcast.utils.JDBCUtils;
-import org.junit.Test;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
-
-import java.sql.Date;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.List;
-import java.util.Map;
-
-public class JdbcTemplateDemo2 {
-
-    //Junit单元测试，可以让方法独立执行
-
-
-    //1. 获取JDBCTemplate对象
-    private JdbcTemplate template = new JdbcTemplate(JDBCUtils.getDataSource());
-    /**
-     * 1. 修改1号数据的 salary 为 10000
-     */
-    @Test
-    public void test1(){
-
-        //2. 定义sql
-        String sql = "update emp set salary = 10000 where id = 1001";
-        //3. 执行sql
-        int count = template.update(sql);
-        System.out.println(count);
-    }
-
-    /**
-     * 2. 添加一条记录
-     */
-    @Test
-    public void test2(){
-        String sql = "insert into emp(id,ename,dept_id) values(?,?,?)";
-        int count = template.update(sql, 1015, "郭靖", 10);
-        System.out.println(count);
-
-    }
-
-    /**
-     * 3.删除刚才添加的记录
-     */
-    @Test
-    public void test3(){
-        String sql = "delete from emp where id = ?";
-        int count = template.update(sql, 1015);
-        System.out.println(count);
-    }
-
-    /**
-     * 4.查询id为1001的记录，将其封装为Map集合
-     * 注意：这个方法查询的结果集长度只能是1
-     */
-    @Test
-    public void test4(){
-        String sql = "select * from emp where id = ? or id = ?";
-        Map&lt;String, Object&gt; map = template.queryForMap(sql, 1001,1002);
-        System.out.println(map);
-        //{id=1001, ename=孙悟空, job_id=4, mgr=1004, joindate=2000-12-17, salary=10000.00, bonus=null, dept_id=20}
-
-    }
-
-    /**
-     * 5. 查询所有记录，将其封装为List
-     */
-    @Test
-    public void test5(){
-        String sql = "select * from emp";
-        List&lt;Map&lt;String, Object&gt;&gt; list = template.queryForList(sql);
-
-        for (Map&lt;String, Object&gt; stringObjectMap : list) {
-            System.out.println(stringObjectMap);
-        }
-    }
-
-    /**
-     * 6. 查询所有记录，将其封装为Emp对象的List集合
-     */
-
-    @Test
-    public void test6(){
-        String sql = "select * from emp";
-        List&lt;Emp&gt; list = template.query(sql, new RowMapper&lt;Emp&gt;() {
-
-            @Override
-            public Emp mapRow(ResultSet rs, int i) throws SQLException {
-                Emp emp = new Emp();
-                int id = rs.getInt("id");
-                String ename = rs.getString("ename");
-                int job_id = rs.getInt("job_id");
-                int mgr = rs.getInt("mgr");
-                Date joindate = rs.getDate("joindate");
-                double salary = rs.getDouble("salary");
-                double bonus = rs.getDouble("bonus");
-                int dept_id = rs.getInt("dept_id");
-
-                emp.setId(id);
-                emp.setEname(ename);
-                emp.setJob_id(job_id);
-                emp.setMgr(mgr);
-                emp.setJoindate(joindate);
-                emp.setSalary(salary);
-                emp.setBonus(bonus);
-                emp.setDept_id(dept_id);
-
-                return emp;
-            }
-        });
-
-
-        for (Emp emp : list) {
-            System.out.println(emp);
-        }
-    }
-
-    /**
-     * 6. 查询所有记录，将其封装为Emp对象的List集合
-     */
-
-    @Test
-    public void test6_2(){
-        String sql = "select * from emp";
-        List&lt;Emp&gt; list = template.query(sql, new BeanPropertyRowMapper&lt;Emp&gt;(Emp.class));
-        for (Emp emp : list) {
-            System.out.println(emp);
-        }
-    }
-
-    /**
-     * 7. 查询总记录数
-     */
-
-    @Test
-    public void test7(){
-        String sql = "select count(id) from emp";
-        Long total = template.queryForObject(sql, Long.class);
-        System.out.println(total);
-    }
-
-}
-</code></pre>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>]]></content>
-      <categories>
-        <category>JAVAEE</category>
-      </categories>
-      <tags>
-        <tag>JAVA</tag>
       </tags>
   </entry>
 </search>
