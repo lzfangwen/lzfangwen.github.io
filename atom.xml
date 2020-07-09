@@ -6,7 +6,7 @@
   <link href="/lzfangwen.github.io/atom.xml" rel="self"/>
   
   <link href="https://lzfangwen.github.io/blog/"/>
-  <updated>2020-07-03T10:23:48.721Z</updated>
+  <updated>2020-07-09T02:01:57.961Z</updated>
   <id>https://lzfangwen.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>常用的命令行指令</title>
+    <link href="https://lzfangwen.github.io/blog/2020/07/09/java%E5%9F%BA%E7%A1%80/"/>
+    <id>https://lzfangwen.github.io/blog/2020/07/09/java%E5%9F%BA%E7%A1%80/</id>
+    <published>2020-07-09T01:46:53.000Z</published>
+    <updated>2020-07-09T02:01:57.961Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+&lt;p&gt;&lt;code&gt;dir&lt;/code&gt;     列出当前目录下的文件以及文件夹&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;cd 文件夹名&lt;/code&gt;    进入指定目录&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;md 文件夹名&lt;/code&gt;   
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="https://lzfangwen.github.io/blog/categories/Java/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Servlet&amp;HTTP&amp;Request笔记</title>
@@ -480,28 +509,6 @@ $$         &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;$$&lt;br&gt;2x+3y=34\&lt;br&gt;x+4y
       &lt;h2 id=&quot;信号量机制&quot;&gt;&lt;a href=&quot;#信号量机制&quot; class=&quot;headerlink&quot; title=&quot;信号量机制&quot;&gt;&lt;/a&gt;信号量机制&lt;/h2&gt;&lt;p&gt;用户进程可以通过使用操作系统提供的一对原语来对信号量进行操作,从而很方便的实现了进程互斥、进程同步。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;信号量&lt;/strong&gt;其实就是一个变量(可以是一个整数,也可以是更复杂的记录型变量),可以用一个信号量来&lt;strong&gt;表示系统中某种资源的数量&lt;/strong&gt;,比如:系统中只有一台打印机,就可以设置一个初值为1的信号量&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;原语&lt;/strong&gt;是一种特殊的程序段,其&lt;strong&gt;执行只能一气呵成,不可被中断&lt;/strong&gt;。原语是由&lt;strong&gt;关中断/开中断指令&lt;/strong&gt;实现的。软件解决方案的主要问题是由“进入区的各种操作无法一气呵成” ,因此如果能把进入区、退作都用“原语”这些操作能“一气呵成”就能避免问题&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="OS" scheme="https://lzfangwen.github.io/blog/categories/OS/"/>
-    
-    
-      <category term="OS" scheme="https://lzfangwen.github.io/blog/tags/OS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>操作系统-学习笔记5</title>
-    <link href="https://lzfangwen.github.io/blog/2020/04/04/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B05/"/>
-    <id>https://lzfangwen.github.io/blog/2020/04/04/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B05/</id>
-    <published>2020-04-04T09:24:41.000Z</published>
-    <updated>2020-05-01T06:18:20.584Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;进程互斥的软件实现方法&quot;&gt;&lt;a href=&quot;#进程互斥的软件实现方法&quot; class=&quot;headerlink&quot; title=&quot;进程互斥的软件实现方法&quot;&gt;&lt;/a&gt;进程互斥的软件实现方法&lt;/h2&gt;&lt;h3 id=&quot;单标志法&quot;&gt;&lt;a href=&quot;#单标志法&quot; class=&quot;headerlink&quot; title=&quot;单标志法&quot;&gt;&lt;/a&gt;单标志法&lt;/h3&gt;&lt;p&gt; &lt;strong&gt;算法思想&lt;/strong&gt;：两个进程在 &lt;strong&gt;访问临界区&lt;/strong&gt;后会把使用临界区的权限转交给另一个进程。也就是说&lt;strong&gt;每个进程进入临界区的权限只能被另一个进程赋予&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;可以实现&lt;strong&gt;同一时刻最多只允许一个进程访问临界区&lt;/strong&gt;&lt;/p&gt;
     
     </summary>
     
