@@ -669,31 +669,31 @@
 </ul>
 </li>
 </ul>
-<pre><code class="java">* @WebServlet("资源路径")</code></pre>
-<pre><code class="java">@Target({ElementType.TYPE})
-@Retention(RetentionPolicy.RUNTIME)
-@Documented
-public @interface WebServlet {
-    String name() default "";//相当于&lt;Servlet-name&gt;
+<pre class=" language-java"><code class="language-java"><span class="token operator">*</span> <span class="token annotation punctuation">@WebServlet</span><span class="token punctuation">(</span><span class="token string">"资源路径"</span><span class="token punctuation">)</span></code></pre>
+<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@Target</span><span class="token punctuation">(</span><span class="token punctuation">{</span>ElementType<span class="token punctuation">.</span>TYPE<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Retention</span><span class="token punctuation">(</span>RetentionPolicy<span class="token punctuation">.</span>RUNTIME<span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Documented</span>
+<span class="token keyword">public</span> @<span class="token keyword">interface</span> <span class="token class-name">WebServlet</span> <span class="token punctuation">{</span>
+    String <span class="token function">name</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">default</span> <span class="token string">""</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//相当于&lt;Servlet-name></span>
 
-    String[] value() default {};//代表urlPatterns()属性配置
+    String<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">value</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">default</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//代表urlPatterns()属性配置</span>
 
-    String[] urlPatterns() default {};//相当于&lt;url-pattern&gt;
+    String<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">urlPatterns</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">default</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//相当于&lt;url-pattern></span>
 
-    int loadOnStartup() default -1;//相当于&lt;load-on-startup&gt;
+    <span class="token keyword">int</span> <span class="token function">loadOnStartup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">default</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//相当于&lt;load-on-startup></span>
 
-    WebInitParam[] initParams() default {};
+    WebInitParam<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">initParams</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">default</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-    boolean asyncSupported() default false;
+    <span class="token keyword">boolean</span> <span class="token function">asyncSupported</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">default</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
 
-    String smallIcon() default "";
+    String <span class="token function">smallIcon</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">default</span> <span class="token string">""</span><span class="token punctuation">;</span>
 
-    String largeIcon() default "";
+    String <span class="token function">largeIcon</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">default</span> <span class="token string">""</span><span class="token punctuation">;</span>
 
-    String description() default "";
+    String <span class="token function">description</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">default</span> <span class="token string">""</span><span class="token punctuation">;</span>
 
-    String displayName() default "";
-}</code></pre>
+    String <span class="token function">displayName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">default</span> <span class="token string">""</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
 <h2 id="IDEA与tomcat的相关配置"><a href="#IDEA与tomcat的相关配置" class="headerlink" title="IDEA与tomcat的相关配置"></a>IDEA与tomcat的相关配置</h2><ol>
 <li>IDEA会为每一个tomcat部署的项目单独建立一份配置文件</li>
 </ol>
@@ -934,28 +934,28 @@ HttpServletRequest -- 接口
 </ol>
 </li>
 </ol>
-<pre><code class="java">* GET /day14/demo1?name=zhangsan HTTP/1.1
-* 方法：
- 1. 获取请求方式 ：GET
-  * String getMethod()  
- 2. (*)获取虚拟目录：/day14
-  * String getContextPath()
- 3. 获取Servlet路径: /demo1
-  * String getServletPath()
- 4. 获取get方式请求参数：name=zhangsan
-  * String getQueryString()
- 5. (*)获取请求URI：/day14/demo1
-  * String getRequestURI():  /day14/demo1
-  * StringBuffer getRequestURL()  :http://localhost/day14/demo1
+<pre class=" language-java"><code class="language-java"><span class="token operator">*</span> GET <span class="token operator">/</span>day14<span class="token operator">/</span>demo1<span class="token operator">?</span>name<span class="token operator">=</span>zhangsan HTTP<span class="token operator">/</span><span class="token number">1.1</span>
+<span class="token operator">*</span> 方法：
+ <span class="token number">1</span><span class="token punctuation">.</span> 获取请求方式 ：GET
+  <span class="token operator">*</span> String <span class="token function">getMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  
+ <span class="token number">2</span><span class="token punctuation">.</span> <span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span>获取虚拟目录：<span class="token operator">/</span>day14
+  <span class="token operator">*</span> String <span class="token function">getContextPath</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+ <span class="token number">3</span><span class="token punctuation">.</span> 获取Servlet路径<span class="token operator">:</span> <span class="token operator">/</span>demo1
+  <span class="token operator">*</span> String <span class="token function">getServletPath</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+ <span class="token number">4</span><span class="token punctuation">.</span> 获取get方式请求参数：name<span class="token operator">=</span>zhangsan
+  <span class="token operator">*</span> String <span class="token function">getQueryString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+ <span class="token number">5</span><span class="token punctuation">.</span> <span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span>获取请求URI：<span class="token operator">/</span>day14<span class="token operator">/</span>demo1
+  <span class="token operator">*</span> String <span class="token function">getRequestURI</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span>  <span class="token operator">/</span>day14<span class="token operator">/</span>demo1
+  <span class="token operator">*</span> StringBuffer <span class="token function">getRequestURL</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token operator">:</span>http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>localhost<span class="token operator">/</span>day14<span class="token operator">/</span>demo1
 
-  * URL:统一资源定位符 ： http://localhost/day14/demo1 中华人民共和国
-  * URI：统一资源标识符 : /day14/demo1     共和国
+  <span class="token operator">*</span> URL<span class="token operator">:</span>统一资源定位符 ： http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>localhost<span class="token operator">/</span>day14<span class="token operator">/</span>demo1 中华人民共和国
+  <span class="token operator">*</span> URI：统一资源标识符 <span class="token operator">:</span> <span class="token operator">/</span>day14<span class="token operator">/</span>demo1     共和国
 
- 6. 获取协议及版本：HTTP/1.1
-  * String getProtocol()
+ <span class="token number">6</span><span class="token punctuation">.</span> 获取协议及版本：HTTP<span class="token operator">/</span><span class="token number">1.1</span>
+  <span class="token operator">*</span> String <span class="token function">getProtocol</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
- 7. 获取客户机的IP地址：
-  * String getRemoteAddr()</code></pre>
+ <span class="token number">7</span><span class="token punctuation">.</span> 获取客户机的IP地址：
+  <span class="token operator">*</span> String <span class="token function">getRemoteAddr</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 <pre><code>3. 获取请求头数据
 * 方法：
  * (*)String getHeader(String name):通过请求头的名称获取请求头的值
@@ -1181,14 +1181,14 @@ HttpServletRequest -- 接口
 <ol>
 <li><p><strong>完成重定向</strong></p>
 <p>重定向：资源跳转的方式</p>
-<pre><code class="java">//访问/responseDemo1,会自动自动跳转到/responseDemo2资源
-            //1.设置状态码为302
-             response.setStatus(302);
-             //2.设置响应头location
-             response.setHeader("location","/day15/responseDemo2");
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//访问/responseDemo1,会自动自动跳转到/responseDemo2资源</span>
+            <span class="token comment" spellcheck="true">//1.设置状态码为302</span>
+             response<span class="token punctuation">.</span><span class="token function">setStatus</span><span class="token punctuation">(</span><span class="token number">302</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+             <span class="token comment" spellcheck="true">//2.设置响应头location</span>
+             response<span class="token punctuation">.</span><span class="token function">setHeader</span><span class="token punctuation">(</span><span class="token string">"location"</span><span class="token punctuation">,</span><span class="token string">"/day15/responseDemo2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-       //简单的重定向方法
-        response.sendRedirect("/day15/responseDemo2");</code></pre>
+       <span class="token comment" spellcheck="true">//简单的重定向方法</span>
+        response<span class="token punctuation">.</span><span class="token function">sendRedirect</span><span class="token punctuation">(</span><span class="token string">"/day15/responseDemo2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <ul>
 <li>重定向的特点：</li>
 </ul>
@@ -1296,44 +1296,44 @@ HttpServletRequest -- 接口
 <li>本质：图片</li>
 <li>目的：防止恶意表单注册</li>
 </ol>
-<pre><code class="java">        int width=100;
-        int height=50;
-        //1.创建一对象，在内存中图片（验证码对象）
-        BufferedImage image= new BufferedImage(width,height,BufferedImage.TYPE_INT_RGB);
+<pre class=" language-java"><code class="language-java">        <span class="token keyword">int</span> width<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> height<span class="token operator">=</span><span class="token number">50</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//1.创建一对象，在内存中图片（验证码对象）</span>
+        BufferedImage image<span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BufferedImage</span><span class="token punctuation">(</span>width<span class="token punctuation">,</span>height<span class="token punctuation">,</span>BufferedImage<span class="token punctuation">.</span>TYPE_INT_RGB<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        //2.美化图片
-        //2.1填充背景色
-        Graphics g=image.getGraphics();//画笔对象
-        g.setColor(Color.PINK);//设置画笔颜色
-        g.fillRect(0,0,width,height);//填充
-        //g.draw 画
-        //2.2画边框
-        g.setColor(Color.BLUE);
-        g.drawRect(0,0,width-1,height-1);
+        <span class="token comment" spellcheck="true">//2.美化图片</span>
+        <span class="token comment" spellcheck="true">//2.1填充背景色</span>
+        Graphics g<span class="token operator">=</span>image<span class="token punctuation">.</span><span class="token function">getGraphics</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//画笔对象</span>
+        g<span class="token punctuation">.</span><span class="token function">setColor</span><span class="token punctuation">(</span>Color<span class="token punctuation">.</span>PINK<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//设置画笔颜色</span>
+        g<span class="token punctuation">.</span><span class="token function">fillRect</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>width<span class="token punctuation">,</span>height<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//填充</span>
+        <span class="token comment" spellcheck="true">//g.draw 画</span>
+        <span class="token comment" spellcheck="true">//2.2画边框</span>
+        g<span class="token punctuation">.</span><span class="token function">setColor</span><span class="token punctuation">(</span>Color<span class="token punctuation">.</span>BLUE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        g<span class="token punctuation">.</span><span class="token function">drawRect</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>width<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>height<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        String str="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-        //生成随机角标
-        Random ran=new Random();
+        String str<span class="token operator">=</span><span class="token string">"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//生成随机角标</span>
+        Random ran<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        for (int i = 0; i &lt;=4 ; i++) {
-            int index=ran.nextInt(str.length());
-            //获取字符
-            char ch=str.charAt(index);//随机字符
-            //2.3写验证码
-            g.drawString(ch+"",width/5*i,height/2);//因为要写字符串 所以ch+""拼制成字符串
-        }
-        //2.4画干扰线
-        g.setColor(Color.GREEN);
-        //随机生成坐标点
-        for (int i = 0; i &lt; 10; i++) {
-            int x1=ran.nextInt(width);
-            int x2=ran.nextInt(width);
-            int y1=ran.nextInt(height);
-            int y2=ran.nextInt(height);
-            g.drawLine(x1,y1,x2,y2);
-        }
-        //3.将图片输出到页面展示
-        ImageIO.write(image,"jpg",response.getOutputStream());</code></pre>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span><span class="token number">4</span> <span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> index<span class="token operator">=</span>ran<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">//获取字符</span>
+            <span class="token keyword">char</span> ch<span class="token operator">=</span>str<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//随机字符</span>
+            <span class="token comment" spellcheck="true">//2.3写验证码</span>
+            g<span class="token punctuation">.</span><span class="token function">drawString</span><span class="token punctuation">(</span>ch<span class="token operator">+</span><span class="token string">""</span><span class="token punctuation">,</span>width<span class="token operator">/</span><span class="token number">5</span><span class="token operator">*</span>i<span class="token punctuation">,</span>height<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//因为要写字符串 所以ch+""拼制成字符串</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment" spellcheck="true">//2.4画干扰线</span>
+        g<span class="token punctuation">.</span><span class="token function">setColor</span><span class="token punctuation">(</span>Color<span class="token punctuation">.</span>GREEN<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//随机生成坐标点</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> x1<span class="token operator">=</span>ran<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span>width<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">int</span> x2<span class="token operator">=</span>ran<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span>width<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">int</span> y1<span class="token operator">=</span>ran<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span>height<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">int</span> y2<span class="token operator">=</span>ran<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span>height<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            g<span class="token punctuation">.</span><span class="token function">drawLine</span><span class="token punctuation">(</span>x1<span class="token punctuation">,</span>y1<span class="token punctuation">,</span>x2<span class="token punctuation">,</span>y2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment" spellcheck="true">//3.将图片输出到页面展示</span>
+        ImageIO<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>image<span class="token punctuation">,</span><span class="token string">"jpg"</span><span class="token punctuation">,</span>response<span class="token punctuation">.</span><span class="token function">getOutputStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 </li>
 </ol>
 <h2 id="ServletContext对象"><a href="#ServletContext对象" class="headerlink" title="ServletContext对象"></a>ServletContext对象</h2><ol>
@@ -1526,7 +1526,7 @@ HttpServletRequest -- 接口
               
                 <a href="/lzfangwen.github.io/archives">
               
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1537,7 +1537,7 @@ HttpServletRequest -- 接口
               
               <div class="site-state-item site-state-categories">
                 <a href="/lzfangwen.github.io/categories/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1548,7 +1548,7 @@ HttpServletRequest -- 接口
               
               <div class="site-state-item site-state-tags">
                 <a href="/lzfangwen.github.io/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
